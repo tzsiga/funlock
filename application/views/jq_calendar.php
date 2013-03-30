@@ -55,16 +55,18 @@
 	var week = 7 * day;
 	
 	$('#prev_month').click(function(){
-		$.ajax({
-			url: '<?= base_url() ?>index.php/pages/generate_table/' + (parseInt($('#reference_time').attr('alt')) - parseInt(week)),
-		}).done(function(result) {
-			$('#calendar_table').html(result);
+		if ( $('#reference_time').attr('alt') > <?= time() ?> ) {	
+			$.ajax({
+				url: '<?= base_url() ?>index.php/pages/generate_table/' + (parseInt($('#reference_time').attr('alt')) - parseInt(week)),
+			}).done(function(result) {
+				$('#calendar_table').html(result);
 				$('td.timebox').css('cursor', 'pointer');
 				$('td.timebox').click(function(){
 					$('#reserve_details').visible();
 					$("#reserve_date").val($(this).attr('alt'));
 				});
-		});
+			});
+		}
 	});
 	
 	$('#next_month').click(function(){
@@ -72,11 +74,11 @@
 			url: '<?= base_url() ?>index.php/pages/generate_table/' + (parseInt($('#reference_time').attr('alt')) + parseInt(week)),
 		}).done(function(result) {
 			$('#calendar_table').html(result);
-				$('td.timebox').css('cursor', 'pointer');
-				$('td.timebox').click(function(){
-					$('#reserve_details').visible();
-					$("#reserve_date").val($(this).attr('alt'));
-				});
+			$('td.timebox').css('cursor', 'pointer');
+			$('td.timebox').click(function(){
+				$('#reserve_details').visible();
+				$("#reserve_date").val($(this).attr('alt'));
+			});
 		});
 	});
 

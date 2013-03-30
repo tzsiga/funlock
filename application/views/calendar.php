@@ -28,7 +28,7 @@
 				
 				if ($cell_time <= time()) {
 					// if cell is in the past
-					echo '<td class="timebox_passed" alt="'. date("Y-m-d", $monday + ($day_of_week - 1) * $day) . " " . $hour.':00"></td>';				
+					echo '<td class="timebox_passed" alt="'. date("Y-m-d", $monday + $day_of_week * $day) . " " . $hour.':00"></td>';				
 				} else {
 					// present week or future
 					
@@ -38,10 +38,10 @@
 						if ($reserved_dates[$hour][$day_of_week]['appointment'] > $monday && $reserved_dates[$hour][$day_of_week]['appointment'] < $monday + $week) {
 							echo "<td>".img(array('src' => 'assets/img/reserved.gif', 'title' => 'Foglalt időpont!', 'alt' => $reserved_dates[$hour][$day_of_week]['appointment']))."</td>";
 						} else {
-							echo '<td class="timebox" alt="'. date("Y-m-d", $monday + ($day_of_week - 1) * $day) . " " . $hour.':00"></td>';
+							echo '<td class="timebox" alt="'. date("Y-m-d", $monday + $day_of_week * $day) . " " . $hour.':00"></td>';
 						}
 					} else {
-						echo '<td class="timebox" alt="'. date("Y-m-d", $monday + ($day_of_week - 1) * $day) . " " . $hour.':00"></td>';
+						echo '<td class="timebox" alt="'. date("Y-m-d", $monday + $day_of_week * $day) . " " . $hour.':00"></td>';
 					}
 				}
 			}
