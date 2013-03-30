@@ -1,6 +1,7 @@
 <script type="text/javascript">
 
 	// opacity toggle
+	
 	jQuery.fn.visible = function() {
 			return this.animate({opacity: 1}, 400);
 	}
@@ -43,30 +44,48 @@
 		$('#contact').visibilityToggle();
 	});
 
+	// ui logic
+	
 	$('td.timebox').click(function(){
 		$('#reserve_details').visible();
 		$("#reserve_date").val($(this).attr('alt'));
 	});
 	
+	var day = 24 * 60 * 60;
+	var week = 7 * day;
 	
 	$('#prev_month').click(function(){
 		$.ajax({
-			url: "<?= base_url() ?>index.php",
-			context: document.body
-		}).done(function() {
-			$(this).addClass("done");
+			url: '<?= base_url() ?>index.php/pages/generate_table/' + (parseInt($('#reference_time').attr('alt')) - parseInt(week)),
+		}).done(function(result) {
+			$('#calendar_table').html(result);
+				$('td.timebox').css('cursor', 'pointer');
+				$('td.timebox').click(function(){
+					$('#reserve_details').visible();
+					$("#reserve_date").val($(this).attr('alt'));
+				});
 		});
-		
+	});
+	
+	$('#next_month').click(function(){
+		$.ajax({
+			url: '<?= base_url() ?>index.php/pages/generate_table/' + (parseInt($('#reference_time').attr('alt')) + parseInt(week)),
+		}).done(function(result) {
+			$('#calendar_table').html(result);
+				$('td.timebox').css('cursor', 'pointer');
+				$('td.timebox').click(function(){
+					$('#reserve_details').visible();
+					$("#reserve_date").val($(this).attr('alt'));
+				});
+		});
 	});
 
+	// disable right click
+	
 	$(document).ready(function(){
-		// disable right click
 		$(document).bind("contextmenu",function(e){
 			return false;
 		});
-		
-		
-		
 	});
 
 </script>

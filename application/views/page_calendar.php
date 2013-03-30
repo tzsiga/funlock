@@ -1,46 +1,5 @@
-<?php
-	// load html header
-	$this->load->view('header');
-
-	function generate_table($h_from, $h_to, $reserved_dates, $ref_time) {
-		$day = 24 * 60 * 60;
-		$monday = $ref_time - (date('w', $ref_time) - 1) * $day;
-
-		// table header
-		$day_names = array('hétfő', 'kedd', 'szerda', 'csütörtök', 'péntek', 'szombat', 'vasárnap');
-		echo '<table><tr><th></th>';
-
-		$i = 0;
-		foreach ($day_names as $day_name) {
-			echo "<th>$day_name<br/><small>".date("Y-m-d", $monday + $i++ * $day).'</small></th>';
-		}
-		
-		echo '</tr>';
-		
-		// table body
-		for ($hour = $h_from; $hour <= $h_to; $hour++) {
-			echo "<tr><td>$hour:00</td>";
-			
-			for ($day_of_week = 1; $day_of_week <= 7; $day_of_week++) {
-				if (isset($reserved_dates[$hour][$day_of_week])) {
-					echo "<td>".img(array('src' => 'assets/img/reserved.gif', 'title' => 'Foglalt időpont!', 'alt' => $reserved_dates[$hour][$day_of_week]['appointment']))."</td>";
-				} else {
-					if ($day_of_week < date('w', time()) || ( $day_of_week == date('w', time()) && $hour <= date('G', time()) )) {
-						echo '<td class="timebox_passed" alt="'. date("Y-m-d", $monday + ($day_of_week - 1) * $day) . " " . $hour.':00"></td>';
-					}	else {
-						echo '<td class="timebox" alt="'. date("Y-m-d", $monday + ($day_of_week - 1) * $day) . " " . $hour.':00"></td>';
-					}
-				}
-			}
-			
-			echo "</tr>";
-		}
-		
-		echo '</table>';
-	}
-
-?>
-		<body>
+<?php $this->load->view('header'); ?>
+	<body>
 		<div id="wrapper_content">
 			<div id="navbar">
 				<div id="info">
@@ -64,7 +23,7 @@
 			<div id="content">
 				<div id="calendar">
 					<span id="prev_month">&lt;&lt;</span>
-					<?php generate_table(11, 20, $reserved_dates, time()); ?>
+					<?php $this->load->view('calendar', array('reserved_dates' => $reserved_dates, 'ref_time' => time() )); ?>
 					<span id="next_month">&gt;&gt;</span>
 				</div>
 				<div id="reserve_details">
