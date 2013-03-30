@@ -1,0 +1,323 @@
+/*
+	Margin, padding, and border resets
+	except for form elements
+*/
+/*
+	Frameless			<http://framelessgrid.com/>
+	by Joni Korpi 		<http://jonikorpi.com/>
+	licensed under CC0	<http://creativecommons.org/publicdomain/zero/1.0/>
+*/
+/*
+	Margin, padding, and border resets
+	except for form elements
+*/
+body,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+th,
+td,
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+/*
+	Consistency fixes
+	adopted from http://necolas.github.com/normalize.css/
+*/
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+audio,
+canvas,
+video {
+  display: block;
+}
+html {
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+body {
+  min-height: 100%;
+  font-size: 100%;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+b,
+strong {
+  font-weight: bold;
+}
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a img,
+img {
+  -ms-interpolation-mode: bicubic;
+  border: 0;
+}
+input,
+textarea,
+button,
+select {
+  margin: 0;
+  font-size: 100%;
+  line-height: normal;
+  vertical-align: baseline;
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+textarea {
+  overflow: auto;
+}
+/*
+	These are easy to forget
+*/
+::selection {
+  background: red;
+  color: white;
+}
+::-moz-selection {
+  background: red;
+  color: white;
+}
+img::selection {
+  background: transparent;
+}
+img::-moz-selection {
+  background: transparent;
+}
+body {
+  -webkit-tap-highlight-color: rgba(255, 0, 0, 0.62);
+}
+/*
+	Style overrides for IE6-8
+	http://jonikorpi.com/leaving-old-IE-behind/
+*/
+/*
+	An easy way to zoom your entire layout in or out (as long as it's set in ems).
+	Just change the media queries to activate them.
+	Assuming your base font-size is 16:
+	- the first one zooms out by a factor of (16-2)/16 = 0.875
+	- the second one zooms in by a factor of (16+2)/16 = 1.125  
+*/
+@media screen and (max-width: 1px) {
+  body {
+    font-size: 0.875em;
+  }
+}
+@media screen and (max-width: 1px) {
+  body {
+    font-size: 1.125em;
+  }
+}
+body {
+  font-family: arial, verdana;
+}
+#wrapper_intro {
+  overflow: hidden;
+}
+#wrapper_content {
+  margin: 0 auto;
+}
+/*
+@media screen and (min-width: 480px) {
+	#wrapper_content {
+		width: @10cols;
+	}
+
+	#action_zone {
+		height: 0.625 * @10cols;
+		width: @10cols;
+	}
+}
+*/
+@media screen and (min-width: 900px) {
+  #wrapper_content {
+    width: 79.5em;
+  }
+  #navbar {
+    width: 21em;
+    margin-top: 3em;
+    margin-left: 1.5em;
+  }
+  #content {
+    width: 52.5em;
+    margin-top: 3em;
+    margin-left: 3em;
+  }
+  #action_zone {
+    height: 38.4375em;
+    width: 61.5em;
+  }
+}
+#action_zone {
+  position: relative;
+  margin: 1.5em auto 0;
+  border: 1px dashed grey;
+  background-image: url('../img/grid.png');
+}
+#action_zone .slider {
+  display: inline-block;
+  position: absolute;
+  height: 100px;
+  width: 10px;
+  margin: 0;
+}
+#action_zone #S1 {
+  background-image: url('../img/1.png');
+}
+#action_zone #S2 {
+  background-image: url('../img/2.png');
+}
+#action_zone #S3 {
+  background-image: url('../img/3.png');
+}
+#action_zone #S4 {
+  background-image: url('../img/4.png');
+}
+#action_zone #S5 {
+  background-image: url('../img/5.png');
+}
+#action_zone #S6 {
+  background-image: url('../img/6.png');
+}
+#action_zone #S7 {
+  background-image: url('../img/7.png');
+}
+#action_zone #S8 {
+  background-image: url('../img/8.png');
+}
+#action_zone #enter {
+  display: inline-block;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  font-weight: bold;
+  padding: 0 10px 0 14px;
+  letter-spacing: 3px;
+  color: white;
+  background-color: black;
+}
+#action_zone #enter a:link,
+#action_zone #enter a:visited {
+  color: white;
+  text-decoration: none;
+}
+#action_zone #enter a:hover {
+  color: crimson;
+  text-decoration: none;
+}
+#navbar {
+  display: inline-block;
+  float: left;
+}
+#navbar #info {
+  margin: 0 0 20px;
+}
+#navbar #menu {
+  margin: 0 0 20px;
+}
+#navbar #menu ul {
+  list-style: none;
+  padding-left: 20px;
+  width: 100px;
+}
+#navbar #contact {
+  margin: 0 0 20px;
+}
+#content {
+  display: inline-block;
+  float: left;
+}
+#content #calendar {
+  margin-bottom: 3em;
+}
+#content #calendar #prev_month,
+#content #calendar #next_month {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 12em;
+}
+#content #calendar table {
+  display: inline-block;
+}
+#content #calendar td,
+#content #calendar th {
+  height: 36px;
+  width: 92px;
+  text-align: center;
+  border: 1px solid black;
+}
+#content #calendar td.timebox_passed {
+  background-color: lightgrey;
+}
+#content #reserve_details form {
+  margin-bottom: 3em;
+}
