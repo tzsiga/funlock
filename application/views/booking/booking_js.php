@@ -55,7 +55,7 @@
 	var week = 7 * day;
 	
 	$('#prev_month').click(function(){
-		if ( $('#reference_time').attr('alt') > <?= time() ?> ) {	
+		if ($('#reference_time').attr('alt') > <?= time() ?>) {	
 			$.ajax({
 				url: '<?= base_url() ?>index.php/pages/generate_table/' + (parseInt($('#reference_time').attr('alt')) - parseInt(week)),
 			}).done(function(result) {

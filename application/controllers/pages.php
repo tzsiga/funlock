@@ -3,7 +3,7 @@
 class Pages extends CI_Controller {
 
 	public function index() {
-		$this->load->view('page_intro');
+		$this->load->view('intro/intro');
 	}
 	
 	private function get_appointments() {
@@ -29,11 +29,12 @@ class Pages extends CI_Controller {
 	}
 	
 	public function calendar() {
-		$this->load->view('page_calendar', array('reserved_dates' => $this->get_appointments()));
+		$this->load->view('booking/booking', array('reserved_dates' => $this->get_appointments()));
 	}
 	
+	// called by jq.ajax()
 	public function generate_table($ref_time) {
-		$this->load->view('calendar', array('reserved_dates' => $this->get_appointments(), 'ref_time' => $ref_time));
+		$this->load->view('booking/calendar', array('reserved_dates' => $this->get_appointments(), 'ref_time' => $ref_time));
 	}
 	
 }

@@ -23,7 +23,7 @@
 			<div id="content">
 				<div id="calendar">
 					<span id="prev_month">&lt;&lt;</span>
-					<?php $this->load->view('calendar', array('reserved_dates' => $reserved_dates, 'ref_time' => time() )); ?>
+					<?php $this->load->view('booking/calendar', array('reserved_dates' => $reserved_dates, 'ref_time' => time() )); ?>
 					<span id="next_month">&gt;&gt;</span>
 				</div>
 				<div id="reserve_details">
@@ -38,6 +38,6 @@
 				</div>
 			</div>
 		</div>
-		<?php $this->load->view('jq_calendar'); ?>
+		<?php $this->load->view('booking/booking_js'); ?>
 	</body>
 </html>

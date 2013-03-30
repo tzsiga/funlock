@@ -12,6 +12,6 @@
 			<div class="slider" id="S8" style="margin-top: 100px; margin-left: 70px;"></div>
 			<div id="enter"><a href="<?= base_url().'index.php/pages/calendar' ?>">ENTER</a></div>
 		</div>
-		<?php $this->load->view('jq_intro'); ?>
+		<?php $this->load->view('intro/intro_js'); ?>
 	</body>
 </html>
