@@ -22,12 +22,12 @@
 		<div id="content">
 			<div id="calendar">
 				<span id="prev_month">&lt;&lt;</span>
-				<?php $this->load->view('booking/calendar', array('reserved_dates' => $reserved_dates, 'ref_time' => time() )); ?>
+				<?php $this->load->view('booking/calendar', array('reserved_dates' => $reserved_dates, 'ref_time' => time())); ?>
 				<span id="next_month">&gt;&gt;</span>
 			</div>
 			<div id="booking_details">
 				<?php
-					echo form_open('pages/book');
+					echo form_open('booking/book');
 					echo '<p>';
 					echo form_label('Időpont', 'booking_date');
 					echo form_input(array('name' => 'booking_date', 'id' => 'booking_date'));

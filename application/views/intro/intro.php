@@ -9,7 +9,7 @@
 		<div class="slider" id="S6" style="margin-top: 350px; margin-left: 50px;"></div>
 		<div class="slider" id="S7" style="margin-top: -150px; margin-left: 60px;"></div>
 		<div class="slider" id="S8" style="margin-top: 100px; margin-left: 70px;"></div>
-		<div id="enter"><a href="<?= base_url().'index.php/pages/booking' ?>">ENTER</a></div>
+		<div id="enter"><a href="<?= base_url().'index.php/booking' ?>">ENTER</a></div>
 	</div>
 	<?php $this->load->view('intro/intro_js'); ?>
 <?php $this->load->view('footer'); ?>
