@@ -47,11 +47,6 @@
 	width: (@cols * (@column + @gutter) - @gutter) / @em;
 }
 
-/*
-	Margin, padding, and border resets
-	except for form elements
-*/
-
 body, div,
 h1, h2, h3, h4, h5, h6,
 p, blockquote, pre, dl, dt, dd, ol, ul, li,
@@ -61,11 +56,6 @@ article, aside, figure, footer, header, hgroup, menu, nav, section {
 	padding: 0;
 	border: 0;
 }
-
-/*
-	Consistency fixes
-	adopted from http://necolas.github.com/normalize.css/
-*/
 
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, nav, section, audio, canvas, video {
@@ -134,11 +124,6 @@ input, textarea, button, select {
 	}
 	
 	textarea {overflow: auto;}
-
-
-/*
-	These are easy to forget
-*/
 
 ::selection {
 	background: red;
@@ -327,12 +312,13 @@ body {
 	float: left;
 	
 	#calendar {
+		display: table;
 		margin-bottom: @1col;
 		
 		#prev_month, #next_month {
-			display: inline-block;
-			vertical-align: top;
-			margin-top: @3cols;
+			display: table-cell;
+			vertical-align: middle;
+			padding: 0 10px;
 		}
 		
 		table {

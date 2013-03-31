@@ -13,22 +13,22 @@ class Pages extends CI_Controller {
 		
 		foreach ($query->result() as $row) {
 			$hour = date('G', $row->appointment);
-			$day = date('w', $row->appointment);
+			$day_of_week = date('w', $row->appointment);
 			
-			if ($day == 0) {
-				$day = 7;
+			if ($day_of_week == 0) {
+				$day_of_week = 7;
 			}
 			
-			$reserved_dates[$hour][$day]['appointment'] = $row->appointment;
-			//$reserved_dates[$hour][$day]['payment_option'] = $row->payment_option;
-			//$reserved_dates[$hour][$day]['billing_id'] = $row->billing_id;
-			//$reserved_dates[$hour][$day]['id'] = $row->id;
+			$reserved_dates[$hour][$day_of_week]['appointment'] = $row->appointment;
+			//$reserved_dates[$hour][$day_of_week]['payment_option'] = $row->payment_option;
+			//$reserved_dates[$hour][$day_of_week]['billing_id'] = $row->billing_id;
+			//$reserved_dates[$hour][$day_of_week]['id'] = $row->id;
 		}
 		
 		return $reserved_dates;
 	}
 	
-	public function calendar() {
+	public function booking() {
 		$this->load->view('booking/booking', array('reserved_dates' => $this->get_appointments()));
 	}
 	
