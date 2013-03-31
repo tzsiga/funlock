@@ -6,11 +6,13 @@ class Booking extends CI_Controller {
 		$day = 24 * 3600;
 		$week = 7 * $day;
 	
+		// only check if appointments in cursor range
 		$query = $this->db->query('SELECT * FROM reservations WHERE appointment > '.$from.' AND appointment < '.($from + $week).' ORDER BY appointment ASC');
 		
 		$reserved_dates = array();
 		
 		foreach ($query->result() as $row) {
+			// table cell 'coordinates' will be x == day of week, y == hour
 			$hour = date('G', $row->appointment);
 			$day_of_week = date('w', $row->appointment);
 			
@@ -18,10 +20,9 @@ class Booking extends CI_Controller {
 				$day_of_week = 7;
 			}
 			
-			$reserved_dates[$hour][$day_of_week]['appointment'] = $row->appointment;
-			//$reserved_dates[$hour][$day_of_week]['payment_option'] = $row->payment_option;
-			//$reserved_dates[$hour][$day_of_week]['billing_id'] = $row->billing_id;
-			//$reserved_dates[$hour][$day_of_week]['id'] = $row->id;
+			//$reserved_dates[$hour][$day_of_week][$row->appointment]['id'] = $row->id;
+			//$reserved_dates[$hour][$day_of_week][$row->appointment]['billing_id'] = $row->billing_id;
+			//$reserved_dates[$hour][$day_of_week][$row->appointment]['payment_option'] = $row->payment_option;
 		}
 		
 		return $reserved_dates;

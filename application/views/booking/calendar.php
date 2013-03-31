@@ -40,15 +40,8 @@ function generate_table($reserved_dates, $ref_time) {
 				echo '<td class="timebox_passed" alt="'. date("Y-m-d", $monday + $day_of_week * $day) . " " . $hour.':00"></td>';				
 			} else {
 				// present week or future
-				
-				// if the cell has an appointment
 				if (isset($reserved_dates[$hour][$day_of_week])) {
-					// check if appointment is in cursor range
-					if ($reserved_dates[$hour][$day_of_week]['appointment'] > $monday && $reserved_dates[$hour][$day_of_week]['appointment'] < $monday + $week) {
-						echo "<td>".img(array('src' => 'assets/img/reserved.gif', 'title' => 'Foglalt időpont!', 'alt' => $reserved_dates[$hour][$day_of_week]['appointment']))."</td>";
-					} else {
-						echo '<td class="timebox" alt="'. date("Y-m-d", $monday + $day_of_week * $day) . " " . $hour.':00"></td>';
-					}
+					echo "<td>".img(array('src' => 'assets/img/reserved.gif', 'title' => 'Foglalt időpont!', 'alt' => ''))."</td>";
 				} else {
 					echo '<td class="timebox" alt="'. date("Y-m-d", $monday + $day_of_week * $day) . " " . $hour.':00"></td>';
 				}
