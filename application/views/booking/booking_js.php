@@ -21,7 +21,7 @@
 		$('#info').css('opacity', '0');
 		$('#map').css('opacity', '0');
 		$('#contact').css('opacity', '0');
-		$('#reserve_details').css('opacity', '0');
+		$('#booking_details').css('opacity', '0');
 		
 		// fake links
 		$('#link_info').css('cursor', 'pointer');
@@ -47,8 +47,8 @@
 	// ui logic
 	
 	$('td.timebox').click(function(){
-		$('#reserve_details').visible();
-		$("#reserve_date").val($(this).attr('alt'));
+		$('#booking_details').visible();
+		$("#booking_date").val($(this).attr('alt'));
 	});
 	
 	var day = 24 * 60 * 60;
@@ -62,8 +62,8 @@
 				$('#calendar_table').html(result);
 				$('td.timebox').css('cursor', 'pointer');
 				$('td.timebox').click(function(){
-					$('#reserve_details').visible();
-					$("#reserve_date").val($(this).attr('alt'));
+					$('#booking_details').visible();
+					$("#booking_date").val($(this).attr('alt'));
 				});
 			});
 		}
@@ -76,8 +76,8 @@
 			$('#calendar_table').html(result);
 			$('td.timebox').css('cursor', 'pointer');
 			$('td.timebox').click(function(){
-				$('#reserve_details').visible();
-				$("#reserve_date").val($(this).attr('alt'));
+				$('#booking_details').visible();
+				$("#booking_date").val($(this).attr('alt'));
 			});
 		});
 	});
