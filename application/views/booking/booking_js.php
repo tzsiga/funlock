@@ -3,24 +3,26 @@
 	// opacity toggle
 	
 	jQuery.fn.visible = function() {
-			return this.animate({opacity: 1}, 400);
+		return this.animate({opacity: 1}, 400);
 	}
 
 	jQuery.fn.invisible = function() {
-			return this.animate({opacity: 0}, 400);
+		return this.animate({opacity: 0}, 400);
 	}
 
 	jQuery.fn.visibilityToggle = function() {
 		return (this.css('opacity') == 0) ? this.animate({opacity: 1}, 400) : this.animate({opacity: 0}, 400);
 	}
 
-	// animating menu items
-
+	// default setup
+	
 	$(document).ready(function(){
+		// disable right click
+		$(document).bind("contextmenu", function(e){
+			return false;
+		});
+	
 		// hidden elements by default
-		$('#info').css('opacity', '0');
-		$('#map').css('opacity', '0');
-		$('#contact').css('opacity', '0');
 		$('#booking_details').css('opacity', '0');
 		
 		// fake links
@@ -31,63 +33,57 @@
 		$('#prev_month').css('cursor', 'pointer');
 		$('#next_month').css('cursor', 'pointer');
 	});
-
-	$('#link_info').click(function(){
-		$('#info').visibilityToggle();
-	});
-
-	$('#link_map').click(function(){
-		$('#map').visibilityToggle();
-	});
-
-	$('#link_contact').click(function(){
-		$('#contact').visibilityToggle();
-	});
-
+	
 	// ui logic
 	
-	$('td.timebox').click(function(){
-		$('#booking_details').visible();
-		$("#booking_date").val($(this).attr('alt'));
+	$('#link_info').click(function(){
+		$('#item_display_area').fadeOut(function(){
+			$(this).html('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
+		}).fadeIn();
 	});
 	
-	var day = 24 * 60 * 60;
-	var week = 7 * day;
+	$('#link_map').click(function(){
+		$('#item_display_area').fadeOut(function(){
+			$(this).html('<img id="map" src="<?= base_url() ?>assets/img/map.png" alt="" title="" />');
+		}).fadeIn();
+	});
+	
+	$('#link_contact').click(function(){
+		$('#item_display_area').fadeOut(function(){
+			$(this).html('Budapest 1023, Galgóczy u. 16. T.: 0036/307726213, info@funlock.hu');
+		}).fadeIn();
+	});
+	
+	$('td.timebox').click(function(){
+		$("#booking_date").val($(this).attr('alt'));
+		$('#booking_details').visible();
+	});
 	
 	$('#prev_month').click(function(){
 		if ($('#reference_time').attr('alt') > <?= time() ?>) {	
 			$.ajax({
-				url: '<?= base_url() ?>index.php/booking/generate_table/' + (parseInt($('#reference_time').attr('alt')) - parseInt(week)),
+				url: '<?= base_url() ?>index.php/booking/generate_table/' + (parseInt($('#reference_time').attr('alt')) - parseInt(<?= Utils::week() ?>)),
 			}).done(function(result) {
-				$('#calendar_table').html(result);
-				$('td.timebox').css('cursor', 'pointer');
-				$('td.timebox').click(function(){
-					$('#booking_details').visible();
-					$("#booking_date").val($(this).attr('alt'));
-				});
+				setupTable(result);
 			});
 		}
 	});
 	
 	$('#next_month').click(function(){
 		$.ajax({
-			url: '<?= base_url() ?>index.php/booking/generate_table/' + (parseInt($('#reference_time').attr('alt')) + parseInt(week)),
+			url: '<?= base_url() ?>index.php/booking/generate_table/' + (parseInt($('#reference_time').attr('alt')) + parseInt(<?= Utils::week() ?>)),
 		}).done(function(result) {
-			$('#calendar_table').html(result);
-			$('td.timebox').css('cursor', 'pointer');
-			$('td.timebox').click(function(){
-				$('#booking_details').visible();
-				$("#booking_date").val($(this).attr('alt'));
-			});
+			setupTable(result);
 		});
 	});
-
-	// disable right click
 	
-	$(document).ready(function(){
-		$(document).bind("contextmenu",function(e){
-			return false;
+	function setupTable(data) {
+		$('#calendar_table').html(data);
+		$('td.timebox').css('cursor', 'pointer');
+		$('td.timebox').click(function(){
+			$('#booking_details').visible();
+			$("#booking_date").val($(this).attr('alt'));
 		});
-	});
+	}
 
 </script>

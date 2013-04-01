@@ -1,12 +1,6 @@
 <?php $this->load->view('header'); ?>
 	<div id="wrapper_content">
 		<div id="navbar">
-			<div id="info">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-				Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-				Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-				Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-			</div>
 			<div id="menu">
 				<ul>
 					<li><p id="link_info">Info</a></li>
@@ -14,10 +8,7 @@
 					<li><p id="link_contact">Elérhetőség</a></li>
 				</ul>
 			</div>
-			<div id="contact">
-				Budapest 1023, Galgóczy u. 16. T.: 0036/307726213, info@funlock.hu
-			</div>
-			<img id="map" src="<?= base_url() ?>assets/img/map.png" alt="" title="" />
+			<div id="item_display_area">&nbsp;</div>
 		</div>
 		<div id="content">
 			<div id="calendar">
