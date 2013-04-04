@@ -68,7 +68,7 @@ html {
 	-ms-text-size-adjust: 100%;
 }
 
-	body {min-height: 100%; font-size: 100%;}
+	body {/*min-height: 100%;*/ font-size: 100%;}
 
 sub, sup {
 	font-size: 75%; 
@@ -238,7 +238,7 @@ body {
 	margin: (@1col / 2) auto 0;
 	border: 1px dashed grey;
 	background-image: url('../img/grid.png');
-
+	
 	.slider {
 		display: inline-block;
 		position: absolute;
@@ -246,7 +246,7 @@ body {
 		width: 10px;
 		margin: 0;
 	}
-
+	
 	// ezt majd generaltatni kell, ott ahol a random kezdo offsetet adjuk meg!
 	#S1 { background-image: url('../img/1.png'); }
 	#S2 { background-image: url('../img/2.png'); }
@@ -332,4 +332,89 @@ body {
 			margin-bottom: @1col;
 		}
 	}
+}
+
+#wrapper_admin {
+	background-color: #fff;
+	margin: 40px;
+	font: 13px/20px normal Helvetica, Arial, sans-serif;
+	color: #4F5155;
+	
+	::selection{ background-color: #E13300; color: white; }
+	::moz-selection{ background-color: #E13300; color: white; }
+	::webkit-selection{ background-color: #E13300; color: white; }
+	
+	a {
+		color: #003399;
+		background-color: transparent;
+		font-weight: normal;
+		text-decoration: none;
+	}
+	
+	a:hover {
+		text-decoration: underline;
+	}
+	
+	h1 {
+		color: #444;
+		background-color: transparent;
+		border-bottom: 1px solid #D0D0D0;
+		font-size: 19px;
+		font-weight: normal;
+		margin: 0 0 14px 0;
+		padding: 14px 15px 10px 15px;
+	}
+	
+	code {
+		font-family: Consolas, Monaco, Courier New, Courier, monospace;
+		font-size: 12px;
+		background-color: #f9f9f9;
+		border: 1px solid #D0D0D0;
+		color: #002166;
+		display: block;
+		margin: 14px 0 14px 0;
+		padding: 12px 10px 12px 10px;
+	}
+	
+	#container {
+		margin: 10px;
+		border: 1px solid #D0D0D0;
+		-webkit-box-shadow: 0 0 8px #D0D0D0;
+	}
+	
+	p {
+		margin: 12px 15px 12px 15px;
+	}
+	
+	label {
+		margin-right: 15px;
+		display: inline-block;
+		width: 150px;
+	}
+	
+	input {
+		margin: 0 auto;
+	}
+	
+	input[type=submit] {
+		display: inline-block;
+	}
+	
+	h3 {
+		margin-top: 15px;
+	}
+	
+	h3#flash_msg {
+		margin: 0 14px 20px;
+		color: #DC0000;
+	}
+	
+	li {
+		margin-left: 20px;
+	}
+	
+	#admin_menu {
+		margin-left: 14px;
+	}
+
 }
