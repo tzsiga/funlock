@@ -34,11 +34,11 @@
 			//$('#p_w').html(panel_width);
 			
 			// a csúszkák mozgásának függvénye az egérhöz képest
-			$("#S1").css('top', ((panel_height - slider_height) 	    / panel_width) * (e.pageX - margin_offset_x + offset_x));
+			$("#S1").css('top', ((panel_height - slider_height      ) / panel_width) * (e.pageX - margin_offset_x + offset_x));
 			$("#S2").css('top', ((panel_height - slider_height + 100) / panel_width) * (e.pageX - margin_offset_x + offset_x));
 			$("#S3").css('top', ((panel_height - slider_height - 700) / panel_width) * (e.pageX - margin_offset_x + offset_x));
 			$("#S4").css('top', ((panel_height - slider_height - 200) / panel_width) * (e.pageX - margin_offset_x + offset_x));
-			$("#S5").css('top', ((panel_height - slider_height + 50)  / panel_width) * (e.pageX - margin_offset_x + offset_x));
+			$("#S5").css('top', ((panel_height - slider_height + 50 ) / panel_width) * (e.pageX - margin_offset_x + offset_x));
 			$("#S6").css('top', ((panel_height - slider_height - 350) / panel_width) * (e.pageX - margin_offset_x + offset_x));
 			$("#S7").css('top', ((panel_height - slider_height + 150) / panel_width) * (e.pageX - margin_offset_x + offset_x));
 			$("#S8").css('top', ((panel_height - slider_height - 100) / panel_width) * (e.pageX - margin_offset_x + offset_x));

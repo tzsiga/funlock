@@ -46,19 +46,12 @@ class Booking extends CI_Controller {
 			$posted = $this->input->post();
 			
 			if ($posted) {
-				$this->form_validation->set_rules('title_hu', '"Magyar cím"', 'required|xss_clean');
-				$this->form_validation->set_rules('title_at', '"Német cím"', 'required|xss_clean');
-				$this->form_validation->set_rules('date', '"Dátum"', 'required|xss_clean|regex_match[/^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}$/]');
-				$this->form_validation->set_rules('text_hu', '"Magyar hír"', 'required|xss_clean');
-				$this->form_validation->set_rules('text_at', '"Német hír"', 'required|xss_clean');
+				//$this->form_validation->set_rules('title_hu', '"Magyar cím"', 'required|xss_clean');
 
 				if ($this->form_validation->run() == true) {
 					$data = array(
-						'title_hu' => $posted['title_hu'],
-						'title_at' => $posted['title_at'],
-						'date' => strtotime($posted['date']),
-						'text_hu' => $posted['text_hu'],
-						'text_at' => $posted['text_at']
+						//'title_hu' => $posted['title_hu'],
+						//'date' => strtotime($posted['date']),
 					);
 					$this->db->insert('news', $data);
 					$this->session->set_flashdata('msg', 'Új bejegyzés ('.$posted['title_hu'].') elmentve!');
