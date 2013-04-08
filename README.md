@@ -3,8 +3,11 @@ funlock
 
 ### todo list
 
-* admin forms CRUD
-* form validation + jq ajax porting
+* bookings table references
+* jquery ui: select date
+* admin add/edit refactor
+* calendar add form + validation + jq ajax porting
+* spinner: select hour
 * unit tests for booking calendar and form
 
 ### changelog

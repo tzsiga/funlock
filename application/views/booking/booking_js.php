@@ -62,7 +62,7 @@
 	$('#prev_month').click(function(){
 		if ($('#reference_time').attr('alt') > <?= time() ?>) {	
 			$.ajax({
-				url: '<?= base_url() ?>index.php/booking/generate_table/' + (parseInt($('#reference_time').attr('alt')) - parseInt(<?= Utils::week() ?>)),
+				url: '<?= base_url() ?>index.php/booking/generate_table/' + (parseInt($('#reference_time').attr('alt')) - parseInt(<?= Utils::week ?>)),
 			}).done(function(result) {
 				setupTable(result);
 			});
@@ -71,7 +71,7 @@
 	
 	$('#next_month').click(function(){
 		$.ajax({
-			url: '<?= base_url() ?>index.php/booking/generate_table/' + (parseInt($('#reference_time').attr('alt')) + parseInt(<?= Utils::week() ?>)),
+			url: '<?= base_url() ?>index.php/booking/generate_table/' + (parseInt($('#reference_time').attr('alt')) + parseInt(<?= Utils::week ?>)),
 		}).done(function(result) {
 			setupTable(result);
 		});

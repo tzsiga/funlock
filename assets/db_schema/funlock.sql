@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 04, 2013 at 05:07 PM
+-- Generation Time: Apr 08, 2013 at 06:31 PM
 -- Server version: 5.5.16
 -- PHP Version: 5.3.8
 
@@ -23,20 +23,32 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `billing_data`
+-- Table structure for table `bookings`
 --
 
-CREATE TABLE IF NOT EXISTS `billing_data` (
+CREATE TABLE IF NOT EXISTS `bookings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `forename` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
-  `surname` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
-  `email` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
-  `zip` int(11) NOT NULL,
-  `city` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
-  `address` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
-  `tax_number` int(11) NOT NULL,
+  `book_fname` varchar(35) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  `book_sname` varchar(35) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  `appointment` int(11) NOT NULL,
+  `payment_option` varchar(20) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  `bill_fname` varchar(35) CHARACTER SET utf8 COLLATE utf8_hungarian_ci DEFAULT NULL,
+  `bill_sname` varchar(35) CHARACTER SET utf8 COLLATE utf8_hungarian_ci DEFAULT NULL,
+  `email` varchar(50) CHARACTER SET utf8 COLLATE utf8_hungarian_ci DEFAULT NULL,
+  `zip` int(11) DEFAULT NULL,
+  `tax_number` int(11) DEFAULT NULL,
+  `comment` text CHARACTER SET utf8 COLLATE utf8_hungarian_ci,
+  `notes` text CHARACTER SET utf8 COLLATE utf8_hungarian_ci,
+  `booking_date` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `bookings`
+--
+
+INSERT INTO `bookings` (`id`, `book_fname`, `book_sname`, `appointment`, `payment_option`, `bill_fname`, `bill_sname`, `email`, `zip`, `tax_number`, `comment`, `notes`, `booking_date`) VALUES
+(1, 'Funky', 'Monkey', 1365678000, 'card', '', '', '', 0, 0, '', '', 1367917200);
 
 -- --------------------------------------------------------
 
@@ -55,35 +67,6 @@ CREATE TABLE IF NOT EXISTS `config` (
 
 INSERT INTO `config` (`option_name`, `value`) VALUES
 ('admin_password', '8cb2237d0679ca88db6464eac60da96345513964');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `reservations`
---
-
-CREATE TABLE IF NOT EXISTS `reservations` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `forename` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
-  `surname` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
-  `appointment` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
-  `payment_option` varchar(50) COLLATE utf8_hungarian_ci NOT NULL,
-  `billing_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci AUTO_INCREMENT=8 ;
-
---
--- Dumping data for table `reservations`
---
-
-INSERT INTO `reservations` (`id`, `forename`, `surname`, `appointment`, `payment_option`, `billing_id`) VALUES
-(1, 'Billy', 'Bob', '1364479200', 'cache', 0),
-(2, 'Mr', 'Hulk', '1364655600', 'bank', 0),
-(3, 'Tony', 'Stark', '1364749200', 'cache', 0),
-(4, 'Tony', 'Stark', '1365354000', 'cache', 0),
-(5, 'Thor', 'Thunder', '1365357600', 'cache', 0),
-(6, 'Kill', 'Frenzy', '1365444000', 'bank', 0),
-(7, 'Mr', 'Hank', '1365447600', 'bank', 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

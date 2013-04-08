@@ -1,4 +1,4 @@
-<?php $this->load->view('header'); ?>
+<?php $this->load->view('header_admin'); ?>
 	<div id="wrapper_admin">
 		<h1>
 			Foglalások szerkesztése/törlése
@@ -10,10 +10,14 @@
 			<ul>
 			<?php
 				foreach ($reserved_dates as $date => $booking) {
-					echo '<li><a href="">';
+					echo '<li>';
 					echo date('Y-m-d H:i', $date);
-					echo '</a> - ';
+					echo ' - ';
 					echo $booking['client'];
+					echo ' - ';
+					echo '<a href="'.base_url().'index.php/booking/edit/'.$booking['id'].'">';
+					echo 'szerkesztés';
+					echo '</a>';
 					echo '</li>';
 				}
 			?>
