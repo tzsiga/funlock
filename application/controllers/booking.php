@@ -5,12 +5,12 @@ class Booking extends CI_Controller {
 	public function index() {
 		$this->load->view('booking/booking', array('reserved_dates' => $this->get_appointments(time())));
 	}
-
+	
 	// called by jq.ajax()
 	public function generate_table($ref_time) {
 		$this->load->view('booking/calendar', array('reserved_dates' => $this->get_appointments($ref_time), 'ref_time' => $ref_time));
 	}
-
+	
 	private function get_appointments($from) {
 		// only check if appointments in cursor range
 		$query = $this->db->query('SELECT * FROM bookings WHERE appointment > '.Utils::monday($from).' AND appointment < '.($from + Utils::week).' ORDER BY appointment ASC');
@@ -25,17 +25,47 @@ class Booking extends CI_Controller {
 		
 		return $reserved_dates;
 	}
-
-	public function add() {
-		if ($this->session->userdata('login_state') != 'logged_in') {
-			$this->session->set_flashdata('msg', 'Be kell jelentkezni!');
-			redirect('/admin/login', 'refresh');
-		} else {
-			$this->load->view('booking/add');
-		}
-	}
 	
 	public function add_appointment() {
+		$posted = $this->input->post();
+		
+		if ($posted) {
+			$this->form_validation->set_rules('book_fname', '"Foglaló vezetékneve"', 'required|xss_clean');
+			$this->form_validation->set_rules('book_sname', '"Foglaló keresztneve"', 'required|xss_clean');
+			$this->form_validation->set_rules('appointment', '"Foglalt időpont"', 'required|xss_clean');
+			$this->form_validation->set_rules('payment_option', '"Fizetés ..."', 'required|xss_clean');
+			$this->form_validation->set_rules('booking_date', '"Foglalás időpontja"', 'required|xss_clean');
+
+			if ($this->form_validation->run() == true) {
+				$data = array(
+					'book_fname' 		=> $posted['book_fname'],
+					'book_sname' 		=> $posted['book_sname'],
+					'appointment' 		=> strtotime($posted['appointment']),
+					'payment_option' 	=> $posted['payment_option'],
+//					'bill_fname' 		=> $posted['bill_fname'],
+//					'bill_sname' 		=> $posted['bill_sname'],
+//					'email' 			=> $posted['email'],
+//					'zip' 				=> $posted['zip'],
+//					'tax_number' 		=> $posted['tax_number'],
+//					'comment' 			=> $posted['comment'],
+//					'notes' 			=> $posted['notes'],
+					'booking_date' 		=> strtotime($posted['booking_date'])
+				);
+				
+				$this->db->insert('bookings', $data);
+				$this->session->set_flashdata('msg', 'Új foglalás ('.date('Y-m-d H:i', $data['appointment']).') elmentve!');
+				//redirect('booking/booking', 'refresh');
+			}
+		}
+
+		$this->index();
+		//$this->load->view('booking/booking', array('posted' => $posted));
+		//$this->load->view('booking/booking', array('posted' => $posted));
+	}
+	
+	// admin functions ----------------------------------------------------------
+	
+	public function add() {
 		if ($this->session->userdata('login_state') != 'logged_in') {
 			$this->session->set_flashdata('msg', 'Be kell jelentkezni!');
 			redirect('/admin/login', 'refresh');
@@ -48,7 +78,7 @@ class Booking extends CI_Controller {
 				$this->form_validation->set_rules('appointment', '"Foglalt időpont"', 'required|xss_clean');
 				$this->form_validation->set_rules('payment_option', '"Fizetés ..."', 'required|xss_clean');
 				$this->form_validation->set_rules('booking_date', '"Foglalás időpontja"', 'required|xss_clean');
-
+				
 				if ($this->form_validation->run() == true) {
 					$data = array(
 						'book_fname' 		=> $posted['book_fname'],
@@ -70,7 +100,7 @@ class Booking extends CI_Controller {
 					redirect('admin/index', 'refresh');
 				}
 			}
-
+			
 			$this->load->view('booking/add', array('posted' => $posted));
 		}
 	}

@@ -55,7 +55,7 @@
 	});
 	
 	$('td.timebox').click(function(){
-		$("#booking_date").val($(this).attr('alt'));
+		$("#appointment").val($(this).attr('alt'));
 		$('#booking_details').visible();
 	});
 	
@@ -82,8 +82,18 @@
 		$('td.timebox').css('cursor', 'pointer');
 		$('td.timebox').click(function(){
 			$('#booking_details').visible();
-			$("#booking_date").val($(this).attr('alt'));
+			$("#appointment").val($(this).attr('alt'));
 		});
 	}
-
+	
+	/*
+	$('#book_btn').click(function(){
+		$.ajax({
+			url: '<?= base_url() ?>index.php/booking/add_appointment',
+		}).done(function(result) {
+			$('#booking_details').html(result);
+		});
+	});
+	*/
+	
 </script>

@@ -11,7 +11,7 @@ class Utils {
 			var_dump($var);
 		}
 	}
-
+	
 	const hour = 3600;
 	const day = 86400;				// 24 * 3600
 	const week = 604800;			// 7 * 24 * 3600

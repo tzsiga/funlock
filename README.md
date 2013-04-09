@@ -3,22 +3,19 @@ funlock
 
 ### todo list
 
-* bookings table references
-* jquery ui: select date
-* admin add/edit refactor
-* calendar add form + validation + jq ajax porting
-* spinner: select hour
+* calendar validation + jq ajax porting
 * unit tests for booking calendar and form
 
 ### changelog
 
 __Recent changes:__
 
-* this readme file updated
-* DB file updated
+* admin pages, booking form updated
 
 __Major history:__
 
+* working admin pages
+* DB schema updated
 * calendar complete rework, many bugs corrected, paging works fine now
 * Utils helper added
 * small ui/view fixes, porting
