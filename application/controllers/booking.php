@@ -58,9 +58,9 @@ class Booking extends CI_Controller {
 			}
 		}
 
-		$this->index();
-		//$this->load->view('booking/booking', array('posted' => $posted));
-		//$this->load->view('booking/booking', array('posted' => $posted));
+		//$this->index();
+		$this->load->view('booking/form', array('posted' => $posted));
+		//$this->load->view('booking/booking', array('reserved_dates' => $this->get_appointments(time())));
 	}
 	
 	// admin functions ----------------------------------------------------------

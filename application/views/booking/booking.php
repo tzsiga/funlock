@@ -16,7 +16,9 @@
 				<?php $this->load->view('booking/calendar', array('reserved_dates' => $reserved_dates, 'ref_time' => time())); ?>
 				<span id="next_month">&gt;&gt;</span>
 			</div>
-			<?php $this->load->view('booking/form'); ?>
+			<div id="booking_details">
+				<?php $this->load->view('booking/form'); ?>
+			</div>
 		</div>
 	</div>
 	<?php $this->load->view('booking/booking_js'); ?>

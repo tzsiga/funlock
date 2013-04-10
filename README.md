@@ -3,16 +3,15 @@ funlock
 
 ### todo list
 
-* calendar validation + jq ajax porting
-* unit tests for booking calendar and form
+* booking validation errors display on form
+* booking form field logic
+* ci unit tests for booking calendar and form
 
-### changelog
+### Recent changes
 
-__Recent changes:__
+* booking form ajax porting
 
-* admin pages, booking form updated
-
-__Major history:__
+### Changelog
 
 * working admin pages
 * DB schema updated
