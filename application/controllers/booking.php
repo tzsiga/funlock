@@ -35,7 +35,7 @@ class Booking extends CI_Controller {
 			$this->form_validation->set_rules('appointment', '"Foglalt időpont"', 'required|xss_clean');
 			$this->form_validation->set_rules('payment_option', '"Fizetés ..."', 'required|xss_clean');
 			$this->form_validation->set_rules('booking_date', '"Foglalás időpontja"', 'required|xss_clean');
-
+			
 			if ($this->form_validation->run() == true) {
 				$data = array(
 					'book_fname' 		=> $posted['book_fname'],
@@ -54,13 +54,10 @@ class Booking extends CI_Controller {
 				
 				$this->db->insert('bookings', $data);
 				$this->session->set_flashdata('msg', 'Új foglalás ('.date('Y-m-d H:i', $data['appointment']).') elmentve!');
-				//redirect('booking/booking', 'refresh');
 			}
 		}
 
-		//$this->index();
 		$this->load->view('booking/form', array('posted' => $posted));
-		//$this->load->view('booking/booking', array('reserved_dates' => $this->get_appointments(time())));
 	}
 	
 	// admin functions ----------------------------------------------------------

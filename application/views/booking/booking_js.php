@@ -87,27 +87,4 @@
 		refreshTable(parseInt($('#reference_time').attr('alt')) + parseInt(<?= Utils::week ?>));
 	});
 	
-	$('#booking_form').submit(function(event) {
-		event.preventDefault();
-		$.ajax({
-			url: '<?= base_url() ?>index.php/booking/add_appointment',
-			type: 'POST',
-			data: $('#booking_form').serialize()
-		}).done(function(result){
-			refreshTable(parseInt($('#reference_time').attr('alt')));
-			
-			/*
-			$('#booking_details').invisible();
-			// clear form fields
-			$('#appointment').val('');
-			$('#book_fname').val('');
-			$('#book_sname').val('');
-			$('#payment_option_1').val('');
-			$('#payment_option_2').val('');
-			*/
-			
-			$('#booking_details').html(result);
-		});
-	});
-	
 </script>

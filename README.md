@@ -1,11 +1,11 @@
 funlock
 =======
 
-### todo list
+### ToDo list
 
 * booking validation errors display on form
 * booking form field logic
-* ci unit tests for booking calendar and form
+* CI, jQ unit tests
 
 ### Recent changes
 
