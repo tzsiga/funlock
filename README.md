@@ -1,18 +1,13 @@
 funlock
 =======
 
-### ToDo list
-
-* booking validation errors display on form
-* booking form field logic
-* CI, jQ unit tests
-
 ### Recent changes
 
-* booking form ajax porting
+* booking validation errors now displaying on the form
 
 ### Changelog
 
+* booking form ajax porting
 * working admin pages
 * DB schema updated
 * calendar complete rework, many bugs corrected, paging works fine now
