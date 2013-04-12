@@ -3,11 +3,11 @@ funlock
 
 ### Recent changes
 
-* booking validation errors now displaying on the form
+* small ui, db updates
 
 ### Changelog
 
-* booking form ajax porting
+* booking form ajax porting, validation errors displaying on the form
 * working admin pages
 * DB schema updated
 * calendar complete rework, many bugs corrected, paging works fine now

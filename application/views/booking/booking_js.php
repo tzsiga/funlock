@@ -55,6 +55,8 @@
 	});
 	
 	$('td.timebox').click(function(){
+		$('td.timebox').css('background-color', '');
+		$(this).css('background-color', 'grey');
 		$("#appointment").val($(this).attr('alt'));
 		$('#booking_details').visible();
 	});
@@ -85,6 +87,14 @@
 	
 	$('#next_month').click(function(){
 		refreshTable(parseInt($('#reference_time').attr('alt')) + parseInt(<?= Utils::week ?>));
+	});
+	
+	$('#blank_cell').datepicker({ firstDay: 1, dateFormat: 'yy-mm-dd' });
+	
+	$('#blank_cell').change(function(){
+		// ide ez kellene: strtotime( $('#blank_cell').val() )
+	
+		refreshTable( $('#blank_cell').val() );
 	});
 	
 </script>

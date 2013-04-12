@@ -2,7 +2,7 @@
 
 function generate_table($reserved_dates, $ref_time) {
 	// table header, alt param contains the actual reference time variable
-	echo '<table id="calendar_table"><tr id="reference_time" alt="'.$ref_time.'"><th></th>';
+	echo '<table id="calendar_table"><tr id="reference_time" alt="'.$ref_time.'"><th>'.form_input(array('id' => 'blank_cell')).'</th>';
 
 	$day_names = array('hétfő', 'kedd', 'szerda', 'csütörtök', 'péntek', 'szombat', 'vasárnap');
 	$i = 0;
@@ -13,8 +13,8 @@ function generate_table($reserved_dates, $ref_time) {
 	echo '</tr>';
 	
 	// table body
-	for ($hour_index = Utils::hour_from; $hour_index <= Utils::hour_to; $hour_index++) {
-		echo "<tr><td>$hour_index:00</td>";
+	for ($hour_index = Utils::hour_from; $hour_index <= Utils::hour_to; $hour_index += Utils::hour_step) {
+		echo (int)$hour_index == $hour_index ? "<tr><td>$hour_index:00</td>" : "<tr><td>".(int)$hour_index.":30</td>";
 		
 		for ($day_index = 1; $day_index <= 7; $day_index++) {
 			$cell_time = Utils::monday($ref_time) + ($day_index - 1) * Utils::day + $hour_index * Utils::hour;

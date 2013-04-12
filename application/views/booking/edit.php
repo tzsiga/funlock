@@ -18,7 +18,7 @@
 			echo '</p><p>';
 			echo form_label('Foglalt időpont', 'appointment');
 			echo form_input(array('name' => 'appointment', 'id' => 'appointment', 'value' => date('Y-m-d', $booking->appointment))).' - ';
-			$options = array_combine(range(Utils::hour_from, Utils::hour_to), range(Utils::hour_from, Utils::hour_to));
+			$options = array_combine(range(Utils::hour_from, Utils::hour_to, Utils::hour_step), range(Utils::hour_from, Utils::hour_to, Utils::hour_step));
 			echo form_dropdown('appointment_hour', $options, date('G', $booking->appointment)).' : 00';
 			echo '</p><p>';
 			echo form_label('Fizetés kártyával', 'payment_option');

@@ -16,8 +16,9 @@ class Utils {
 	const day = 86400;				// 24 * 3600
 	const week = 604800;			// 7 * 24 * 3600
 	
-	const hour_from = 10;
-	const hour_to = 22;
+	const hour_from = 14;
+	const hour_to = 24;
+	const hour_step = 1.5;
 	
 	public static function day_of_week($timestamp) {
 		$day_of_week = date('w', $timestamp);

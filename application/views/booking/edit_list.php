@@ -7,10 +7,19 @@
 			<?= $this->session->flashdata('msg') ?>
 		</h3>
 		<div id="admin_menu">
+			<h3>Lejátszott játékok:</h3>
 			<ul>
 			<?php
+				$current_time_flag = true;
+			
 				foreach ($reserved_dates as $date => $booking) {
+					if ($date > time() && $current_time_flag) {
+						echo '</ul><hr/><h3>Új játékok:</h3><ul>';
+						$current_time_flag = false;
+					}
+
 					echo '<li>';
+
 					echo date('Y-m-d H:i', $date);
 					echo ' - ';
 					echo $booking['client'];

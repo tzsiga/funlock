@@ -18,8 +18,16 @@
 			echo '</p><p>';
 			echo form_label('Foglalt időpont', 'appointment');
 			echo form_input(array('name' => 'appointment', 'id' => 'appointment', 'value' => isset($posted['appointment']) ? $posted['appointment'] : '')).' - ';
-			$options = array_combine(range(Utils::hour_from, Utils::hour_to), range(Utils::hour_from, Utils::hour_to));
-			echo form_dropdown('appointment_hour', $options, isset($posted['appointment_hour']) ? $posted['appointment_hour'] : 10).' : 00';
+			
+			$dropdown_keys = range(Utils::hour_from, Utils::hour_to, Utils::hour_step);
+			
+			foreach ($dropdown_keys as $hour) {
+				(int)$hour == $hour ? $dropdown_values[$hour] = $hour.':00' : $dropdown_values[$hour] = (int)$hour.':30';
+			}
+			
+			$options = array_combine($dropdown_keys, $dropdown_values);
+			
+			echo form_dropdown('appointment_hour', $options, isset($posted['appointment_hour']) ? $posted['appointment_hour'] : 14);
 			echo '</p><p>';
 			echo form_label('Fizetés kártyával', 'payment_option');
 			echo form_radio(array('name' => 'payment_option', 'id' => 'payment_option_1', 'value' => 'card'));

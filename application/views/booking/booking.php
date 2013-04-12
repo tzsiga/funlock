@@ -1,4 +1,4 @@
-<?php $this->load->view('header'); ?>
+<?php $this->load->view('header_admin'); ?>
 	<div id="wrapper_content">
 		<div id="navbar">
 			<div id="menu">
