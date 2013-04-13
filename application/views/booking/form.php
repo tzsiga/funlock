@@ -1,11 +1,14 @@
 <div class="error_msg">
+	<?= $this->session->flashdata('msg') ?>
 	<?= validation_errors() ?>
+	<?php if ($is_success) { echo '<h3>true story</h3><br/>'; } ?>
 </div>
 <?php
 	echo form_open('booking/add_appointment', array('id' => 'booking_form'));
 	echo '<p>';
-	echo form_label('Időpont', 'appointment');
-	echo form_input(array('name' => 'appointment', 'id' => 'appointment', 'value' => isset($posted['appointment']) ? $posted['appointment'] : ''));
+	//echo form_label('Időpont', 'appointment');
+	//echo form_input(array('name' => 'appointment', 'id' => 'appointment', 'value' => isset($posted['appointment']) ? $posted['appointment'] : ''));
+	echo form_hidden('appointment', isset($posted['appointment']) ? $posted['appointment'] : '');
 	echo form_hidden('booking_date', date('Y-m-d H:i'));
 	echo '</p><p>';
 	echo form_label('Vezetéknév', 'book_fname');
@@ -14,14 +17,11 @@
 	echo form_label('Keresztnév', 'book_sname');
 	echo form_input(array('name' => 'book_sname', 'id' => 'book_sname', 'value' => isset($posted['book_sname']) ? $posted['book_sname'] : ''));
 	echo '</p><p>';
-	echo form_label('Fizetés kártyával', 'payment_option_1');
-	echo form_radio(array('name' => 'payment_option', 'id' => 'payment_option_1', 'value' => 'card'));
-	echo '</p><p>';
-	echo form_label('Fizetés készpénzzel', 'payment_option_2');
-	echo form_radio(array('name' => 'payment_option', 'id' => 'payment_option_2', 'value' => 'cache'));
+	echo form_label('Fizetés', 'payment_option');
+	echo form_dropdown('payment_option', array('card' => 'kártyával', 'cache' => 'készpénzzel'), 'card');
 	echo '</p><p>';
 	echo form_label('Egyetértek a szerződéssel', 'eula');
-	echo form_checkbox(array('name' => 'eula', 'id' => 'eula', 'value' => 'accept'));
+	echo form_checkbox(array('name' => 'eula', 'id' => 'eula', 'value' => 'accept', 'checked' => isset($posted['eula']) ? true : false));
 	echo '</p><p>';
 	echo '<br/>';
 	echo form_submit(array('name' => 'book_btn', 'id' => 'book_btn', 'value' => 'Foglalás'));
@@ -29,7 +29,7 @@
 	echo form_close();
 ?>
 <script type="text/javascript">
-	
+
 	$('#booking_form').submit(function(event) {
 		event.preventDefault();
 		$.ajax({
@@ -39,6 +39,8 @@
 		}).done(function(result){
 			refreshTable(parseInt($('#reference_time').attr('alt')));
 			$('#booking_details').html(result);
+			
+			// a result-ban kell legyen benne az info hogy sikerult e lefoglalni az idopontot vagy nem
 			
 			/*
 			// if booking was successful

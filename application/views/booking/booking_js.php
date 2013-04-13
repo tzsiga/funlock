@@ -34,7 +34,7 @@
 		$('#next_month').css('cursor', 'pointer');
 	});
 	
-	// ui logic
+	// left menu items
 	
 	$('#link_info').click(function(){
 		$('#item_display_area').fadeOut(function(){
@@ -54,28 +54,15 @@
 		}).fadeIn();
 	});
 	
-	$('td.timebox').click(function(){
-		$('td.timebox').css('background-color', '');
-		$(this).css('background-color', 'grey');
-		$("#appointment").val($(this).attr('alt'));
-		$('#booking_details').visible();
-	});
-	
-	function setupTable(data) {
-		$('#calendar_table').html(data);
-		$('td.timebox').css('cursor', 'pointer');
-		$('td.timebox').click(function(){
-			$('#booking_details').visible();
-			$("#appointment").val($(this).attr('alt'));
-		});
-	}
+	// booking calendar wrapper
 	
 	function refreshTable(ref_time) {
 		$.ajax({
-			url: '<?= base_url() ?>index.php/booking/generate_table/' + ref_time,
+			url: '<?= base_url() ?>index.php/booking/generate_table?ref_time=' + ref_time + '&selected_appointment=' + strtotime($("input[name=appointment]").val()),
 			type: 'POST'
 		}).done(function(result) {
-			setupTable(result);
+			$('#calendar_table').html(result);
+			$('td.timebox').css('cursor', 'pointer');
 		});
 	}
 	
@@ -87,14 +74,6 @@
 	
 	$('#next_month').click(function(){
 		refreshTable(parseInt($('#reference_time').attr('alt')) + parseInt(<?= Utils::week ?>));
-	});
-	
-	$('#blank_cell').datepicker({ firstDay: 1, dateFormat: 'yy-mm-dd' });
-	
-	$('#blank_cell').change(function(){
-		// ide ez kellene: strtotime( $('#blank_cell').val() )
-	
-		refreshTable( $('#blank_cell').val() );
 	});
 	
 </script>

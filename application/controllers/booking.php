@@ -7,8 +7,11 @@ class Booking extends CI_Controller {
 	}
 	
 	// called by jq.ajax()
-	public function generate_table($ref_time) {
-		$this->load->view('booking/calendar', array('reserved_dates' => $this->get_appointments($ref_time), 'ref_time' => $ref_time));
+	public function generate_table() {
+		$ref_time = $this->input->get('ref_time');
+		$selected_appointment = $this->input->get('selected_appointment');
+	
+		$this->load->view('booking/calendar', array('reserved_dates' => $this->get_appointments($ref_time), 'ref_time' => $ref_time, 'selected_appointment' => $selected_appointment));
 	}
 	
 	private function get_appointments($from) {
@@ -35,29 +38,32 @@ class Booking extends CI_Controller {
 			$this->form_validation->set_rules('appointment', '"Foglalt időpont"', 'required|xss_clean');
 			$this->form_validation->set_rules('payment_option', '"Fizetés ..."', 'required|xss_clean');
 			$this->form_validation->set_rules('booking_date', '"Foglalás időpontja"', 'required|xss_clean');
+			$this->form_validation->set_rules('eula', '"Szerződés feltételei"', 'required|xss_clean');
+			
+			$is_success = false;
 			
 			if ($this->form_validation->run() == true) {
 				$data = array(
-					'book_fname' 		=> $posted['book_fname'],
-					'book_sname' 		=> $posted['book_sname'],
+					'book_fname' 			=> $posted['book_fname'],
+					'book_sname' 			=> $posted['book_sname'],
 					'appointment' 		=> strtotime($posted['appointment']),
 					'payment_option' 	=> $posted['payment_option'],
 //					'bill_fname' 		=> $posted['bill_fname'],
 //					'bill_sname' 		=> $posted['bill_sname'],
-//					'email' 			=> $posted['email'],
-//					'zip' 				=> $posted['zip'],
+//					'email' 				=> $posted['email'],
+//					'zip' 					=> $posted['zip'],
 //					'tax_number' 		=> $posted['tax_number'],
 //					'comment' 			=> $posted['comment'],
-//					'notes' 			=> $posted['notes'],
+//					'notes' 				=> $posted['notes'],
 					'booking_date' 		=> strtotime($posted['booking_date'])
 				);
 				
-				$this->db->insert('bookings', $data);
+				$is_success = $this->db->insert('bookings', $data);
 				$this->session->set_flashdata('msg', 'Új foglalás ('.date('Y-m-d H:i', $data['appointment']).') elmentve!');
 			}
 		}
-
-		$this->load->view('booking/form', array('posted' => $posted));
+		
+		$this->load->view('booking/form', array('posted' => $posted, 'is_success' => $is_success));
 	}
 	
 	// admin functions ----------------------------------------------------------
@@ -78,18 +84,18 @@ class Booking extends CI_Controller {
 				
 				if ($this->form_validation->run() == true) {
 					$data = array(
-						'book_fname' 		=> $posted['book_fname'],
-						'book_sname' 		=> $posted['book_sname'],
+						'book_fname' 			=> $posted['book_fname'],
+						'book_sname' 			=> $posted['book_sname'],
 						'appointment' 		=> strtotime($posted['appointment']) + $posted['appointment_hour'] * Utils::hour,
 						'payment_option' 	=> $posted['payment_option'],
-						'bill_fname' 		=> $posted['bill_fname'],
-						'bill_sname' 		=> $posted['bill_sname'],
-						'email' 			=> $posted['email'],
-						'zip' 				=> $posted['zip'],
-						'tax_number' 		=> $posted['tax_number'],
-						'comment' 			=> $posted['comment'],
-						'notes' 			=> $posted['notes'],
-						'booking_date' 		=> strtotime($posted['booking_date'])
+						'bill_fname'	 		=> $posted['bill_fname'],
+						'bill_sname' 			=> $posted['bill_sname'],
+						'email' 					=> $posted['email'],
+						'zip' 						=> $posted['zip'],
+						'tax_number' 			=> $posted['tax_number'],
+						'comment' 				=> $posted['comment'],
+						'notes' 					=> $posted['notes'],
+						'booking_date'	 	=> strtotime($posted['booking_date'])
 					);
 					
 					$this->db->insert('bookings', $data);
@@ -113,9 +119,9 @@ class Booking extends CI_Controller {
 			
 			foreach ($query->result() as $row) {
 				$reserved_dates[$row->appointment] = array(
-					'id'	 			=> $row->id,
-					'client'	 		=> $row->book_fname.' '.$row->book_sname,
-					'payment_option' 	=> $row->payment_option
+					'id'	 							=> $row->id,
+					'client'	 					=> $row->book_fname.' '.$row->book_sname,
+					'payment_option' 		=> $row->payment_option
 				);
 			}
 
@@ -150,17 +156,17 @@ class Booking extends CI_Controller {
 					
 					if ($case === 'save') {
 						$data = array(
-							'book_fname' 		=> $posted['book_fname'],
-							'book_sname' 		=> $posted['book_sname'],
+							'book_fname' 			=> $posted['book_fname'],
+							'book_sname' 			=> $posted['book_sname'],
 							'appointment' 		=> strtotime($posted['appointment']) + $posted['appointment_hour'] * Utils::hour,
 							'payment_option' 	=> $posted['payment_option'],
-							'bill_fname' 		=> $posted['bill_fname'],
-							'bill_sname' 		=> $posted['bill_sname'],
-							'email' 			=> $posted['email'],
-							'zip' 				=> $posted['zip'],
-							'tax_number' 		=> $posted['tax_number'],
-							'comment' 			=> $posted['comment'],
-							'notes' 			=> $posted['notes'],
+							'bill_fname' 			=> $posted['bill_fname'],
+							'bill_sname' 			=> $posted['bill_sname'],
+							'email' 					=> $posted['email'],
+							'zip' 						=> $posted['zip'],
+							'tax_number' 			=> $posted['tax_number'],
+							'comment' 				=> $posted['comment'],
+							'notes' 					=> $posted['notes'],
 							'booking_date' 		=> strtotime($posted['booking_date'])
 						);
 						

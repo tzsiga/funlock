@@ -1,6 +1,6 @@
 <?php
 
-function generate_table($reserved_dates, $ref_time) {
+function generate_table($reserved_dates, $ref_time, $selected_appointment) {
 	// table header, alt param contains the actual reference time variable
 	echo '<table id="calendar_table"><tr id="reference_time" alt="'.$ref_time.'"><th>'.form_input(array('id' => 'blank_cell')).'</th>';
 
@@ -27,7 +27,11 @@ function generate_table($reserved_dates, $ref_time) {
 				if (isset($reserved_dates[$cell_time])) {
 					echo "<td>".img(array('src' => 'assets/img/reserved.gif', 'title' => 'Foglalt időpont!', 'alt' => $reserved_dates[$cell_time]['id']))."</td>";
 				} else {
-					echo '<td class="timebox" alt="'. date('Y-m-d H:i', $cell_time) .'"></td>';
+					if ($cell_time == $selected_appointment) {
+						echo '<td class="timebox" alt="'. date('Y-m-d H:i', $cell_time) .'" style="background-color: grey"></td>';
+					} else {
+						echo '<td class="timebox" alt="'. date('Y-m-d H:i', $cell_time) .'"></td>';
+					}
 				}
 			}
 		}
@@ -38,6 +42,26 @@ function generate_table($reserved_dates, $ref_time) {
 	echo '</table>';
 }
 
-generate_table($reserved_dates, $ref_time);
+generate_table($reserved_dates, $ref_time, $selected_appointment);
 
 ?>
+<script type="text/javascript">
+
+	$('#blank_cell').datepicker({
+		firstDay: 1,
+		dateFormat: 'yy-mm-dd',
+		minDate: 0
+	});
+	
+	$('#blank_cell').change(function(){
+		refreshTable(strtotime($('#blank_cell').val()));
+	});
+
+	$('td.timebox').click(function(){
+		$('td.timebox').css('background-color', '');
+		$(this).css('background-color', 'grey');
+		$("input[name=appointment]").val($(this).attr('alt'));
+		$('#booking_details').visible();
+	});
+
+</script>
