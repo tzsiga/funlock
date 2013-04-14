@@ -58,12 +58,28 @@ class Booking extends CI_Controller {
 					'booking_date' 		=> strtotime($posted['booking_date'])
 				);
 				
-				$is_success = $this->db->insert('bookings', $data);
+				$status_code = 'validation OK';
+				
+				/*
+				// check if is there any existing appointment with the sami timestamp
+				$query = $this->db->query('SELECT appointment FROM bookings WHERE appointment = '.strtotime($posted['appointment']));
+				
+				// if yes: insert error
+				if ($query->num_rows() > 0) {
+					$status_code = 'conflict error';
+				}
+				
+				// $is_success should be a status code of inserting
+				// $this->db->_error_message();
+				*/
+				
+				$this->db->insert('bookings', $data);
+				
 				$this->session->set_flashdata('msg', 'Új foglalás ('.date('Y-m-d H:i', $data['appointment']).') elmentve!');
 			}
 		}
 		
-		$this->load->view('booking/form', array('posted' => $posted, 'is_success' => $is_success));
+		$this->load->view('booking/form', array('posted' => $posted, 'status_code' => ''));
 	}
 	
 	// admin functions ----------------------------------------------------------

@@ -60,7 +60,7 @@
 		$.ajax({
 			url: '<?= base_url() ?>index.php/booking/generate_table?ref_time=' + ref_time + '&selected_appointment=' + strtotime($("input[name=appointment]").val()),
 			type: 'POST'
-		}).done(function(result) {
+		}).success(function(result) {
 			$('#calendar_table').html(result);
 			$('td.timebox').css('cursor', 'pointer');
 		});

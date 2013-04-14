@@ -1,7 +1,7 @@
 <div class="error_msg">
 	<?= $this->session->flashdata('msg') ?>
 	<?= validation_errors() ?>
-	<?php if ($is_success) { echo '<h3>true story</h3><br/>'; } ?>
+	<?= '<h3>'.$status_code.'</h3>' ?>
 </div>
 <?php
 	echo form_open('booking/add_appointment', array('id' => 'booking_form'));
@@ -35,23 +35,32 @@
 		$.ajax({
 			url: '<?= base_url() ?>index.php/booking/add_appointment',
 			type: 'POST',
-			data: $('#booking_form').serialize()
-		}).done(function(result){
-			refreshTable(parseInt($('#reference_time').attr('alt')));
-			$('#booking_details').html(result);
-			
-			// a result-ban kell legyen benne az info hogy sikerult e lefoglalni az idopontot vagy nem
-			
-			/*
-			// if booking was successful
-			$('#booking_details').invisible();
-			// clear form fields
-			$('#appointment').val('');
-			$('#book_fname').val('');
-			$('#book_sname').val('');
-			$('#payment_option_1').val('');
-			$('#payment_option_2').val('');
-			*/
+			data: $('#booking_form').serialize(),
+			success: function(result){
+				refreshTable(parseInt($('#reference_time').attr('alt')));
+				$('#booking_details').html(result);
+				
+				/*
+				// sikerült vmi, lefutott
+				$('#booking_details').invisible();
+				// clear form fields
+				$('#appointment').val('');
+				$('#book_fname').val('');
+				$('#book_sname').val('');
+				$('#payment_option_1').val('');
+				$('#payment_option_2').val('');
+				//*/
+			},
+		statusCode: {
+			404: function() {
+				$('#booking_details').html('Could not contact server.');
+			},
+			500: function() {
+				refreshTable(parseInt($('#reference_time').attr('alt')));
+				$('#booking_details').html('<h1>Lekésted! Időközben befoglalták!</h1>');
+			}
+		}
+		
 		});
 	});
 

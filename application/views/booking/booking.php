@@ -17,7 +17,7 @@
 				<span id="next_month">&gt;&gt;</span>
 			</div>
 			<div id="booking_details">
-				<?php $this->load->view('booking/form', array('is_success' => false)); ?>
+				<?php $this->load->view('booking/form', array('status_code' => '')); ?>
 			</div>
 		</div>
 	</div>
