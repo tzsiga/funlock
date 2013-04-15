@@ -163,13 +163,42 @@ body {
   }
 }
 body {
-  font-family: arial, verdana;
+  font-family: 'Source Sans Pro', arial, verdana;
+  background-image: url('../img/main/logo_vertical_left.png');
+  background-repeat: no-repeat;
+  background-size: 185px 938px;
 }
 #wrapper_intro {
   overflow: hidden;
 }
 #wrapper_content {
   margin: 0 auto;
+}
+#wrapper_content #navbar {
+  margin-left: 0px;
+}
+#wrapper_content #logo_small {
+  width: 156px;
+  height: 27px;
+  margin-bottom: 40px;
+}
+#wrapper_content #menu {
+  padding-top: 110px;
+}
+#wrapper_content #item_display_area {
+  text-align: justify;
+}
+#wrapper_content #legend {
+  width: 679px;
+  height: 59px;
+  margin-left: 80px;
+  margin-top: -30px;
+}
+#wrapper_content #prev_month,
+#wrapper_content #arrow_left,
+#wrapper_content #next_month,
+#wrapper_content #arrow_right {
+  width: 55px;
 }
 /*
 @media screen and (min-width: 480px) {
@@ -283,7 +312,6 @@ body {
 #content #calendar #next_month {
   display: table-cell;
   vertical-align: middle;
-  padding: 0 10px;
 }
 #content #calendar table {
   display: inline-block;
@@ -294,9 +322,15 @@ body {
   width: 92px;
   text-align: center;
   border: 1px solid black;
+  font-weight: normal;
+  font-size: 1.1em;
 }
 #content #calendar td.timebox_passed {
   background-color: lightgrey;
+}
+#content #calendar img.reserved {
+  width: 70px;
+  height: 20px;
 }
 #content #calendar #blank_cell {
   width: 100%;

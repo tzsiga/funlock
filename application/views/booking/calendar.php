@@ -4,7 +4,7 @@ function generate_table($reserved_dates, $ref_time, $selected_appointment) {
 	// table header, alt param contains the actual reference time variable
 	echo '<table id="calendar_table"><tr id="reference_time" alt="'.$ref_time.'"><th>'.form_input(array('id' => 'blank_cell')).'</th>';
 
-	$day_names = array('hétfő', 'kedd', 'szerda', 'csütörtök', 'péntek', 'szombat', 'vasárnap');
+	$day_names = array('- H -', '- K -', '- SZ -', '- CS -', '- P -', '- SZ -', '- V -');
 	$i = 0;
 	foreach ($day_names as $day_name) {
 		echo "<th>$day_name<br/><small>".date('Y-m-d', Utils::monday($ref_time) + $i++ * Utils::day).'</small></th>';
@@ -25,7 +25,7 @@ function generate_table($reserved_dates, $ref_time, $selected_appointment) {
 			} else {
 				// if in the present week or future
 				if (isset($reserved_dates[$cell_time])) {
-					echo "<td>".img(array('src' => 'assets/img/reserved.gif', 'title' => 'Foglalt időpont!', 'alt' => $reserved_dates[$cell_time]['id']))."</td>";
+					echo "<td>".img(array('src' => 'assets/img/main/reserved.png', 'class' => 'reserved', 'title' => 'Foglalt időpont!', 'alt' => $reserved_dates[$cell_time]['id']))."</td>";
 				} else {
 					if ($cell_time == $selected_appointment) {
 						echo '<td class="timebox" alt="'. date('Y-m-d H:i', $cell_time) .'" style="background-color: grey"></td>';

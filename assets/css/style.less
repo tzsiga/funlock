@@ -180,7 +180,10 @@ body {
 //#wrapper_content * {border: 1px dotted red;}
 
 body {
-	font-family: arial, verdana;
+	font-family: 'Source Sans Pro', arial, verdana;
+	background-image: url('../img/main/logo_vertical_left.png');
+	background-repeat: no-repeat;
+	background-size: 185px 938px;
 }
 
 #wrapper_intro {
@@ -190,6 +193,35 @@ body {
 #wrapper_content {
 	margin: 0 auto;
 	//overflow: auto;
+	
+	#navbar {
+		margin-left: 0px;
+	}
+	
+	#logo_small {
+		width: 156px;
+		height: 27px;
+		margin-bottom: 40px;
+	}
+	
+	#menu {
+		padding-top: 110px;
+	}
+	
+	#item_display_area {
+		text-align: justify;
+	}
+	
+	#legend {
+		width: 679px;
+		height: 59px;
+		margin-left: 80px;
+		margin-top: -30px;
+	}
+	
+	#prev_month, #arrow_left, #next_month, #arrow_right {
+		width: 55px;
+	}
 }
 
 // mobile view
@@ -308,7 +340,7 @@ body {
 		#prev_month, #next_month {
 			display: table-cell;
 			vertical-align: middle;
-			padding: 0 10px;
+			//padding: 0 10px;
 		}
 		
 		table {
@@ -319,11 +351,18 @@ body {
 			height: 36px;
 			width: 92px;
 			text-align: center;
-			border: 1px solid black;			
+			border: 1px solid black;
+			font-weight: normal;
+			font-size: 1.1em;
 		}
 		
 		td.timebox_passed {
 			background-color: lightgrey;
+		}
+		
+		img.reserved {
+			width: 70px;
+			height: 20px;
 		}
 		
 		#blank_cell {

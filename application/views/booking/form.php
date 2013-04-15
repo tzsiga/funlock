@@ -20,7 +20,7 @@
 	echo form_label('Fizetés', 'payment_option');
 	echo form_dropdown('payment_option', array('card' => 'kártyával', 'cache' => 'készpénzzel'), 'card');
 	echo '</p><p>';
-	echo form_label('Egyetértek a szerződéssel', 'eula');
+	echo form_label('Egyetértek a <a href="">szerződéssel</a>', 'eula');
 	echo form_checkbox(array('name' => 'eula', 'id' => 'eula', 'value' => 'accept', 'checked' => isset($posted['eula']) ? true : false));
 	echo '</p><p>';
 	echo '<br/>';

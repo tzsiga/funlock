@@ -30,21 +30,21 @@
 		$('#link_map').css('cursor', 'pointer');
 		$('#link_contact').css('cursor', 'pointer');
 		$('td.timebox').css('cursor', 'pointer');
-		$('#prev_month').css('cursor', 'pointer');
-		$('#next_month').css('cursor', 'pointer');
+		$('#arrow_left').css('cursor', 'pointer');
+		$('#arrow_right').css('cursor', 'pointer');
 	});
 	
 	// left menu items
 	
 	$('#link_info').click(function(){
 		$('#item_display_area').fadeOut(function(){
-			$(this).html('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.');
+			$(this).html('Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.');
 		}).fadeIn();
 	});
 	
 	$('#link_map').click(function(){
 		$('#item_display_area').fadeOut(function(){
-			$(this).html('<img id="map" src="<?= base_url() ?>assets/img/map.png" alt="" title="" />');
+			$(this).html('<img id="map" src="<?= base_url() ?>assets/img/main/map.png" alt="" title="" />');
 		}).fadeIn();
 	});
 	
@@ -66,13 +66,13 @@
 		});
 	}
 	
-	$('#prev_month').click(function(){
+	$('#arrow_left').click(function(){
 		if ($('#reference_time').attr('alt') > <?= time() ?>) {
 			refreshTable(parseInt($('#reference_time').attr('alt')) - parseInt(<?= Utils::week ?>));
 		}
 	});
 	
-	$('#next_month').click(function(){
+	$('#arrow_right').click(function(){
 		refreshTable(parseInt($('#reference_time').attr('alt')) + parseInt(<?= Utils::week ?>));
 	});
 	
