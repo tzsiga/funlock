@@ -46,7 +46,8 @@ generate_table($reserved_dates, $ref_time, $selected_appointment);
 
 ?>
 <script type="text/javascript">
-
+	
+	$('#blank_cell').css('cursor', 'pointer');
 	$('#blank_cell').datepicker({
 		firstDay: 1,
 		dateFormat: 'yy-mm-dd',

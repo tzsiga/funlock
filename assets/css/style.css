@@ -89,7 +89,6 @@ abbr[title] {
   border-bottom: 1px dotted;
 }
 table {
-  border-collapse: collapse;
   border-spacing: 0;
 }
 a img,
@@ -313,33 +312,73 @@ body {
   display: table-cell;
   vertical-align: middle;
 }
+#content #calendar table,
+#content #calendar #arrow_left,
+#content #calendar #arrow_right {
+  -moz-box-shadow: 8px 8px 15px #CCCCCC;
+  -webkit-box-shadow: 8px 8px 15px #CCCCCC;
+  box-shadow: 8px 8px 15px #CCCCCC;
+}
 #content #calendar table {
   display: inline-block;
+  border-radius: 4px 4px 4px 4px;
 }
 #content #calendar td,
 #content #calendar th {
   height: 36px;
   width: 92px;
   text-align: center;
-  border: 1px solid black;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
   font-weight: normal;
   font-size: 1.1em;
+  background-color: white;
 }
 #content #calendar td.timebox_passed {
   background-color: lightgrey;
+}
+#content #calendar th:last-child,
+#content #calendar td:last-child {
+  border-right: 1px solid black;
+}
+#content #calendar tr:last-child td {
+  border-bottom: 1px solid black;
+}
+#content #calendar th:first-child,
+#content #calendar th:first-child * {
+  border-radius: 4px 0 0 0;
+}
+#content #calendar th:last-child {
+  border-radius: 0 4px 0 0;
+}
+#content #calendar tr:last-child td:first-child {
+  border-radius: 0 0 0 4px;
+}
+#content #calendar tr:last-child td:last-child {
+  border-radius: 0 0 4px 0;
 }
 #content #calendar img.reserved {
   width: 70px;
   height: 20px;
 }
 #content #calendar #blank_cell {
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 90%;
   color: white;
   border: none;
 }
+#content #booking_details {
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 4px 4px 4px 4px;
+  width: 600px;
+  margin: 30px auto 0;
+  -moz-box-shadow: 8px 8px 15px #CCCCCC;
+  -webkit-box-shadow: 8px 8px 15px #CCCCCC;
+  box-shadow: 8px 8px 15px #CCCCCC;
+}
 #content #booking_details form {
-  margin-bottom: 3em;
+  line-height: 30px;
 }
 #content #booking_details .error_msg {
   color: #DC0000;

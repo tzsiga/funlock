@@ -90,8 +90,8 @@ b, strong {font-weight: bold;}
 abbr[title] {border-bottom: 1px dotted;}
 
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
+  //border-collapse: collapse;
+  border-spacing: 0;
 }
 
 a img, img {
@@ -174,6 +174,16 @@ body {
 
 ///////////////////////////////////////////////////////////////////////////////
 /////// own design starts here/////////////////////////////////////////////////
+
+.rounded-corners (@radius: 6px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  -ms-border-radius: @radius;
+  -o-border-radius: @radius;
+  border-radius: @radius;
+}
+
+@rad: 4px;
 
 /////// basic design elements /////////////////////////////////////////////////
 
@@ -340,24 +350,58 @@ body {
 		#prev_month, #next_month {
 			display: table-cell;
 			vertical-align: middle;
-			//padding: 0 10px;
 		}
+		
+		table, #arrow_left, #arrow_right {
+				 -moz-box-shadow: 8px 8px 15px #CCCCCC;
+			-webkit-box-shadow: 8px 8px 15px #CCCCCC;
+							box-shadow: 8px 8px 15px #CCCCCC;
+		}
+		
+		
 		
 		table {
 			display: inline-block;
+			border-radius: @rad @rad @rad @rad;
 		}
 		
 		td, th {
 			height: 36px;
 			width: 92px;
 			text-align: center;
-			border: 1px solid black;
+			border-top: 1px solid black;
+			border-left: 1px solid black;
 			font-weight: normal;
 			font-size: 1.1em;
+			background-color: white;
 		}
 		
 		td.timebox_passed {
 			background-color: lightgrey;
+		}
+		
+		th:last-child, td:last-child {
+			border-right: 1px solid black;
+		}
+		
+		tr:last-child td {
+			border-bottom: 1px solid black;
+		}
+		
+		th:first-child, th:first-child * {
+			border-radius: @rad 0 0 0;
+		}
+
+		th:last-child {
+			border-radius: 0 @rad 0 0;
+		}
+
+		tr:last-child td:first-child {
+			border-radius: 0 0 0 @rad;
+		}
+		
+		tr:last-child td:last-child {
+			border-radius: 0 0 @rad 0;
 		}
 		
 		img.reserved {
@@ -366,16 +410,31 @@ body {
 		}
 		
 		#blank_cell {
-			width: 100%;
-			height: 100%;
+			width: 90%;
+			height: 90%;
 			color: white;
 			border: none;
 		}
 	}
 	
 	#booking_details {
+		border: 1px solid black;
+		padding: 20px;
+		border-radius: @rad @rad @rad @rad;
+		width: 600px;
+		margin: 30px auto 0;
+				 -moz-box-shadow: 8px 8px 15px #CCCCCC;
+			-webkit-box-shadow: 8px 8px 15px #CCCCCC;
+							box-shadow: 8px 8px 15px #CCCCCC;
+		
 		form {
-			margin-bottom: @1col;
+			line-height: 30px;
+			
+			label {
+			}
+			
+			input, textarea {
+			}
 		}
 		
 		.error_msg {

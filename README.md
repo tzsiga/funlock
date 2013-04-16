@@ -3,7 +3,7 @@ funlock
 
 ### Recent changes
 
-* small ui, db updates
+* ui updates
 
 ### Changelog
 

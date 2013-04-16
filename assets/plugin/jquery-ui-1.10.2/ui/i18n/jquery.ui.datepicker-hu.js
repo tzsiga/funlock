@@ -12,7 +12,7 @@ jQuery(function($){
 		'Júl', 'Aug', 'Szep', 'Okt', 'Nov', 'Dec'],
 		dayNames: ['Vasárnap', 'Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat'],
 		dayNamesShort: ['Vas', 'Hét', 'Ked', 'Sze', 'Csü', 'Pén', 'Szo'],
-		dayNamesMin: ['V', 'H', 'K', 'Sze', 'Cs', 'P', 'Szo'],
+		dayNamesMin: ['V', 'H', 'K', 'SZ', 'Cs', 'P', 'SZ'],
 		weekHeader: 'Hét',
 		dateFormat: 'yy.mm.dd.',
 		firstDay: 1,
