@@ -1,4 +1,5 @@
-<?php $this->load->view('header_admin'); ?>
+<?php $this->load->view('header'); ?>
+<body>
 	<div id="wrapper_admin">
 		<h1>
 			Új foglalás
@@ -81,4 +82,5 @@
 		$('#appointment').datepicker({ firstDay: 1, dateFormat: 'yy-mm-dd' });
 		$('#booking_date').datepicker({ firstDay: 1, dateFormat: 'yy-mm-dd <?= date('H:i') ?>' });
 	</script>
-<?php $this->load->view('footer'); ?>
+</body>
+</html>

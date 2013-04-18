@@ -1,4 +1,5 @@
-<?php $this->load->view('header_admin'); ?>
+<?php $this->load->view('header'); ?>
+<body>
 	<div id="wrapper_admin">
 		<h1>
 			Adminisztrációs felület
@@ -21,4 +22,5 @@
 			</ul>
 		</div>
 	</div>
-<?php $this->load->view('footer'); ?>
+</body>
+</html>

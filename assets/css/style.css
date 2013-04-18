@@ -163,15 +163,18 @@ body {
 }
 body {
   font-family: 'Source Sans Pro', arial, verdana;
+}
+body#main_page {
   background-image: url('../img/main/logo_vertical_left.png');
   background-repeat: no-repeat;
   background-size: 185px 938px;
+  padding-left: 100px;
 }
 #wrapper_intro {
   overflow: hidden;
 }
 #wrapper_content {
-  margin: 0 auto;
+  margin: 0;
 }
 #wrapper_content #navbar {
   margin-left: 0px;
@@ -180,12 +183,15 @@ body {
   width: 156px;
   height: 27px;
   margin-bottom: 40px;
+  margin-left: 100px;
 }
 #wrapper_content #menu {
-  padding-top: 110px;
+  padding-top: 140px;
+  padding-left: 50px;
 }
 #wrapper_content #item_display_area {
   text-align: justify;
+  padding-left: 38px;
 }
 #wrapper_content #legend {
   width: 679px;
@@ -311,17 +317,44 @@ body {
 #content #calendar #next_month {
   display: table-cell;
   vertical-align: middle;
+  height: 110px;
 }
-#content #calendar table,
+#content #calendar #next_month {
+  position: relative;
+  z-index: 2;
+}
 #content #calendar #arrow_left,
 #content #calendar #arrow_right {
+  background-color: white;
   -moz-box-shadow: 8px 8px 15px #CCCCCC;
   -webkit-box-shadow: 8px 8px 15px #CCCCCC;
   box-shadow: 8px 8px 15px #CCCCCC;
 }
-#content #calendar table {
-  display: inline-block;
+#content #calendar #table_wrapper {
+  -moz-box-shadow: 8px 8px 15px #CCCCCC;
+  -webkit-box-shadow: 8px 8px 15px #CCCCCC;
+  box-shadow: 8px 8px 15px #CCCCCC;
+  vertical-align: text-bottom;
   border-radius: 4px 4px 4px 4px;
+  display: inline-block;
+}
+#content #calendar #arrow_left {
+  border: 1px solid black;
+  border-right: 0;
+  border-radius: 4px 0 0 4px;
+}
+#content #calendar #arrow_right {
+  border: 1px solid black;
+  border-left: 0;
+  border-radius: 0 4px 4px 0;
+}
+#content #calendar table {
+  background-color: white;
+  display: table-cell;
+  vertical-align: bottom;
+  border-radius: 4px 4px 4px 4px;
+  margin: 0;
+  padding: 0;
 }
 #content #calendar td,
 #content #calendar th {
@@ -361,11 +394,23 @@ body {
   width: 70px;
   height: 20px;
 }
+#content #calendar #calendar_label {
+  font-size: 0.8em;
+  z-index: 1;
+  position: relative;
+  top: 10px;
+  height: 0px;
+  margin: -30px 0;
+}
 #content #calendar #blank_cell {
   width: 90%;
   height: 90%;
+  margin-top: -30px;
   color: white;
-  border: none;
+  opacity: 0;
+  z-index: 2;
+  position: relative;
+  vertical-align: middle;
 }
 #content #booking_details {
   border: 1px solid black;

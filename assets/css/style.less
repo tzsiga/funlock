@@ -175,14 +175,6 @@ body {
 ///////////////////////////////////////////////////////////////////////////////
 /////// own design starts here/////////////////////////////////////////////////
 
-.rounded-corners (@radius: 6px) {
-  -webkit-border-radius: @radius;
-  -moz-border-radius: @radius;
-  -ms-border-radius: @radius;
-  -o-border-radius: @radius;
-  border-radius: @radius;
-}
-
 @rad: 4px;
 
 /////// basic design elements /////////////////////////////////////////////////
@@ -191,9 +183,14 @@ body {
 
 body {
 	font-family: 'Source Sans Pro', arial, verdana;
+}
+
+body#main_page {
 	background-image: url('../img/main/logo_vertical_left.png');
 	background-repeat: no-repeat;
 	background-size: 185px 938px;
+	
+	padding-left: 100px;
 }
 
 #wrapper_intro {
@@ -201,7 +198,7 @@ body {
 }
 
 #wrapper_content {
-	margin: 0 auto;
+	margin: 0;
 	//overflow: auto;
 	
 	#navbar {
@@ -212,14 +209,17 @@ body {
 		width: 156px;
 		height: 27px;
 		margin-bottom: 40px;
+		margin-left: 100px;
 	}
 	
 	#menu {
-		padding-top: 110px;
+		padding-top: 140px;
+		padding-left: 50px;
 	}
 	
 	#item_display_area {
 		text-align: justify;
+		padding-left: 38px;
 	}
 	
 	#legend {
@@ -350,19 +350,51 @@ body {
 		#prev_month, #next_month {
 			display: table-cell;
 			vertical-align: middle;
+			height: 110px;
 		}
 		
-		table, #arrow_left, #arrow_right {
+		#next_month {
+			position: relative;
+			z-index: 2;
+		}
+		
+		#arrow_left, #arrow_right {
+			background-color: white;
 				 -moz-box-shadow: 8px 8px 15px #CCCCCC;
 			-webkit-box-shadow: 8px 8px 15px #CCCCCC;
 							box-shadow: 8px 8px 15px #CCCCCC;
 		}
 		
+		#table_wrapper {
+				 -moz-box-shadow: 8px 8px 15px #CCCCCC;
+			-webkit-box-shadow: 8px 8px 15px #CCCCCC;
+							box-shadow: 8px 8px 15px #CCCCCC;
+							vertical-align: text-bottom;
+			border-radius: @rad @rad @rad @rad;
+			
+			display: inline-block;
+			
+		}
 		
+		#arrow_left {
+			border: 1px solid black;
+			border-right: 0;
+			border-radius: @rad 0 0 @rad;
+		}
+		
+		#arrow_right {
+			border: 1px solid black;
+			border-left: 0;
+			border-radius: 0 @rad @rad 0;
+		}
 		
 		table {
-			display: inline-block;
+			background-color: white;
+			display: table-cell;
+			vertical-align: bottom;
 			border-radius: @rad @rad @rad @rad;
+			margin: 0;
+			padding: 0;
 		}
 		
 		td, th {
@@ -409,11 +441,24 @@ body {
 			height: 20px;
 		}
 		
+		#calendar_label {
+			font-size: 0.8em;
+			z-index: 1;
+			position: relative;
+			top: 10px;
+			height: 0px;
+			margin: -30px 0;
+		}
+		
 		#blank_cell {
 			width: 90%;
 			height: 90%;
+			margin-top: -30px;
 			color: white;
-			border: none;
+			opacity: 0;
+			z-index: 2;
+			position: relative;
+			vertical-align: middle;
 		}
 	}
 	

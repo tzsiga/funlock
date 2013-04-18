@@ -1,4 +1,5 @@
-<?php $this->load->view('header_admin'); ?>
+<?php $this->load->view('header'); ?>
+<body>
 	<div id="wrapper_admin">
 		<h1>
 			Foglalások szerkesztése/törlése
@@ -17,9 +18,7 @@
 						echo '</ul><hr/><h3>Új játékok:</h3><ul>';
 						$current_time_flag = false;
 					}
-
 					echo '<li>';
-
 					echo date('Y-m-d H:i', $date);
 					echo ' - ';
 					echo $booking['client'];
@@ -36,4 +35,5 @@
 			</p>
 		</div>
 	</div>
-<?php $this->load->view('footer'); ?>
+</body>
+</html>

@@ -37,7 +37,7 @@ class Booking extends CI_Controller {
 			$this->form_validation->set_rules('book_sname', '"Foglaló keresztneve"', 'required|xss_clean');
 			$this->form_validation->set_rules('appointment', '"Foglalt időpont"', 'required|xss_clean');
 			$this->form_validation->set_rules('payment_option', '"Fizetés ..."', 'required|xss_clean');
-			$this->form_validation->set_rules('booking_date', '"Foglalás időpontja"', 'required|xss_clean');
+			//$this->form_validation->set_rules('booking_date', '"Foglalás időpontja"', 'required|xss_clean');
 			$this->form_validation->set_rules('eula', '"Szerződés feltételei"', 'required|xss_clean');
 			
 			$is_success = false;
@@ -55,7 +55,7 @@ class Booking extends CI_Controller {
 //					'tax_number' 		=> $posted['tax_number'],
 //					'comment' 			=> $posted['comment'],
 //					'notes' 				=> $posted['notes'],
-					'booking_date' 		=> strtotime($posted['booking_date'])
+					'booking_date' 		=> time()
 				);
 				
 				$status_code = 'validation OK';

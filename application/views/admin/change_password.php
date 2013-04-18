@@ -1,4 +1,5 @@
-<?php $this->load->view('header_admin'); ?>
+<?php $this->load->view('header'); ?>
+<body>
 	<div id="wrapper_admin">
 		<h1>
 			Jelszó változtatás
@@ -28,4 +29,5 @@
 			<a href="<?= base_url() ?>index.php/admin">Vissza</a>
 		</p>
 	</div>
-<?php $this->load->view('footer'); ?>
+</body>
+</html>

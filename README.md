@@ -3,10 +3,12 @@ funlock
 
 ### Recent changes
 
-* ui updates
+* many ui updates
+* ajax polling DB every 15 sec
 
 ### Changelog
 
+* ui updates, css progress
 * booking form ajax porting, validation errors displaying on the form
 * working admin pages
 * DB schema updated

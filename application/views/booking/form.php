@@ -9,7 +9,7 @@
 	//echo form_label('Időpont', 'appointment');
 	//echo form_input(array('name' => 'appointment', 'id' => 'appointment', 'value' => isset($posted['appointment']) ? $posted['appointment'] : ''));
 	echo form_hidden('appointment', isset($posted['appointment']) ? $posted['appointment'] : '');
-	echo form_hidden('booking_date', date('Y-m-d H:i'));
+	//echo form_hidden('booking_date', date('Y-m-d H:i'));
 	echo '</p><p>';
 	echo form_label('Vezetéknév', 'book_fname');
 	echo form_input(array('name' => 'book_fname', 'id' => 'book_fname', 'value' => isset($posted['book_fname']) ? $posted['book_fname'] : ''));

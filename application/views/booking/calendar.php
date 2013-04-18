@@ -2,7 +2,7 @@
 
 function generate_table($reserved_dates, $ref_time, $selected_appointment) {
 	// table header, alt param contains the actual reference time variable
-	echo '<table id="calendar_table"><tr id="reference_time" alt="'.$ref_time.'"><th>'.form_input(array('id' => 'blank_cell')).'</th>';
+	echo '<table id="calendar_table"><tr id="reference_time" alt="'.$ref_time.'"><th><span id="calendar_label">naptár</span>'.form_input(array('id' => 'blank_cell')).'</th>';
 
 	$day_names = array('- H -', '- K -', '- SZ -', '- CS -', '- P -', '- SZ -', '- V -');
 	$i = 0;

@@ -1,4 +1,5 @@
 <?php $this->load->view('header'); ?>
+<body id="intro_page">
 	<div id="action_zone">
 		<!-- az action zone tartalmazza a slidereket, hozzá képest kell megadni a csúszkák KEZDETI pozícióját -->
 		<div class="slider" id="S1" style="margin-top: 0px; margin-left: 0;"></div>
@@ -12,4 +13,5 @@
 		<div id="enter"><a href="<?= base_url().'index.php/booking' ?>">ENTER</a></div>
 	</div>
 	<?php $this->load->view('intro/intro_js'); ?>
-<?php $this->load->view('footer'); ?>
+</body>
+</html>
