@@ -38,7 +38,7 @@
 	
 	var item_info = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
 	var item_map = '<img id="map" src="<?= base_url() ?>assets/img/main/map.png" alt="" title="" />';
-	var item_contact = 'Budapest 1023<br/>Galgóczy utca 16.<br/>T.: 0036/307726213<br/>info@funlock.hu';
+	var item_contact = 'Budapest 1023<br/>Akármi  utca 16.<br/>T.: 0036/12321315<br/>info@funlock.hu';
 	
 	function replaceAll(txt, replace, with_this) {
 		return txt.replace(new RegExp(replace, 'g'), with_this);
@@ -73,7 +73,7 @@
 			}
 		});
 	});
-	
+		
 	// booking calendar wrapper
 	
 	var timer = $.timer(function() {
@@ -89,7 +89,7 @@
 			url: '<?= base_url() ?>index.php/booking/generate_table?ref_time=' + ref_time + '&selected_appointment=' + strtotime($("input[name=appointment]").val()),
 			type: 'POST'
 		}).success(function(result) {
-			$('#calendar_table').html(result);
+			$('#table_wrapper').html(result);
 			$('td.timebox').css('cursor', 'pointer');
 		});
 	}

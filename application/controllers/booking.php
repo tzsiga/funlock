@@ -33,45 +33,42 @@ class Booking extends CI_Controller {
 		$posted = $this->input->post();
 		
 		if ($posted) {
+			$this->form_validation->set_rules('appointment', '"Foglalt időpont"', 'required|xss_clean');
 			$this->form_validation->set_rules('book_fname', '"Foglaló vezetékneve"', 'required|xss_clean');
 			$this->form_validation->set_rules('book_sname', '"Foglaló keresztneve"', 'required|xss_clean');
-			$this->form_validation->set_rules('appointment', '"Foglalt időpont"', 'required|xss_clean');
-			$this->form_validation->set_rules('payment_option', '"Fizetés ..."', 'required|xss_clean');
-			//$this->form_validation->set_rules('booking_date', '"Foglalás időpontja"', 'required|xss_clean');
+			$this->form_validation->set_rules('phone', '"Telefon"', 'required|xss_clean');
 			$this->form_validation->set_rules('eula', '"Szerződés feltételei"', 'required|xss_clean');
+			$this->form_validation->set_rules('email', '"Email"', 'required|xss_clean|valid_email');
+			$this->form_validation->set_rules('zip', '"Irányítószám"', 'required|xss_clean');
+			$this->form_validation->set_rules('city', '"Város"', 'required|xss_clean');
+			$this->form_validation->set_rules('street', '"Utca"', 'required|xss_clean');
+			$this->form_validation->set_rules('house', '"Házszám"', 'required|xss_clean');
+			
+			if (isset($posted['billing'])) {
+				$this->form_validation->set_rules('tax_number', '"Adószám"', 'required|xss_clean');
+				$this->form_validation->set_rules('bill_fname', '"Számlázási vezetéknév"', 'required|xss_clean');
+				$this->form_validation->set_rules('bill_sname', '"Számlázási keresztnév"', 'required|xss_clean');
+			}
 			
 			$is_success = false;
 			
 			if ($this->form_validation->run() == true) {
 				$data = array(
+					'appointment' 		=> strtotime($posted['appointment']),
 					'book_fname' 			=> $posted['book_fname'],
 					'book_sname' 			=> $posted['book_sname'],
-					'appointment' 		=> strtotime($posted['appointment']),
 					'payment_option' 	=> $posted['payment_option'],
-//					'bill_fname' 		=> $posted['bill_fname'],
-//					'bill_sname' 		=> $posted['bill_sname'],
-//					'email' 				=> $posted['email'],
-//					'zip' 					=> $posted['zip'],
-//					'tax_number' 		=> $posted['tax_number'],
-//					'comment' 			=> $posted['comment'],
-//					'notes' 				=> $posted['notes'],
+					'email' 					=> $posted['email'],
+					'tax_number' 			=> $posted['tax_number'],
+					'bill_fname' 			=> $posted['bill_fname'],
+					'bill_sname'	 		=> $posted['bill_sname'],
+					'zip' 						=> $posted['zip'],
+					'city' 						=> $posted['city'],
+					'street'					=> $posted['street'],
+					'house' 					=> $posted['house'],
+					'comment' 				=> $posted['comment'],
 					'booking_date' 		=> time()
 				);
-				
-				$status_code = 'validation OK';
-				
-				/*
-				// check if is there any existing appointment with the sami timestamp
-				$query = $this->db->query('SELECT appointment FROM bookings WHERE appointment = '.strtotime($posted['appointment']));
-				
-				// if yes: insert error
-				if ($query->num_rows() > 0) {
-					$status_code = 'conflict error';
-				}
-				
-				// $is_success should be a status code of inserting
-				// $this->db->_error_message();
-				*/
 				
 				$this->db->insert('bookings', $data);
 				
