@@ -1,179 +1,8 @@
-/*
-	Frameless			<http://framelessgrid.com/>
-	by Joni Korpi 		<http://jonikorpi.com/>
-	licensed under CC0	<http://creativecommons.org/publicdomain/zero/1.0/>
-*/
+@import "frameless.less";
+@import "style_480.less";
 
-//
-// Configuration
-//
+//@media screen and (min-width: 900px) { ... }
 
-@font-size: 16; 		// Your base font-size in pixels
-@em: @font-size*1em;	// Shorthand for outputting ems, e.g. "12/@em"
-
-@column: 48;	// The column-width of your grid in pixels
-@gutter: 24;	// The gutter-width of your grid in pixels
-
-//
-// Column-widths in variables, in ems
-//
-
- @1cols: ( 1 * (@column + @gutter) - @gutter) / @em; @1col: @1cols;
- @2cols: ( 2 * (@column + @gutter) - @gutter) / @em;
- @3cols: ( 3 * (@column + @gutter) - @gutter) / @em;
- @4cols: ( 4 * (@column + @gutter) - @gutter) / @em;
- @5cols: ( 5 * (@column + @gutter) - @gutter) / @em;
- @6cols: ( 6 * (@column + @gutter) - @gutter) / @em;
- @7cols: ( 7 * (@column + @gutter) - @gutter) / @em;
- @8cols: ( 8 * (@column + @gutter) - @gutter) / @em;
- @9cols: ( 9 * (@column + @gutter) - @gutter) / @em;
-@10cols: (10 * (@column + @gutter) - @gutter) / @em;
-@11cols: (11 * (@column + @gutter) - @gutter) / @em;
-@12cols: (12 * (@column + @gutter) - @gutter) / @em;
-@13cols: (13 * (@column + @gutter) - @gutter) / @em;
-@14cols: (14 * (@column + @gutter) - @gutter) / @em;
-@15cols: (15 * (@column + @gutter) - @gutter) / @em;
-@16cols: (16 * (@column + @gutter) - @gutter) / @em;
-@17cols: (17 * (@column + @gutter) - @gutter) / @em;
-@18cols: (18 * (@column + @gutter) - @gutter) / @em;
-@19cols: (19 * (@column + @gutter) - @gutter) / @em;
-@20cols: (20 * (@column + @gutter) - @gutter) / @em;
-
-//
-// Column-widths in a function, in ems
-//
-
-.width (@cols:1) {
-	width: (@cols * (@column + @gutter) - @gutter) / @em;
-}
-
-body, div,
-h1, h2, h3, h4, h5, h6,
-p, blockquote, pre, dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend, th, td,
-article, aside, figure, footer, header, hgroup, menu, nav, section {
-	margin: 0;
-	padding: 0;
-	border: 0;
-}
-
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, nav, section, audio, canvas, video {
-	display: block;
-}
-
-html {
-	height: 100%; 
-	-webkit-text-size-adjust: 100%; 
-	-ms-text-size-adjust: 100%;
-}
-
-	body {/*min-height: 100%;*/ font-size: 100%;}
-
-sub, sup {
-	font-size: 75%; 
-	line-height: 0; 
-	position: relative; 
-	vertical-align: baseline;
-}
-
-	sup {top: -0.5em;}
-	sub {bottom: -0.25em;}
-
-pre {
-	white-space: pre; 
-	white-space: pre-wrap; 
-	word-wrap: break-word;
-}
-
-b, strong {font-weight: bold;}
-abbr[title] {border-bottom: 1px dotted;}
-
-table {
-  //border-collapse: collapse;
-  border-spacing: 0;
-}
-
-a img, img {
-	-ms-interpolation-mode: bicubic;
-	border: 0;
-}
-
-input, textarea, button, select {
-	margin: 0;
-	font-size: 100%;
-	line-height: normal;
-	vertical-align: baseline;
-}
-
-	button,
-	html input[type="button"], 
-	input[type="reset"], 
-	input[type="submit"] {
-	    cursor: pointer;
-	    -webkit-appearance: button;
-	}
-	
-	input[type="checkbox"],
-	input[type="radio"] {
-		-webkit-box-sizing: border-box;
-		   -moz-box-sizing: border-box;
-			 -o-box-sizing: border-box;
-			-ms-box-sizing: border-box;
-				box-sizing: border-box;
-	}
-	
-	textarea {overflow: auto;}
-
-::selection {
-	background: red;
-	color: white;
-}
-::-moz-selection {
-	background: red;
-	color: white;
-}
-
-img::selection {
-	background: transparent;
-}
-img::-moz-selection {
-	background: transparent;
-}
-
-body {
-	-webkit-tap-highlight-color: rgba(255,0,0, 0.62);
-}
-
-/*
-	Style overrides for IE6-8
-	http://jonikorpi.com/leaving-old-IE-behind/
-*/
-
-.ie {}
-
-/*
-	An easy way to zoom your entire layout in or out (as long as it's set in ems).
-	Just change the media queries to activate them.
-	Assuming your base font-size is 16:
-	- the first one zooms out by a factor of (16-2)/16 = 0.875
-	- the second one zooms in by a factor of (16+2)/16 = 1.125  
-*/
-
-@media screen and (max-width: 1px) {
-	body {
-		font-size: (@font-size - 2)/16*1em;
-	}
-}
-
-@media screen and (max-width: 1px) {
-	body {
-		font-size: (@font-size + 2)/16*1em;
-	}
-}
-
-///////////////////////////////////////////////////////////////////////////////
-/////// own design starts here/////////////////////////////////////////////////
 
 @rad: 4px;
 
@@ -189,6 +18,56 @@ body {
 	//border: 1px solid red;
 }
 
+/////// intro page ////////////////////////////////////////////////////////////
+
+body#intro_page {
+	overflow: hidden;
+	background-image: url('../img/intro/bg_grid_2.gif');
+	background-position: left center;
+	//background-position: center center;
+}
+
+#action_zone {
+	height: 540px;
+	width: (84 * 11px + 3px);
+	position: relative;
+	margin: 0 165px;
+//	border: 1px dashed red;
+//	background-image: url('../img/intro/bg_grid_2.gif');
+	
+	.slider {
+		display: inline-block;
+		position: absolute;
+		height: 177px;
+		width: 5px;
+		margin: 0;
+	}
+
+	#enter {
+		display: inline-block;
+		position: absolute;
+		bottom: 0px;
+		right: 0px;
+		font-weight: normal;
+		padding: 3px 7px 3px 11px;
+		letter-spacing: 2px;
+		color: white;
+		background-color: black;
+		
+		a:link, a:visited {
+			color: white;
+			text-decoration: none;
+		}
+		
+		a:hover {
+			color: crimson;
+			text-decoration: none;
+		}
+	}
+}
+
+/////// main page //////////////////////////////////////////////////////////
+
 body#main_page {
 	background-color: #E8E9EA;
 	background-image: url('../img/main/logo_vertical_left.png'), -moz-linear-gradient(top, #FFFFFF 0%, #E8E9EA 100%);
@@ -203,17 +82,16 @@ body#main_page {
 	padding-left: 100px;
 }
 
-body#intro_page {
-	overflow: hidden;
-}
-
 #wrapper_content {
+	width: @18cols;
 	margin: 0;
 	//overflow: auto;
 	
 	#navbar {
 		margin-left: 0px;
 		width: 250px;
+		margin-top: @1col;
+		margin-left: (@1col / 2);
 	}
 	
 	#logo_small {
@@ -243,96 +121,6 @@ body#intro_page {
 	}
 }
 
-// mobile view
-/*
-@media screen and (min-width: 480px) {
-	#wrapper_content {
-		width: @10cols;
-	}
-
-	#action_zone {
-		height: 0.625 * @10cols;
-		width: @10cols;
-	}
-}
-*/
-
-// default view
-@media screen and (min-width: 900px) {
-	#wrapper_content {
-		width: @18cols;
-	}
-	
-	#navbar {
-		width: @5cols;
-		margin-top: @1col;
-		margin-left: (@1col / 2);
-	}
-	
-	#content {
-		//height: @9cols;
-		width: @12cols;
-		margin-top: @1col;
-		margin-left: @1col;
-	}
-
-	#action_zone {
-		height: 0.625 * @14cols;
-		width: @14cols;
-	}
-}
-
-/////// intro page ////////////////////////////////////////////////////////////
-
-#action_zone {
-	position: relative;
-	margin: (@1col / 2) auto 0;
-	border: 1px dashed grey;
-	background-image: url('../img/grid.png');
-	
-	.slider {
-		display: inline-block;
-		position: absolute;
-		height: 100px;
-		width: 10px;
-		margin: 0;
-	}
-	
-	// ezt majd generaltatni kell, ott ahol a random kezdo offsetet adjuk meg!
-	#S1 { background-image: url('../img/1.png'); }
-	#S2 { background-image: url('../img/2.png'); }
-	#S3 { background-image: url('../img/3.png'); }
-	#S4 { background-image: url('../img/4.png'); }
-	#S5 { background-image: url('../img/5.png'); }
-	#S6 { background-image: url('../img/6.png'); }
-	#S7 { background-image: url('../img/7.png'); }
-	#S8 { background-image: url('../img/8.png'); }
-	
-	#enter {
-		display: inline-block;
-		position: absolute;
-		bottom: 0px;
-		right: 0px;
-		font-weight: bold;
-		padding: 0 10px 0 14px;
-		letter-spacing: 3px;
-		color: white;
-		background-color: black;
-		
-		a:link, a:visited {
-			color: white;
-			text-decoration: none;
-		}
-		
-		a:hover {
-			color: crimson;
-			text-decoration: none;
-		}
-	}
-}
-
-/////// content page //////////////////////////////////////////////////////////
-
 #navbar {
 	display: inline-block;
 	float: left;
@@ -356,6 +144,10 @@ body#intro_page {
 	float: left;
 	
 	#calendar {
+		width: @12cols;
+		margin-top: @1col;
+		margin-left: @1col;
+
 		display: table;
 		margin-bottom: @1col;
 		
