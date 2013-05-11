@@ -225,97 +225,91 @@ body#main_page {
   background-size: 185px 938px, auto;
   padding-left: 100px;
 }
-#wrapper_content {
+body#main_page #wrapper_content {
   width: 79.5em;
   margin: 0;
 }
-#wrapper_content #navbar {
+body#main_page #wrapper_content #navbar {
+  display: inline-block;
+  float: left;
   margin-left: 0px;
   width: 250px;
-  margin-top: 3em;
-  margin-left: 1.5em;
+  margin-top: 36px;
+  margin-left: 18px;
 }
-#wrapper_content #logo_small {
+body#main_page #wrapper_content #navbar #menu {
+  padding-top: 230px;
+  margin: 0 0 20px;
+}
+body#main_page #wrapper_content #navbar #menu ul {
+  list-style: none;
+  padding-left: 20px;
+  width: 100px;
+}
+body#main_page #wrapper_content #navbar #item_display_area {
+  text-align: justify;
+}
+body#main_page #wrapper_content #logo_small {
   width: 156px;
   height: 27px;
   margin-bottom: 40px;
   margin-left: 100px;
 }
-#wrapper_content #menu {
-  padding-top: 230px;
-}
-#wrapper_content #item_display_area {
-  text-align: justify;
-}
-#wrapper_content #legend {
+body#main_page #wrapper_content #legend {
   width: 679px;
   height: 59px;
   margin-left: 80px;
   margin-top: -30px;
 }
-#wrapper_content #prev_month,
-#wrapper_content #arrow_left,
-#wrapper_content #next_month,
-#wrapper_content #arrow_right {
+body#main_page #wrapper_content #prev_month,
+body#main_page #wrapper_content #arrow_left,
+body#main_page #wrapper_content #next_month,
+body#main_page #wrapper_content #arrow_right {
   width: 55px;
 }
-#navbar {
-  display: inline-block;
-  float: left;
-}
-#navbar #menu {
-  margin: 0 0 20px;
-}
-#navbar #menu ul {
-  list-style: none;
-  padding-left: 20px;
-  width: 100px;
-}
-#content {
+body#main_page #content {
   margin-left: 0px;
   display: inline-block;
   float: left;
 }
-#content #calendar {
-  width: 52.5em;
-  margin-top: 3em;
-  margin-left: 3em;
+body#main_page #content #calendar {
   display: table;
-  margin-bottom: 3em;
+  width: 840px;
+  margin: 36px 0 50px;
 }
-#content #calendar #prev_month,
-#content #calendar #next_month {
+body#main_page #content #calendar #prev_month,
+body#main_page #content #calendar #next_month {
   display: table-cell;
   vertical-align: middle;
   height: 110px;
 }
-#content #calendar #next_month {
+body#main_page #content #calendar #next_month {
   position: relative;
   z-index: 2;
 }
-#content #calendar #arrow_left,
-#content #calendar #arrow_right {
+body#main_page #content #calendar #arrow_left,
+body#main_page #content #calendar #arrow_right {
   background-color: white;
   -moz-box-shadow: 8px 8px 15px #CCCCCC;
   -webkit-box-shadow: 8px 8px 15px #CCCCCC;
   box-shadow: 8px 8px 15px #CCCCCC;
 }
-#content #calendar #table_wrapper {
+body#main_page #content #calendar #table_wrapper {
   vertical-align: text-bottom;
   border-radius: 4px 4px 4px 4px;
   display: inline-block;
 }
-#content #calendar #arrow_left {
+body#main_page #content #calendar #arrow_left {
   border: 1px solid black;
   border-right: 0;
   border-radius: 4px 0 0 4px;
 }
-#content #calendar #arrow_right {
+body#main_page #content #calendar #arrow_right {
   border: 1px solid black;
   border-left: 0;
   border-radius: 0 4px 4px 0;
 }
-#content #calendar table {
+body#main_page #content #calendar table {
   background-color: white;
   display: table-cell;
   vertical-align: bottom;
@@ -326,8 +320,8 @@ body#main_page {
   -webkit-box-shadow: 8px 8px 15px #CCCCCC;
   box-shadow: 8px 8px 15px #CCCCCC;
 }
-#content #calendar td,
-#content #calendar th {
+body#main_page #content #calendar td,
+body#main_page #content #calendar th {
   height: 36px;
   width: 92px;
   text-align: center;
@@ -337,34 +331,34 @@ body#main_page {
   font-size: 1.1em;
   background-color: white;
 }
-#content #calendar td.timebox_passed {
+body#main_page #content #calendar td.timebox_passed {
   background-color: lightgrey;
 }
-#content #calendar th:last-child,
-#content #calendar td:last-child {
+body#main_page #content #calendar th:last-child,
+body#main_page #content #calendar td:last-child {
   border-right: 1px solid black;
 }
-#content #calendar tr:last-child td {
+body#main_page #content #calendar tr:last-child td {
   border-bottom: 1px solid black;
 }
-#content #calendar th:first-child,
-#content #calendar th:first-child * {
+body#main_page #content #calendar th:first-child,
+body#main_page #content #calendar th:first-child * {
   border-radius: 4px 0 0 0;
 }
-#content #calendar th:last-child {
+body#main_page #content #calendar th:last-child {
   border-radius: 0 4px 0 0;
 }
-#content #calendar tr:last-child td:first-child {
+body#main_page #content #calendar tr:last-child td:first-child {
   border-radius: 0 0 0 4px;
 }
-#content #calendar tr:last-child td:last-child {
+body#main_page #content #calendar tr:last-child td:last-child {
   border-radius: 0 0 4px 0;
 }
-#content #calendar img.reserved {
+body#main_page #content #calendar img.reserved {
   width: 70px;
   height: 20px;
 }
-#content #calendar #calendar_label {
+body#main_page #content #calendar #calendar_label {
   font-size: 0.8em;
   z-index: 1;
   position: relative;
@@ -372,7 +366,7 @@ body#main_page {
   height: 0px;
   margin: -30px 0;
 }
-#content #calendar #blank_cell {
+body#main_page #content #calendar #blank_cell {
   width: 90%;
   height: 90%;
   margin-top: -30px;
@@ -382,51 +376,51 @@ body#main_page {
   position: relative;
   vertical-align: middle;
 }
-#content #booking_details {
+body#main_page #content #booking_details {
   border: 1px solid black;
   background-color: white;
   padding: 20px;
   border-radius: 4px 4px 4px 4px;
-  width: 690px;
+  width: 700px;
   margin: 30px auto 50px;
   -moz-box-shadow: 8px 8px 15px #CCCCCC;
   -webkit-box-shadow: 8px 8px 15px #CCCCCC;
   box-shadow: 8px 8px 15px #CCCCCC;
 }
-#content #booking_details form {
+body#main_page #content #booking_details form {
   line-height: 50px;
 }
-#content #booking_details form label {
+body#main_page #content #booking_details form label {
   display: inline-block;
   width: 80px;
   margin-right: 10px;
   text-align: right;
 }
-#content #booking_details form label[for=eula],
-#content #booking_details form label[for=billing] {
+body#main_page #content #booking_details form label[for=eula],
+body#main_page #content #booking_details form label[for=billing] {
   width: auto;
   margin-left: 10px;
   text-align: right;
 }
-#content #booking_details form input,
-#content #booking_details form textarea {
+body#main_page #content #booking_details form input,
+body#main_page #content #booking_details form textarea {
   width: 120px;
   margin-right: 15px;
 }
-#content #booking_details form select {
+body#main_page #content #booking_details form select {
   width: 124px;
   margin-right: 15px;
 }
-#content #booking_details form input[type=submit] {
+body#main_page #content #booking_details form input[type=submit] {
   float: right;
 }
-#content #booking_details form textarea {
+body#main_page #content #booking_details form textarea {
   height: 20px;
 }
-#content #booking_details form input[type=checkbox] {
+body#main_page #content #booking_details form input[type=checkbox] {
   width: auto;
 }
-#content #booking_details .error_msg {
+body#main_page #content #booking_details .error_msg {
   color: #DC0000;
   font-weight: bold;
 }
