@@ -11,6 +11,12 @@ body {
 	font-family: 'Source Sans Pro', arial, verdana;
 }
 
+#ui-datepicker-div {
+		 -moz-box-shadow: 8px 8px 15px #555;
+	-webkit-box-shadow: 8px 8px 15px #555;
+					box-shadow: 8px 8px 15px #555;
+}
+
 /////// intro page ////////////////////////////////////////////////////////////
 
 body#intro_page {
@@ -112,10 +118,42 @@ body#main_page {
 			
 		
 		#legend {
-			width: 679px;
+			//width: 679px;
 			height: 59px;
 			margin-left: 80px;
-			margin-top: -30px;
+			margin-top: -15px;
+			text-align: left;
+			
+			div {
+				display: inline-block;
+				float: left;
+				width: 120px;
+				height: 25px;
+				margin-left: 10px;
+				margin-top: 2px;
+			}
+			
+			#icon_unavailable, #icon_available, #icon_reserved {
+				width: 70px;
+				margin-top: 0px;
+				border: 1px solid black;
+					 -moz-box-shadow: 8px 8px 15px #CCCCCC;
+				-webkit-box-shadow: 8px 8px 15px #CCCCCC;
+								box-shadow: 8px 8px 15px #CCCCCC;
+			}
+			
+			#icon_unavailable {
+				background-color: lightgrey;
+			}
+			
+			#icon_available {
+				background-color: white;
+			}
+			
+			#icon_reserved {
+				background-image: url('../img/main/reserved.png');
+				background-size: 70px 25px;
+			}
 		}
 		
 		#prev_month, #arrow_left, #next_month, #arrow_right {

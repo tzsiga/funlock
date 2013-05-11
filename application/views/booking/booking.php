@@ -18,7 +18,14 @@
 				<span id="table_wrapper"><?php $this->load->view('booking/calendar', array('reserved_dates' => $reserved_dates, 'ref_time' => time(), 'selected_appointment' => 0)); ?></span>
 				<span id="next_month"><?= img(array('src' => base_url().'assets/img/main/arrow_right.png', 'id' => 'arrow_right')) ?></span>
 			</div>
-			<?= img(array('src' => base_url().'assets/img/main/legend.png', 'id' => 'legend')) ?>
+			<div id="legend">
+				<div id="icon_unavailable"></div>
+				<div>Nem elérhető</div>
+				<div id="icon_available"></div>
+				<div>Szabad</div>
+				<div id="icon_reserved"></div>
+				<div>Foglalt</div>
+			</div>
 			<div id="booking_details">
 				<?php $this->load->view('booking/form', array('status_code' => '')); ?>
 			</div>

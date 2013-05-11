@@ -176,6 +176,11 @@ body {
 body {
   font-family: 'Source Sans Pro', arial, verdana;
 }
+#ui-datepicker-div {
+  -moz-box-shadow: 8px 8px 15px #555;
+  -webkit-box-shadow: 8px 8px 15px #555;
+  box-shadow: 8px 8px 15px #555;
+}
 body#intro_page {
   overflow: hidden;
   background-image: url('../img/intro/bg_grid_2.gif');
@@ -256,10 +261,38 @@ body#main_page #wrapper_content #logo_small {
   margin-left: 100px;
 }
 body#main_page #wrapper_content #legend {
-  width: 679px;
   height: 59px;
   margin-left: 80px;
-  margin-top: -30px;
+  margin-top: -15px;
+  text-align: left;
+}
+body#main_page #wrapper_content #legend div {
+  display: inline-block;
+  float: left;
+  width: 120px;
+  height: 25px;
+  margin-left: 10px;
+  margin-top: 2px;
+}
+body#main_page #wrapper_content #legend #icon_unavailable,
+body#main_page #wrapper_content #legend #icon_available,
+body#main_page #wrapper_content #legend #icon_reserved {
+  width: 70px;
+  margin-top: 0px;
+  border: 1px solid black;
+  -moz-box-shadow: 8px 8px 15px #CCCCCC;
+  -webkit-box-shadow: 8px 8px 15px #CCCCCC;
+  box-shadow: 8px 8px 15px #CCCCCC;
+}
+body#main_page #wrapper_content #legend #icon_unavailable {
+  background-color: lightgrey;
+}
+body#main_page #wrapper_content #legend #icon_available {
+  background-color: white;
+}
+body#main_page #wrapper_content #legend #icon_reserved {
+  background-image: url('../img/main/reserved.png');
+  background-size: 70px 25px;
 }
 body#main_page #wrapper_content #prev_month,
 body#main_page #wrapper_content #arrow_left,
