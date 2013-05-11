@@ -45,6 +45,9 @@
 			echo form_label('Email cím', 'email');
 			echo form_input(array('name' => 'email', 'id' => 'email', 'value' => isset($posted['email']) ? $posted['email'] : ''));
 			echo '</p><p>';
+			echo form_label('Telefon', 'phone');
+			echo form_input(array('name' => 'phone', 'id' => 'phone', 'value' => isset($posted['phone']) ? $posted['phone'] : ''));
+			echo '</p><p>';
 			echo form_label('Irányítószám', 'zip');
 			echo form_input(array('name' => 'zip', 'id' => 'zip', 'value' => isset($posted['zip']) ? $posted['zip'] : ''));
 			echo '</p><p>';

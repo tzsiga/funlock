@@ -43,6 +43,9 @@
 			echo form_label('Email cím', 'email');
 			echo form_input(array('name' => 'email', 'id' => 'email', 'value' => $booking->email));
 			echo '</p><p>';
+			echo form_label('Telefon', 'phone');
+			echo form_input(array('name' => 'phone', 'id' => 'phone', 'value' => $booking->phone));
+			echo '</p><p>';
 			echo form_label('Irányítószám', 'zip');
 			echo form_input(array('name' => 'zip', 'id' => 'zip', 'value' => ($booking->zip == 0 ? '' : $booking->zip)));
 			echo '</p><p>';
@@ -53,7 +56,7 @@
 			echo form_input(array('name' => 'street', 'id' => 'street', 'value' => $booking->street));
 			echo '</p><p>';
 			echo form_label('Házszám', 'house');
-			echo form_input(array('name' => 'house', 'id' => 'house', 'value' => $booking->house));
+			echo form_input(array('name' => 'house', 'id' => 'house', 'value' => ($booking->house == 0 ? '' : $booking->house)));
 			echo '</p><p>';
 			echo form_label('Adószám', 'tax_number');
 			echo form_input(array('name' => 'tax_number', 'id' => 'tax_number', 'value' => ($booking->tax_number == 0 ? '' : $booking->tax_number)));
