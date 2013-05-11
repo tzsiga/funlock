@@ -46,7 +46,14 @@ generate_table($reserved_dates, $ref_time, $selected_appointment);
 
 ?>
 <script type="text/javascript">
-	
+
+	function getMonday(d) {
+		d = new Date(d);
+		var day = d.getDay();
+		var diff = d.getDate() - day + (day == 0 ? -6:1);
+		return new Date(d.setDate(diff));
+	}
+
 	$('#blank_cell').css('cursor', 'pointer');
 	$('#blank_cell').datepicker({
 		firstDay: 1,
@@ -55,7 +62,8 @@ generate_table($reserved_dates, $ref_time, $selected_appointment);
 	});
 	
 	$('#blank_cell').change(function(){
-		refreshTable(strtotime($('#blank_cell').val()));
+		var monday = getMonday(new Date($('#blank_cell').val()));
+		refreshTable(strtotime(monday.toString()));
 	});
 
 	$('td.timebox').click(function(){

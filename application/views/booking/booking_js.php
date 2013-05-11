@@ -95,7 +95,6 @@
 	}
 	
 	$('#arrow_left').click(function(){
-		// ha a (ref_time -> hétfője + 1 hét) -nél nagyobb akkor engedje lépkedni
 		if ($('#reference_time').attr('alt') > <?= time() ?>) {
 			refreshTable(parseInt($('#reference_time').attr('alt')) - parseInt(<?= Utils::week ?>));
 		}
