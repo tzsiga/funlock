@@ -388,8 +388,9 @@ body#main_page #content #calendar tr:last-child td:last-child {
   border-radius: 0 0 4px 0;
 }
 body#main_page #content #calendar img.reserved {
-  width: 70px;
-  height: 20px;
+  width: 91px;
+  height: 36px;
+  margin: 0 0 -6px;
 }
 body#main_page #content #calendar #calendar_label {
   font-size: 0.8em;

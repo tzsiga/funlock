@@ -6,13 +6,15 @@
 			
 			function generate_slider_divs($letters) {
 				foreach ($letters as $id => $letter) {
-					echo "\n".'<div class="slider" id="'.$id.'" style="margin-top: '.$letter['margin_top'].'px; margin-left: '.$letter['margin_left'].'px; background-image: url(\'assets/img/intro/'.$letter['img'].'\');"></div>';
+					//echo "\n";		// only for debug
+					echo '<div class="slider" id="'.$id.'" style="margin-top: '.$letter['margin_top'].'px; margin-left: '.$letter['margin_left'].'px; background-image: url(\'assets/img/intro/'.$letter['img'].'\');"></div>';
 				}
 			}
 			
 			function generate_slider_js($letters) {
 				foreach ($letters as $id => $letter) {
-					echo "\n".'$("#'.$id.'").css("top", ((panel_height - slider_height + (-1 * '.$letter['margin_top'].')) / panel_width) * (e.pageX - margin_offset_x + offset_x));';
+					//echo "\n";		// only for debug
+					echo '$("#'.$id.'").css("top", ((panel_height - slider_height + (-1 * '.$letter['margin_top'].')) / panel_width) * (e.pageX - margin_offset_x + offset_x));';
 				}
 			}
 			
@@ -131,7 +133,7 @@
 			});
 		});
 		
-		// disable right click
+		<?php // disable right click ?>
 		$(document).ready(function(){
 			$(document).bind("contextmenu",function(e){
 				return false;
