@@ -1,7 +1,6 @@
 <div class="error_msg">
 	<?= $this->session->flashdata('msg') ?>
 	<?= validation_errors() ?>
-	<?= '<h3>'.$status_code.'</h3>' ?>
 </div>
 <?php
 	echo form_open('booking/add_appointment', array('id' => 'booking_form'));
@@ -17,13 +16,12 @@
 	echo form_label('Keresztnév', 'book_sname');
 	echo form_input(array('name' => 'book_sname', 'id' => 'book_sname', 'value' => isset($posted['book_sname']) ? $posted['book_sname'] : ''));
 	echo form_label('Telefon', 'phone');
-	echo form_input(array('name' => 'phone', 'id' => 'phone', 'value' => isset($posted['phone']) ? $posted['phone'] : ''));
+	echo form_input(array('name' => 'phone', 'id' => 'phone', 'value' => isset($posted['phone']) ? $posted['phone'] : '+36'));
 	echo '</p><p>';
 	echo form_label('Fizetés', 'payment_option');
 	echo form_dropdown('payment_option', array('card' => 'kártyával', 'cache' => 'készpénzzel'), 'card');
-	echo form_label('Megjegyzés', 'comment');
-	//echo form_textarea(array('name' => 'comment', 'id' => 'comment', 'value' => isset($posted['comment']) ? $posted['comment'] : ''));
-	echo form_input(array('name' => 'comment', 'id' => 'comment', 'value' => isset($posted['comment']) ? $posted['comment'] : ''));
+	//echo form_label('Megjegyzés', 'comment');
+	//echo form_input(array('name' => 'comment', 'id' => 'comment', 'value' => isset($posted['comment']) ? $posted['comment'] : ''));
 	echo form_label('Egyetértek a <a href="" id="link_eula">szerződéssel</a>', 'eula');
 	echo form_checkbox(array('name' => 'eula', 'id' => 'eula', 'value' => 'accept', 'checked' => isset($posted['eula']) ? true : false));
 
@@ -34,20 +32,18 @@
 	echo form_checkbox(array('name' => 'billing', 'id' => 'billing', 'value' => 'accept', 'checked' => isset($posted['billing']) ? true : false));
 
 	echo '</p><p>';
-	echo form_label('Adószám', 'tax_number');
-	echo form_input(array('name' => 'tax_number', 'id' => 'tax_number', 'value' => isset($posted['tax_number']) ? $posted['tax_number'] : ''));
-	//echo '</p><p>';
 	echo form_label('Vezetéknév', 'bill_fname');
 	echo form_input(array('name' => 'bill_fname', 'id' => 'bill_fname', 'value' => isset($posted['bill_fname']) ? $posted['bill_fname'] : ''));
 	echo form_label('Keresztnév', 'bill_sname');
 	echo form_input(array('name' => 'bill_sname', 'id' => 'bill_sname', 'value' => isset($posted['bill_sname']) ? $posted['bill_sname'] : ''));
+	echo form_label('Adószám', 'tax_number');
+	echo form_input(array('name' => 'tax_number', 'id' => 'tax_number', 'value' => isset($posted['tax_number']) ? $posted['tax_number'] : ''));
 
 	echo '</p><p>';
-	echo form_label('Irányítószám', 'zip');
+	echo form_label('Ir.szám', 'zip');
 	echo form_input(array('name' => 'zip', 'id' => 'zip', 'value' => isset($posted['zip']) ? $posted['zip'] : ''));
 	echo form_label('Város', 'city');
 	echo form_input(array('name' => 'city', 'id' => 'city', 'value' => isset($posted['city']) ? $posted['city'] : ''));
-	echo '</p><p>';
 	echo form_label('Utca', 'street');
 	echo form_input(array('name' => 'street', 'id' => 'street', 'value' => isset($posted['street']) ? $posted['street'] : ''));
 	echo form_label('Házszám', 'house');
@@ -102,7 +98,7 @@
 			data: $('#booking_form').serialize(),
 			success: function(result){
 				refreshTable(parseInt($('#reference_time').attr('alt')));
-				$('#booking_details').html(result);				
+				$('#booking_details').html(result);
 			},
 		statusCode: {
 			404: function() {

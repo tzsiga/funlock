@@ -12,9 +12,14 @@ body {
 }
 
 #ui-datepicker-div {
+	margin-left: 10px;
 		 -moz-box-shadow: 8px 8px 15px #555;
 	-webkit-box-shadow: 8px 8px 15px #555;
 					box-shadow: 8px 8px 15px #555;
+}
+
+table.ui-datepicker-calendar td {
+	padding-right: 12px;
 }
 
 /////// intro page ////////////////////////////////////////////////////////////
@@ -143,7 +148,7 @@ body#main_page {
 			}
 			
 			#icon_unavailable {
-				background-color: lightgrey;
+				background-color: #636363;
 			}
 			
 			#icon_available {
@@ -232,8 +237,15 @@ body#main_page {
 				background-color: white;
 			}
 			
+			td.reserved_cell {
+				width: 91px;
+				height: 36px;
+				background-image: url('../img/main/reserved.png');
+				background-size: 91px 36px;
+			}
+			
 			td.timebox_passed {
-				background-color: lightgrey;
+				background-color: #636363;
 			}
 			
 			th:last-child, td:last-child {
@@ -258,12 +270,6 @@ body#main_page {
 			
 			tr:last-child td:last-child {
 				border-radius: 0 0 @rad 0;
-			}
-			
-			img.reserved {
-				width: 91px;
-				height: 36px;
-				margin: 0 0 -6px;
 			}
 			
 			#calendar_label {
@@ -298,7 +304,7 @@ body#main_page {
 				-webkit-box-shadow: 8px 8px 15px #CCCCCC;
 								box-shadow: 8px 8px 15px #CCCCCC;
 			
-			form {
+			form#booking_form {
 				line-height: 50px;
 				//text-align: right;
 				
@@ -337,9 +343,35 @@ body#main_page {
 					width: auto;
 				}
 				
+				input#email {
+					width: 250px;
+				}
+				
+				input#zip, input#house {
+					width: 40px;
+				}
+				
+				label[for=eula] {
+					margin-left: 234px;
+				}
+				
+				label[for=billing] {
+					margin-left: 60px;
+				}
+				
+				label[for=city] {
+					width: 50px;
+				}
+				
+				label[for=street] {
+					width: 40px;
+				}
+				
 				submit {
 				}
 			}
+			
+			//form#booking_form_success {}
 			
 			.error_msg {
 				color: #DC0000;

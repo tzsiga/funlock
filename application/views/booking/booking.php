@@ -6,7 +6,6 @@
 			<div id="menu">
 				<ul>
 					<li><p id="link_info">Info</a></li>
-					<li><p id="link_map">Térkép</a></li>
 					<li><p id="link_contact">Elérhetőség</a></li>
 				</ul>
 			</div>
@@ -27,7 +26,7 @@
 				<div>Foglalt</div>
 			</div>
 			<div id="booking_details">
-				<?php $this->load->view('booking/form', array('status_code' => '')); ?>
+				<?php $this->load->view('booking/form'); ?>
 			</div>
 		</div>
 	</div>

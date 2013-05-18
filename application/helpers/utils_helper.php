@@ -16,7 +16,7 @@ class Utils {
 	const day = 86400;				// 24 * 3600
 	const week = 604800;			// 7 * 24 * 3600
 	
-	const hour_from = 14;
+	const hour_from = 12;
 	const hour_to = 24;
 	const hour_step = 1.5;
 	

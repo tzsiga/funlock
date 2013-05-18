@@ -25,10 +25,10 @@ function generate_table($reserved_dates, $ref_time, $selected_appointment) {
 			} else {
 				// if in the present week or future
 				if (isset($reserved_dates[$cell_time])) {
-					echo "<td>".img(array('src' => 'assets/img/main/reserved.png', 'class' => 'reserved', 'title' => 'Foglalt időpont!', 'alt' => $reserved_dates[$cell_time]['id']))."</td>";
+					echo '<td class="reserved_cell"></td>';
 				} else {
 					if ($cell_time == $selected_appointment) {
-						echo '<td class="timebox" alt="'. date('Y-m-d H:i', $cell_time) .'" style="background-color: grey"></td>';
+						echo '<td class="timebox" alt="'. date('Y-m-d H:i', $cell_time) .'" style="-moz-box-shadow: 8px 8px 15px #888888; -webkit-box-shadow: 8px 8px 15px #888888; box-shadow: 8px 8px 15px #888888; position: relative; z-index: 3; background-image: url(\'../assets/img/main/selected.png\')"></td>';
 					} else {
 						echo '<td class="timebox" alt="'. date('Y-m-d H:i', $cell_time) .'"></td>';
 					}
@@ -67,8 +67,19 @@ generate_table($reserved_dates, $ref_time, $selected_appointment);
 	});
 
 	$('td.timebox').click(function(){
-		$('td.timebox').css('background-color', '');
-		$(this).css('background-color', 'grey');
+		$('td.timebox').css('-moz-box-shadow', 'none');
+		$('td.timebox').css('-webkit-box-shadow', 'none');
+		$('td.timebox').css('box-shadow', 'none');
+		$('td.timebox').css('z-index', '0');
+		$('td.timebox').css('background-image', 'none');
+		
+		$(this).css('-moz-box-shadow', '8px 8px 15px #888888');
+		$(this).css('-webkit-box-shadow', '8px 8px 15px #888888');
+		$(this).css('box-shadow', '8px 8px 15px #888888');
+		$(this).css('position', 'relative');
+		$(this).css('z-index', '3');
+		$(this).css('background-image', "url('../assets/img/main/selected.png')");
+		
 		$("input[name=appointment]").val($(this).attr('alt'));
 		$('#booking_details').visible();
 	});

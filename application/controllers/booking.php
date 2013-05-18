@@ -29,25 +29,29 @@ class Booking extends CI_Controller {
 		return $reserved_dates;
 	}
 	
+	private function generate_code($timestamp) {
+		return strtoupper(strrev(dechex($timestamp)));
+	}
+	
 	public function add_appointment() {
 		$posted = $this->input->post();
 		
 		if ($posted) {
 			$this->form_validation->set_rules('appointment', '"Foglalt időpont"', 'required|xss_clean');
-			$this->form_validation->set_rules('book_fname', '"Foglaló vezetékneve"', 'required|xss_clean');
-			$this->form_validation->set_rules('book_sname', '"Foglaló keresztneve"', 'required|xss_clean');
-			$this->form_validation->set_rules('phone', '"Telefon"', 'required|xss_clean');
+			$this->form_validation->set_rules('book_fname', '"Foglaló vezetékneve"', 'required|xss_clean|alpha_dash');
+			$this->form_validation->set_rules('book_sname', '"Foglaló keresztneve"', 'required|xss_clean|alpha_dash');
+			$this->form_validation->set_rules('phone', '"Telefon"', 'required|xss_clean|numeric');
 			$this->form_validation->set_rules('eula', '"Szerződés feltételei"', 'required|xss_clean');
 			$this->form_validation->set_rules('email', '"Email"', 'required|xss_clean|valid_email');
-			$this->form_validation->set_rules('zip', '"Irányítószám"', 'required|xss_clean');
-			$this->form_validation->set_rules('city', '"Város"', 'required|xss_clean');
-			$this->form_validation->set_rules('street', '"Utca"', 'required|xss_clean');
-			$this->form_validation->set_rules('house', '"Házszám"', 'required|xss_clean');
+			$this->form_validation->set_rules('zip', '"Irányítószám"', 'required|xss_clean|numeric|exact_length[4]');
+			$this->form_validation->set_rules('city', '"Város"', 'required|xss_clean|alpha_dash');
+			$this->form_validation->set_rules('street', '"Utca"', 'required|xss_clean|alpha_dash');
+			$this->form_validation->set_rules('house', '"Házszám"', 'required|xss_clean|alpha_dash');
 			
 			if (isset($posted['billing'])) {
-				$this->form_validation->set_rules('tax_number', '"Adószám"', 'required|xss_clean');
-				$this->form_validation->set_rules('bill_fname', '"Számlázási vezetéknév"', 'required|xss_clean');
-				$this->form_validation->set_rules('bill_sname', '"Számlázási keresztnév"', 'required|xss_clean');
+				$this->form_validation->set_rules('tax_number', '"Adószám"', 'required|xss_clean|numeric');
+				$this->form_validation->set_rules('bill_fname', '"Számlázási vezetéknév"', 'required|xss_clean|alpha_dash');
+				$this->form_validation->set_rules('bill_sname', '"Számlázási keresztnév"', 'required|xss_clean|alpha_dash');
 			}
 			
 			$is_success = false;
@@ -67,17 +71,23 @@ class Booking extends CI_Controller {
 					'city' 						=> $posted['city'],
 					'street'					=> $posted['street'],
 					'house' 					=> $posted['house'],
-					'comment' 				=> $posted['comment'],
+					//'comment' 				=> $posted['comment'],
 					'booking_date' 		=> time()
 				);
 				
 				$this->db->insert('bookings', $data);
 				
-				$this->session->set_flashdata('msg', 'Új foglalás ('.date('Y-m-d H:i', $data['appointment']).') elmentve!');
+				if ($posted['payment_option'] == 'cache') {
+					$this->load->view('booking/form_success_cache', array('posted' => $posted));
+				} else if ($posted['payment_option'] == 'card') {
+					$this->load->view('booking/form_success_card', array('posted' => $posted, 'code' => $this->generate_code(strtotime($posted['appointment']))));
+				}
+			} else {
+				$this->load->view('booking/form', array('posted' => $posted));
 			}
+		} else {
+			$this->load->view('booking/form', array('posted' => $posted));
 		}
-		
-		$this->load->view('booking/form', array('posted' => $posted, 'status_code' => ''));
 	}
 	
 	// admin functions ----------------------------------------------------------
