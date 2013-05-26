@@ -88,7 +88,7 @@
 		if ($('#reference_time').attr('alt') > <?= time() ?>) {
 			$('#table_wrapper').invisible().promise().done(function(){
 				refreshTable(parseInt($('#reference_time').attr('alt')) - parseInt(<?= Utils::week ?>));
-				$('#table_wrapper').visible();
+				$('#table_wrapper').delay(450).visible();
 			});
 		}
 	});
@@ -96,7 +96,7 @@
 	$('#arrow_right').click(function(){
 		$('#table_wrapper').invisible().promise().done(function(){
 			refreshTable(parseInt($('#reference_time').attr('alt')) + parseInt(<?= Utils::week ?>));
-			$('#table_wrapper').visible();
+			$('#table_wrapper').delay(450).visible();
 		});
 	});
 	

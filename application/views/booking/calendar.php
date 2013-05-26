@@ -65,7 +65,7 @@ generate_table($reserved_dates, $ref_time, $selected_appointment);
 		var monday = getMonday(new Date($('#blank_cell').val()));
 		$('#table_wrapper').invisible().promise().done(function(){
 			refreshTable(strtotime(monday.toString()));
-			$('#table_wrapper').visible();
+			$('#table_wrapper').delay(450).visible();
 		});
 	});
 
