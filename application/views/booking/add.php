@@ -30,7 +30,7 @@
 			
 			echo form_dropdown('appointment_hour', $options, isset($posted['appointment_hour']) ? $posted['appointment_hour'] : 14);
 			echo '</p><p>';
-			echo form_label('Fizetés kártyával', 'payment_option');
+			echo form_label('Fizetés átutalással', 'payment_option');
 			echo form_radio(array('name' => 'payment_option', 'id' => 'payment_option_1', 'value' => 'card'));
 			echo '</p><p>';
 			echo form_label('Fizetés készpénzzel', 'payment_option');

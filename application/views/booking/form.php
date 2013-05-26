@@ -1,5 +1,4 @@
 <div class="error_msg">
-	<?= $this->session->flashdata('msg') ?>
 	<?= validation_errors() ?>
 </div>
 <?php
@@ -16,10 +15,10 @@
 	echo form_label('Keresztnév', 'book_sname');
 	echo form_input(array('name' => 'book_sname', 'id' => 'book_sname', 'value' => isset($posted['book_sname']) ? $posted['book_sname'] : ''));
 	echo form_label('Telefon', 'phone');
-	echo form_input(array('name' => 'phone', 'id' => 'phone', 'value' => isset($posted['phone']) ? $posted['phone'] : '+36'));
+	echo form_input(array('name' => 'phone', 'id' => 'phone', 'value' => isset($posted['phone']) ? $posted['phone'] : ''));
 	echo '</p><p>';
 	echo form_label('Fizetés', 'payment_option');
-	echo form_dropdown('payment_option', array('card' => 'kártyával', 'cache' => 'készpénzzel'), 'card');
+	echo form_dropdown('payment_option', array('card' => 'átutalással', 'cache' => 'készpénzzel'), 'card', 'id="payment_option"');
 	//echo form_label('Megjegyzés', 'comment');
 	//echo form_input(array('name' => 'comment', 'id' => 'comment', 'value' => isset($posted['comment']) ? $posted['comment'] : ''));
 	echo form_label('Egyetértek a <a href="" id="link_eula">szerződéssel</a>', 'eula');
@@ -102,11 +101,11 @@
 			},
 		statusCode: {
 			404: function() {
-				$('#booking_details').html('Could not contact server.');
+				$('#booking_details').html('<form id="error_form"><h3>Kapcsolódási hiba!</h3></form>');
 			},
 			500: function() {
 				refreshTable(parseInt($('#reference_time').attr('alt')));
-				$('#booking_details').html('<h1>Lekésted! Időközben befoglalták!</h1>');
+				$('#booking_details').html('<form id="error_form"><h3>Lekésted!</h3><br/><p>Mialatt nézelődtél befoglalták az általad kiválasztott időpontot! Válassz egy újat.</p></form>');
 			}
 		}
 		

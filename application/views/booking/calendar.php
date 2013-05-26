@@ -21,7 +21,7 @@ function generate_table($reserved_dates, $ref_time, $selected_appointment) {
 			
 			if ($cell_time < time()) {
 				// if we are in the past
-				echo '<td class="timebox_passed" alt=""></td>';
+				echo '<td class="timebox_passed"></td>';
 			} else {
 				// if in the present week or future
 				if (isset($reserved_dates[$cell_time])) {
@@ -63,7 +63,10 @@ generate_table($reserved_dates, $ref_time, $selected_appointment);
 	
 	$('#blank_cell').change(function(){
 		var monday = getMonday(new Date($('#blank_cell').val()));
-		refreshTable(strtotime(monday.toString()));
+		$('#table_wrapper').invisible().promise().done(function(){
+			refreshTable(strtotime(monday.toString()));
+			$('#table_wrapper').visible();
+		});
 	});
 
 	$('td.timebox').click(function(){
@@ -80,8 +83,18 @@ generate_table($reserved_dates, $ref_time, $selected_appointment);
 		$(this).css('z-index', '3');
 		$(this).css('background-image', "url('../assets/img/main/selected.png')");
 		
-		$("input[name=appointment]").val($(this).attr('alt'));
 		$('#booking_details').visible();
+		
+		if ($('#booking_details > form').attr('id') == 'error_form') {
+			$.ajax({
+				url: '<?= base_url() ?>index.php/booking/generate_form',
+				type: 'POST'
+			}).success(function(result) {
+				$('#booking_details').html(result);
+			});
+		}
+		
+		$("input[name=appointment]").val($(this).attr('alt'));
 	});
 
 </script>

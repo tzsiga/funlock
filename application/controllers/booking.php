@@ -7,13 +7,18 @@ class Booking extends CI_Controller {
 	}
 	
 	// called by jq.ajax()
+
 	public function generate_table() {
 		$ref_time = $this->input->get('ref_time');
 		$selected_appointment = $this->input->get('selected_appointment');
 	
 		$this->load->view('booking/calendar', array('reserved_dates' => $this->get_appointments($ref_time), 'ref_time' => $ref_time, 'selected_appointment' => $selected_appointment));
 	}
-	
+
+	public function generate_form() {
+		$this->load->view('booking/form');
+	}
+
 	private function get_appointments($from) {
 		// only check if appointments in cursor range
 		$query = $this->db->query('SELECT * FROM bookings WHERE appointment > '.Utils::monday($from).' AND appointment < '.($from + Utils::week).' ORDER BY appointment ASC');
@@ -38,20 +43,20 @@ class Booking extends CI_Controller {
 		
 		if ($posted) {
 			$this->form_validation->set_rules('appointment', '"Foglalt időpont"', 'required|xss_clean');
-			$this->form_validation->set_rules('book_fname', '"Foglaló vezetékneve"', 'required|xss_clean|alpha_dash');
-			$this->form_validation->set_rules('book_sname', '"Foglaló keresztneve"', 'required|xss_clean|alpha_dash');
+			$this->form_validation->set_rules('book_fname', '"Foglaló vezetékneve"', 'required|xss_clean');
+			$this->form_validation->set_rules('book_sname', '"Foglaló keresztneve"', 'required|xss_clean');
 			$this->form_validation->set_rules('phone', '"Telefon"', 'required|xss_clean|numeric');
 			$this->form_validation->set_rules('eula', '"Szerződés feltételei"', 'required|xss_clean');
 			$this->form_validation->set_rules('email', '"Email"', 'required|xss_clean|valid_email');
 			$this->form_validation->set_rules('zip', '"Irányítószám"', 'required|xss_clean|numeric|exact_length[4]');
-			$this->form_validation->set_rules('city', '"Város"', 'required|xss_clean|alpha_dash');
-			$this->form_validation->set_rules('street', '"Utca"', 'required|xss_clean|alpha_dash');
-			$this->form_validation->set_rules('house', '"Házszám"', 'required|xss_clean|alpha_dash');
+			$this->form_validation->set_rules('city', '"Város"', 'required|xss_clean');
+			$this->form_validation->set_rules('street', '"Utca"', 'required|xss_clean');
+			$this->form_validation->set_rules('house', '"Házszám"', 'required|xss_clean');
 			
 			if (isset($posted['billing'])) {
 				$this->form_validation->set_rules('tax_number', '"Adószám"', 'required|xss_clean|numeric');
-				$this->form_validation->set_rules('bill_fname', '"Számlázási vezetéknév"', 'required|xss_clean|alpha_dash');
-				$this->form_validation->set_rules('bill_sname', '"Számlázási keresztnév"', 'required|xss_clean|alpha_dash');
+				$this->form_validation->set_rules('bill_fname', '"Számlázási vezetéknév"', 'required|xss_clean');
+				$this->form_validation->set_rules('bill_sname', '"Számlázási keresztnév"', 'required|xss_clean');
 			}
 			
 			$is_success = false;

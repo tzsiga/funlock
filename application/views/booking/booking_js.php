@@ -35,9 +35,9 @@
 	});
 	
 	// left menu items
-	
+		
 	var item_info = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
-	var item_contact = 'Budapest 1023<br/>Akármi  utca 16.<br/>T.: 0036/12321315<br/>info@funlock.hu<br/><br/>';
+	var item_contact = '1068 Budapest<br/>Király utca 54.<br/>T.: +3670 382 1388<br/><p id="info">&nbsp;</p><br/>';
 	var item_map = '<img id="map" src="<?= base_url() ?>assets/img/main/map.png" alt="" title="" style="margin-left: -15px; border: 1px solid black; -moz-box-shadow: 8px 8px 15px #CCCCCC; -webkit-box-shadow: 8px 8px 15px #CCCCCC; box-shadow: 8px 8px 15px #CCCCCC;"/>';
 	
 	function replaceAll(txt, replace, with_this) {
@@ -56,7 +56,7 @@
 
 	$('#link_contact').click(function(){
 		$('#item_display_area').fadeOut(function(){
-			if ($(this).html() == replaceAll(item_contact, '<br/>','<br>') + item_map.replace('/>','>')){
+			if ($(this).html() == replaceAll(item_contact, '/>','>') + item_map.replace('/>','>')){
 				$(this).html('');
 			} else {
 				$(this).html(item_contact + item_map).fadeIn();
@@ -86,12 +86,18 @@
 	
 	$('#arrow_left').click(function(){
 		if ($('#reference_time').attr('alt') > <?= time() ?>) {
-			refreshTable(parseInt($('#reference_time').attr('alt')) - parseInt(<?= Utils::week ?>));
+			$('#table_wrapper').invisible().promise().done(function(){
+				refreshTable(parseInt($('#reference_time').attr('alt')) - parseInt(<?= Utils::week ?>));
+				$('#table_wrapper').visible();
+			});
 		}
 	});
 	
 	$('#arrow_right').click(function(){
-		refreshTable(parseInt($('#reference_time').attr('alt')) + parseInt(<?= Utils::week ?>));
+		$('#table_wrapper').invisible().promise().done(function(){
+			refreshTable(parseInt($('#reference_time').attr('alt')) + parseInt(<?= Utils::week ?>));
+			$('#table_wrapper').visible();
+		});
 	});
 	
 </script>

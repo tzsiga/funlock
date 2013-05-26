@@ -258,6 +258,10 @@ body#main_page #wrapper_content #navbar #menu ul {
 body#main_page #wrapper_content #navbar #item_display_area {
   text-align: justify;
 }
+body#main_page #wrapper_content #navbar #item_display_area #info {
+  background-image: url('../img/main/info.png');
+  background-repeat: no-repeat;
+}
 body#main_page #wrapper_content #logo_small {
   width: 156px;
   height: 27px;
