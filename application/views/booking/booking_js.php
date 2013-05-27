@@ -73,7 +73,7 @@
 	timer.set({ time : 15000, autostart : true });
 	
 	function refreshTable(ref_time) {
-		if (typeof ref_time === 'undefined') ref_time = parseInt($('#reference_time').attr('alt'));
+		if (typeof ref_time === 'undefined') ref_time = parseInt($('#reference_time').text());
 	
 		$.ajax({
 			url: '<?= base_url() ?>index.php/booking/generate_table?ref_time=' + ref_time + '&selected_appointment=' + strtotime($("input[name=appointment]").val()),
@@ -85,9 +85,9 @@
 	}
 	
 	$('#arrow_left').click(function(){
-		if ($('#reference_time').attr('alt') > <?= time() ?>) {
+		if ($('#reference_time').text() > <?= time() ?>) {
 			$('#table_wrapper').invisible().promise().done(function(){
-				refreshTable(parseInt($('#reference_time').attr('alt')) - parseInt(<?= Utils::week ?>));
+				refreshTable(parseInt($('#reference_time').text()) - parseInt(<?= Utils::week ?>));
 				$('#table_wrapper').delay(450).visible();
 			});
 		}
@@ -95,7 +95,7 @@
 	
 	$('#arrow_right').click(function(){
 		$('#table_wrapper').invisible().promise().done(function(){
-			refreshTable(parseInt($('#reference_time').attr('alt')) + parseInt(<?= Utils::week ?>));
+			refreshTable(parseInt($('#reference_time').text()) + parseInt(<?= Utils::week ?>));
 			$('#table_wrapper').delay(450).visible();
 		});
 	});

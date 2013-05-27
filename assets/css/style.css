@@ -268,6 +268,14 @@ body#main_page #wrapper_content #logo_small {
   margin-bottom: 40px;
   margin-left: 100px;
 }
+body#main_page #wrapper_content #subtitle {
+  display: inline-block;
+  float: right;
+  margin-right: 3px;
+  margin-top: -40px;
+  width: 140px;
+  text-align: center;
+}
 body#main_page #wrapper_content #legend {
   height: 59px;
   margin-left: 80px;
@@ -350,6 +358,9 @@ body#main_page #content #calendar #arrow_right {
   border-left: 0;
   border-radius: 0 4px 4px 0;
 }
+body#main_page #content #calendar #reference_time {
+  display: none;
+}
 body#main_page #content #calendar table {
   background-color: white;
   display: table-cell;
@@ -377,6 +388,9 @@ body#main_page #content #calendar td.reserved_cell {
   height: 36px;
   background-image: url('../img/main/reserved.png');
   background-size: 91px 36px;
+}
+body#main_page #content #calendar td.timebox {
+  font-size: 0;
 }
 body#main_page #content #calendar td.timebox_passed {
   background-color: #636363;

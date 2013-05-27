@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>Funlock</title>
 		
-		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
 		
 		<link rel="stylesheet/less" type="text/css" href="<?= base_url() ?>assets/plugin/jquery-ui-1.10.2/css/funlock-theme/jquery-ui-1.10.2.custom.min.css" />
 		

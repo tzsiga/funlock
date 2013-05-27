@@ -126,6 +126,14 @@ body#main_page {
 			margin-left: 100px;
 		}
 			
+		#subtitle {
+			display: inline-block;
+			float: right;
+			margin-right: 3px;
+			margin-top: -40px;
+			width: 140px;
+			text-align: center;
+		}
 		
 		#legend {
 			//width: 679px;
@@ -219,6 +227,10 @@ body#main_page {
 				border-radius: 0 @rad @rad 0;
 			}
 			
+			#reference_time {
+				display: none;
+			}
+			
 			table {
 				background-color: white;
 				display: table-cell;
@@ -247,6 +259,10 @@ body#main_page {
 				height: 36px;
 				background-image: url('../img/main/reserved.png');
 				background-size: 91px 36px;
+			}
+			
+			td.timebox {
+				font-size: 0;
 			}
 			
 			td.timebox_passed {

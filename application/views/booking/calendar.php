@@ -2,7 +2,9 @@
 
 function generate_table($reserved_dates, $ref_time, $selected_appointment) {
 	// table header, alt param contains the actual reference time variable
-	echo '<table id="calendar_table"><tr id="reference_time" alt="'.$ref_time.'"><th><span id="calendar_label">keresés</span>'.form_input(array('id' => 'blank_cell')).'</th>';
+	echo '<span id="reference_time">' .$ref_time. '</span>';
+	echo '<table id="calendar_table"><tr>';
+	echo '<th><span id="calendar_label">keresés</span>'.form_input(array('id' => 'blank_cell')).'</th>';
 
 	$day_names = array('- H -', '- K -', '- SZ -', '- CS -', '- P -', '- SZ -', '- V -');
 	$i = 0;
@@ -28,9 +30,9 @@ function generate_table($reserved_dates, $ref_time, $selected_appointment) {
 					echo '<td class="reserved_cell"></td>';
 				} else {
 					if ($cell_time == $selected_appointment) {
-						echo '<td class="timebox" alt="'. date('Y-m-d H:i', $cell_time) .'" style="-moz-box-shadow: 8px 8px 15px #888888; -webkit-box-shadow: 8px 8px 15px #888888; box-shadow: 8px 8px 15px #888888; position: relative; z-index: 3; background-image: url(\'../assets/img/main/selected.png\')"></td>';
+						echo '<td class="timebox" style="-moz-box-shadow: 8px 8px 15px #888888; -webkit-box-shadow: 8px 8px 15px #888888; box-shadow: 8px 8px 15px #888888; position: relative; z-index: 3; background-image: url(\'../assets/img/main/selected.png\')">'. date('Y-m-d H:i', $cell_time) .'</td>';
 					} else {
-						echo '<td class="timebox" alt="'. date('Y-m-d H:i', $cell_time) .'"></td>';
+						echo '<td class="timebox">'. date('Y-m-d H:i', $cell_time) .'</td>';
 					}
 				}
 			}
@@ -60,7 +62,7 @@ generate_table($reserved_dates, $ref_time, $selected_appointment);
 		dateFormat: 'yy-mm-dd',
 		minDate: 0
 	});
-	
+
 	$('#blank_cell').change(function(){
 		var monday = getMonday(new Date($('#blank_cell').val()));
 		$('#table_wrapper').invisible().promise().done(function(){
@@ -94,7 +96,7 @@ generate_table($reserved_dates, $ref_time, $selected_appointment);
 			});
 		}
 		
-		$("input[name=appointment]").val($(this).attr('alt'));
+		$("input[name=appointment]").val($(this).text());
 	});
 
 </script>
