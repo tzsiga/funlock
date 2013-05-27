@@ -5,22 +5,9 @@ class Booking extends CI_Controller {
 	public function index() {
 		$this->load->view('booking/booking', array('reserved_dates' => $this->get_appointments(time())));
 	}
-	
-	// called by jq.ajax()
-
-	public function generate_table() {
-		$ref_time = $this->input->get('ref_time');
-		$selected_appointment = $this->input->get('selected_appointment');
-	
-		$this->load->view('booking/calendar', array('reserved_dates' => $this->get_appointments($ref_time), 'ref_time' => $ref_time, 'selected_appointment' => $selected_appointment));
-	}
-
-	public function generate_form() {
-		$this->load->view('booking/form');
-	}
 
 	private function get_appointments($from) {
-		// only check if appointments in cursor range
+		// only check appointments in cursor range
 		$query = $this->db->query('SELECT * FROM bookings WHERE appointment > '.Utils::monday($from).' AND appointment < '.($from + Utils::week).' ORDER BY appointment ASC');
 		
 		$reserved_dates = array();
@@ -34,64 +21,81 @@ class Booking extends CI_Controller {
 		return $reserved_dates;
 	}
 	
-	private function generate_code($timestamp) {
+	private function generate_booking_code($timestamp) {
 		return strtoupper(strrev(dechex($timestamp)));
 	}
 	
+	public function generate_table() {
+		if ($this->input->is_ajax_request()) {
+			$ref_time = $this->input->get('ref_time');
+			$selected_appointment = $this->input->get('selected_appointment');
+			
+			$this->load->view('booking/calendar', array('reserved_dates' => $this->get_appointments($ref_time), 'ref_time' => $ref_time, 'selected_appointment' => $selected_appointment));
+		}
+	}
+
+	public function generate_form() {
+		if ($this->input->is_ajax_request()) {
+			$this->load->view('booking/form');
+		}
+	}
+
 	public function add_appointment() {
-		$posted = $this->input->post();
-		
-		if ($posted) {
-			$this->form_validation->set_rules('appointment', '"Foglalt időpont"', 'required|xss_clean');
-			$this->form_validation->set_rules('book_fname', '"Foglaló vezetékneve"', 'required|xss_clean');
-			$this->form_validation->set_rules('book_sname', '"Foglaló keresztneve"', 'required|xss_clean');
-			$this->form_validation->set_rules('phone', '"Telefon"', 'required|xss_clean|numeric');
-			$this->form_validation->set_rules('eula', '"Szerződés feltételei"', 'required|xss_clean');
-			$this->form_validation->set_rules('email', '"Email"', 'required|xss_clean|valid_email');
-			$this->form_validation->set_rules('zip', '"Irányítószám"', 'required|xss_clean|numeric|exact_length[4]');
-			$this->form_validation->set_rules('city', '"Város"', 'required|xss_clean');
-			$this->form_validation->set_rules('street', '"Utca"', 'required|xss_clean');
-			$this->form_validation->set_rules('house', '"Házszám"', 'required|xss_clean');
+		if ($this->input->is_ajax_request()) {
+			$posted = $this->input->post();
 			
-			if (isset($posted['billing'])) {
-				$this->form_validation->set_rules('tax_number', '"Adószám"', 'required|xss_clean|numeric');
-				$this->form_validation->set_rules('bill_fname', '"Számlázási vezetéknév"', 'required|xss_clean');
-				$this->form_validation->set_rules('bill_sname', '"Számlázási keresztnév"', 'required|xss_clean');
-			}
-			
-			$is_success = false;
-			
-			if ($this->form_validation->run() == true) {
-				$data = array(
-					'appointment' 		=> strtotime($posted['appointment']),
-					'book_fname' 			=> $posted['book_fname'],
-					'book_sname' 			=> $posted['book_sname'],
-					'payment_option' 	=> $posted['payment_option'],
-					'email' 					=> $posted['email'],
-					'phone' 					=> $posted['phone'],
-					'tax_number' 			=> $posted['tax_number'],
-					'bill_fname' 			=> $posted['bill_fname'],
-					'bill_sname'	 		=> $posted['bill_sname'],
-					'zip' 						=> $posted['zip'],
-					'city' 						=> $posted['city'],
-					'street'					=> $posted['street'],
-					'house' 					=> $posted['house'],
-					//'comment' 				=> $posted['comment'],
-					'booking_date' 		=> time()
-				);
+			if ($posted) {
+				$this->form_validation->set_rules('appointment', '"Foglalt időpont"', 'required|xss_clean');
+				$this->form_validation->set_rules('book_fname', '"Foglaló vezetékneve"', 'required|xss_clean');
+				$this->form_validation->set_rules('book_sname', '"Foglaló keresztneve"', 'required|xss_clean');
+				$this->form_validation->set_rules('phone', '"Telefon"', 'required|xss_clean|numeric');
+				$this->form_validation->set_rules('eula', '"Szerződés feltételei"', 'required|xss_clean');
+				$this->form_validation->set_rules('email', '"Email"', 'required|xss_clean|valid_email');
+				$this->form_validation->set_rules('zip', '"Irányítószám"', 'required|xss_clean|numeric|exact_length[4]');
+				$this->form_validation->set_rules('city', '"Város"', 'required|xss_clean');
+				$this->form_validation->set_rules('street', '"Utca"', 'required|xss_clean');
+				$this->form_validation->set_rules('house', '"Házszám"', 'required|xss_clean');
 				
-				$this->db->insert('bookings', $data);
+				if (isset($posted['billing'])) {
+					$this->form_validation->set_rules('tax_number', '"Adószám"', 'required|xss_clean|numeric');
+					$this->form_validation->set_rules('bill_fname', '"Számlázási vezetéknév"', 'required|xss_clean');
+					$this->form_validation->set_rules('bill_sname', '"Számlázási keresztnév"', 'required|xss_clean');
+				}
 				
-				if ($posted['payment_option'] == 'cache') {
-					$this->load->view('booking/form_success_cache', array('posted' => $posted));
-				} else if ($posted['payment_option'] == 'card') {
-					$this->load->view('booking/form_success_card', array('posted' => $posted, 'code' => $this->generate_code(strtotime($posted['appointment']))));
+				$is_success = false;
+				
+				if ($this->form_validation->run() == true) {
+					$data = array(
+						'appointment' 		=> strtotime($posted['appointment']),
+						'book_fname' 			=> $posted['book_fname'],
+						'book_sname' 			=> $posted['book_sname'],
+						'payment_option' 	=> $posted['payment_option'],
+						'email' 					=> $posted['email'],
+						'phone' 					=> $posted['phone'],
+						'tax_number' 			=> $posted['tax_number'],
+						'bill_fname' 			=> $posted['bill_fname'],
+						'bill_sname'	 		=> $posted['bill_sname'],
+						'zip' 						=> $posted['zip'],
+						'city' 						=> $posted['city'],
+						'street'					=> $posted['street'],
+						'house' 					=> $posted['house'],
+						//'comment' 				=> $posted['comment'],
+						'booking_date' 		=> time()
+					);
+					
+					$this->db->insert('bookings', $data);
+					
+					if ($posted['payment_option'] == 'cache') {
+						$this->load->view('booking/form_success_cache', array('posted' => $posted));
+					} else if ($posted['payment_option'] == 'card') {
+						$this->load->view('booking/form_success_card', array('posted' => $posted, 'code' => $this->generate_booking_code(strtotime($posted['appointment']))));
+					}
+				} else {
+					$this->load->view('booking/form', array('posted' => $posted));
 				}
 			} else {
 				$this->load->view('booking/form', array('posted' => $posted));
 			}
-		} else {
-			$this->load->view('booking/form', array('posted' => $posted));
 		}
 	}
 	
