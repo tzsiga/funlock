@@ -21,6 +21,17 @@ class Booking extends CI_Controller {
 		return $reserved_dates;
 	}
 	
+	private function get_booking_limit() {
+		$query = $this->db->query("SELECT value FROM config WHERE option_name = 'booking_limit'");
+		$result = $query->result();
+		
+		return $result[0]->value;
+	}
+	
+	private function get_user_booking_num() {
+		// check by IP, read the number of successful booking from session
+	}
+	
 	private function generate_booking_code($timestamp) {
 		return strtoupper(strrev(dechex($timestamp)));
 	}
@@ -42,6 +53,7 @@ class Booking extends CI_Controller {
 
 	public function add_appointment() {
 		if ($this->input->is_ajax_request()) {
+		
 			$posted = $this->input->post();
 			
 			if ($posted) {

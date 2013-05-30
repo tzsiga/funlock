@@ -3,7 +3,7 @@
 	<div id="wrapper_content">
 		<div id="navbar">
 			<?= img(array('src' => base_url().'assets/img/main/logo_small.png', 'id' => 'logo_small')) ?>
-			<div id="subtitle">A Bejutós Játék</div>
+			<div id="subtitle">- A Bejutós Játék -</div>
 			<div id="menu">
 				<ul>
 					<li><p id="link_info">Info</p></li>
