@@ -271,9 +271,9 @@ body#main_page #wrapper_content #logo_small {
 body#main_page #wrapper_content #subtitle {
   display: inline-block;
   float: right;
-  margin-right: -6px;
+  margin-right: -8px;
   margin-top: -40px;
-  width: 156px;
+  width: 160px;
   text-align: center;
   font-size: 1.1em;
   letter-spacing: 1px;
@@ -468,6 +468,8 @@ body#main_page #content #booking_details form#booking_form textarea {
   border: 1px solid grey;
   border-radius: 4px 4px 4px 4px;
   font-family: 'Source Sans Pro', arial, verdana;
+  font-size: 0.9em;
+  padding-left: 3px;
 }
 body#main_page #content #booking_details form#booking_form select {
   width: 124px;
@@ -493,7 +495,7 @@ body#main_page #content #booking_details form#booking_form input#house {
   width: 40px;
 }
 body#main_page #content #booking_details form#booking_form label[for=eula] {
-  margin-left: 232px;
+  margin-left: 235px;
 }
 body#main_page #content #booking_details form#booking_form label[for=billing] {
   margin-left: 60px;
