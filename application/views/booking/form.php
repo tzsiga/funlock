@@ -96,7 +96,7 @@
 			type: 'POST',
 			data: $('#booking_form').serialize(),
 			success: function(result){
-				refreshTable(parseInt($('#reference_time').attr('alt')));
+				refreshTable(parseInt($('#reference_time').text()));
 				$('#booking_details').html(result);
 			},
 		statusCode: {
@@ -104,7 +104,7 @@
 				$('#booking_details').html('<form id="error_form"><h3>Kapcsolódási hiba!</h3></form>');
 			},
 			500: function() {
-				refreshTable(parseInt($('#reference_time').attr('alt')));
+				refreshTable(parseInt($('#reference_time').text()));
 				$('#booking_details').html('<form id="error_form"><h3>Lekésted!</h3><br/><p>Mialatt nézelődtél befoglalták az általad kiválasztott időpontot! Válassz egy újat.</p></form>');
 			}
 		}
