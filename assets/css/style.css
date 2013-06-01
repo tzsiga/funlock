@@ -178,9 +178,9 @@ body {
 }
 #ui-datepicker-div {
   margin-left: 10px;
-  -moz-box-shadow: 8px 8px 15px #555;
-  -webkit-box-shadow: 8px 8px 15px #555;
-  box-shadow: 8px 8px 15px #555;
+  -moz-box-shadow: 8px 8px 15px #222222;
+  -webkit-box-shadow: 8px 8px 15px #222222;
+  box-shadow: 8px 8px 15px #222222;
 }
 table.ui-datepicker-calendar td {
   padding-right: 12px;
@@ -298,9 +298,9 @@ body#main_page #wrapper_content #legend #icon_reserved {
   width: 70px;
   margin-top: 0px;
   border: 1px solid black;
-  -moz-box-shadow: 8px 8px 15px #CCCCCC;
-  -webkit-box-shadow: 8px 8px 15px #CCCCCC;
-  box-shadow: 8px 8px 15px #CCCCCC;
+  -moz-box-shadow: 8px 8px 15px #cccccc;
+  -webkit-box-shadow: 8px 8px 15px #cccccc;
+  box-shadow: 8px 8px 15px #cccccc;
 }
 body#main_page #wrapper_content #legend #icon_unavailable {
   background-color: #636363;
@@ -341,13 +341,13 @@ body#main_page #content #calendar #next_month {
 body#main_page #content #calendar #arrow_left,
 body#main_page #content #calendar #arrow_right {
   background-color: white;
-  -moz-box-shadow: 8px 8px 15px #CCCCCC;
-  -webkit-box-shadow: 8px 8px 15px #CCCCCC;
-  box-shadow: 8px 8px 15px #CCCCCC;
+  -moz-box-shadow: 8px 8px 15px #cccccc;
+  -webkit-box-shadow: 8px 8px 15px #cccccc;
+  box-shadow: 8px 8px 15px #cccccc;
 }
 body#main_page #content #calendar #table_wrapper {
   vertical-align: text-bottom;
-  border-radius: 4px 4px 4px 4px;
+  border-radius: 4px;
   display: inline-block;
 }
 body#main_page #content #calendar #arrow_left {
@@ -367,12 +367,12 @@ body#main_page #content #calendar table {
   background-color: white;
   display: table-cell;
   vertical-align: bottom;
-  border-radius: 4px 4px 4px 4px;
+  border-radius: 4px;
   margin: 0;
   padding: 0;
-  -moz-box-shadow: 8px 8px 15px #CCCCCC;
-  -webkit-box-shadow: 8px 8px 15px #CCCCCC;
-  box-shadow: 8px 8px 15px #CCCCCC;
+  -moz-box-shadow: 8px 8px 15px #cccccc;
+  -webkit-box-shadow: 8px 8px 15px #cccccc;
+  box-shadow: 8px 8px 15px #cccccc;
 }
 body#main_page #content #calendar td,
 body#main_page #content #calendar th {
@@ -439,12 +439,12 @@ body#main_page #content #booking_details {
   border: 1px solid black;
   background-color: white;
   padding: 20px;
-  border-radius: 4px 4px 4px 4px;
+  border-radius: 4px;
   width: 700px;
   margin: 30px auto 50px;
-  -moz-box-shadow: 8px 8px 15px #CCCCCC;
-  -webkit-box-shadow: 8px 8px 15px #CCCCCC;
-  box-shadow: 8px 8px 15px #CCCCCC;
+  -moz-box-shadow: 8px 8px 15px #cccccc;
+  -webkit-box-shadow: 8px 8px 15px #cccccc;
+  box-shadow: 8px 8px 15px #cccccc;
 }
 body#main_page #content #booking_details form#booking_form {
   line-height: 50px;
@@ -466,10 +466,13 @@ body#main_page #content #booking_details form#booking_form textarea {
   width: 120px;
   margin-right: 15px;
   border: 1px solid grey;
-  border-radius: 4px 4px 4px 4px;
+  border-radius: 4px;
   font-family: 'Source Sans Pro', arial, verdana;
   font-size: 0.9em;
   padding-left: 3px;
+}
+body#main_page #content #booking_details form#booking_form input[type=checkbox] {
+  border: 0;
 }
 body#main_page #content #booking_details form#booking_form select {
   width: 124px;

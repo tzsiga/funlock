@@ -118,6 +118,23 @@
 		<div id="enter"><a href="<?= base_url().'index.php/booking' ?>">ENTER &bull;</a></div>
 	</div>
 	<script type="text/javascript">
+		<?php // preload images ?>
+		$.fn.preload = function() {
+			this.each(function(){
+				$('<img/>')[0].src = this;
+			});
+		}
+
+		$([
+		<?php
+			$map = directory_map('./assets/img/intro/');
+			
+			foreach ($map as $img) {
+				echo "'".base_url()."assets/img/intro/".$img."',";
+			}
+		?>
+		]).preload();
+		
 		var panel_height = 370;
 		var panel_width = 800;
 		
@@ -131,6 +148,20 @@
 				<?php generate_slider_js($letters); ?>
 			});
 		});
+		
+		<?php // big brother ?>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-41388740-1']);
+		_gaq.push(['_setDomainName', 'funlock.hu']);
+		_gaq.push(['_setAllowLinker', true]);
+		_gaq.push(['_trackPageview']);
+		
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+
 		
 		<?php // disable right click ?>
 		$(document).ready(function(){

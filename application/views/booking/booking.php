@@ -32,9 +32,21 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-
-		// preload images
 		
+		<?php // big brother ?>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-41388740-1']);
+		_gaq.push(['_setDomainName', 'funlock.hu']);
+		_gaq.push(['_setAllowLinker', true]);
+		_gaq.push(['_trackPageview']);
+		
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+		
+		<?php // preload images ?>
 		$.fn.preload = function() {
 			this.each(function(){
 				$('<img/>')[0].src = this;
@@ -50,8 +62,7 @@
 			'<?= base_url() ?>assets/img/main/map.png'
 		]).preload();
 
-		// opacity toggle
-		
+		<?php // opacity toggle ?>
 		jQuery.fn.visible = function() {
 			return this.animate({opacity: 1}, 400);
 		}
@@ -64,18 +75,18 @@
 			return (this.css('opacity') == 0) ? this.animate({opacity: 1}, 400) : this.animate({opacity: 0}, 400);
 		}
 
-		// default setup
+		<?php // default setup ?>
 		
 		$(document).ready(function(){
-			// disable right click
+			<?php // disable right click ?>
 			$(document).bind("contextmenu", function(e){
 				return false;
 			});
 		
-			// hidden elements by default
+			<?php // hidden elements by default ?>
 			$('#booking_details').css('opacity', '0');
 			
-			// fake links
+			<?php // fake links ?>
 			$('#link_info').css('cursor', 'pointer');
 			$('#link_map').css('cursor', 'pointer');
 			$('#link_contact').css('cursor', 'pointer');
@@ -84,7 +95,7 @@
 			$('#arrow_right').css('cursor', 'pointer');
 		});
 		
-		// left menu items
+		<?php // left menu items ?>
 			
 		var item_info = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
 		var item_contact = '1068 Budapest<br/>Király utca 54.<br/>T.: +3670 382 1388<br/><p id="info">&nbsp;</p><br/>';
@@ -114,7 +125,7 @@
 			});
 		});
 			
-		// booking calendar wrapper
+		<?php // booking calendar wrapper ?>
 		
 		var timer = $.timer(function() {
 			refreshTable();
