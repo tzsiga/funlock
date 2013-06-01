@@ -110,13 +110,15 @@ class Booking extends CI_Controller {
 							$this->load->view('booking/form_success_card', array('code' => $this->generate_booking_code(strtotime($posted['appointment']))));
 						}
 					} else {
+						// form validation fail
 						$this->load->view('booking/form', array('posted' => $posted));
 					}
 				} else {
+					// on page load
 					$this->load->view('booking/form', array('posted' => $posted));
 				}
 			} else {
-				// booking limit reached!
+				// booking limit reached
 				$this->load->view('booking/form_fail_limit');
 			}
 		}

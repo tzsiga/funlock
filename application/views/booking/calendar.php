@@ -47,6 +47,7 @@ function generate_table($reserved_dates, $ref_time, $selected_appointment) {
 generate_table($reserved_dates, $ref_time, $selected_appointment);
 
 ?>
+
 <script type="text/javascript">
 
 	function getMonday(d) {
@@ -67,7 +68,7 @@ generate_table($reserved_dates, $ref_time, $selected_appointment);
 		var monday = getMonday(new Date($('#blank_cell').val()));
 		$('#table_wrapper').invisible().promise().done(function(){
 			refreshTable(strtotime(monday.toString()));
-			$('#table_wrapper').delay(450).visible();
+			$(this).delay(450).visible();
 		});
 	});
 

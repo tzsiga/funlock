@@ -3,7 +3,11 @@
 	<div id="wrapper_content">
 		<div id="navbar">
 			<?= img(array('src' => base_url().'assets/img/main/logo_small.png', 'id' => 'logo_small')) ?>
-			<div id="subtitle">- A Bejutós Játék -</div>
+			<?php if ($this->agent->browser() == 'Internet Explorer') {?>
+			<div id="subtitle" style="margin-top: -20px;">
+			<?php } else { ?>
+			<div id="subtitle">
+			<?php } ?>- A Bejutós Játék -</div>
 			<div id="menu">
 				<ul>
 					<li><p id="link_info">Info</p></li>
@@ -149,7 +153,7 @@
 			if ($('#reference_time').text() > <?= time() ?>) {
 				$('#table_wrapper').invisible().promise().done(function(){
 					refreshTable(parseInt($('#reference_time').text()) - parseInt(<?= Utils::week ?>));
-					$('#table_wrapper').delay(450).visible();
+					$(this).delay(450).visible();
 				});
 			}
 		});
@@ -157,7 +161,7 @@
 		$('#arrow_right').click(function(){
 			$('#table_wrapper').invisible().promise().done(function(){
 				refreshTable(parseInt($('#reference_time').text()) + parseInt(<?= Utils::week ?>));
-				$('#table_wrapper').delay(450).visible();
+				$(this).delay(450).visible();
 			});
 		});
 		

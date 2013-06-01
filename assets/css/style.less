@@ -97,7 +97,6 @@ body#main_page {
 		#navbar {
 			display: inline-block;
 			float: left;
-			margin-left: 0px;
 			width: 250px;
 			margin-top: 36px;
 			margin-left: 18px;
@@ -133,10 +132,11 @@ body#main_page {
 		#subtitle {
 			display: inline-block;
 			float: right;
-			margin-right: -8px;
+			margin-right: -13px;
+			
 			margin-top: -40px;
 			
-			width: 160px;
+			width: 170px;
 			text-align: center;
 			font-size: 1.1em;
 			letter-spacing: 1px;
@@ -195,6 +195,9 @@ body#main_page {
 			display: table;
 			width: 840px;
 			margin: 36px 0 50px;
+			background-image: url('../img/main/loading.gif');
+			background-repeat: no-repeat;
+			background-position: center;
 			
 			#prev_month, #next_month {
 				display: table-cell;
@@ -208,6 +211,8 @@ body#main_page {
 			}
 			
 			#arrow_left, #arrow_right {
+				height: 59px;
+				width: 56px;
 				background-color: white;
 				.shadow_applied(#CCCCCC);
 			}

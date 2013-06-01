@@ -241,7 +241,6 @@ body#main_page #wrapper_content {
 body#main_page #wrapper_content #navbar {
   display: inline-block;
   float: left;
-  margin-left: 0px;
   width: 250px;
   margin-top: 36px;
   margin-left: 18px;
@@ -271,9 +270,9 @@ body#main_page #wrapper_content #logo_small {
 body#main_page #wrapper_content #subtitle {
   display: inline-block;
   float: right;
-  margin-right: -8px;
+  margin-right: -13px;
   margin-top: -40px;
-  width: 160px;
+  width: 170px;
   text-align: center;
   font-size: 1.1em;
   letter-spacing: 1px;
@@ -327,6 +326,9 @@ body#main_page #content #calendar {
   display: table;
   width: 840px;
   margin: 36px 0 50px;
+  background-image: url('../img/main/loading.gif');
+  background-repeat: no-repeat;
+  background-position: center;
 }
 body#main_page #content #calendar #prev_month,
 body#main_page #content #calendar #next_month {
@@ -340,6 +342,8 @@ body#main_page #content #calendar #next_month {
 }
 body#main_page #content #calendar #arrow_left,
 body#main_page #content #calendar #arrow_right {
+  height: 59px;
+  width: 56px;
   background-color: white;
   -moz-box-shadow: 8px 8px 15px #cccccc;
   -webkit-box-shadow: 8px 8px 15px #cccccc;
