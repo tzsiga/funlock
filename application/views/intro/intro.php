@@ -7,7 +7,7 @@
 			function generate_slider_divs($letters) {
 				foreach ($letters as $id => $letter) {
 					//echo "\n";		// only for debug
-					echo '<div class="slider" id="'.$id.'" style="margin-top: '.$letter['margin_top'].'px; margin-left: '.$letter['margin_left'].'px; background-image: url(\'assets/img/intro/'.$letter['img'].'\');"></div>';
+					echo '<div class="slider" id="'.$id.'" style="margin-top: '.$letter['margin_top'].'px; margin-left: '.$letter['margin_left'].'px; background-image: url(\''.base_url().'assets/img/intro/'.$letter['img'].'\');"></div>';
 				}
 			}
 			
@@ -124,7 +124,6 @@
 		var slider_height = 177;
 		
 		var offset_x = 0;
-		//var margin_offset_x = ($("body").width() - panel_width) / 2;
 		var margin_offset_x = 280;
 		
 		jQuery(document).ready(function(){

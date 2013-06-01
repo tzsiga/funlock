@@ -21,8 +21,8 @@ $lang['is_unique'] 			= "A(z) %s mezőnek egyedinek kell lennie!";
 $lang['is_natural']			= "A(z) %s mező csak pozitív számot tartalmazhat!";
 $lang['is_natural_no_zero']	= "A(z) %s mező csak nullánál nagyobb pozitív számot tartalmazhat!";
 $lang['decimal']			= "A(z) %s mező csak decimális számot tartalmazhat!";
-$lang['less_than']			= "A(z) %s mező csak %s-től kisebb számot tartalmazhat!";
-$lang['greater_than']		= "A(z) %s mező csak %s-től nagyobb számot tartalmazhat!";
+$lang['less_than']			= "A(z) %s mező csak %s-nál kisebb számot tartalmazhat!";
+$lang['greater_than']		= "A(z) %s mező csak %s-nál nagyobb számot tartalmazhat!";
 
 
 /* End of file form_validation_lang.php */

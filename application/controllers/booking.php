@@ -29,12 +29,11 @@ class Booking extends CI_Controller {
 	}
 	
 	private function get_user_booking_num() {
-		if (!get_cookie('fnlck_cubn', true)) {
-			set_cookie('fnlck_cubn', 0);
+		if (!$this->session->all_userdata()) {
+			$this->session->set_userdata(array('number_of_bookings' => 0));
 		}
 		
-		// funlock current user bookings number
-		return get_cookie('fnlck_cubn', true);
+		return $this->session->userdata('number_of_bookings');
 	}
 	
 	private function generate_booking_code($timestamp) {
@@ -82,15 +81,7 @@ class Booking extends CI_Controller {
 					$is_success = false;
 					
 					if ($this->form_validation->run() == true) {
-						$cookie = array(
-							'name'   => 'fnlck_cubn',
-							'value'  => $this->get_user_booking_num() + 1,
-							'expire' => '86500',
-							//'prefix' => 'fnlck_',
-							'secure' => true
-						);
-
-						set_cookie($cookie);
+						$this->session->set_userdata(array('number_of_bookings' => $this->get_user_booking_num() + 1));
 					
 						$data = array(
 							'appointment' 		=> strtotime($posted['appointment']),

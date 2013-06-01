@@ -53,7 +53,7 @@ class Admin extends CI_Controller {
 				$this->form_validation->set_rules('new_password_1', '"Új jelszó"', 'required|xss_clean|min_length[5]|max_length[20]');
 				$this->form_validation->set_rules('new_password_2', '"Új jelszó újra"', 'required|xss_clean|matches[new_password_1]');
 
-				if ($this->form_validation->run() == TRUE) {				
+				if ($this->form_validation->run() == TRUE) {
 					$query = $this->db->query("SELECT value FROM config WHERE option_name = 'admin_password'");
 					$hashed_password = $query->row()->value;
 					
@@ -69,6 +69,30 @@ class Admin extends CI_Controller {
 			}
 			
 			$this->load->view('admin/change_password');
+		}
+	}
+	
+	public function change_limit() {
+		if ($this->session->userdata('login_state') != 'logged_in') {
+			$this->session->set_flashdata('msg', 'Be kell jelentkezni!');
+			redirect('/admin/login', 'refresh');
+		} else {
+			$query = $this->db->query("SELECT value FROM config WHERE option_name = 'booking_limit'");
+			$current_limit = $query->row()->value;
+			
+			$posted = $this->input->post();
+			
+			if ($posted) {
+				$this->form_validation->set_rules('limit', '"Foglalási limit"', 'required|xss_clean|numeric|greater_than[0]|less_than[100]');
+				
+				if ($this->form_validation->run() == TRUE) {
+					$this->db->query("UPDATE config SET value = '".$posted['limit']."' WHERE option_name = 'booking_limit'");
+					$this->session->set_flashdata('msg', 'Új foglalási limit: '.$posted['limit']);
+					redirect('/admin', 'refresh');
+				}
+			}
+			
+			$this->load->view('admin/change_limit', array('current_limit' => $current_limit));
 		}
 	}
 
