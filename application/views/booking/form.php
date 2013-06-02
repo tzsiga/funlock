@@ -50,7 +50,6 @@
 
 	echo '</p><p>';
 	echo form_submit(array('name' => 'book_btn', 'id' => 'book_btn', 'value' => 'Foglalás'));
-	echo '<br/>';
 
 	echo '</p>';
 	echo form_close();

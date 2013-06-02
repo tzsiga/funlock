@@ -449,9 +449,11 @@ body#main_page #content #booking_details {
   -moz-box-shadow: 8px 8px 15px #cccccc;
   -webkit-box-shadow: 8px 8px 15px #cccccc;
   box-shadow: 8px 8px 15px #cccccc;
+  position: relative;
 }
 body#main_page #content #booking_details form#booking_form {
   line-height: 50px;
+  padding-bottom: 40px;
 }
 body#main_page #content #booking_details form#booking_form label {
   display: inline-block;
@@ -487,6 +489,7 @@ body#main_page #content #booking_details form#booking_form input[type=submit] {
   float: right;
   background-color: #DDDDDD;
   letter-spacing: 1px;
+  margin-top: 10px;
 }
 body#main_page #content #booking_details form#booking_form textarea {
   height: 20px;
@@ -502,10 +505,22 @@ body#main_page #content #booking_details form#booking_form input#house {
   width: 40px;
 }
 body#main_page #content #booking_details form#booking_form label[for=eula] {
-  margin-left: 235px;
+  position: absolute;
+  right: 70px;
 }
 body#main_page #content #booking_details form#booking_form label[for=billing] {
-  margin-left: 60px;
+  position: absolute;
+  right: 70px;
+}
+body#main_page #content #booking_details form#booking_form input[name=eula] {
+  position: absolute;
+  right: 40px;
+  top: 88px;
+}
+body#main_page #content #booking_details form#booking_form input[name=billing] {
+  position: absolute;
+  right: 40px;
+  top: 137px;
 }
 body#main_page #content #booking_details form#booking_form label[for=city] {
   width: 50px;

@@ -328,10 +328,12 @@ body#main_page {
 			width: 700px;
 			margin: 30px auto 50px;
 			.shadow_applied(#CCCCCC);
+			position: relative;
 			
 			form#booking_form {
 				line-height: 50px;
 				//text-align: right;
+				padding-bottom: 40px;
 				
 				label {
 					display: inline-block;
@@ -370,6 +372,7 @@ body#main_page {
 					float: right;
 					background-color: #DDDDDD;
 					letter-spacing: 1px;
+					margin-top: 10px;
 				}
 				
 				textarea {
@@ -389,11 +392,25 @@ body#main_page {
 				}
 				
 				label[for=eula] {
-					margin-left: 235px;
+					position: absolute;
+					right: 70px;
 				}
 				
 				label[for=billing] {
-					margin-left: 60px;
+					position: absolute;
+					right: 70px;
+				}
+				
+				input[name=eula] {
+					position: absolute;
+					right: 40px;
+					top: 88px;
+				}
+				
+				input[name=billing] {
+					position: absolute;
+					right: 40px;
+					top: 137px;
 				}
 				
 				label[for=city] {
@@ -402,9 +419,6 @@ body#main_page {
 				
 				label[for=street] {
 					width: 40px;
-				}
-				
-				submit {
 				}
 			}
 			
