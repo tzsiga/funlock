@@ -166,7 +166,34 @@ class Booking extends CI_Controller {
 				}
 			}
 			
-			$this->load->view('booking/add', array('posted' => $posted));
+			$this->load->view('booking/admin_add', array('posted' => $posted));
+		}
+	}
+	
+	public function generate_admin_table() {
+		if ($this->input->is_ajax_request()) {
+			$ref_time = $this->input->get('ref_time');
+			$selected_appointment = $this->input->get('selected_appointment');
+			
+			$this->load->view('booking/admin_calendar', array('reserved_dates' => $this->get_appointments($ref_time), 'ref_time' => $ref_time, 'selected_appointment' => $selected_appointment));
+		}
+	}
+	
+	public function edit_table() {
+		if ($this->session->userdata('login_state') != 'logged_in') {
+			$this->session->set_flashdata('msg', 'Be kell jelentkezni!');
+			redirect('/admin/login', 'refresh');
+		} else {
+			$query = $this->db->query('SELECT * FROM bookings ORDER BY appointment ASC');
+			$reserved_dates = array();
+			
+			foreach ($query->result() as $row) {
+				$reserved_dates[$row->appointment] = array(
+					'id' => $row->id
+				);
+			}
+
+			$this->load->view('booking/admin_edit_table', array('reserved_dates' => $reserved_dates));
 		}
 	}
 	
@@ -187,7 +214,7 @@ class Booking extends CI_Controller {
 				);
 			}
 
-			$this->load->view('booking/edit_list', array('reserved_dates' => $reserved_dates));
+			$this->load->view('booking/admin_edit_list', array('reserved_dates' => $reserved_dates));
 		}
 	}
 	
@@ -249,7 +276,7 @@ class Booking extends CI_Controller {
 			}
 
 			$booking = $this->db->get_where('bookings', array('id' => $id))->result();
-			$this->load->view('booking/edit', array('booking' => $booking[0]));			
+			$this->load->view('booking/admin_edit', array('booking' => $booking[0]));			
 		}
 	}
 

@@ -611,3 +611,120 @@ body#main_page #content #booking_details .error_msg {
 #wrapper_admin #admin_menu {
   margin-left: 14px;
 }
+#wrapper_admin #admin_menu #admin_calendar {
+  display: table;
+  width: 840px;
+  margin: 36px 0 50px;
+  background-image: url('../img/main/loading.gif');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#wrapper_admin #admin_menu #admin_calendar #prev_month,
+#wrapper_admin #admin_menu #admin_calendar #next_month {
+  display: table-cell;
+  vertical-align: middle;
+  height: 110px;
+}
+#wrapper_admin #admin_menu #admin_calendar #next_month {
+  position: relative;
+  z-index: 2;
+}
+#wrapper_admin #admin_menu #admin_calendar #arrow_left,
+#wrapper_admin #admin_menu #admin_calendar #arrow_right {
+  height: 59px;
+  width: 56px;
+  background-color: white;
+  -moz-box-shadow: 8px 8px 15px #cccccc;
+  -webkit-box-shadow: 8px 8px 15px #cccccc;
+  box-shadow: 8px 8px 15px #cccccc;
+}
+#wrapper_admin #admin_menu #admin_calendar #table_wrapper {
+  vertical-align: text-bottom;
+  border-radius: 4px;
+  display: inline-block;
+}
+#wrapper_admin #admin_menu #admin_calendar #arrow_left {
+  border: 1px solid black;
+  border-right: 0;
+  border-radius: 4px 0 0 4px;
+}
+#wrapper_admin #admin_menu #admin_calendar #arrow_right {
+  border: 1px solid black;
+  border-left: 0;
+  border-radius: 0 4px 4px 0;
+}
+#wrapper_admin #admin_menu #admin_calendar #reference_time {
+  display: none;
+}
+#wrapper_admin #admin_menu #admin_calendar table {
+  background-color: white;
+  display: table-cell;
+  vertical-align: bottom;
+  border-radius: 4px;
+  margin: 0;
+  padding: 0;
+  -moz-box-shadow: 8px 8px 15px #cccccc;
+  -webkit-box-shadow: 8px 8px 15px #cccccc;
+  box-shadow: 8px 8px 15px #cccccc;
+}
+#wrapper_admin #admin_menu #admin_calendar td,
+#wrapper_admin #admin_menu #admin_calendar th {
+  height: 36px;
+  width: 92px;
+  text-align: center;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  font-weight: normal;
+  font-size: 1.1em;
+  background-color: white;
+}
+#wrapper_admin #admin_menu #admin_calendar td.reserved_cell {
+  width: 91px;
+  height: 36px;
+  background-image: url('../img/main/reserved.png');
+  background-size: 91px 36px;
+}
+#wrapper_admin #admin_menu #admin_calendar td.timebox {
+  font-size: 0;
+}
+#wrapper_admin #admin_menu #admin_calendar td.timebox_passed {
+  background-color: #636363;
+}
+#wrapper_admin #admin_menu #admin_calendar th:last-child,
+#wrapper_admin #admin_menu #admin_calendar td:last-child {
+  border-right: 1px solid black;
+}
+#wrapper_admin #admin_menu #admin_calendar tr:last-child td {
+  border-bottom: 1px solid black;
+}
+#wrapper_admin #admin_menu #admin_calendar th:first-child,
+#wrapper_admin #admin_menu #admin_calendar th:first-child * {
+  border-radius: 4px 0 0 0;
+}
+#wrapper_admin #admin_menu #admin_calendar th:last-child {
+  border-radius: 0 4px 0 0;
+}
+#wrapper_admin #admin_menu #admin_calendar tr:last-child td:first-child {
+  border-radius: 0 0 0 4px;
+}
+#wrapper_admin #admin_menu #admin_calendar tr:last-child td:last-child {
+  border-radius: 0 0 4px 0;
+}
+#wrapper_admin #admin_menu #admin_calendar #calendar_label {
+  font-size: 0.8em;
+  z-index: 1;
+  position: relative;
+  top: 10px;
+  height: 0px;
+  margin: -30px 0;
+}
+#wrapper_admin #admin_menu #admin_calendar #blank_cell {
+  width: 90%;
+  height: 90%;
+  margin-top: -30px;
+  color: white;
+  opacity: 0;
+  z-index: 2;
+  position: relative;
+  vertical-align: middle;
+}

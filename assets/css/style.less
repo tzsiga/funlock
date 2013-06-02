@@ -432,6 +432,8 @@ body#main_page {
 	}
 }
 
+/////// admin page /////////////////////////////////////////////////////////
+
 #wrapper_admin {
 	background-color: #fff;
 	margin: 40px;
@@ -514,6 +516,135 @@ body#main_page {
 	
 	#admin_menu {
 		margin-left: 14px;
+		
+		#admin_calendar {
+			display: table;
+			width: 840px;
+			margin: 36px 0 50px;
+			background-image: url('../img/main/loading.gif');
+			background-repeat: no-repeat;
+			background-position: center;
+			
+			#prev_month, #next_month {
+				display: table-cell;
+				vertical-align: middle;
+				height: 110px;
+			}
+			
+			#next_month {
+				position: relative;
+				z-index: 2;
+			}
+			
+			#arrow_left, #arrow_right {
+				height: 59px;
+				width: 56px;
+				background-color: white;
+				.shadow_applied(#CCCCCC);
+			}
+			
+			#table_wrapper {
+				vertical-align: text-bottom;
+				border-radius: @rad;
+				display: inline-block;
+			}
+			
+			#arrow_left {
+				border: 1px solid black;
+				border-right: 0;
+				border-radius: @rad 0 0 @rad;
+			}
+			
+			#arrow_right {
+				border: 1px solid black;
+				border-left: 0;
+				border-radius: 0 @rad @rad 0;
+			}
+			
+			#reference_time {
+				display: none;
+			}
+			
+			table {
+				background-color: white;
+				display: table-cell;
+				vertical-align: bottom;
+				border-radius: @rad;
+				margin: 0;
+				padding: 0;
+				.shadow_applied(#CCCCCC);
+			}
+			
+			td, th {
+				height: 36px;
+				width: 92px;
+				text-align: center;
+				border-top: 1px solid black;
+				border-left: 1px solid black;
+				font-weight: normal;
+				font-size: 1.1em;
+				background-color: white;
+			}
+			
+			td.reserved_cell {
+				width: 91px;
+				height: 36px;
+				background-image: url('../img/main/reserved.png');
+				background-size: 91px 36px;
+			}
+			
+			td.timebox {
+				font-size: 0;
+			}
+			
+			td.timebox_passed {
+				background-color: #636363;
+			}
+			
+			th:last-child, td:last-child {
+				border-right: 1px solid black;
+			}
+			
+			tr:last-child td {
+				border-bottom: 1px solid black;
+			}
+			
+			th:first-child, th:first-child * {
+				border-radius: @rad 0 0 0;
+			}
+
+			th:last-child {
+				border-radius: 0 @rad 0 0;
+			}
+
+			tr:last-child td:first-child {
+				border-radius: 0 0 0 @rad;
+			}
+			
+			tr:last-child td:last-child {
+				border-radius: 0 0 @rad 0;
+			}
+			
+			#calendar_label {
+				font-size: 0.8em;
+				z-index: 1;
+				position: relative;
+				top: 10px;
+				height: 0px;
+				margin: -30px 0;
+			}
+			
+			#blank_cell {
+				width: 90%;
+				height: 90%;
+				margin-top: -30px;
+				color: white;
+				opacity: 0;
+				z-index: 2;
+				position: relative;
+				vertical-align: middle;
+			}
+		}
 	}
 
 }

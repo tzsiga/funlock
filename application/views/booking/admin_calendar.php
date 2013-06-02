@@ -27,7 +27,7 @@ function generate_table($reserved_dates, $ref_time, $selected_appointment) {
 			} else {
 				// if in the present week or future
 				if (isset($reserved_dates[$cell_time])) {
-					echo '<td class="reserved_cell"></td>';
+					echo '<td class="reserved_cell"><a href="'.base_url().'index.php/booking/edit/'.$reserved_dates[$cell_time]['id'].'"><div style="width: 90px; height: 34px;"></div></a></td>';
 				} else {
 					if ($cell_time == $selected_appointment) {
 						echo '<td class="timebox" style="-moz-box-shadow: 8px 8px 15px #888888; -webkit-box-shadow: 8px 8px 15px #888888; box-shadow: 8px 8px 15px #888888; position: relative; z-index: 3; background-image: url(\''.base_url().'/assets/img/main/selected.png\')">'. date('Y-m-d H:i', $cell_time) .'</td>';
@@ -70,34 +70,6 @@ generate_table($reserved_dates, $ref_time, $selected_appointment);
 			refreshTable(strtotime(monday.toString()));
 			$(this).delay(450).visible();
 		});
-	});
-
-	$('td.timebox').click(function(){
-		$('td.timebox').css('-moz-box-shadow', 'none');
-		$('td.timebox').css('-webkit-box-shadow', 'none');
-		$('td.timebox').css('box-shadow', 'none');
-		$('td.timebox').css('z-index', '0');
-		$('td.timebox').css('background-image', 'none');
-		
-		$(this).css('-moz-box-shadow', '8px 8px 15px #888888');
-		$(this).css('-webkit-box-shadow', '8px 8px 15px #888888');
-		$(this).css('box-shadow', '8px 8px 15px #888888');
-		$(this).css('position', 'relative');
-		$(this).css('z-index', '3');
-		$(this).css('background-image', "url('<?= base_url() ?>/assets/img/main/selected.png')");
-		
-		$('#booking_details').visible();
-		
-		if ($('#booking_details > form').attr('id') == 'error_form') {
-			$.ajax({
-				url: '<?= base_url() ?>index.php/booking/generate_form',
-				type: 'POST'
-			}).success(function(result) {
-				$('#booking_details').html(result);
-			});
-		}
-		
-		$("input[name=appointment]").val($(this).text());
 	});
 
 </script>

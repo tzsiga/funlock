@@ -31,7 +31,7 @@
 			?>
 			</ul>
 			<p>
-				<a href="<?= base_url() ?>index.php/admin">Vissza</a>
+				<a href="<?= base_url() ?>index.php/booking/edit_table">Vissza</a>
 			</p>
 		</div>
 	</div>

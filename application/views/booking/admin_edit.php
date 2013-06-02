@@ -76,7 +76,7 @@
 			echo form_close();
 		?>
 		<p>
-			<a href="<?= base_url() ?>index.php/booking/edit_list">Vissza</a>
+			<a href="<?= base_url() ?>index.php/booking/edit_table">Vissza</a>
 		</p>
 	</div>
 	<script type="text/javascript">

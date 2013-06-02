@@ -11,7 +11,7 @@
 			<h3>Foglalások kezelése</h3>
 			<ul>
 				<li><a href="<?= base_url() ?>index.php/booking/add">Új létrehozása</a></li>
-				<li><a href="<?= base_url() ?>index.php/booking/edit_list">Meglévők módosítása/törlése</a></li>
+				<li><a href="<?= base_url() ?>index.php/booking/edit_table">Meglévők módosítása/törlése</a></li>
 			</ul>
 			<h3>Verzió</h3>
 			<ul>
