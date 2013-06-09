@@ -277,6 +277,18 @@ body#main_page #wrapper_content #subtitle {
   font-size: 1.1em;
   letter-spacing: 1px;
 }
+body#main_page #wrapper_content #main_link {
+  display: inline-block;
+  height: 130px;
+  width: 85px;
+  position: absolute;
+  top: 30px;
+  left: 60px;
+}
+body#main_page #wrapper_content #link_gallery > a {
+  text-decoration: none;
+  color: black;
+}
 body#main_page #wrapper_content #legend {
   height: 59px;
   margin-left: 80px;

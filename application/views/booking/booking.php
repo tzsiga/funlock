@@ -2,16 +2,18 @@
 <body id="main_page">
 	<div id="wrapper_content">
 		<div id="navbar">
-			<?= img(array('src' => base_url().'assets/img/main/logo_small.png', 'id' => 'logo_small')) ?>
+			<a href="<?= base_url().'index.php/booking' ?>"><?= img(array('src' => base_url().'assets/img/main/logo_small.png', 'id' => 'logo_small')) ?></a>
 			<?php if ($this->agent->browser() == 'Internet Explorer') {?>
 			<div id="subtitle" style="margin-top: -20px;">
 			<?php } else { ?>
 			<div id="subtitle">
 			<?php } ?>- A Bejutós Játék -</div>
+			<a href="<?= base_url().'index.php/booking' ?>" id="main_link"></a>
 			<div id="menu">
 				<ul>
 					<li><p id="link_info">Info</p></li>
 					<li><p id="link_contact">Elérhetőség</p></li>
+					<li><p id="link_gallery"><a href="https://www.facebook.com/pages/Funlock/334668339974241?id=334668339974241&amp;sk=photos_stream" target="_blank">Galéria</a></p></li>
 				</ul>
 			</div>
 			<div id="item_display_area"></div>
@@ -102,8 +104,8 @@
 		<?php // left menu items ?>
 			
 		var item_info = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
-		var item_contact = '1068 Budapest<br/>Király utca 54.<br/>T.: +3670 382 1388<br/><p id="info">&nbsp;</p><br/>';
-		var item_map = '<img id="map" src="<?= base_url() ?>assets/img/main/map.png" alt="" title="" style="margin-left: -15px; border: 1px solid black; -moz-box-shadow: 8px 8px 15px #CCCCCC; -webkit-box-shadow: 8px 8px 15px #CCCCCC; box-shadow: 8px 8px 15px #CCCCCC;"/>';
+		var item_contact = '1068 Budapest<br/>Király utca 54.<br/>(bejárat a Hegedű utcából)<br/><br/>+3670 382 1388<br/><p id="info">&nbsp;</p><br/>';
+		var item_map = '<a href="http://goo.gl/maps/AriVW" target="_blank"><img id="map" src="<?= base_url() ?>assets/img/main/map.png" alt="" title="" style="margin-left: -15px; border: 1px solid black; -moz-box-shadow: 8px 8px 15px #CCCCCC; -webkit-box-shadow: 8px 8px 15px #CCCCCC; box-shadow: 8px 8px 15px #CCCCCC;"/></a>';
 		
 		function replaceAll(txt, replace, with_this) {
 			return txt.replace(new RegExp(replace, 'g'), with_this);
