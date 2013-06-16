@@ -74,6 +74,10 @@ body#intro_page {
 	}
 }
 
+#t4se {
+	visibility: hidden;
+}
+
 /////// main page //////////////////////////////////////////////////////////
 
 body#main_page {
@@ -102,12 +106,12 @@ body#main_page {
 			margin-left: 18px;
 			
 			#menu {
-				padding-top: 230px;
-				margin: 0 0 20px;
+				padding-top: 112px;
+				margin: 0 0 60px;
 
 				ul {
 					list-style: none;
-					padding-left: 20px;
+					padding-left: 60px;
 					width: 100px;
 				}
 			}	
@@ -406,26 +410,15 @@ body#main_page {
 				}
 				
 				label[for=eula] {
-					position: absolute;
-					right: 70px;
+					margin-left: 259px;
 				}
 				
 				label[for=billing] {
-					position: absolute;
-					right: 70px;
+					margin-left: 75px;
 				}
 				
-				input[name=eula] {
-					position: absolute;
-					right: 40px;
-					top: 88px;
-				}
-				
-				input[name=billing] {
-					position: absolute;
-					right: 40px;
-					top: 137px;
-				}
+				//input[name=eula] {}
+				//input[name=billing] {}
 				
 				label[for=city] {
 					width: 50px;
@@ -436,12 +429,33 @@ body#main_page {
 				}
 			}
 			
-			//form#booking_form_success {}
+			form#booking_form_success {
+				.tabulated {
+					margin-left: 50px;
+				}
+			}
 			
 			.error_msg {
 				color: #DC0000;
 				font-weight: bold;
 			}
+		}
+	}
+}
+
+/////// eula page //////////////////////////////////////////////////////////
+
+body#eula_page {
+	width: 700px;
+	margin: 0 auto;
+	padding: 40px;
+
+	ol {
+		margin-top: 20px;
+		text-align: justify;
+		
+		li {
+			margin-left: 30px;
 		}
 	}
 }

@@ -21,7 +21,7 @@
 	echo form_dropdown('payment_option', array('card' => 'átutalással', 'cache' => 'készpénzzel'), 'card', 'id="payment_option"');
 	//echo form_label('Megjegyzés', 'comment');
 	//echo form_input(array('name' => 'comment', 'id' => 'comment', 'value' => isset($posted['comment']) ? $posted['comment'] : ''));
-	echo form_label('Egyetértek a <a href="" id="link_eula">szerződéssel</a>', 'eula');
+	echo form_label('Elfogadom a <a href="'.base_url().'index.php/booking/eula" id="link_eula" target="_blank">feltételeket</a>', 'eula');
 	echo form_checkbox(array('name' => 'eula', 'id' => 'eula', 'value' => 'accept', 'checked' => isset($posted['eula']) ? true : false));
 
 	echo '</p><p>';
@@ -64,11 +64,6 @@
 		$('label[for="bill_fname"]').hide();
 		$('label[for="bill_sname"]').hide();
 	}
-	
-	$('#link_eula').click(function(event) {
-		event.preventDefault();
-		alert('EULA');
-	});
 	
 	$('#billing').click(function() {
 		if ($('#billing').is(':checked')) {

@@ -2,7 +2,7 @@
 <body id="intro_page">
 	<div id="action_zone">
 		<?php
-			// az action zone tartalmazza a slidereket, hozzá képest kell megadni a csúszkák KEZDETI pozícióját
+			// az action zone tartalmazza a slidereket, hozzá képest kell megadni a csúszkák kezdeti pozícióját
 			
 			function generate_slider_divs($letters) {
 				foreach ($letters as $id => $letter) {
@@ -117,6 +117,10 @@
 		
 		<div id="enter"><a href="<?= base_url().'index.php/booking' ?>">ENTER &bull;</a></div>
 	</div>
+	<?php // text for search engines ?>
+	<div id="t4se">
+		A Funlock egy szórakoztató csapatjáték, mely Téged és Barátaidat egy órára „rabul” ejt és csak magatokra illetve egymásra számíthattok az elgondolkodtató feladatok megoldásában. Közös csapatmunkával képesek lehettek legyőzni a számítógépet, mely átvette a szoba felett az irányítást és az egy óra leteltével örökre bezár Titeket. A játék 2-5 fős csapatokban játszható. Céges csapatépítő programnak is ajánljuk.A játék ára 12.000 Ft csapatonként, a csapat létszámától függetlenül. Amennyiben nagyobb létszámú társasággal jönnétek, egyedi foglalási megoldásokért keressetek minket elérhetőségeinken. Szeretettel várunk Titeket: A Funlock csapata
+	</div>
 	<script type="text/javascript">
 		<?php // preload images ?>
 		$.fn.preload = function() {
@@ -161,7 +165,6 @@
 			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		})();
-
 		
 		<?php // disable right click ?>
 		$(document).ready(function(){

@@ -223,6 +223,9 @@ body#intro_page {
   color: crimson;
   text-decoration: none;
 }
+#t4se {
+  visibility: hidden;
+}
 body#main_page {
   background-color: #E8E9EA;
   background-image: url('../img/main/logo_vertical_left.png'), -moz-linear-gradient(top, #ffffff 0%, #e8e9ea 100%);
@@ -246,12 +249,12 @@ body#main_page #wrapper_content #navbar {
   margin-left: 18px;
 }
 body#main_page #wrapper_content #navbar #menu {
-  padding-top: 230px;
-  margin: 0 0 20px;
+  padding-top: 112px;
+  margin: 0 0 60px;
 }
 body#main_page #wrapper_content #navbar #menu ul {
   list-style: none;
-  padding-left: 20px;
+  padding-left: 60px;
   width: 100px;
 }
 body#main_page #wrapper_content #navbar #item_display_area {
@@ -517,22 +520,10 @@ body#main_page #content #booking_details form#booking_form input#house {
   width: 40px;
 }
 body#main_page #content #booking_details form#booking_form label[for=eula] {
-  position: absolute;
-  right: 70px;
+  margin-left: 259px;
 }
 body#main_page #content #booking_details form#booking_form label[for=billing] {
-  position: absolute;
-  right: 70px;
-}
-body#main_page #content #booking_details form#booking_form input[name=eula] {
-  position: absolute;
-  right: 40px;
-  top: 88px;
-}
-body#main_page #content #booking_details form#booking_form input[name=billing] {
-  position: absolute;
-  right: 40px;
-  top: 137px;
+  margin-left: 75px;
 }
 body#main_page #content #booking_details form#booking_form label[for=city] {
   width: 50px;
@@ -540,9 +531,24 @@ body#main_page #content #booking_details form#booking_form label[for=city] {
 body#main_page #content #booking_details form#booking_form label[for=street] {
   width: 40px;
 }
+body#main_page #content #booking_details form#booking_form_success .tabulated {
+  margin-left: 50px;
+}
 body#main_page #content #booking_details .error_msg {
   color: #DC0000;
   font-weight: bold;
+}
+body#eula_page {
+  width: 700px;
+  margin: 0 auto;
+  padding: 40px;
+}
+body#eula_page ol {
+  margin-top: 20px;
+  text-align: justify;
+}
+body#eula_page ol li {
+  margin-left: 30px;
 }
 #wrapper_admin {
   background-color: #fff;

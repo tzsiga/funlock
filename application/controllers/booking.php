@@ -3,7 +3,7 @@
 class Booking extends CI_Controller {
 
 	public function index() {
-		$this->load->view('booking/booking', array('reserved_dates' => $this->get_appointments(time())));
+		$this->load->view('booking/booking', array('reserved_dates' => $this->get_appointments(time()), 'user_booking_num' => $this->get_user_booking_num(), 'booking_limit' => $this->get_booking_limit()));
 	}
 
 	private function get_appointments($from) {
@@ -122,6 +122,10 @@ class Booking extends CI_Controller {
 				$this->load->view('booking/form_fail_limit');
 			}
 		}
+	}
+	
+	public function eula() {
+		$this->load->view('booking/eula');
 	}
 	
 	// admin functions ----------------------------------------------------------
