@@ -130,7 +130,7 @@ class Booking extends CI_Controller {
 	
 	// admin functions ----------------------------------------------------------
 	
-	public function add() {
+	public function add($timestamp = 0) {
 		if ($this->session->userdata('login_state') != 'logged_in') {
 			$this->session->set_flashdata('msg', 'Be kell jelentkezni!');
 			redirect('/admin/login', 'refresh');
@@ -170,7 +170,7 @@ class Booking extends CI_Controller {
 				}
 			}
 			
-			$this->load->view('booking/admin_add', array('posted' => $posted));
+			$this->load->view('booking/admin_add', array('posted' => $posted, 'timestamp' => $timestamp));
 		}
 	}
 	

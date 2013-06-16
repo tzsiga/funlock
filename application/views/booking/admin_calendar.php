@@ -29,11 +29,7 @@ function generate_table($reserved_dates, $ref_time, $selected_appointment) {
 				if (isset($reserved_dates[$cell_time])) {
 					echo '<td class="reserved_cell"><a href="'.base_url().'index.php/booking/edit/'.$reserved_dates[$cell_time]['id'].'"><div style="width: 90px; height: 34px;"></div></a></td>';
 				} else {
-					if ($cell_time == $selected_appointment) {
-						echo '<td class="timebox" style="-moz-box-shadow: 8px 8px 15px #888888; -webkit-box-shadow: 8px 8px 15px #888888; box-shadow: 8px 8px 15px #888888; position: relative; z-index: 3; background-image: url(\''.base_url().'/assets/img/main/selected.png\')">'. date('Y-m-d H:i', $cell_time) .'</td>';
-					} else {
-						echo '<td class="timebox">'. date('Y-m-d H:i', $cell_time) .'</td>';
-					}
+					echo '<td class="timebox"><a href="'.base_url().'index.php/booking/add/'.$cell_time.'"><div style="width: 90px; height: 34px;"></div></a></td>';
 				}
 			}
 		}

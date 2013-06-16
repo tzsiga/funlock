@@ -11,14 +11,14 @@
 		<?php
 			echo form_open('booking/add');
 			echo '<p>';
-			echo form_label('Foglaló vezetékneve', 'book_fname');
+			echo form_label('<strong>Foglaló vezetékneve</strong>', 'book_fname');
 			echo form_input(array('name' => 'book_fname', 'id' => 'book_fname', 'value' => isset($posted['book_fname']) ? $posted['book_fname'] : '' ));
 			echo '</p><p>';
-			echo form_label('Foglaló keresztneve', 'book_sname');
+			echo form_label('<strong>Foglaló keresztneve</strong>', 'book_sname');
 			echo form_input(array('name' => 'book_sname', 'id' => 'book_sname', 'value' => isset($posted['book_sname']) ? $posted['book_sname'] : ''));
 			echo '</p><p>';
 			echo form_label('Foglalt időpont', 'appointment');
-			echo form_input(array('name' => 'appointment', 'id' => 'appointment', 'value' => isset($posted['appointment']) ? $posted['appointment'] : '')).' - ';
+			echo form_input(array('name' => 'appointment', 'id' => 'appointment', 'value' => isset($posted['appointment']) ? $posted['appointment'] : date('Y-m-d', $timestamp))).' - ';
 			
 			$dropdown_keys = range(Utils::hour_from, Utils::hour_to, Utils::hour_step);
 			
@@ -27,13 +27,12 @@
 			}
 			
 			$options = array_combine($dropdown_keys, $dropdown_values);
-			
-			echo form_dropdown('appointment_hour', $options, isset($posted['appointment_hour']) ? $posted['appointment_hour'] : 14);
+			echo form_dropdown('appointment_hour', $options, isset($posted['appointment_hour']) ? $posted['appointment_hour'] : (date('i', $timestamp) == 30) ? date('H', $timestamp) + 0.5 : date('H', $timestamp));
 			echo '</p><p>';
-			echo form_label('Fizetés átutalással', 'payment_option');
+			echo form_label('<strong>Fizetés átutalással</strong>', 'payment_option');
 			echo form_radio(array('name' => 'payment_option', 'id' => 'payment_option_1', 'value' => 'card'));
 			echo '</p><p>';
-			echo form_label('Fizetés készpénzzel', 'payment_option');
+			echo form_label('<strong>Fizetés készpénzzel</strong>', 'payment_option');
 			echo form_radio(array('name' => 'payment_option', 'id' => 'payment_option_2', 'value' => 'cache'));
 			echo '</p><p>';
 			echo form_label('Számla: vezetéknév', 'bill_fname');
@@ -78,7 +77,7 @@
 			echo form_close();
 		?>
 		<p>
-			<a href="<?= base_url() ?>index.php/admin">Vissza</a>
+			<a href="<?= base_url() ?>index.php/booking/edit_table">Vissza</a>
 		</p>
 	</div>
 	<script type="text/javascript">
