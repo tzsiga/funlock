@@ -1,6 +1,6 @@
 <?php
 
-function generate_table($reserved_dates, $ref_time, $selected_appointment) {
+function generate_table($reserved_dates, $ref_time) {
 	// table header, alt param contains the actual reference time variable
 	echo '<span id="reference_time">' .$ref_time. '</span>';
 	echo '<table id="calendar_table"><tr>';
@@ -27,7 +27,13 @@ function generate_table($reserved_dates, $ref_time, $selected_appointment) {
 			} else {
 				// if in the present week or future
 				if (isset($reserved_dates[$cell_time])) {
-					echo '<td class="reserved_cell"><a href="'.base_url().'index.php/booking/edit/'.$reserved_dates[$cell_time]['id'].'"><div style="width: 90px; height: 34px;"></div></a></td>';
+					if ($reserved_dates[$cell_time]['payment_option'] == 'card') {
+						echo '<td class="reserved_cell_at">';
+					} elseif ($reserved_dates[$cell_time]['payment_option'] == 'cache') {
+						echo '<td class="reserved_cell_kp">';
+					}
+				
+					echo '<a href="'.base_url().'index.php/booking/edit/'.$reserved_dates[$cell_time]['id'].'"><div style="width: 90px; height: 34px;"></div></a></td>';
 				} else {
 					echo '<td class="timebox"><a href="'.base_url().'index.php/booking/add/'.$cell_time.'"><div style="width: 90px; height: 34px;"></div></a></td>';
 				}
@@ -40,7 +46,7 @@ function generate_table($reserved_dates, $ref_time, $selected_appointment) {
 	echo '</table>';
 }
 
-generate_table($reserved_dates, $ref_time, $selected_appointment);
+generate_table($reserved_dates, $ref_time);
 
 ?>
 

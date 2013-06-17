@@ -27,7 +27,21 @@
 			}
 			
 			$options = array_combine($dropdown_keys, $dropdown_values);
-			echo form_dropdown('appointment_hour', $options, isset($posted['appointment_hour']) ? $posted['appointment_hour'] : (date('i', $timestamp) == 30) ? date('H', $timestamp) + 0.5 : date('H', $timestamp));
+			
+			$dropdown_value = 0;
+			
+			if (date('i', $timestamp) == 30) {
+				$dropdown_value = date('H', $timestamp) + 0.5;
+			} else {
+				$dropdown_value = date('H', $timestamp);
+			}
+			
+			if (date('H', $timestamp) == 0) {
+				$dropdown_value = 24;
+			}
+			
+			echo form_dropdown('appointment_hour', $options, isset($posted['appointment_hour']) ? $posted['appointment_hour'] : $dropdown_value);
+			
 			echo '</p><p>';
 			echo form_label('<strong>Fizetés átutalással</strong>', 'payment_option');
 			echo form_radio(array('name' => 'payment_option', 'id' => 'payment_option_1', 'value' => 'card'));

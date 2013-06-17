@@ -696,11 +696,21 @@ body#eula_page ol li {
   font-size: 1.1em;
   background-color: white;
 }
-#wrapper_admin #admin_menu #admin_calendar td.reserved_cell {
+#wrapper_admin #admin_menu #admin_calendar td.reserved_cell,
+#wrapper_admin #admin_menu #admin_calendar td.reserved_cell_at,
+#wrapper_admin #admin_menu #admin_calendar td.reserved_cell_kp {
   width: 91px;
   height: 36px;
-  background-image: url('../img/main/reserved.png');
   background-size: 91px 36px;
+}
+#wrapper_admin #admin_menu #admin_calendar td.reserved_cell {
+  background-image: url('../img/main/reserved.png');
+}
+#wrapper_admin #admin_menu #admin_calendar td.reserved_cell_at {
+  background-image: url('../img/main/reserved_at.png');
+}
+#wrapper_admin #admin_menu #admin_calendar td.reserved_cell_kp {
+  background-image: url('../img/main/reserved_kp.png');
 }
 #wrapper_admin #admin_menu #admin_calendar td.timebox {
   font-size: 0;

@@ -14,7 +14,8 @@ class Booking extends CI_Controller {
 		
 		foreach ($query->result() as $row) {
 			$reserved_dates[$row->appointment] = array(
-				'id' => $row->id
+				'id' => $row->id,
+				'payment_option' => $row->payment_option
 			);
 		}
 		
@@ -177,9 +178,8 @@ class Booking extends CI_Controller {
 	public function generate_admin_table() {
 		if ($this->input->is_ajax_request()) {
 			$ref_time = $this->input->get('ref_time');
-			$selected_appointment = $this->input->get('selected_appointment');
 			
-			$this->load->view('booking/admin_calendar', array('reserved_dates' => $this->get_appointments($ref_time), 'ref_time' => $ref_time, 'selected_appointment' => $selected_appointment));
+			$this->load->view('booking/admin_calendar', array('reserved_dates' => $this->get_appointments($ref_time), 'ref_time' => $ref_time));
 		}
 	}
 	
@@ -193,10 +193,11 @@ class Booking extends CI_Controller {
 			
 			foreach ($query->result() as $row) {
 				$reserved_dates[$row->appointment] = array(
-					'id' => $row->id
+					'id' => $row->id,
+					'payment_option' => $row->payment_option
 				);
 			}
-
+			
 			$this->load->view('booking/admin_edit_table', array('reserved_dates' => $reserved_dates));
 		}
 	}

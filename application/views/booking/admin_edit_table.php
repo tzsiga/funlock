@@ -69,7 +69,7 @@
 			if (typeof ref_time === 'undefined') ref_time = parseInt($('#reference_time').text());
 		
 			$.ajax({
-				url: '<?= base_url() ?>index.php/booking/generate_admin_table?ref_time=' + ref_time + '&selected_appointment=' + strtotime($("input[name=appointment]").val()),
+				url: '<?= base_url() ?>index.php/booking/generate_admin_table?ref_time=' + ref_time,
 				type: 'POST'
 			}).success(function(result) {
 				$('#table_wrapper').html(result);
