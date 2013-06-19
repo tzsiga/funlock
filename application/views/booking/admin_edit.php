@@ -26,7 +26,7 @@
 				$labels[] = (int)$val == $val ? $val.':00' : ((int)$val).':30';
 			}
 			
-			echo form_dropdown('appointment_hour', array_combine($values, $labels), date('G', $booking->appointment) + (date('i', $booking->appointment) == 30 ? 0.5 : 0));
+			echo form_dropdown('appointment_hour', array_combine($values, $labels), date('H', $booking->appointment) + (date('i', $booking->appointment) == 30 ? 0.5 : 0));
 			echo '</p><p>';
 			echo form_label('Fizetés átutalással', 'payment_option');
 			echo form_radio(array('name' => 'payment_option', 'id' => 'payment_option_1', 'value' => 'card', 'checked' => ($booking->payment_option == 'card' ? true : false)));
