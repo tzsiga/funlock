@@ -1,4 +1,5 @@
 <?php $this->load->view('header'); ?>
+<?php $this->load->view('booking/admin_utils'); ?>
 <body>
 	<div id="wrapper_admin">
 		<h1>
@@ -19,14 +20,7 @@
 			echo '</p><p>';
 			echo form_label('Foglalt időpont', 'appointment');
 			echo form_input(array('name' => 'appointment', 'id' => 'appointment', 'value' => date('Y-m-d', $booking->appointment))).' - ';
-			$values = range(Utils::hour_from, Utils::hour_to, Utils::hour_step);
-			$labels = array();
-			
-			foreach ($values as $val) {
-				$labels[] = (int)$val == $val ? $val.':00' : ((int)$val).':30';
-			}
-			
-			echo form_dropdown('appointment_hour', array_combine($values, $labels), date('H', $booking->appointment) + (date('i', $booking->appointment) == 30 ? 0.5 : 0));
+			echo form_dropdown('appointment_hour', getTimeRangeDropdownValues(), date('G', $booking->appointment) + (date('i', $booking->appointment) == 30 ? 0.5 : 0));
 			echo '</p><p>';
 			echo form_label('Fizetés átutalással', 'payment_option');
 			echo form_radio(array('name' => 'payment_option', 'id' => 'payment_option_1', 'value' => 'card', 'checked' => ($booking->payment_option == 'card' ? true : false)));

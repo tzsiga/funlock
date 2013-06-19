@@ -112,7 +112,6 @@
 			$letters['S79'] = array('margin_top' => rand($min,$max), 	'margin_left' => 84 * $hs, 'img' => 'K_09.gif');
 			
 			generate_slider_divs($letters);
-			
 		?>
 		
 		<div id="enter"><a href="<?= base_url().'index.php/booking' ?>">ENTER &bull;</a></div>
@@ -172,7 +171,6 @@
 				return false;
 			});
 		});
-		
 	</script>
 </body>
 </html>

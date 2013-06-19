@@ -1,4 +1,5 @@
 <?php $this->load->view('header'); ?>
+<?php $this->load->view('booking/admin_utils'); ?>
 <body>
 	<div id="wrapper_admin">
 		<h1>
@@ -19,29 +20,7 @@
 			echo '</p><p>';
 			echo form_label('Foglalt időpont', 'appointment');
 			echo form_input(array('name' => 'appointment', 'id' => 'appointment', 'value' => isset($posted['appointment']) ? $posted['appointment'] : date('Y-m-d', $timestamp))).' - ';
-			
-			$dropdown_keys = range(Utils::hour_from, Utils::hour_to, Utils::hour_step);
-			
-			foreach ($dropdown_keys as $hour) {
-				(int)$hour == $hour ? $dropdown_values[$hour] = $hour.':00' : $dropdown_values[$hour] = (int)$hour.':30';
-			}
-			
-			$options = array_combine($dropdown_keys, $dropdown_values);
-			
-			$dropdown_value = 0;
-			
-			if (date('i', $timestamp) == 30) {
-				$dropdown_value = date('H', $timestamp) + 0.5;
-			} else {
-				$dropdown_value = date('H', $timestamp);
-			}
-			
-			if (date('H', $timestamp) == 0) {
-				$dropdown_value = 24;
-			}
-			
-			echo form_dropdown('appointment_hour', $options, isset($posted['appointment_hour']) ? $posted['appointment_hour'] : $dropdown_value);
-			
+			echo form_dropdown('appointment_hour', getTimeRangeDropdownValues(), isset($posted['appointment_hour']) ? $posted['appointment_hour'] : date('G', $timestamp) + (date('i', $timestamp) == 30 ? 0.5 : 0));
 			echo '</p><p>';
 			echo form_label('<strong>Fizetés átutalással</strong>', 'payment_option');
 			echo form_radio(array('name' => 'payment_option', 'id' => 'payment_option_1', 'value' => 'card'));
