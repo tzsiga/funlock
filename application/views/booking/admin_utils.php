@@ -11,6 +11,6 @@
 		$hours = array_combine($values, $labels);
 		array_pop($hours);
 		
-		return $midnight + $hours;
+		return $hours + $midnight;
 	}
 ?>

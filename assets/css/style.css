@@ -188,13 +188,14 @@ table.ui-datepicker-calendar td {
 body#intro_page {
   overflow: hidden;
   background-image: url('../img/intro/bg_grid_2.gif');
-  background-position: left center;
+  background-position: center center;
 }
 #action_zone {
   height: 540px;
   width: 927px;
   position: relative;
-  margin: 0 165px;
+  margin: 0 auto;
+  padding-left: 15px;
 }
 #action_zone .slider {
   display: inline-block;

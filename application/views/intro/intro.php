@@ -1,5 +1,10 @@
 <?php $this->load->view('header'); ?>
 <body id="intro_page">
+	<script>
+		$(window).resize(function(){
+			//$('#action_zone').text($(window).width());
+		});
+	</script>
 	<div id="action_zone">
 		<?php
 			// az action zone tartalmazza a slidereket, hozzá képest kell megadni a csúszkák kezdeti pozícióját
@@ -144,7 +149,11 @@
 		var slider_height = 177;
 		
 		var offset_x = 0;
-		var margin_offset_x = 280;
+		var margin_offset_x = (($(window).width() - $('#action_zone').width()) / 2) + 120;
+		
+		$(window).resize(function(){
+			margin_offset_x = (($(window).width() - $('#action_zone').width()) / 2) + 120;
+		});
 		
 		jQuery(document).ready(function(){
 			$(document).mousemove(function(e){
