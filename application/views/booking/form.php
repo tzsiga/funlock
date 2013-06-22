@@ -2,7 +2,7 @@
 	<?= validation_errors() ?>
 </div>
 <?php
-	echo form_open('booking/add_appointment', array('id' => 'booking_form'));
+	echo form_open('booking/addBooking', array('id' => 'booking_form'));
 	echo '<p>';
 	//echo form_label('Időpont', 'appointment');
 	//echo form_input(array('name' => 'appointment', 'id' => 'appointment', 'value' => isset($posted['appointment']) ? $posted['appointment'] : ''));
@@ -16,12 +16,11 @@
 	echo form_input(array('name' => 'book_sname', 'id' => 'book_sname', 'value' => isset($posted['book_sname']) ? $posted['book_sname'] : ''));
 	echo form_label('Telefon', 'phone');
 	echo form_input(array('name' => 'phone', 'id' => 'phone', 'value' => isset($posted['phone']) ? $posted['phone'] : ''));
+	
 	echo '</p><p>';
 	echo form_label('Fizetés', 'payment_option');
 	echo form_dropdown('payment_option', array('card' => 'átutalással', 'cache' => 'készpénzzel'), 'card', 'id="payment_option"');
-	//echo form_label('Megjegyzés', 'comment');
-	//echo form_input(array('name' => 'comment', 'id' => 'comment', 'value' => isset($posted['comment']) ? $posted['comment'] : ''));
-	echo form_label('Elfogadom a <a href="'.base_url().'index.php/booking/eula" id="link_eula" target="_blank">feltételeket</a>', 'eula');
+	echo form_label('Elfogadom a <a href="'.base_url().'index.php/pages/eula" id="link_eula" target="_blank">feltételeket</a>', 'eula');
 	echo form_checkbox(array('name' => 'eula', 'id' => 'eula', 'value' => 'accept', 'checked' => isset($posted['eula']) ? true : false));
 
 	echo '</p><p>';
@@ -86,7 +85,7 @@
 	$('#booking_form').submit(function(event) {
 		event.preventDefault();
 		$.ajax({
-			url: '<?= base_url() ?>index.php/booking/add_appointment',
+			url: '<?= base_url() ?>index.php/booking/addBooking',
 			type: 'POST',
 			data: $('#booking_form').serialize(),
 			success: function(result){

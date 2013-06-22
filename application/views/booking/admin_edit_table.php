@@ -10,11 +10,11 @@
 		<div id="admin_menu">
 			<div id="admin_calendar">
 				<span id="prev_month"><?= img(array('src' => base_url().'assets/img/main/arrow_left.png', 'id' => 'arrow_left')) ?></span>
-				<div id="table_wrapper"><?php $this->load->view('booking/admin_calendar', array('reserved_dates' => $reserved_dates, 'ref_time' => time(), 'selected_appointment' => 0)); ?></div>
+				<div id="table_wrapper"><?php $this->load->view('booking/admin_table', array('bookings' => $bookings, 'headTimestamp' => time())); ?></div>
 				<span id="next_month"><?= img(array('src' => base_url().'assets/img/main/arrow_right.png', 'id' => 'arrow_right')) ?></span>
 			</div>
 			<p>
-				<a href="<?= base_url() ?>index.php/booking/edit_list">Listanézet</a><br/>
+				<a href="<?= base_url() ?>index.php/booking/editList">Listanézet</a><br/>
 				<a href="<?= base_url() ?>index.php/admin">Vissza</a>
 			</p>
 		</div>
@@ -58,7 +58,7 @@
 			});
 		});
 		
-		<?php // booking calendar wrapper ?>
+		<?php // booking table wrapper ?>
 		var timer = $.timer(function() {
 			refreshTable();
 		});
@@ -69,7 +69,7 @@
 			if (typeof ref_time === 'undefined') ref_time = parseInt($('#reference_time').text());
 		
 			$.ajax({
-				url: '<?= base_url() ?>index.php/booking/generate_admin_table?ref_time=' + ref_time,
+				url: '<?= base_url() ?>index.php/booking/loadAdminTable?headTimestamp=' + ref_time,
 				type: 'POST'
 			}).success(function(result) {
 				$('#table_wrapper').html(result);
@@ -79,7 +79,7 @@
 		$('#arrow_left').click(function(){
 			if ($('#reference_time').text() > <?= time() ?>) {
 				$('#table_wrapper').invisible().promise().done(function(){
-					refreshTable(parseInt($('#reference_time').text()) - parseInt(<?= Utils::week ?>));
+					refreshTable(parseInt($('#reference_time').text()) - parseInt(<?= Utils::weekInSec ?>));
 					$(this).delay(450).visible();
 				});
 			}
@@ -87,7 +87,7 @@
 		
 		$('#arrow_right').click(function(){
 			$('#table_wrapper').invisible().promise().done(function(){
-				refreshTable(parseInt($('#reference_time').text()) + parseInt(<?= Utils::week ?>));
+				refreshTable(parseInt($('#reference_time').text()) + parseInt(<?= Utils::weekInSec ?>));
 				$(this).delay(450).visible();
 			});
 		});

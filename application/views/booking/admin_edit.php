@@ -10,7 +10,7 @@
 			<?= $this->session->flashdata('msg') ?>
 		</h3>
 		<?php
-			echo form_open('booking/edit/'.$booking->id);
+			echo form_open('booking/editBooking/'.$booking->id);
 			echo '<p>';
 			echo form_label('Foglaló vezetékneve', 'book_fname');
 			echo form_input(array('name' => 'book_fname', 'id' => 'book_fname', 'value' => $booking->book_fname));
@@ -20,7 +20,7 @@
 			echo '</p><p>';
 			echo form_label('Foglalt időpont', 'appointment');
 			echo form_input(array('name' => 'appointment', 'id' => 'appointment', 'value' => date('Y-m-d', $booking->appointment))).' - ';
-			echo form_dropdown('appointment_hour', getTimeRangeDropdownValues(), date('G', $booking->appointment) + (date('i', $booking->appointment) == 30 ? 0.5 : 0));
+			echo form_dropdown('appointment_hour', getPlaytimeRangeDropdownValues(), date('G', $booking->appointment) + (date('i', $booking->appointment) == 30 ? 0.5 : 0));
 			echo '</p><p>';
 			echo form_label('Fizetés átutalással', 'payment_option');
 			echo form_radio(array('name' => 'payment_option', 'id' => 'payment_option_1', 'value' => 'card', 'checked' => ($booking->payment_option == 'card' ? true : false)));
@@ -28,17 +28,11 @@
 			echo form_label('Fizetés készpénzzel', 'payment_option');
 			echo form_radio(array('name' => 'payment_option', 'id' => 'payment_option_2', 'value' => 'cache', 'checked' => ($booking->payment_option == 'cache' ? true : false)));
 			echo '</p><p>';
-			echo form_label('Számla: vezetéknév', 'bill_fname');
-			echo form_input(array('name' => 'bill_fname', 'id' => 'bill_fname', 'value' => $booking->bill_fname));
-			echo '</p><p>';
-			echo form_label('Számla: keresztnév', 'bill_sname');
-			echo form_input(array('name' => 'bill_sname', 'id' => 'bill_sname', 'value' => $booking->bill_sname));
+			echo form_label('Telefon', 'phone');
+			echo form_input(array('name' => 'phone', 'id' => 'phone', 'value' => $booking->phone));
 			echo '</p><p>';
 			echo form_label('Email cím', 'email');
 			echo form_input(array('name' => 'email', 'id' => 'email', 'value' => $booking->email));
-			echo '</p><p>';
-			echo form_label('Telefon', 'phone');
-			echo form_input(array('name' => 'phone', 'id' => 'phone', 'value' => $booking->phone));
 			echo '</p><p>';
 			echo form_label('Irányítószám', 'zip');
 			echo form_input(array('name' => 'zip', 'id' => 'zip', 'value' => ($booking->zip == 0 ? '' : $booking->zip)));
@@ -51,6 +45,12 @@
 			echo '</p><p>';
 			echo form_label('Házszám', 'house');
 			echo form_input(array('name' => 'house', 'id' => 'house', 'value' => ($booking->house == 0 ? '' : $booking->house)));
+			echo '</p><p>';
+			echo form_label('Számla: vezetéknév', 'bill_fname');
+			echo form_input(array('name' => 'bill_fname', 'id' => 'bill_fname', 'value' => $booking->bill_fname));
+			echo '</p><p>';
+			echo form_label('Számla: keresztnév', 'bill_sname');
+			echo form_input(array('name' => 'bill_sname', 'id' => 'bill_sname', 'value' => $booking->bill_sname));
 			echo '</p><p>';
 			echo form_label('Adószám', 'tax_number');
 			echo form_input(array('name' => 'tax_number', 'id' => 'tax_number', 'value' => ($booking->tax_number == 0 ? '' : $booking->tax_number)));
@@ -70,7 +70,7 @@
 			echo form_close();
 		?>
 		<p>
-			<a href="<?= base_url() ?>index.php/booking/edit_table">Vissza</a>
+			<a href="<?= base_url() ?>index.php/booking/editTable">Vissza</a>
 		</p>
 	</div>
 	<script type="text/javascript">

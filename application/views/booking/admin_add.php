@@ -10,7 +10,7 @@
 			<?= $this->session->flashdata('msg') ?>
 		</h3>
 		<?php
-			echo form_open('booking/add');
+			echo form_open('booking/addBookingAsAdmin');
 			echo '<p>';
 			echo form_label('<strong>Foglaló vezetékneve</strong>', 'book_fname');
 			echo form_input(array('name' => 'book_fname', 'id' => 'book_fname', 'value' => isset($posted['book_fname']) ? $posted['book_fname'] : '' ));
@@ -20,37 +20,37 @@
 			echo '</p><p>';
 			echo form_label('Foglalt időpont', 'appointment');
 			echo form_input(array('name' => 'appointment', 'id' => 'appointment', 'value' => isset($posted['appointment']) ? $posted['appointment'] : date('Y-m-d', $timestamp))).' - ';
-			echo form_dropdown('appointment_hour', getTimeRangeDropdownValues(), isset($posted['appointment_hour']) ? $posted['appointment_hour'] : date('G', $timestamp) + (date('i', $timestamp) == 30 ? 0.5 : 0));
+			echo form_dropdown('appointment_hour', getPlaytimeRangeDropdownValues(), isset($posted['appointment_hour']) ? $posted['appointment_hour'] : date('G', $timestamp) + (date('i', $timestamp) == 30 ? 0.5 : 0));
 			echo '</p><p>';
 			echo form_label('<strong>Fizetés átutalással</strong>', 'payment_option');
 			echo form_radio(array('name' => 'payment_option', 'id' => 'payment_option_1', 'value' => 'card'));
 			echo '</p><p>';
 			echo form_label('<strong>Fizetés készpénzzel</strong>', 'payment_option');
-			echo form_radio(array('name' => 'payment_option', 'id' => 'payment_option_2', 'value' => 'cache'));
+			echo form_radio(array('name' => 'payment_option', 'id' => 'payment_option_2', 'value' => 'cache', 'checked' => true));
+			echo '</p><p>';
+			echo form_label('<strong>Telefon</strong>', 'phone');
+			echo form_input(array('name' => 'phone', 'id' => 'phone', 'value' => isset($posted['phone']) ? $posted['phone'] : ''));
+			echo '</p><p>';
+			echo form_label('<strong>Email cím</strong>', 'email');
+			echo form_input(array('name' => 'email', 'id' => 'email', 'value' => isset($posted['email']) ? $posted['email'] : ''));
+			echo '</p><p>';
+			echo form_label('<strong>Irányítószám</strong>', 'zip');
+			echo form_input(array('name' => 'zip', 'id' => 'zip', 'value' => isset($posted['zip']) ? $posted['zip'] : ''));
+			echo '</p><p>';
+			echo form_label('<strong>Város</strong>', 'city');
+			echo form_input(array('name' => 'city', 'id' => 'city', 'value' => isset($posted['city']) ? $posted['city'] : ''));
+			echo '</p><p>';
+			echo form_label('<strong>Utca</strong>', 'street');
+			echo form_input(array('name' => 'street', 'id' => 'street', 'value' => isset($posted['street']) ? $posted['street'] : ''));
+			echo '</p><p>';
+			echo form_label('<strong>Házszám</strong>', 'house');
+			echo form_input(array('name' => 'house', 'id' => 'house', 'value' => isset($posted['house']) ? $posted['house'] : ''));
 			echo '</p><p>';
 			echo form_label('Számla: vezetéknév', 'bill_fname');
 			echo form_input(array('name' => 'bill_fname', 'id' => 'bill_fname', 'value' => isset($posted['bill_fname']) ? $posted['bill_fname'] : ''));
 			echo '</p><p>';
 			echo form_label('Számla: keresztnév', 'bill_sname');
 			echo form_input(array('name' => 'bill_sname', 'id' => 'bill_sname', 'value' => isset($posted['bill_sname']) ? $posted['bill_sname'] : ''));
-			echo '</p><p>';
-			echo form_label('Email cím', 'email');
-			echo form_input(array('name' => 'email', 'id' => 'email', 'value' => isset($posted['email']) ? $posted['email'] : ''));
-			echo '</p><p>';
-			echo form_label('Telefon', 'phone');
-			echo form_input(array('name' => 'phone', 'id' => 'phone', 'value' => isset($posted['phone']) ? $posted['phone'] : ''));
-			echo '</p><p>';
-			echo form_label('Irányítószám', 'zip');
-			echo form_input(array('name' => 'zip', 'id' => 'zip', 'value' => isset($posted['zip']) ? $posted['zip'] : ''));
-			echo '</p><p>';
-			echo form_label('Város', 'city');
-			echo form_input(array('name' => 'city', 'id' => 'city', 'value' => isset($posted['city']) ? $posted['city'] : ''));
-			echo '</p><p>';
-			echo form_label('Utca', 'street');
-			echo form_input(array('name' => 'street', 'id' => 'street', 'value' => isset($posted['street']) ? $posted['street'] : ''));
-			echo '</p><p>';
-			echo form_label('Házszám', 'house');
-			echo form_input(array('name' => 'house', 'id' => 'house', 'value' => isset($posted['house']) ? $posted['house'] : ''));
 			echo '</p><p>';
 			echo form_label('Adószám', 'tax_number');
 			echo form_input(array('name' => 'tax_number', 'id' => 'tax_number', 'value' => isset($posted['tax_number']) ? $posted['tax_number'] : ''));
@@ -70,7 +70,7 @@
 			echo form_close();
 		?>
 		<p>
-			<a href="<?= base_url() ?>index.php/booking/edit_table">Vissza</a>
+			<a href="<?= base_url() ?>index.php/booking/editTable">Vissza</a>
 		</p>
 	</div>
 	<script type="text/javascript">

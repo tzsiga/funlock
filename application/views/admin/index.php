@@ -10,7 +10,7 @@
 		<div id="admin_menu">
 			<h3>Foglalások kezelése</h3>
 			<ul>
-				<li><a href="<?= base_url() ?>index.php/booking/edit_table">Új létrehozása, meglévők módosítása/törlése</a></li>
+				<li><a href="<?= base_url() ?>index.php/booking/EditTable">Új létrehozása, meglévők módosítása/törlése</a></li>
 			</ul>
 			<h3>Verzió</h3>
 			<ul>

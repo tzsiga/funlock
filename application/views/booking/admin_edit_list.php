@@ -13,7 +13,7 @@
 			<?php
 				$current_time_flag = true;
 			
-				foreach ($reserved_dates as $date => $booking) {
+				foreach ($bookings as $date => $booking) {
 					if ($date > time() && $current_time_flag) {
 						echo '</ul><hr/><h3>Új játékok:</h3><ul>';
 						$current_time_flag = false;
@@ -23,7 +23,7 @@
 					echo ' - ';
 					echo $booking['client'];
 					echo ' - ';
-					echo '<a href="'.base_url().'index.php/booking/edit/'.$booking['id'].'">';
+					echo '<a href="'.base_url().'index.php/booking/editBooking/'.$booking['id'].'">';
 					echo 'szerkesztés';
 					echo '</a>';
 					echo '</li>';
@@ -31,7 +31,7 @@
 			?>
 			</ul>
 			<p>
-				<a href="<?= base_url() ?>index.php/booking/edit_table">Vissza</a>
+				<a href="<?= base_url() ?>index.php/booking/EditTable">Vissza</a>
 			</p>
 		</div>
 	</div>

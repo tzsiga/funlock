@@ -6,4 +6,8 @@ class Pages extends CI_Controller {
 		$this->load->view('intro/intro');
 	}
 
+	public function eula() {
+		$this->load->view('booking/eula');
+	}
+	
 }

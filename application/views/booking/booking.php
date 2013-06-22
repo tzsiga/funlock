@@ -21,7 +21,7 @@
 		<div id="content">
 			<div id="calendar">
 				<span id="prev_month"><?= img(array('src' => base_url().'assets/img/main/arrow_left.png', 'id' => 'arrow_left')) ?></span>
-				<div id="table_wrapper"><?php $this->load->view('booking/calendar', array('reserved_dates' => $reserved_dates, 'ref_time' => time(), 'selected_appointment' => 0)); ?></div>
+				<div id="table_wrapper"><?php $this->load->view('booking/table', array('bookings' => $bookings, 'headTimestamp' => time(), 'selectedAppointment' => 0)); ?></div>
 				<span id="next_month"><?= img(array('src' => base_url().'assets/img/main/arrow_right.png', 'id' => 'arrow_right')) ?></span>
 			</div>
 			<div id="legend">
@@ -33,7 +33,7 @@
 				<div>Foglalt</div>
 			</div>
 			<div id="booking_details">
-				<?php $user_booking_num < $booking_limit ? $this->load->view('booking/form') : $this->load->view('booking/form_fail_limit'); ?>
+				<?php $numberOfSuccessfulBookings < $bookingLimit ? $this->load->view('booking/form') : $this->load->view('booking/form_fail_limit'); ?>
 			</div>
 		</div>
 	</div>
@@ -82,7 +82,6 @@
 		}
 
 		<?php // default setup ?>
-		
 		$(document).ready(function(){
 			<?php // disable right click ?>
 			$(document).bind("contextmenu", function(e){
@@ -102,7 +101,6 @@
 		});
 		
 		<?php // left menu items ?>
-			
 		var item_info = 'A Funlock egy szórakoztató csapatjáték, mely Téged és Barátaidat egy órára „rabul” ejt és csak magatokra illetve egymásra számíthattok az elgondolkodtató feladatok megoldásában. Közös csapatmunkával képesek lehettek legyőzni a számítógépet, mely átvette a szoba felett az irányítást és az egy óra leteltével örökre bezár Titeket.<br/><br/>A játék <strong>2-5 fős csapatokban</strong> játszható. Céges csapatépítő programnak is ajánljuk.<br/><br/>A játék ára <strong>12.000 Ft csapatonként</strong>, a csapat létszámától függetlenül.<br/><br/>Amennyiben nagyobb létszámú társasággal jönnétek, egyedi foglalási megoldásokért keressetek minket elérhetőségeinken.<br/><br/>Szeretettel várunk Titeket:<br/><em>A Funlock csapata</em>';
 		var item_contact = '1068 Budapest<br/>Király utca 54.<br/>(bejárat a Hegedű utcából)<br/><br/>+3670 382 1388<br/><p id="info">&nbsp;</p><br/>';
 		var item_map = '<a href="http://goo.gl/maps/AriVW" target="_blank"><img id="map" src="<?= base_url() ?>assets/img/main/map.png" alt="" title="" style="margin-left: -15px; border: 1px solid black; -moz-box-shadow: 8px 8px 15px #CCCCCC; -webkit-box-shadow: 8px 8px 15px #CCCCCC; box-shadow: 8px 8px 15px #CCCCCC;"/></a>';
@@ -131,8 +129,7 @@
 			});
 		});
 			
-		<?php // booking calendar wrapper ?>
-		
+		<?php // booking table wrapper ?>
 		var timer = $.timer(function() {
 			refreshTable();
 		});
@@ -143,7 +140,7 @@
 			if (typeof ref_time === 'undefined') ref_time = parseInt($('#reference_time').text());
 		
 			$.ajax({
-				url: '<?= base_url() ?>index.php/booking/generate_table?ref_time=' + ref_time + '&selected_appointment=' + strtotime($("input[name=appointment]").val()),
+				url: '<?= base_url() ?>index.php/booking/loadBookingTable?headTimestamp=' + ref_time + '&selectedAppointment=' + strtotime($("input[name=appointment]").val()),
 				type: 'POST'
 			}).success(function(result) {
 				$('#table_wrapper').html(result);
@@ -154,7 +151,7 @@
 		$('#arrow_left').click(function(){
 			if ($('#reference_time').text() > <?= time() ?>) {
 				$('#table_wrapper').invisible().promise().done(function(){
-					refreshTable(parseInt($('#reference_time').text()) - parseInt(<?= Utils::week ?>));
+					refreshTable(parseInt($('#reference_time').text()) - parseInt(<?= Utils::weekInSec ?>));
 					$(this).delay(450).visible();
 				});
 			}
@@ -162,7 +159,7 @@
 		
 		$('#arrow_right').click(function(){
 			$('#table_wrapper').invisible().promise().done(function(){
-				refreshTable(parseInt($('#reference_time').text()) + parseInt(<?= Utils::week ?>));
+				refreshTable(parseInt($('#reference_time').text()) + parseInt(<?= Utils::weekInSec ?>));
 				$(this).delay(450).visible();
 			});
 		});

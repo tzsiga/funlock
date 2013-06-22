@@ -12,22 +12,21 @@ class Utils {
 		}
 	}
 	
-	const hour = 3600;
-	const day = 86400;				// 24 * 3600
-	const week = 604800;			// 7 * 24 * 3600
+	const hourInSec 	= 3600;				// 60 * 60
+	const dayInSec		= 86400;			// 60 * 60 * 24
+	const weekInSec 	= 604800;			// 60 * 60 * 24 * 7
 	
-	const hour_from = 12;
-	const hour_to = 24;
-	const hour_step = 1.5;
+	const hourFrom 		= 12;
+	const hourTo 			= 23;
+	const hourStep 		= 1.5;
 	
-	public static function day_of_week($timestamp) {
-		$day_of_week = date('w', $timestamp);
-		return ($day_of_week == 0) ? 7 : $day_of_week;
+	private static function getDayNumber($timestamp) {
+		return (date('w', $timestamp) == 0) ? 7 : date('w', $timestamp);
 	}
-
-	public static function monday($timestamp) {
-		$current_time = (date('H', $timestamp) - 1) * Utils::hour + date('i', $timestamp) * 60 + date('s', $timestamp);
-		return $timestamp - (Utils::day_of_week($timestamp) - 1) * Utils::day - $current_time - Utils::hour;
+	
+	public static function getLastMonday($timestamp) {
+		$currentTime = (date('H', $timestamp) - 1) * Utils::hourInSec + date('i', $timestamp) * 60 + date('s', $timestamp);
+		return $timestamp - (Utils::getDayNumber($timestamp) - 1) * Utils::dayInSec - $currentTime - Utils::hourInSec;
 	}
 
 }

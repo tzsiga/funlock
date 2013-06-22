@@ -9,17 +9,17 @@ function generate_table($reserved_dates, $ref_time, $selected_appointment) {
 	$day_names = array('- H -', '- K -', '- SZ -', '- CS -', '- P -', '- SZ -', '- V -');
 	$i = 0;
 	foreach ($day_names as $day_name) {
-		echo "<th>$day_name<br/><small>".date('Y-m-d', Utils::monday($ref_time) + $i++ * Utils::day).'</small></th>';
+		echo "<th>$day_name<br/><small>".date('Y-m-d', Utils::getLastMonday($ref_time) + $i++ * Utils::dayInSec).'</small></th>';
 	}
 	
 	echo '</tr>';
 	
 	// table body
-	for ($hour_index = Utils::hour_from; $hour_index <= Utils::hour_to; $hour_index += Utils::hour_step) {
+	for ($hour_index = Utils::hourFrom; $hour_index <= Utils::hourTo; $hour_index += Utils::hourStep) {
 		echo (int)$hour_index == $hour_index ? "<tr><td>$hour_index:00</td>" : "<tr><td>".(int)$hour_index.":30</td>";
 		
 		for ($day_index = 1; $day_index <= 7; $day_index++) {
-			$cell_time = Utils::monday($ref_time) + ($day_index - 1) * Utils::day + $hour_index * Utils::hour;
+			$cell_time = Utils::getLastMonday($ref_time) + ($day_index - 1) * Utils::dayInSec + $hour_index * Utils::hourInSec;
 			
 			if ($cell_time < time()) {
 				// if we are in the past
@@ -90,7 +90,7 @@ generate_table($reserved_dates, $ref_time, $selected_appointment);
 		
 		if ($('#booking_details > form').attr('id') == 'error_form') {
 			$.ajax({
-				url: '<?= base_url() ?>index.php/booking/generate_form',
+				url: '<?= base_url() ?>index.php/booking/loadBookingForm',
 				type: 'POST'
 			}).success(function(result) {
 				$('#booking_details').html(result);
