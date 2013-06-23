@@ -6,14 +6,14 @@ class Admin extends CI_Controller {
 		$posted = $this->input->post();
 		
 		if ($posted) {
-			$this->form_validation->set_rules('given_password', '"Jelszó"', 'required|xss_clean');
+			$this->form_validation->set_rules('given-password', '"Jelszó"', 'required|xss_clean');
 
 			if ($this->form_validation->run() == TRUE) {
 				$query = $this->db->query("SELECT value FROM config WHERE option_name = 'admin_password'");
-				$hashed_password = $query->row()->value;
+				$hashedPassword = $query->row()->value;
 				
-				if ($hashed_password == do_hash($posted['given_password'])) {
-					$this->session->set_userdata(array('login_state' => 'logged_in'));
+				if ($hashedPassword == do_hash($posted['given-password'])) {
+					$this->session->set_userdata(array('login-state' => 'logged-in'));
 					$this->session->set_flashdata('msg', 'Sikeres bejelentkezés!');
 					redirect('/admin', 'refresh');
 				} else {
@@ -27,7 +27,7 @@ class Admin extends CI_Controller {
 	}
 
 	public function index() {
-		if ($this->session->userdata('login_state') != 'logged_in') {
+		if ($this->session->userdata('login-state') != 'logged-in') {
 			$this->session->set_flashdata('msg', 'Be kell jelentkezni!');
 			redirect('/admin/login', 'refresh');
 		} else {
@@ -36,13 +36,13 @@ class Admin extends CI_Controller {
 	}
 
 	public function logout() {
-		$this->session->unset_userdata('login_state');
+		$this->session->unset_userdata('login-state');
 		$this->session->set_flashdata('msg', 'Sikeres kijelentkezés!');
 		redirect('/admin/login', 'refresh');
 	}
 
-	public function change_password() {
-		if ($this->session->userdata('login_state') != 'logged_in') {
+	public function changePassword() {
+		if ($this->session->userdata('login-state') != 'logged-in') {
 			$this->session->set_flashdata('msg', 'Be kell jelentkezni!');
 			redirect('/admin/login', 'refresh');
 		} else {
@@ -55,15 +55,15 @@ class Admin extends CI_Controller {
 
 				if ($this->form_validation->run() == TRUE) {
 					$query = $this->db->query("SELECT value FROM config WHERE option_name = 'admin_password'");
-					$hashed_password = $query->row()->value;
+					$hashedPassword = $query->row()->value;
 					
-					if ($hashed_password === do_hash($posted['current_password'])) {
+					if ($hashedPassword === do_hash($posted['current_password'])) {
 						$this->db->query("UPDATE config SET value = '".do_hash($posted['new_password_1'])."' WHERE option_name = 'admin_password'");
 						$this->session->set_flashdata('msg', 'Jelszó megváltoztatva!');
 						redirect('/admin', 'refresh');
 					} else if ($this->input->post('current_password')) {
 						$this->session->set_flashdata('msg', 'Hibás jelenlegi jelszó!');
-						redirect('/admin/change_password', 'refresh');
+						redirect('/admin/changePassword', 'refresh');
 					}
 				}
 			}
@@ -72,14 +72,12 @@ class Admin extends CI_Controller {
 		}
 	}
 	
-	public function change_limit() {
-		if ($this->session->userdata('login_state') != 'logged_in') {
+	public function changeLimit() {
+		if ($this->session->userdata('login-state') != 'logged-in') {
 			$this->session->set_flashdata('msg', 'Be kell jelentkezni!');
 			redirect('/admin/login', 'refresh');
 		} else {
-			$query = $this->db->query("SELECT value FROM config WHERE option_name = 'booking_limit'");
-			$current_limit = $query->row()->value;
-			
+			$currentLimit = $this->booking_model->getBookingLimit();
 			$posted = $this->input->post();
 			
 			if ($posted) {
@@ -92,12 +90,12 @@ class Admin extends CI_Controller {
 				}
 			}
 			
-			$this->load->view('admin/change_limit', array('current_limit' => $current_limit));
+			$this->load->view('admin/change_limit', array('currentLimit' => $currentLimit));
 		}
 	}
 
 	public function phpinfo() {
-		if ($this->session->userdata('login_state') != 'logged_in') {
+		if ($this->session->userdata('login-state') != 'logged-in') {
 			redirect('/admin/login', 'refresh');
 		} else {
 			phpinfo();

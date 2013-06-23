@@ -21,8 +21,8 @@
 			</ul>
 			<h3>Beállítások</h3>
 			<ul>
-				<li><a href="<?= base_url() ?>index.php/admin/change_limit">Foglalási limit változtatás</a></li>
-				<li><a href="<?= base_url() ?>index.php/admin/change_password">Jelszó változtatás</a></li>
+				<li><a href="<?= base_url() ?>index.php/admin/changeLimit">Foglalási limit változtatás</a></li>
+				<li><a href="<?= base_url() ?>index.php/admin/changePassword">Jelszó változtatás</a></li>
 				<li><a href="<?= base_url() ?>index.php/admin/logout">Kijelentkezés</a></li>
 			</ul>
 		</div>

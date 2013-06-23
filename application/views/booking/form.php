@@ -1,4 +1,4 @@
-<div class="error_msg">
+<div class="error-msg">
 	<?= validation_errors() ?>
 </div>
 <?php

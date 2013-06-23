@@ -11,8 +11,8 @@
 		<?php
 			echo form_open('admin/login', array('class' => 'centered'));
 			echo '<p>';
-			echo form_label('Jelszó', 'given_password');
-			echo form_password('given_password');
+			echo form_label('Jelszó', 'given-password');
+			echo form_password('given-password');
 			echo '</p><p>';
 			echo '<br/>';
 			echo form_submit('login', 'Bejelentkezés');

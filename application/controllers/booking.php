@@ -118,7 +118,7 @@ class Booking extends CI_Controller {
 	// admin functions ----------------------------------------------------------
 	
 	public function addBookingAsAdmin($timestamp = 0) {
-		if ($this->session->userdata('login_state') != 'logged_in') {
+		if ($this->session->userdata('login-state') != 'logged-in') {
 			$this->session->set_flashdata('msg', 'Be kell jelentkezni!');
 			redirect('/admin/login', 'refresh');
 		} else {
@@ -150,7 +150,7 @@ class Booking extends CI_Controller {
 	}
 	
 	public function editBooking($id) {
-		if ($this->session->userdata('login_state') != 'logged_in') {
+		if ($this->session->userdata('login-state') != 'logged-in') {
 			$this->session->set_flashdata('msg', 'Be kell jelentkezni!');
 			redirect('/admin/login', 'refresh');
 		} else {
@@ -205,7 +205,7 @@ class Booking extends CI_Controller {
 	}
 	
 	public function editList() {
-		if ($this->session->userdata('login_state') != 'logged_in') {
+		if ($this->session->userdata('login-state') != 'logged-in') {
 			$this->session->set_flashdata('msg', 'Be kell jelentkezni!');
 			redirect('/admin/login', 'refresh');
 		} else {
@@ -216,7 +216,7 @@ class Booking extends CI_Controller {
 	}
 	
 	public function editTable() {
-		if ($this->session->userdata('login_state') != 'logged_in') {
+		if ($this->session->userdata('login-state') != 'logged-in') {
 			$this->session->set_flashdata('msg', 'Be kell jelentkezni!');
 			redirect('/admin/login', 'refresh');
 		} else {

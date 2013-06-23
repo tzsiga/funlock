@@ -8,10 +8,10 @@
 			<?= validation_errors() ?>
 		</h3>
 		<?php
-			echo form_open('admin/change_limit', array('class' => 'centered'));
+			echo form_open('admin/changeLimit', array('class' => 'centered'));
 			echo '<p>';
 			echo form_label('Foglalási limit', 'limit');
-			echo form_input(array('name' => 'limit', 'id' => 'limit', 'value' => $current_limit));
+			echo form_input(array('name' => 'limit', 'id' => 'limit', 'value' => $currentLimit));
 			echo '</p><p>';
 			echo form_submit('change', 'Mehet');
 			echo '</p>';

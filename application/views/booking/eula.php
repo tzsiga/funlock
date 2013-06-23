@@ -1,5 +1,5 @@
 <?php $this->load->view('header'); ?>
-	<body id="eula_page">
+	<body id="eula-page">
 		<h2>A játékban való részvétel feltételei</h2>
 		<ol>
 			<li>A játékban mindenki csak a saját felelősségére vehet részt</li>
