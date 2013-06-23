@@ -11,7 +11,7 @@ body {
 
 @rad: 4px;
 
-.shadow_applied(@color) {
+.shadow-applied(@color) {
 		 -moz-box-shadow: 8px 8px 15px @color;
 	-webkit-box-shadow: 8px 8px 15px @color;
 					box-shadow: 8px 8px 15px @color;
@@ -19,7 +19,7 @@ body {
 
 #ui-datepicker-div {
 	margin-left: 10px;
-	.shadow_applied(#222);
+	.shadow-applied(#222);
 }
 
 table.ui-datepicker-calendar td {
@@ -28,13 +28,13 @@ table.ui-datepicker-calendar td {
 
 /////// intro page ////////////////////////////////////////////////////////////
 
-body#intro_page {
+body#intro-page {
 	overflow: hidden;
 	background-image: url('../img/intro/bg_grid_2.gif');
 	background-position: center center;
 }
 
-#action_zone {
+#action-zone {
 	height: 630px;
 	width: (84 * 11px + 3px);
 	position: relative;
@@ -78,7 +78,7 @@ body#intro_page {
 
 /////// main page //////////////////////////////////////////////////////////
 
-body#main_page {
+body#main-page {
 	background-color: #E8E9EA;
 	background-image: url('../img/main/logo_vertical_left.png'), -moz-linear-gradient(top, #FFFFFF 0%, #E8E9EA 100%);
 	background-image: url('../img/main/logo_vertical_left.png'), -o-linear-gradient(top, #FFFFFF 0%, #E8E9EA 100%);
@@ -91,7 +91,7 @@ body#main_page {
 
 	padding-left: 100px;
 	
-	#wrapper_content {
+	#wrapper-content {
 		width: @18cols;
 		margin: 0;
 		//overflow: auto;
@@ -114,7 +114,7 @@ body#main_page {
 				}
 			}	
 			
-			#item_display_area {
+			#item-display-area {
 				text-align: justify;
 				
 				#info {
@@ -124,7 +124,7 @@ body#main_page {
 			}
 		}
 		
-		#logo_small {
+		#logo-small {
 			width: 156px;
 			height: 27px;
 			margin-bottom: 40px;
@@ -144,7 +144,7 @@ body#main_page {
 			letter-spacing: 1px;
 		}
 		
-		#main_link {
+		#main-link {
 			display: inline-block;
 			height: 130px;
 			width: 85px;
@@ -153,7 +153,7 @@ body#main_page {
 			left: 60px;
 		}
 		
-		#link_gallery > a {
+		#link-gallery > a {
 			text-decoration: none;
 			color: black;
 		}
@@ -174,28 +174,28 @@ body#main_page {
 				margin-top: 2px;
 			}
 			
-			#icon_unavailable, #icon_available, #icon_reserved {
+			#icon-unavailable, #icon-available, #icon-reserved {
 				width: 70px;
 				margin-top: 0px;
 				border: 1px solid black;
-				.shadow_applied(#CCCCCC);
+				.shadow-applied(#CCCCCC);
 			}
 			
-			#icon_unavailable {
+			#icon-unavailable {
 				background-color: #636363;
 			}
 			
-			#icon_available {
+			#icon-available {
 				background-color: white;
 			}
 			
-			#icon_reserved {
+			#icon-reserved {
 				background-image: url('../img/main/reserved.png');
 				background-size: 70px 25px;
 			}
 		}
 		
-		#prev_month, #arrow_left, #next_month, #arrow_right {
+		#prev-month, #arrow-left, #next-month, #arrow-right {
 			width: 55px;
 		}
 	}
@@ -215,43 +215,43 @@ body#main_page {
 			background-repeat: no-repeat;
 			background-position: center;
 			
-			#prev_month, #next_month {
+			#prev-month, #next-month {
 				display: table-cell;
 				vertical-align: middle;
 				height: 110px;
 			}
 			
-			#next_month {
+			#next-month {
 				position: relative;
 				z-index: 2;
 			}
 			
-			#arrow_left, #arrow_right {
+			#arrow-left, #arrow-right {
 				height: 59px;
 				width: 56px;
 				background-color: white;
-				.shadow_applied(#CCCCCC);
+				.shadow-applied(#CCCCCC);
 			}
 			
-			#table_wrapper {
+			#table-wrapper {
 				vertical-align: text-bottom;
 				border-radius: @rad;
 				display: inline-block;
 			}
 			
-			#arrow_left {
+			#arrow-left {
 				border: 1px solid black;
 				border-right: 0;
 				border-radius: @rad 0 0 @rad;
 			}
 			
-			#arrow_right {
+			#arrow-right {
 				border: 1px solid black;
 				border-left: 0;
 				border-radius: 0 @rad @rad 0;
 			}
 			
-			#reference_time {
+			#head-timestamp {
 				display: none;
 			}
 			
@@ -262,7 +262,7 @@ body#main_page {
 				border-radius: @rad;
 				margin: 0;
 				padding: 0;
-				.shadow_applied(#CCCCCC);
+				.shadow-applied(#CCCCCC);
 			}
 			
 			td, th {
@@ -276,7 +276,7 @@ body#main_page {
 				background-color: white;
 			}
 			
-			td.reserved_cell {
+			td.reserved-cell {
 				width: 91px;
 				height: 36px;
 				background-image: url('../img/main/reserved.png');
@@ -287,7 +287,7 @@ body#main_page {
 				font-size: 0;
 			}
 			
-			td.timebox_passed {
+			td.timebox-passed {
 				background-color: #636363;
 			}
 			
@@ -315,7 +315,7 @@ body#main_page {
 				border-radius: 0 0 @rad 0;
 			}
 			
-			#calendar_label {
+			#calendar-label {
 				font-size: 0.8em;
 				z-index: 1;
 				position: relative;
@@ -324,7 +324,7 @@ body#main_page {
 				margin: -30px 0;
 			}
 			
-			#blank_cell {
+			#blank-cell {
 				width: 90%;
 				height: 90%;
 				margin-top: -30px;
@@ -336,17 +336,17 @@ body#main_page {
 			}
 		}
 		
-		#booking_details {
+		#booking-details {
 			border: 1px solid black;
 			background-color: white;
 			padding: 20px;
 			border-radius: @rad;
 			width: 700px;
 			margin: 30px auto 50px;
-			.shadow_applied(#CCCCCC);
+			.shadow-applied(#CCCCCC);
 			position: relative;
 			
-			form#booking_form {
+			form#booking-form {
 				line-height: 50px;
 				//text-align: right;
 				padding-bottom: 40px;
@@ -427,13 +427,13 @@ body#main_page {
 				}
 			}
 			
-			form#booking_form_success {
+			form#booking-form-success {
 				.tabulated {
 					margin-left: 50px;
 				}
 			}
 			
-			.error_msg {
+			.error-msg {
 				color: #DC0000;
 				font-weight: bold;
 			}
@@ -443,7 +443,7 @@ body#main_page {
 
 /////// eula page //////////////////////////////////////////////////////////
 
-body#eula_page {
+body#eula-page {
 	width: 700px;
 	margin: 0 auto;
 	padding: 40px;
@@ -460,7 +460,7 @@ body#eula_page {
 
 /////// admin page /////////////////////////////////////////////////////////
 
-#wrapper_admin {
+#wrapper-admin {
 	background-color: #fff;
 	margin: 40px;
 	font: 13px/20px normal Helvetica, Arial, sans-serif;
@@ -531,7 +531,7 @@ body#eula_page {
 		margin-bottom: 5px;
 	}
 	
-	h3#flash_msg {
+	h3#flash-msg {
 		margin: 0 14px 20px;
 		color: #DC0000;
 	}
@@ -540,10 +540,10 @@ body#eula_page {
 		margin-left: 20px;
 	}
 	
-	#admin_menu {
+	#admin-menu {
 		margin-left: 14px;
 		
-		#admin_calendar {
+		#admin-calendar {
 			display: table;
 			width: 840px;
 			margin: 36px 0 50px;
@@ -551,43 +551,43 @@ body#eula_page {
 			background-repeat: no-repeat;
 			background-position: center;
 			
-			#prev_month, #next_month {
+			#prev-month, #next-month {
 				display: table-cell;
 				vertical-align: middle;
 				height: 110px;
 			}
 			
-			#next_month {
+			#next-month {
 				position: relative;
 				z-index: 2;
 			}
 			
-			#arrow_left, #arrow_right {
+			#arrow-left, #arrow-right {
 				height: 59px;
 				width: 56px;
 				background-color: white;
-				.shadow_applied(#CCCCCC);
+				.shadow-applied(#CCCCCC);
 			}
 			
-			#table_wrapper {
+			#table-wrapper {
 				vertical-align: text-bottom;
 				border-radius: @rad;
 				display: inline-block;
 			}
 			
-			#arrow_left {
+			#arrow-left {
 				border: 1px solid black;
 				border-right: 0;
 				border-radius: @rad 0 0 @rad;
 			}
 			
-			#arrow_right {
+			#arrow-right {
 				border: 1px solid black;
 				border-left: 0;
 				border-radius: 0 @rad @rad 0;
 			}
 			
-			#reference_time {
+			#head-timestamp {
 				display: none;
 			}
 			
@@ -598,7 +598,7 @@ body#eula_page {
 				border-radius: @rad;
 				margin: 0;
 				padding: 0;
-				.shadow_applied(#CCCCCC);
+				.shadow-applied(#CCCCCC);
 			}
 			
 			td, th {
@@ -612,21 +612,21 @@ body#eula_page {
 				background-color: white;
 			}
 			
-			td.reserved_cell, td.reserved_cell_at, td.reserved_cell_kp {
+			td.reserved-cell, td.reserved-cell-at, td.reserved-cell-kp {
 				width: 91px;
 				height: 36px;
 				background-size: 91px 36px;
 			}
 
-			td.reserved_cell {
+			td.reserved-cell {
 				background-image: url('../img/main/reserved.png');
 			}
 			
-			td.reserved_cell_at {
+			td.reserved-cell-at {
 				background-image: url('../img/main/reserved_at.png');
 			}
 			
-			td.reserved_cell_kp {
+			td.reserved-cell-kp {
 				background-image: url('../img/main/reserved_kp.png');
 			}
 			
@@ -634,7 +634,7 @@ body#eula_page {
 				font-size: 0;
 			}
 			
-			td.timebox_passed {
+			td.timebox-passed {
 				background-color: #636363;
 			}
 			
@@ -662,7 +662,7 @@ body#eula_page {
 				border-radius: 0 0 @rad 0;
 			}
 			
-			#calendar_label {
+			#calendar-label {
 				font-size: 0.8em;
 				z-index: 1;
 				position: relative;
@@ -671,7 +671,7 @@ body#eula_page {
 				margin: -30px 0;
 			}
 			
-			#blank_cell {
+			#blank-cell {
 				width: 90%;
 				height: 90%;
 				margin-top: -30px;

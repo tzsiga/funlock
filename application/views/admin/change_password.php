@@ -1,10 +1,10 @@
 <?php $this->load->view('header'); ?>
 <body>
-	<div id="wrapper_admin">
+	<div id="wrapper-admin">
 		<h1>
 			Jelszó változtatás
 		</h1>
-		<h3 id="flash_msg">
+		<h3 id="flash-msg">
 			<?= $this->session->flashdata('msg') ?>
 			<?= validation_errors() ?>
 		</h3>

@@ -8,7 +8,7 @@ class Booking_model extends CI_Model {
 		foreach ($query->result() as $row) {
 			$bookings[$row->appointment] = array(
 				'id' => $row->id,
-				'payment_option' => $row->payment_option,
+				'payment-option' => $row->payment_option,
 				'client' => $row->book_fname.' '.$row->book_sname
 			);
 		}
@@ -47,15 +47,15 @@ class Booking_model extends CI_Model {
 
 	public function getNumberOfSuccessfulBookings() {
 		if (!$this->session->all_userdata()) {
-			$this->session->set_userdata(array('number_of_bookings' => 0));
+			$this->session->set_userdata(array('number-of-bookings' => 0));
 		}
 		
-		return $this->session->userdata('number_of_bookings');
+		return $this->session->userdata('number-of-bookings');
 	}
 	
 	public function increaseSuccessfulBookings() {
 		$this->session->set_userdata(array(
-			'number_of_bookings' => $this->getNumberOfSuccessfulBookings() + 1
+			'number-of-bookings' => $this->getNumberOfSuccessfulBookings() + 1
 		));
 	}
 	

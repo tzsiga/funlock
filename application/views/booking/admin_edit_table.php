@@ -1,17 +1,17 @@
 <?php $this->load->view('header'); ?>
 <body>
-	<div id="wrapper_admin">
+	<div id="wrapper-admin">
 		<h1>
 			Foglalások szerkesztése/törlése
 		</h1>
-		<h3 id="flash_msg">
+		<h3 id="flash-msg">
 			<?= $this->session->flashdata('msg') ?>
 		</h3>
-		<div id="admin_menu">
-			<div id="admin_calendar">
-				<span id="prev_month"><?= img(array('src' => base_url().'assets/img/main/arrow_left.png', 'id' => 'arrow_left')) ?></span>
-				<div id="table_wrapper"><?php $this->load->view('booking/admin_table', array('bookings' => $bookings, 'headTimestamp' => time())); ?></div>
-				<span id="next_month"><?= img(array('src' => base_url().'assets/img/main/arrow_right.png', 'id' => 'arrow_right')) ?></span>
+		<div id="admin-menu">
+			<div id="admin-calendar">
+				<span id="prev-month"><?= img(array('src' => base_url().'assets/img/main/arrow_left.png', 'id' => 'arrow-left')) ?></span>
+				<div id="table-wrapper"><?php $this->load->view('booking/admin_table', array('bookings' => $bookings, 'headTimestamp' => time())); ?></div>
+				<span id="next-month"><?= img(array('src' => base_url().'assets/img/main/arrow_right.png', 'id' => 'arrow-right')) ?></span>
 			</div>
 			<p>
 				<a href="<?= base_url() ?>index.php/booking/editList">Listanézet</a><br/>
@@ -35,8 +35,8 @@
 			'<?= base_url() ?>assets/img/main/arrow_right.png'
 		]).preload();
 		
-		$('#arrow_left').css('cursor', 'pointer');
-		$('#arrow_right').css('cursor', 'pointer');
+		$('#arrow-left').css('cursor', 'pointer');
+		$('#arrow-right').css('cursor', 'pointer');
 
 		<?php // opacity toggle ?>
 		jQuery.fn.visible = function() {
@@ -65,29 +65,29 @@
 		
 		timer.set({ time : 15000, autostart : true });
 		
-		function refreshTable(ref_time) {
-			if (typeof ref_time === 'undefined') ref_time = parseInt($('#reference_time').text());
+		function refreshTable(headTimestamp) {
+			if (typeof headTimestamp === 'undefined') headTimestamp = parseInt($('#head-timestamp').text());
 		
 			$.ajax({
-				url: '<?= base_url() ?>index.php/booking/loadAdminTable?headTimestamp=' + ref_time,
+				url: '<?= base_url() ?>index.php/booking/loadAdminTable?headTimestamp=' + headTimestamp,
 				type: 'POST'
 			}).success(function(result) {
-				$('#table_wrapper').html(result);
+				$('#table-wrapper').html(result);
 			});
 		}
 		
-		$('#arrow_left').click(function(){
-			if ($('#reference_time').text() > <?= time() ?>) {
-				$('#table_wrapper').invisible().promise().done(function(){
-					refreshTable(parseInt($('#reference_time').text()) - parseInt(<?= Utils::weekInSec ?>));
+		$('#arrow-left').click(function(){
+			if ($('#head-timestamp').text() > <?= time() ?>) {
+				$('#table-wrapper').invisible().promise().done(function(){
+					refreshTable(parseInt($('#head-timestamp').text()) - parseInt(<?= Utils::weekInSec ?>));
 					$(this).delay(450).visible();
 				});
 			}
 		});
 		
-		$('#arrow_right').click(function(){
-			$('#table_wrapper').invisible().promise().done(function(){
-				refreshTable(parseInt($('#reference_time').text()) + parseInt(<?= Utils::weekInSec ?>));
+		$('#arrow-right').click(function(){
+			$('#table-wrapper').invisible().promise().done(function(){
+				refreshTable(parseInt($('#head-timestamp').text()) + parseInt(<?= Utils::weekInSec ?>));
 				$(this).delay(450).visible();
 			});
 		});

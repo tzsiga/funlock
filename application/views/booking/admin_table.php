@@ -1,8 +1,8 @@
 <?php
-// table header, alt param contains the actual reference time variable
-echo '<span id="reference_time">' .$headTimestamp. '</span>';
-echo '<table id="calendar_table"><tr>';
-echo '<th><span id="calendar_label">keresés</span>'.form_input(array('id' => 'blank_cell')).'</th>';
+// table header
+echo '<span id="head-timestamp">' .$headTimestamp. '</span>';
+echo '<table id="calendar-table"><tr>';
+echo '<th><span id="calendar-label">keresés</span>'.form_input(array('id' => 'blank-cell')).'</th>';
 
 $dayNames = array('- H -', '- K -', '- SZ -', '- CS -', '- P -', '- SZ -', '- V -');
 $i = 0;
@@ -21,14 +21,14 @@ for ($hourIndex = Utils::hourFrom; $hourIndex <= Utils::hourTo; $hourIndex += Ut
 		
 		if ($cellTimestamp < time()) {
 			// if we are in the past
-			echo '<td class="timebox_passed"></td>';
+			echo '<td class="timebox-passed"></td>';
 		} else {
 			// if in the present week or future
 			if (isset($bookings[$cellTimestamp])) {
-				if ($bookings[$cellTimestamp]['payment_option'] == 'card') {
-					echo '<td class="reserved_cell_at">';
-				} elseif ($bookings[$cellTimestamp]['payment_option'] == 'cache') {
-					echo '<td class="reserved_cell_kp">';
+				if ($bookings[$cellTimestamp]['payment-option'] == 'card') {
+					echo '<td class="reserved-cell-at">';
+				} elseif ($bookings[$cellTimestamp]['payment-option'] == 'cache') {
+					echo '<td class="reserved-cell-kp">';
 				}
 			
 				echo '<a href="'.base_url().'index.php/booking/editBooking/'.$bookings[$cellTimestamp]['id'].'"><div style="width: 90px; height: 34px;"></div></a></td>';
@@ -53,16 +53,16 @@ echo '</table>';
 		return new Date(d.setDate(diff));
 	}
 
-	$('#blank_cell').css('cursor', 'pointer');
-	$('#blank_cell').datepicker({
+	$('#blank-cell').css('cursor', 'pointer');
+	$('#blank-cell').datepicker({
 		firstDay: 1,
 		dateFormat: 'yy-mm-dd',
 		minDate: 0
 	});
 
-	$('#blank_cell').change(function(){
-		var monday = getMonday(new Date($('#blank_cell').val()));
-		$('#table_wrapper').invisible().promise().done(function(){
+	$('#blank-cell').change(function(){
+		var monday = getMonday(new Date($('#blank-cell').val()));
+		$('#table-wrapper').invisible().promise().done(function(){
 			refreshTable(strtotime(monday.toString()));
 			$(this).delay(450).visible();
 		});

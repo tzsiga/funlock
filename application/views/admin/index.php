@@ -1,13 +1,13 @@
 <?php $this->load->view('header'); ?>
 <body>
-	<div id="wrapper_admin">
+	<div id="wrapper-admin">
 		<h1>
 			Adminisztrációs felület
 		</h1>
-		<h3 id="flash_msg">
+		<h3 id="flash-msg">
 			<?= $this->session->flashdata('msg') ?>
 		</h3>
-		<div id="admin_menu">
+		<div id="admin-menu">
 			<h3>Foglalások kezelése</h3>
 			<ul>
 				<li><a href="<?= base_url() ?>index.php/booking/EditTable">Új létrehozása, meglévők módosítása/törlése</a></li>

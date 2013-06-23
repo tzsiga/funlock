@@ -1,22 +1,22 @@
 <?php $this->load->view('header'); ?>
 <body>
-	<div id="wrapper_admin">
+	<div id="wrapper-admin">
 		<h1>
 			Foglalások szerkesztése/törlése
 		</h1>
-		<h3 id="flash_msg">
+		<h3 id="flash-msg">
 			<?= $this->session->flashdata('msg') ?>
 		</h3>
-		<div id="admin_menu">
+		<div id="admin-menu">
 			<h3>Lejátszott játékok:</h3>
 			<ul>
 			<?php
-				$current_time_flag = true;
+				$currentTimeFlag = true;
 			
 				foreach ($bookings as $date => $booking) {
-					if ($date > time() && $current_time_flag) {
+					if ($date > time() && $currentTimeFlag) {
 						echo '</ul><hr/><h3>Új játékok:</h3><ul>';
-						$current_time_flag = false;
+						$currentTimeFlag = false;
 					}
 					echo '<li>';
 					echo date('Y-m-d H:i', $date);

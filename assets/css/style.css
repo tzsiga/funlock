@@ -185,26 +185,26 @@ body {
 table.ui-datepicker-calendar td {
   padding-right: 12px;
 }
-body#intro_page {
+body#intro-page {
   overflow: hidden;
   background-image: url('../img/intro/bg_grid_2.gif');
   background-position: center center;
 }
-#action_zone {
+#action-zone {
   height: 630px;
   width: 927px;
   position: relative;
   margin: 0 auto;
   padding-left: 15px;
 }
-#action_zone .slider {
+#action-zone .slider {
   display: inline-block;
   position: absolute;
   height: 177px;
   width: 5px;
   margin: 0;
 }
-#action_zone #enter {
+#action-zone #enter {
   display: inline-block;
   position: absolute;
   bottom: 0px;
@@ -215,19 +215,19 @@ body#intro_page {
   color: white;
   background-color: black;
 }
-#action_zone #enter a:link,
-#action_zone #enter a:visited {
+#action-zone #enter a:link,
+#action-zone #enter a:visited {
   color: white;
   text-decoration: none;
 }
-#action_zone #enter a:hover {
+#action-zone #enter a:hover {
   color: crimson;
   text-decoration: none;
 }
 #t4se {
   visibility: hidden;
 }
-body#main_page {
+body#main-page {
   background-color: #E8E9EA;
   background-image: url('../img/main/logo_vertical_left.png'), -moz-linear-gradient(top, #ffffff 0%, #e8e9ea 100%);
   background-image: url('../img/main/logo_vertical_left.png'), -o-linear-gradient(top, #ffffff 0%, #e8e9ea 100%);
@@ -238,40 +238,40 @@ body#main_page {
   background-size: 185px 938px, auto;
   padding-left: 100px;
 }
-body#main_page #wrapper_content {
+body#main-page #wrapper-content {
   width: 79.5em;
   margin: 0;
 }
-body#main_page #wrapper_content #navbar {
+body#main-page #wrapper-content #navbar {
   display: inline-block;
   float: left;
   width: 250px;
   margin-top: 36px;
   margin-left: 18px;
 }
-body#main_page #wrapper_content #navbar #menu {
+body#main-page #wrapper-content #navbar #menu {
   padding-top: 112px;
   margin: 0 0 60px;
 }
-body#main_page #wrapper_content #navbar #menu ul {
+body#main-page #wrapper-content #navbar #menu ul {
   list-style: none;
   padding-left: 60px;
   width: 100px;
 }
-body#main_page #wrapper_content #navbar #item_display_area {
+body#main-page #wrapper-content #navbar #item-display-area {
   text-align: justify;
 }
-body#main_page #wrapper_content #navbar #item_display_area #info {
+body#main-page #wrapper-content #navbar #item-display-area #info {
   background-image: url('../img/main/info.png');
   background-repeat: no-repeat;
 }
-body#main_page #wrapper_content #logo_small {
+body#main-page #wrapper-content #logo-small {
   width: 156px;
   height: 27px;
   margin-bottom: 40px;
   margin-left: 100px;
 }
-body#main_page #wrapper_content #subtitle {
+body#main-page #wrapper-content #subtitle {
   display: inline-block;
   float: right;
   margin-right: -13px;
@@ -281,7 +281,7 @@ body#main_page #wrapper_content #subtitle {
   font-size: 1.1em;
   letter-spacing: 1px;
 }
-body#main_page #wrapper_content #main_link {
+body#main-page #wrapper-content #main-link {
   display: inline-block;
   height: 130px;
   width: 85px;
@@ -289,17 +289,17 @@ body#main_page #wrapper_content #main_link {
   top: 30px;
   left: 60px;
 }
-body#main_page #wrapper_content #link_gallery > a {
+body#main-page #wrapper-content #link-gallery > a {
   text-decoration: none;
   color: black;
 }
-body#main_page #wrapper_content #legend {
+body#main-page #wrapper-content #legend {
   height: 59px;
   margin-left: 80px;
   margin-top: -15px;
   text-align: left;
 }
-body#main_page #wrapper_content #legend div {
+body#main-page #wrapper-content #legend div {
   display: inline-block;
   float: left;
   width: 120px;
@@ -307,9 +307,9 @@ body#main_page #wrapper_content #legend div {
   margin-left: 10px;
   margin-top: 2px;
 }
-body#main_page #wrapper_content #legend #icon_unavailable,
-body#main_page #wrapper_content #legend #icon_available,
-body#main_page #wrapper_content #legend #icon_reserved {
+body#main-page #wrapper-content #legend #icon-unavailable,
+body#main-page #wrapper-content #legend #icon-available,
+body#main-page #wrapper-content #legend #icon-reserved {
   width: 70px;
   margin-top: 0px;
   border: 1px solid black;
@@ -317,28 +317,28 @@ body#main_page #wrapper_content #legend #icon_reserved {
   -webkit-box-shadow: 8px 8px 15px #cccccc;
   box-shadow: 8px 8px 15px #cccccc;
 }
-body#main_page #wrapper_content #legend #icon_unavailable {
+body#main-page #wrapper-content #legend #icon-unavailable {
   background-color: #636363;
 }
-body#main_page #wrapper_content #legend #icon_available {
+body#main-page #wrapper-content #legend #icon-available {
   background-color: white;
 }
-body#main_page #wrapper_content #legend #icon_reserved {
+body#main-page #wrapper-content #legend #icon-reserved {
   background-image: url('../img/main/reserved.png');
   background-size: 70px 25px;
 }
-body#main_page #wrapper_content #prev_month,
-body#main_page #wrapper_content #arrow_left,
-body#main_page #wrapper_content #next_month,
-body#main_page #wrapper_content #arrow_right {
+body#main-page #wrapper-content #prev-month,
+body#main-page #wrapper-content #arrow-left,
+body#main-page #wrapper-content #next-month,
+body#main-page #wrapper-content #arrow-right {
   width: 55px;
 }
-body#main_page #content {
+body#main-page #content {
   margin-left: 0px;
   display: inline-block;
   float: left;
 }
-body#main_page #content #calendar {
+body#main-page #content #calendar {
   display: table;
   width: 840px;
   margin: 36px 0 50px;
@@ -346,18 +346,18 @@ body#main_page #content #calendar {
   background-repeat: no-repeat;
   background-position: center;
 }
-body#main_page #content #calendar #prev_month,
-body#main_page #content #calendar #next_month {
+body#main-page #content #calendar #prev-month,
+body#main-page #content #calendar #next-month {
   display: table-cell;
   vertical-align: middle;
   height: 110px;
 }
-body#main_page #content #calendar #next_month {
+body#main-page #content #calendar #next-month {
   position: relative;
   z-index: 2;
 }
-body#main_page #content #calendar #arrow_left,
-body#main_page #content #calendar #arrow_right {
+body#main-page #content #calendar #arrow-left,
+body#main-page #content #calendar #arrow-right {
   height: 59px;
   width: 56px;
   background-color: white;
@@ -365,25 +365,25 @@ body#main_page #content #calendar #arrow_right {
   -webkit-box-shadow: 8px 8px 15px #cccccc;
   box-shadow: 8px 8px 15px #cccccc;
 }
-body#main_page #content #calendar #table_wrapper {
+body#main-page #content #calendar #table-wrapper {
   vertical-align: text-bottom;
   border-radius: 4px;
   display: inline-block;
 }
-body#main_page #content #calendar #arrow_left {
+body#main-page #content #calendar #arrow-left {
   border: 1px solid black;
   border-right: 0;
   border-radius: 4px 0 0 4px;
 }
-body#main_page #content #calendar #arrow_right {
+body#main-page #content #calendar #arrow-right {
   border: 1px solid black;
   border-left: 0;
   border-radius: 0 4px 4px 0;
 }
-body#main_page #content #calendar #reference_time {
+body#main-page #content #calendar #head-timestamp {
   display: none;
 }
-body#main_page #content #calendar table {
+body#main-page #content #calendar table {
   background-color: white;
   display: table-cell;
   vertical-align: bottom;
@@ -394,8 +394,8 @@ body#main_page #content #calendar table {
   -webkit-box-shadow: 8px 8px 15px #cccccc;
   box-shadow: 8px 8px 15px #cccccc;
 }
-body#main_page #content #calendar td,
-body#main_page #content #calendar th {
+body#main-page #content #calendar td,
+body#main-page #content #calendar th {
   height: 36px;
   width: 92px;
   text-align: center;
@@ -405,39 +405,39 @@ body#main_page #content #calendar th {
   font-size: 1.1em;
   background-color: white;
 }
-body#main_page #content #calendar td.reserved_cell {
+body#main-page #content #calendar td.reserved-cell {
   width: 91px;
   height: 36px;
   background-image: url('../img/main/reserved.png');
   background-size: 91px 36px;
 }
-body#main_page #content #calendar td.timebox {
+body#main-page #content #calendar td.timebox {
   font-size: 0;
 }
-body#main_page #content #calendar td.timebox_passed {
+body#main-page #content #calendar td.timebox-passed {
   background-color: #636363;
 }
-body#main_page #content #calendar th:last-child,
-body#main_page #content #calendar td:last-child {
+body#main-page #content #calendar th:last-child,
+body#main-page #content #calendar td:last-child {
   border-right: 1px solid black;
 }
-body#main_page #content #calendar tr:last-child td {
+body#main-page #content #calendar tr:last-child td {
   border-bottom: 1px solid black;
 }
-body#main_page #content #calendar th:first-child,
-body#main_page #content #calendar th:first-child * {
+body#main-page #content #calendar th:first-child,
+body#main-page #content #calendar th:first-child * {
   border-radius: 4px 0 0 0;
 }
-body#main_page #content #calendar th:last-child {
+body#main-page #content #calendar th:last-child {
   border-radius: 0 4px 0 0;
 }
-body#main_page #content #calendar tr:last-child td:first-child {
+body#main-page #content #calendar tr:last-child td:first-child {
   border-radius: 0 0 0 4px;
 }
-body#main_page #content #calendar tr:last-child td:last-child {
+body#main-page #content #calendar tr:last-child td:last-child {
   border-radius: 0 0 4px 0;
 }
-body#main_page #content #calendar #calendar_label {
+body#main-page #content #calendar #calendar-label {
   font-size: 0.8em;
   z-index: 1;
   position: relative;
@@ -445,7 +445,7 @@ body#main_page #content #calendar #calendar_label {
   height: 0px;
   margin: -30px 0;
 }
-body#main_page #content #calendar #blank_cell {
+body#main-page #content #calendar #blank-cell {
   width: 90%;
   height: 90%;
   margin-top: -30px;
@@ -455,7 +455,7 @@ body#main_page #content #calendar #blank_cell {
   position: relative;
   vertical-align: middle;
 }
-body#main_page #content #booking_details {
+body#main-page #content #booking-details {
   border: 1px solid black;
   background-color: white;
   padding: 20px;
@@ -467,24 +467,24 @@ body#main_page #content #booking_details {
   box-shadow: 8px 8px 15px #cccccc;
   position: relative;
 }
-body#main_page #content #booking_details form#booking_form {
+body#main-page #content #booking-details form#booking-form {
   line-height: 50px;
   padding-bottom: 40px;
 }
-body#main_page #content #booking_details form#booking_form label {
+body#main-page #content #booking-details form#booking-form label {
   display: inline-block;
   width: 80px;
   margin-right: 10px;
   text-align: right;
 }
-body#main_page #content #booking_details form#booking_form label[for=eula],
-body#main_page #content #booking_details form#booking_form label[for=billing] {
+body#main-page #content #booking-details form#booking-form label[for=eula],
+body#main-page #content #booking-details form#booking-form label[for=billing] {
   width: auto;
   margin-left: 10px;
   text-align: right;
 }
-body#main_page #content #booking_details form#booking_form input,
-body#main_page #content #booking_details form#booking_form textarea {
+body#main-page #content #booking-details form#booking-form input,
+body#main-page #content #booking-details form#booking-form textarea {
   width: 120px;
   margin-right: 15px;
   border: 1px solid grey;
@@ -493,92 +493,92 @@ body#main_page #content #booking_details form#booking_form textarea {
   font-size: 0.9em;
   padding-left: 3px;
 }
-body#main_page #content #booking_details form#booking_form input[type=checkbox] {
+body#main-page #content #booking-details form#booking-form input[type=checkbox] {
   border: 0;
 }
-body#main_page #content #booking_details form#booking_form select {
+body#main-page #content #booking-details form#booking-form select {
   width: 124px;
   margin-right: 15px;
   font-family: 'Source Sans Pro', arial, verdana;
 }
-body#main_page #content #booking_details form#booking_form input[type=submit] {
+body#main-page #content #booking-details form#booking-form input[type=submit] {
   float: right;
   background-color: #DDDDDD;
   letter-spacing: 1px;
   margin-top: 10px;
 }
-body#main_page #content #booking_details form#booking_form textarea {
+body#main-page #content #booking-details form#booking-form textarea {
   height: 20px;
 }
-body#main_page #content #booking_details form#booking_form input[type=checkbox] {
+body#main-page #content #booking-details form#booking-form input[type=checkbox] {
   width: auto;
 }
-body#main_page #content #booking_details form#booking_form input#email {
+body#main-page #content #booking-details form#booking-form input#email {
   width: 250px;
 }
-body#main_page #content #booking_details form#booking_form input#zip,
-body#main_page #content #booking_details form#booking_form input#house {
+body#main-page #content #booking-details form#booking-form input#zip,
+body#main-page #content #booking-details form#booking-form input#house {
   width: 40px;
 }
-body#main_page #content #booking_details form#booking_form label[for=eula] {
+body#main-page #content #booking-details form#booking-form label[for=eula] {
   margin-left: 259px;
 }
-body#main_page #content #booking_details form#booking_form label[for=billing] {
+body#main-page #content #booking-details form#booking-form label[for=billing] {
   margin-left: 75px;
 }
-body#main_page #content #booking_details form#booking_form label[for=city] {
+body#main-page #content #booking-details form#booking-form label[for=city] {
   width: 50px;
 }
-body#main_page #content #booking_details form#booking_form label[for=street] {
+body#main-page #content #booking-details form#booking-form label[for=street] {
   width: 40px;
 }
-body#main_page #content #booking_details form#booking_form_success .tabulated {
+body#main-page #content #booking-details form#booking-form-success .tabulated {
   margin-left: 50px;
 }
-body#main_page #content #booking_details .error_msg {
+body#main-page #content #booking-details .error-msg {
   color: #DC0000;
   font-weight: bold;
 }
-body#eula_page {
+body#eula-page {
   width: 700px;
   margin: 0 auto;
   padding: 40px;
 }
-body#eula_page ol {
+body#eula-page ol {
   margin-top: 20px;
   text-align: justify;
 }
-body#eula_page ol li {
+body#eula-page ol li {
   margin-left: 30px;
 }
-#wrapper_admin {
+#wrapper-admin {
   background-color: #fff;
   margin: 40px;
   font: 13px/20px normal Helvetica, Arial, sans-serif;
   color: #4F5155;
 }
-#wrapper_admin ::selection {
+#wrapper-admin ::selection {
   background-color: #E13300;
   color: white;
 }
-#wrapper_admin ::moz-selection {
+#wrapper-admin ::moz-selection {
   background-color: #E13300;
   color: white;
 }
-#wrapper_admin ::webkit-selection {
+#wrapper-admin ::webkit-selection {
   background-color: #E13300;
   color: white;
 }
-#wrapper_admin a {
+#wrapper-admin a {
   color: #003399;
   background-color: transparent;
   font-weight: normal;
   text-decoration: none;
 }
-#wrapper_admin a:hover {
+#wrapper-admin a:hover {
   text-decoration: underline;
 }
-#wrapper_admin h1 {
+#wrapper-admin h1 {
   color: #444;
   background-color: transparent;
   border-bottom: 1px solid #D0D0D0;
@@ -587,7 +587,7 @@ body#eula_page ol li {
   margin: 0 0 14px 0;
   padding: 14px 15px 10px 15px;
 }
-#wrapper_admin code {
+#wrapper-admin code {
   font-family: Consolas, Monaco, Courier New, Courier, monospace;
   font-size: 12px;
   background-color: #f9f9f9;
@@ -597,40 +597,40 @@ body#eula_page ol li {
   margin: 14px 0 14px 0;
   padding: 12px 10px 12px 10px;
 }
-#wrapper_admin #container {
+#wrapper-admin #container {
   margin: 10px;
   border: 1px solid #D0D0D0;
   -webkit-box-shadow: 0 0 8px #D0D0D0;
 }
-#wrapper_admin p {
+#wrapper-admin p {
   margin: 12px 15px 12px 15px;
 }
-#wrapper_admin label {
+#wrapper-admin label {
   margin-right: 15px;
   display: inline-block;
   width: 150px;
 }
-#wrapper_admin input {
+#wrapper-admin input {
   margin: 0 auto;
 }
-#wrapper_admin input[type=submit] {
+#wrapper-admin input[type=submit] {
   display: inline-block;
 }
-#wrapper_admin h3 {
+#wrapper-admin h3 {
   margin-top: 15px;
   margin-bottom: 5px;
 }
-#wrapper_admin h3#flash_msg {
+#wrapper-admin h3#flash-msg {
   margin: 0 14px 20px;
   color: #DC0000;
 }
-#wrapper_admin li {
+#wrapper-admin li {
   margin-left: 20px;
 }
-#wrapper_admin #admin_menu {
+#wrapper-admin #admin-menu {
   margin-left: 14px;
 }
-#wrapper_admin #admin_menu #admin_calendar {
+#wrapper-admin #admin-menu #admin-calendar {
   display: table;
   width: 840px;
   margin: 36px 0 50px;
@@ -638,18 +638,18 @@ body#eula_page ol li {
   background-repeat: no-repeat;
   background-position: center;
 }
-#wrapper_admin #admin_menu #admin_calendar #prev_month,
-#wrapper_admin #admin_menu #admin_calendar #next_month {
+#wrapper-admin #admin-menu #admin-calendar #prev-month,
+#wrapper-admin #admin-menu #admin-calendar #next-month {
   display: table-cell;
   vertical-align: middle;
   height: 110px;
 }
-#wrapper_admin #admin_menu #admin_calendar #next_month {
+#wrapper-admin #admin-menu #admin-calendar #next-month {
   position: relative;
   z-index: 2;
 }
-#wrapper_admin #admin_menu #admin_calendar #arrow_left,
-#wrapper_admin #admin_menu #admin_calendar #arrow_right {
+#wrapper-admin #admin-menu #admin-calendar #arrow-left,
+#wrapper-admin #admin-menu #admin-calendar #arrow-right {
   height: 59px;
   width: 56px;
   background-color: white;
@@ -657,25 +657,25 @@ body#eula_page ol li {
   -webkit-box-shadow: 8px 8px 15px #cccccc;
   box-shadow: 8px 8px 15px #cccccc;
 }
-#wrapper_admin #admin_menu #admin_calendar #table_wrapper {
+#wrapper-admin #admin-menu #admin-calendar #table-wrapper {
   vertical-align: text-bottom;
   border-radius: 4px;
   display: inline-block;
 }
-#wrapper_admin #admin_menu #admin_calendar #arrow_left {
+#wrapper-admin #admin-menu #admin-calendar #arrow-left {
   border: 1px solid black;
   border-right: 0;
   border-radius: 4px 0 0 4px;
 }
-#wrapper_admin #admin_menu #admin_calendar #arrow_right {
+#wrapper-admin #admin-menu #admin-calendar #arrow-right {
   border: 1px solid black;
   border-left: 0;
   border-radius: 0 4px 4px 0;
 }
-#wrapper_admin #admin_menu #admin_calendar #reference_time {
+#wrapper-admin #admin-menu #admin-calendar #head-timestamp {
   display: none;
 }
-#wrapper_admin #admin_menu #admin_calendar table {
+#wrapper-admin #admin-menu #admin-calendar table {
   background-color: white;
   display: table-cell;
   vertical-align: bottom;
@@ -686,8 +686,8 @@ body#eula_page ol li {
   -webkit-box-shadow: 8px 8px 15px #cccccc;
   box-shadow: 8px 8px 15px #cccccc;
 }
-#wrapper_admin #admin_menu #admin_calendar td,
-#wrapper_admin #admin_menu #admin_calendar th {
+#wrapper-admin #admin-menu #admin-calendar td,
+#wrapper-admin #admin-menu #admin-calendar th {
   height: 36px;
   width: 92px;
   text-align: center;
@@ -697,49 +697,49 @@ body#eula_page ol li {
   font-size: 1.1em;
   background-color: white;
 }
-#wrapper_admin #admin_menu #admin_calendar td.reserved_cell,
-#wrapper_admin #admin_menu #admin_calendar td.reserved_cell_at,
-#wrapper_admin #admin_menu #admin_calendar td.reserved_cell_kp {
+#wrapper-admin #admin-menu #admin-calendar td.reserved-cell,
+#wrapper-admin #admin-menu #admin-calendar td.reserved-cell-at,
+#wrapper-admin #admin-menu #admin-calendar td.reserved-cell-kp {
   width: 91px;
   height: 36px;
   background-size: 91px 36px;
 }
-#wrapper_admin #admin_menu #admin_calendar td.reserved_cell {
+#wrapper-admin #admin-menu #admin-calendar td.reserved-cell {
   background-image: url('../img/main/reserved.png');
 }
-#wrapper_admin #admin_menu #admin_calendar td.reserved_cell_at {
+#wrapper-admin #admin-menu #admin-calendar td.reserved-cell-at {
   background-image: url('../img/main/reserved_at.png');
 }
-#wrapper_admin #admin_menu #admin_calendar td.reserved_cell_kp {
+#wrapper-admin #admin-menu #admin-calendar td.reserved-cell-kp {
   background-image: url('../img/main/reserved_kp.png');
 }
-#wrapper_admin #admin_menu #admin_calendar td.timebox {
+#wrapper-admin #admin-menu #admin-calendar td.timebox {
   font-size: 0;
 }
-#wrapper_admin #admin_menu #admin_calendar td.timebox_passed {
+#wrapper-admin #admin-menu #admin-calendar td.timebox-passed {
   background-color: #636363;
 }
-#wrapper_admin #admin_menu #admin_calendar th:last-child,
-#wrapper_admin #admin_menu #admin_calendar td:last-child {
+#wrapper-admin #admin-menu #admin-calendar th:last-child,
+#wrapper-admin #admin-menu #admin-calendar td:last-child {
   border-right: 1px solid black;
 }
-#wrapper_admin #admin_menu #admin_calendar tr:last-child td {
+#wrapper-admin #admin-menu #admin-calendar tr:last-child td {
   border-bottom: 1px solid black;
 }
-#wrapper_admin #admin_menu #admin_calendar th:first-child,
-#wrapper_admin #admin_menu #admin_calendar th:first-child * {
+#wrapper-admin #admin-menu #admin-calendar th:first-child,
+#wrapper-admin #admin-menu #admin-calendar th:first-child * {
   border-radius: 4px 0 0 0;
 }
-#wrapper_admin #admin_menu #admin_calendar th:last-child {
+#wrapper-admin #admin-menu #admin-calendar th:last-child {
   border-radius: 0 4px 0 0;
 }
-#wrapper_admin #admin_menu #admin_calendar tr:last-child td:first-child {
+#wrapper-admin #admin-menu #admin-calendar tr:last-child td:first-child {
   border-radius: 0 0 0 4px;
 }
-#wrapper_admin #admin_menu #admin_calendar tr:last-child td:last-child {
+#wrapper-admin #admin-menu #admin-calendar tr:last-child td:last-child {
   border-radius: 0 0 4px 0;
 }
-#wrapper_admin #admin_menu #admin_calendar #calendar_label {
+#wrapper-admin #admin-menu #admin-calendar #calendar-label {
   font-size: 0.8em;
   z-index: 1;
   position: relative;
@@ -747,7 +747,7 @@ body#eula_page ol li {
   height: 0px;
   margin: -30px 0;
 }
-#wrapper_admin #admin_menu #admin_calendar #blank_cell {
+#wrapper-admin #admin-menu #admin-calendar #blank-cell {
   width: 90%;
   height: 90%;
   margin-top: -30px;
