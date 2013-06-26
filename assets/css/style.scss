@@ -1,7 +1,9 @@
-@import "frameless.less";
-@import "style_480.less";
+@import "compass/css3";
 
-//@media screen and (min-width: 900px) { ... }
+@import "frameless.scss";
+//@import "style_480.scss";
+
+//$media screen and (min-width: 900px) { ... }
 
 /////// basic design elements /////////////////////////////////////////////////
 
@@ -9,17 +11,17 @@ body {
 	font-family: 'Source Sans Pro', arial, verdana;
 }
 
-@rad: 4px;
+$rad: 4px;
 
-.shadow-applied(@color) {
-		 -moz-box-shadow: 8px 8px 15px @color;
-	-webkit-box-shadow: 8px 8px 15px @color;
-					box-shadow: 8px 8px 15px @color;
+@mixin shadow-applied($color) {
+		 -moz-box-shadow: 8px 8px 15px $color;
+	-webkit-box-shadow: 8px 8px 15px $color;
+					box-shadow: 8px 8px 15px $color;
 }
 
 #ui-datepicker-div {
 	margin-left: 10px;
-	.shadow-applied(#222);
+	@include shadow-applied(#222);
 }
 
 table.ui-datepicker-calendar td {
@@ -87,12 +89,13 @@ body#main-page {
 	background-image: url('../img/main/logo_vertical_left.png'), linear-gradient(to bottom, #FFFFFF 0%, #E8E9EA 100%);
 	
 	background-repeat: no-repeat;
-	background-size: 185px 938px, auto;
+	background-size: auto, auto;
+	//background-size: 185px 938px, auto;
 
 	padding-left: 100px;
 	
 	#wrapper-content {
-		width: @18cols;
+		width: $cols18;
 		margin: 0;
 		//overflow: auto;
 		
@@ -120,6 +123,12 @@ body#main-page {
 				#info {
 					background-image: url('../img/main/info.png');
 					background-repeat: no-repeat;
+				}
+				
+				#map {
+					margin-left: -15px;
+					border: 1px solid grey;
+					@include shadow-applied(#CCCCCC);
 				}
 			}
 		}
@@ -178,7 +187,7 @@ body#main-page {
 				width: 70px;
 				margin-top: 0px;
 				border: 1px solid black;
-				.shadow-applied(#CCCCCC);
+				@include shadow-applied(#CCCCCC);
 			}
 			
 			#icon-unavailable {
@@ -230,89 +239,97 @@ body#main-page {
 				height: 59px;
 				width: 56px;
 				background-color: white;
-				.shadow-applied(#CCCCCC);
+				@include shadow-applied(#CCCCCC);
 			}
 			
 			#table-wrapper {
 				vertical-align: text-bottom;
-				border-radius: @rad;
 				display: inline-block;
+				
+				table#calendar-table {
+					background-color: white;
+					vertical-align: bottom;
+					margin: 0;
+					padding: 0;
+					@include shadow-applied(#CCCCCC);
+				}
+				
+				td, th {
+					height: 36px;
+					width: 92px;
+					text-align: center;
+					border-top: 1px solid black;
+					border-left: 1px solid black;
+					font-weight: normal;
+					font-size: 1.1em;
+					background-color: white;
+				}
+				
+				td.reserved-cell {
+					width: 91px;
+					height: 36px;
+					background-image: url('../img/main/reserved.png');
+					background-size: 91px 36px;
+				}
+				
+				td.timebox {
+					font-size: 0;
+				}
+				
+				td.timebox-passed {
+					background-color: #636363;
+				}
+				
+				th:last-child, td:last-child {
+					border-right: 1px solid black;
+				}
+				
+				tr:last-child td {
+					border-bottom: 1px solid black;
+				}
+				
+				th:first-child, th:first-child * {
+					@include border-radius($rad 0 0 0);
+				}
+
+				th:last-child {
+					@include border-radius(0 $rad 0 0);
+				}
+
+				tr:last-child td:first-child {
+					@include border-radius(0 0 0 $rad);
+				}
+				
+				tr:last-child td:last-child {
+					@include border-radius(0 0 $rad 0);
+				}
+				
+				#blank-cell {
+					width: 90%;
+					height: 90%;
+					margin-top: -30px;
+					color: white;
+					opacity: 0;
+					z-index: 2;
+					position: relative;
+					vertical-align: middle;
+				}
+				
+				#head-timestamp {
+					display: none;
+				}
 			}
 			
 			#arrow-left {
 				border: 1px solid black;
 				border-right: 0;
-				border-radius: @rad 0 0 @rad;
+				@include border-radius($rad 0 0 $rad);
 			}
 			
 			#arrow-right {
 				border: 1px solid black;
 				border-left: 0;
-				border-radius: 0 @rad @rad 0;
-			}
-			
-			#head-timestamp {
-				display: none;
-			}
-			
-			table {
-				background-color: white;
-				display: table-cell;
-				vertical-align: bottom;
-				border-radius: @rad;
-				margin: 0;
-				padding: 0;
-				.shadow-applied(#CCCCCC);
-			}
-			
-			td, th {
-				height: 36px;
-				width: 92px;
-				text-align: center;
-				border-top: 1px solid black;
-				border-left: 1px solid black;
-				font-weight: normal;
-				font-size: 1.1em;
-				background-color: white;
-			}
-			
-			td.reserved-cell {
-				width: 91px;
-				height: 36px;
-				background-image: url('../img/main/reserved.png');
-				background-size: 91px 36px;
-			}
-			
-			td.timebox {
-				font-size: 0;
-			}
-			
-			td.timebox-passed {
-				background-color: #636363;
-			}
-			
-			th:last-child, td:last-child {
-				border-right: 1px solid black;
-			}
-			
-			tr:last-child td {
-				border-bottom: 1px solid black;
-			}
-			
-			th:first-child, th:first-child * {
-				border-radius: @rad 0 0 0;
-			}
-
-			th:last-child {
-				border-radius: 0 @rad 0 0;
-			}
-
-			tr:last-child td:first-child {
-				border-radius: 0 0 0 @rad;
-			}
-			
-			tr:last-child td:last-child {
-				border-radius: 0 0 @rad 0;
+				@include border-radius(0 $rad $rad 0);
 			}
 			
 			#calendar-label {
@@ -323,27 +340,16 @@ body#main-page {
 				height: 0px;
 				margin: -30px 0;
 			}
-			
-			#blank-cell {
-				width: 90%;
-				height: 90%;
-				margin-top: -30px;
-				color: white;
-				opacity: 0;
-				z-index: 2;
-				position: relative;
-				vertical-align: middle;
-			}
 		}
 		
 		#booking-details {
 			border: 1px solid black;
 			background-color: white;
 			padding: 20px;
-			border-radius: @rad;
+			@include border-radius($rad);
 			width: 700px;
 			margin: 30px auto 50px;
-			.shadow-applied(#CCCCCC);
+			@include shadow-applied(#CCCCCC);
 			position: relative;
 			
 			form#booking-form {
@@ -368,7 +374,7 @@ body#main-page {
 					width: 120px;
 					margin-right: 15px;
 					border: 1px solid grey;
-					border-radius: @rad;
+					@include border-radius($rad);
 					font-family: 'Source Sans Pro', arial, verdana;
 					font-size: 0.9em;
 					padding-left: 3px;
@@ -566,25 +572,25 @@ body#eula-page {
 				height: 59px;
 				width: 56px;
 				background-color: white;
-				.shadow-applied(#CCCCCC);
+				@include shadow-applied(#CCCCCC);
 			}
 			
 			#table-wrapper {
 				vertical-align: text-bottom;
-				border-radius: @rad;
+				@include border-radius($rad);
 				display: inline-block;
 			}
 			
 			#arrow-left {
 				border: 1px solid black;
 				border-right: 0;
-				border-radius: @rad 0 0 @rad;
+				@include border-radius($rad 0 0 $rad);
 			}
 			
 			#arrow-right {
 				border: 1px solid black;
 				border-left: 0;
-				border-radius: 0 @rad @rad 0;
+				@include border-radius(0 $rad $rad 0);
 			}
 			
 			#head-timestamp {
@@ -595,10 +601,10 @@ body#eula-page {
 				background-color: white;
 				display: table-cell;
 				vertical-align: bottom;
-				border-radius: @rad;
+				@include border-radius($rad);
 				margin: 0;
 				padding: 0;
-				.shadow-applied(#CCCCCC);
+				@include shadow-applied(#CCCCCC);
 			}
 			
 			td, th {
@@ -647,19 +653,19 @@ body#eula-page {
 			}
 			
 			th:first-child, th:first-child * {
-				border-radius: @rad 0 0 0;
+				border-radius: $rad 0 0 0;
 			}
 
 			th:last-child {
-				border-radius: 0 @rad 0 0;
+				border-radius: 0 $rad 0 0;
 			}
 
 			tr:last-child td:first-child {
-				border-radius: 0 0 0 @rad;
+				border-radius: 0 0 0 $rad;
 			}
 			
 			tr:last-child td:last-child {
-				border-radius: 0 0 @rad 0;
+				border-radius: 0 0 $rad 0;
 			}
 			
 			#calendar-label {

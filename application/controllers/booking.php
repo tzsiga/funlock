@@ -13,7 +13,6 @@ class Booking extends CI_Controller {
 	public function addBooking() {
 		if ($this->input->is_ajax_request()) {
 			if ($this->booking_model->getNumberOfSuccessfulBookings() >= $this->booking_model->getBookingLimit()) {
-				// booking limit reached
 				$this->load->view('booking/form_fail_limit');
 			} else {
 				$posted = $this->input->post();
@@ -25,18 +24,16 @@ class Booking extends CI_Controller {
 					$this->setValidationRules($posted);
 					
 					if ($this->form_validation->run() == false) {
-						// form validation fail
 						$this->load->view('booking/form', array('posted' => $posted));
 					} else {
 						$this->db->insert('bookings', $this->composeBooking($posted));
 						$this->booking_model->increaseSuccessfulBookings();
 						
-						// success
 						if ($posted['payment-option'] == 'cache') {
 							$this->load->view('booking/form_success_cache');
 						} else if ($posted['payment-option'] == 'card') {
 							$this->load->view('booking/form_success_card', array(
-								'code' => $this->convertTimestampToBookingCode(strtotime($posted['appointment']))
+								'code' => $this->convertTimeToBookingCode($posted['appointment'])
 							));
 						}
 					}
@@ -61,8 +58,8 @@ class Booking extends CI_Controller {
 		}
 	}
 	
-	private function convertTimestampToBookingCode($timestamp) {
-		return strtoupper(strrev(dechex($timestamp)));
+	private function convertTimeToBookingCode($time) {
+		return strtoupper(strrev(dechex(strtotime($time))));
 	}
 	
 	private function setValidationRulesForAdmin() {
@@ -102,7 +99,6 @@ class Booking extends CI_Controller {
 			'city' 						=> $posted['city'],
 			'street'					=> $posted['street'],
 			'house' 					=> $posted['house'],
-			//'comment' 				=> $posted['comment'],
 			'booking_date' 		=> time()
 		);
 	}

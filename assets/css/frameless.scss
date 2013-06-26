@@ -8,43 +8,43 @@
 // Configuration
 //
 
-@font-size: 16; 		// Your base font-size in pixels
-@em: @font-size*1em;	// Shorthand for outputting ems, e.g. "12/@em"
+$font-size: 16px; 		// Your base font-size in pixels
+$em: $font-size / 1em;	// Shorthand for outputting ems
 
-@column: 48;	// The column-width of your grid in pixels
-@gutter: 24;	// The gutter-width of your grid in pixels
+$column: 48px;	// The column-width of your grid in pixels
+$gutter: 24px;	// The gutter-width of your grid in pixels
 
 //
 // Column-widths in variables, in ems
 //
 
- @1cols: ( 1 * (@column + @gutter) - @gutter) / @em; @1col: @1cols;
- @2cols: ( 2 * (@column + @gutter) - @gutter) / @em;
- @3cols: ( 3 * (@column + @gutter) - @gutter) / @em;
- @4cols: ( 4 * (@column + @gutter) - @gutter) / @em;
- @5cols: ( 5 * (@column + @gutter) - @gutter) / @em;
- @6cols: ( 6 * (@column + @gutter) - @gutter) / @em;
- @7cols: ( 7 * (@column + @gutter) - @gutter) / @em;
- @8cols: ( 8 * (@column + @gutter) - @gutter) / @em;
- @9cols: ( 9 * (@column + @gutter) - @gutter) / @em;
-@10cols: (10 * (@column + @gutter) - @gutter) / @em;
-@11cols: (11 * (@column + @gutter) - @gutter) / @em;
-@12cols: (12 * (@column + @gutter) - @gutter) / @em;
-@13cols: (13 * (@column + @gutter) - @gutter) / @em;
-@14cols: (14 * (@column + @gutter) - @gutter) / @em;
-@15cols: (15 * (@column + @gutter) - @gutter) / @em;
-@16cols: (16 * (@column + @gutter) - @gutter) / @em;
-@17cols: (17 * (@column + @gutter) - @gutter) / @em;
-@18cols: (18 * (@column + @gutter) - @gutter) / @em;
-@19cols: (19 * (@column + @gutter) - @gutter) / @em;
-@20cols: (20 * (@column + @gutter) - @gutter) / @em;
+ $cols1: ( 1 * ($column + $gutter) - $gutter) / $em;
+ $cols2: ( 2 * ($column + $gutter) - $gutter) / $em;
+ $cols3: ( 3 * ($column + $gutter) - $gutter) / $em;
+ $cols4: ( 4 * ($column + $gutter) - $gutter) / $em;
+ $cols5: ( 5 * ($column + $gutter) - $gutter) / $em;
+ $cols6: ( 6 * ($column + $gutter) - $gutter) / $em;
+ $cols7: ( 7 * ($column + $gutter) - $gutter) / $em;
+ $cols8: ( 8 * ($column + $gutter) - $gutter) / $em;
+ $cols9: ( 9 * ($column + $gutter) - $gutter) / $em;
+$cols10: (10 * ($column + $gutter) - $gutter) / $em;
+$cols11: (11 * ($column + $gutter) - $gutter) / $em;
+$cols12: (12 * ($column + $gutter) - $gutter) / $em;
+$cols13: (13 * ($column + $gutter) - $gutter) / $em;
+$cols14: (14 * ($column + $gutter) - $gutter) / $em;
+$cols15: (15 * ($column + $gutter) - $gutter) / $em;
+$cols16: (16 * ($column + $gutter) - $gutter) / $em;
+$cols17: (17 * ($column + $gutter) - $gutter) / $em;
+$cols18: (18 * ($column + $gutter) - $gutter) / $em;
+$cols19: (19 * ($column + $gutter) - $gutter) / $em;
+$cols20: (20 * ($column + $gutter) - $gutter) / $em;
 
 //
 // Column-widths in a function, in ems
 //
 
-.width (@cols:1) {
-	width: (@cols * (@column + @gutter) - @gutter) / @em;
+@mixin width ($cols:1) {
+	width: ($cols * ($column + $gutter) - $gutter) / $em;
 }
 
 body, div,
@@ -68,7 +68,7 @@ html {
 	-ms-text-size-adjust: 100%;
 }
 
-	body {/*min-height: 100%;*/ font-size: 100%;}
+	body {min-height: 100%; font-size: 100%;}
 
 sub, sup {
 	font-size: 75%; 
@@ -90,8 +90,8 @@ b, strong {font-weight: bold;}
 abbr[title] {border-bottom: 1px dotted;}
 
 table {
-  //border-collapse: collapse;
-  border-spacing: 0;
+    //border-collapse: collapse;
+    border-spacing: 0;
 }
 
 a img, img {
@@ -145,6 +145,7 @@ body {
 	-webkit-tap-highlight-color: rgba(255,0,0, 0.62);
 }
 
+
 /*
 	Style overrides for IE6-8
 	http://jonikorpi.com/leaving-old-IE-behind/
@@ -162,12 +163,12 @@ body {
 
 @media screen and (max-width: 1px) {
 	body {
-		font-size: (@font-size - 2)/16*1em;
+		font-size: ($font-size - 2) / $em;
 	}
 }
 
 @media screen and (max-width: 1px) {
 	body {
-		font-size: (@font-size + 2)/16*1em;
+		font-size: ($font-size + 2) / $em;
 	}
 }
