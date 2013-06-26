@@ -116,61 +116,6 @@
 	<div id="t4se">
 		A Funlock egy szórakoztató csapatjáték, mely Téged és Barátaidat egy órára „rabul” ejt és csak magatokra illetve egymásra számíthattok az elgondolkodtató feladatok megoldásában. Közös csapatmunkával képesek lehettek legyőzni a számítógépet, mely átvette a szoba felett az irányítást és az egy óra leteltével örökre bezár Titeket. A játék 2-5 fős csapatokban játszható. Céges csapatépítő programnak is ajánljuk.A játék ára 12.000 Ft csapatonként, a csapat létszámától függetlenül. Amennyiben nagyobb létszámú társasággal jönnétek, egyedi foglalási megoldásokért keressetek minket elérhetőségeinken. Szeretettel várunk Titeket: A Funlock csapata
 	</div>
-	<script type="text/javascript">
-		<?php // preload images ?>
-		$.fn.preload = function() {
-			this.each(function(){
-				$('<img/>')[0].src = this;
-			});
-		}
-
-		$([
-		<?php
-			$map = directory_map('./assets/img/intro/');
-			
-			foreach ($map as $img) {
-				echo "'".base_url()."assets/img/intro/".$img."',";
-			}
-		?>
-		]).preload();
-		
-		var panelHeight = 370;
-		var panelWidth = 800;
-		
-		var sliderHeight = 177;
-		
-		var offsetX = 0;
-		var marginOffsetX = (($(window).width() - $('#action-zone').width()) / 2) + 120;
-		
-		$(window).resize(function(){
-			marginOffsetX = (($(window).width() - $('#action-zone').width()) / 2) + 120;
-		});
-		
-		jQuery(document).ready(function(){
-			$(document).mousemove(function(e){
-				<?php generateSliderCallbacks($letterParts); ?>
-			});
-		});
-		
-		<?php // big brother ?>
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-41388740-1']);
-		_gaq.push(['_setDomainName', 'funlock.hu']);
-		_gaq.push(['_setAllowLinker', true]);
-		_gaq.push(['_trackPageview']);
-		
-		(function() {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
-		
-		<?php // disable right click ?>
-		$(document).ready(function(){
-			$(document).bind("contextmenu",function(e){
-				return false;
-			});
-		});
-	</script>
+	<?php $this->load->view('intro/intro_js', array('letterParts' => $letterParts)); ?>
 </body>
 </html>

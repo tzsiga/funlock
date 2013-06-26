@@ -26,7 +26,7 @@ class Booking extends CI_Controller {
 					if ($this->form_validation->run() == false) {
 						$this->load->view('booking/form', array('posted' => $posted));
 					} else {
-						$this->db->insert('bookings', $this->composeBooking($posted));
+						$this->db->insert('bookings', $this->composeBooking($posted));	// refactor
 						$this->booking_model->increaseSuccessfulBookings();
 						
 						if ($posted['payment-option'] == 'cache') {
