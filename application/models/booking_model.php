@@ -34,6 +34,10 @@ class Booking_model extends CI_Model {
 		));
 	}
 	
+	public function insertBooking($booking) {
+		$this->db->insert('bookings', $booking);
+	}
+	
 	public function getBookingLimit() {
 		$query = $this->db->query("
 			SELECT value 
@@ -44,7 +48,7 @@ class Booking_model extends CI_Model {
 		
 		return $result[0]->value;
 	}
-
+	
 	public function getNumberOfSuccessfulBookings() {
 		if (!$this->session->all_userdata()) {
 			$this->session->set_userdata(array('number-of-bookings' => 0));
@@ -53,9 +57,9 @@ class Booking_model extends CI_Model {
 		return $this->session->userdata('number-of-bookings');
 	}
 	
-	public function increaseSuccessfulBookings() {
+	public function incSuccessfulBookings($n = 1) {
 		$this->session->set_userdata(array(
-			'number-of-bookings' => $this->getNumberOfSuccessfulBookings() + 1
+			'number-of-bookings' => $this->getNumberOfSuccessfulBookings() + $n
 		));
 	}
 	

@@ -46,7 +46,6 @@
 				$('#booking-details').html('<form id="error-form"><h3>Lekésted!</h3><br/><p>Mialatt nézelődtél befoglalták az általad kiválasztott időpontot! Válassz egy újat.</p></form>');
 			}
 		}
-		
 		});
 	});
 

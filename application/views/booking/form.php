@@ -4,10 +4,7 @@
 <?php
 	echo form_open('booking/addBooking', array('id' => 'booking-form'));
 	echo '<p>';
-	//echo form_label('Időpont', 'appointment');
-	//echo form_input(array('name' => 'appointment', 'id' => 'appointment', 'value' => isset($posted['appointment']) ? $posted['appointment'] : ''));
 	echo form_hidden('appointment', isset($posted['appointment']) ? $posted['appointment'] : '');
-	//echo form_hidden('booking-date', date('Y-m-d H:i'));
 	
 	echo '</p><p>';
 	echo form_label('Vezetéknév', 'book-fname');
@@ -20,8 +17,6 @@
 	echo '</p><p>';
 	echo form_label('Fizetés', 'payment-option');
 	echo form_dropdown('payment-option', array('card' => 'átutalással', 'cache' => 'készpénzzel'), 'card', 'id="payment-option"');
-	echo form_label('Elfogadom a <a href="'.base_url().'index.php/pages/eula" id="link-eula" target="_blank">feltételeket</a>', 'eula');
-	echo form_checkbox(array('name' => 'eula', 'id' => 'eula', 'value' => 'accept', 'checked' => isset($posted['eula']) ? true : false));
 
 	echo '</p><p>';
 	echo form_label('Email', 'email');
@@ -48,6 +43,8 @@
 	echo form_input(array('name' => 'house', 'id' => 'house', 'value' => isset($posted['house']) ? $posted['house'] : ''));
 
 	echo '</p><p>';
+	echo form_label('Elfogadom a <a href="'.base_url().'index.php/pages/eula" id="link-eula" target="_blank">feltételeket</a>', 'eula');
+	echo form_checkbox(array('name' => 'eula', 'id' => 'eula', 'value' => 'accept', 'checked' => isset($posted['eula']) ? true : false));
 	echo form_submit(array('name' => 'book-btn', 'id' => 'book-btn', 'value' => 'Foglalás'));
 
 	echo '</p>';

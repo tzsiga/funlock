@@ -13,7 +13,7 @@ body {
 
 $rad: 4px;
 
-@mixin shadow-applied($color) {
+@mixin shadow-custom($color) {
 		 -moz-box-shadow: 8px 8px 15px $color;
 	-webkit-box-shadow: 8px 8px 15px $color;
 					box-shadow: 8px 8px 15px $color;
@@ -21,7 +21,7 @@ $rad: 4px;
 
 #ui-datepicker-div {
 	margin-left: 10px;
-	@include shadow-applied(#222);
+	@include shadow-custom(#222);
 }
 
 table.ui-datepicker-calendar td {
@@ -128,7 +128,7 @@ body#main-page {
 				#map {
 					margin-left: -15px;
 					border: 1px solid grey;
-					@include shadow-applied(#CCCCCC);
+					@include shadow-custom(#CCCCCC);
 				}
 			}
 		}
@@ -187,7 +187,7 @@ body#main-page {
 				width: 70px;
 				margin-top: 0px;
 				border: 1px solid black;
-				@include shadow-applied(#CCCCCC);
+				@include shadow-custom(#CCCCCC);
 			}
 			
 			#icon-unavailable {
@@ -239,7 +239,7 @@ body#main-page {
 				height: 59px;
 				width: 56px;
 				background-color: white;
-				@include shadow-applied(#CCCCCC);
+				@include shadow-custom(#CCCCCC);
 			}
 			
 			#table-wrapper {
@@ -251,7 +251,7 @@ body#main-page {
 					vertical-align: bottom;
 					margin: 0;
 					padding: 0;
-					@include shadow-applied(#CCCCCC);
+					@include shadow-custom(#CCCCCC);
 				}
 				
 				td, th {
@@ -349,13 +349,11 @@ body#main-page {
 			@include border-radius($rad);
 			width: 700px;
 			margin: 30px auto 50px;
-			@include shadow-applied(#CCCCCC);
+			@include shadow-custom(#CCCCCC);
 			position: relative;
 			
 			form#booking-form {
 				line-height: 50px;
-				//text-align: right;
-				padding-bottom: 40px;
 				
 				label {
 					display: inline-block;
@@ -364,7 +362,7 @@ body#main-page {
 					text-align: right;
 				}
 				
-				label[for=eula], label[for=billing] {
+				label[for=billing] {
 					width: auto;
 					margin-left: 10px;
 					text-align: right;
@@ -430,6 +428,12 @@ body#main-page {
 				
 				label[for=street] {
 					width: 40px;
+				}
+				
+				label[for=eula] {
+					width: auto;
+					margin: 0 10px;
+					text-align: right;
 				}
 			}
 			
@@ -572,7 +576,7 @@ body#eula-page {
 				height: 59px;
 				width: 56px;
 				background-color: white;
-				@include shadow-applied(#CCCCCC);
+				@include shadow-custom(#CCCCCC);
 			}
 			
 			#table-wrapper {
@@ -604,7 +608,7 @@ body#eula-page {
 				@include border-radius($rad);
 				margin: 0;
 				padding: 0;
-				@include shadow-applied(#CCCCCC);
+				@include shadow-custom(#CCCCCC);
 			}
 			
 			td, th {

@@ -63,8 +63,7 @@
 	
 	<?php // left menu items ?>
 	var menuItemInfo = 'A Funlock egy szórakoztató csapatjáték, mely Téged és Barátaidat egy órára „rabul” ejt és csak magatokra illetve egymásra számíthattok az elgondolkodtató feladatok megoldásában. Közös csapatmunkával képesek lehettek legyőzni a számítógépet, mely átvette a szoba felett az irányítást és az egy óra leteltével örökre bezár Titeket.<br/><br/>A játék <strong>2-5 fős csapatokban</strong> játszható. Céges csapatépítő programnak is ajánljuk.<br/><br/>A játék ára <strong>12.000 Ft csapatonként</strong>, a csapat létszámától függetlenül.<br/><br/>Amennyiben nagyobb létszámú társasággal jönnétek, egyedi foglalási megoldásokért keressetek minket elérhetőségeinken.<br/><br/>Szeretettel várunk Titeket:<br/><em>A Funlock csapata</em>';
-	var menuItemContact = '1068 Budapest<br/>Király utca 54.<br/>(bejárat a Hegedű utcából)<br/><br/>+3670 382 1388<br/><p id="info">&nbsp;</p><br/>';
-	var menuItemMap = '<a href="http://goo.gl/maps/AriVW" target="_blank"><img id="map" src="<?= base_url() ?>assets/img/main/map.png" alt="" title="" /></a>';
+	var menuItemContact = '1068 Budapest<br/>Király utca 54.<br/>(bejárat a Hegedű utcából)<br/><br/>+3670 382 1388<br/><p id="info">&nbsp;</p><br/><a href="http://goo.gl/maps/AriVW" target="_blank"><img id="map" src="<?= base_url() ?>assets/img/main/map.png" alt="" title=""/></a>';
 	
 	function replaceAll(txt, replace, withThis) {
 		return txt.replace(new RegExp(replace, 'g'), withThis);
@@ -82,10 +81,10 @@
 	
 	$('#link-contact').click(function(){
 		$('#item-display-area').fadeOut(function(){
-			if ($(this).html() == replaceAll(menuItemContact, '/>','>') + menuItemMap.replace('/>','>')){
+			if ($(this).html() == replaceAll(menuItemContact, '/>','>')){
 				$(this).html('');
 			} else {
-				$(this).html(menuItemContact + menuItemMap).fadeIn();
+				$(this).html(menuItemContact).fadeIn();
 			}
 		});
 	});

@@ -14,7 +14,6 @@
 				}
 			}
 			
-			// array of the sticks
 			$letterParts = array();
 			
 			$min = -700;

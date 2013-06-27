@@ -8,9 +8,10 @@
 			<?= $this->session->flashdata('msg') ?>
 		</h3>
 		<div id="admin-menu">
-			<h3>Foglalások kezelése</h3>
+			<h3>Eszközök</h3>
 			<ul>
-				<li><a href="<?= base_url() ?>index.php/booking/EditTable">Új létrehozása, meglévők módosítása/törlése</a></li>
+				<li><a href="<?= base_url() ?>index.php/booking/EditTable">Foglalások kezelése</a></li>
+				<li><a href="<?= base_url() ?>index.php/admin/CreateVoucher">Voucherek generálása</a></li>
 			</ul>
 			<h3>Verzió</h3>
 			<ul>

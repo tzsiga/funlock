@@ -1,8 +1,7 @@
 <?php
-// table header
 echo '<span id="head-timestamp">' .$headTimestamp. '</span>';
-echo '<table id="calendar-table"><tr>';
-echo '<th><span id="calendar-label">keresés</span>'.form_input(array('id' => 'blank-cell')).'</th>';
+echo '<table id="calendar-table">';
+echo '<tr><th><span id="calendar-label">keresés</span>'.form_input(array('id' => 'blank-cell')).'</th>';
 
 $dayNames = array('- H -', '- K -', '- SZ -', '- CS -', '- P -', '- SZ -', '- V -');
 $i = 0;
@@ -12,7 +11,6 @@ foreach ($dayNames as $dayName) {
 
 echo '</tr>';
 
-// table body
 for ($hourIndex = Utils::hourFrom; $hourIndex <= Utils::hourTo; $hourIndex += Utils::hourStep) {
 	echo (int)$hourIndex == $hourIndex ? "<tr><td>$hourIndex:00</td>" : "<tr><td>".(int)$hourIndex.":30</td>";
 	
