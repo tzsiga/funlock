@@ -23,7 +23,7 @@
 					echo ' - ';
 					echo $booking['client'];
 					echo ' - ';
-					echo '<a href="'.base_url().'index.php/booking/editBooking/'.$booking['id'].'">';
+					echo '<a href="'.base_url().'index.php/BookingAdmin/editBooking/'.$booking['id'].'">';
 					echo 'szerkesztés';
 					echo '</a>';
 					echo '</li>';
@@ -31,7 +31,7 @@
 			?>
 			</ul>
 			<p>
-				<a href="<?= base_url() ?>index.php/booking/EditTable">Vissza</a>
+				<a href="<?= base_url() ?>index.php/BookingAdmin/EditTable">Vissza</a>
 			</p>
 		</div>
 	</div>

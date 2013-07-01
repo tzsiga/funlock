@@ -62,7 +62,7 @@ class Booking extends CI_Controller {
 		return strtoupper(strrev(dechex(strtotime($time))));
 	}
 	
-	private function setValidationRulesForAdmin() {
+	private function setValidationRules($posted = null) {
 		$this->form_validation->set_rules('appointment', '"Foglalt időpont"', 'required|xss_clean');
 		$this->form_validation->set_rules('book-fname', '"Foglaló vezetékneve"', 'required|xss_clean');
 		$this->form_validation->set_rules('book-sname', '"Foglaló keresztneve"', 'required|xss_clean');
@@ -72,11 +72,8 @@ class Booking extends CI_Controller {
 		$this->form_validation->set_rules('city', '"Város"', 'required|xss_clean');
 		$this->form_validation->set_rules('street', '"Utca"', 'required|xss_clean');
 		$this->form_validation->set_rules('house', '"Házszám"', 'required|xss_clean');
-	}
-	
-	private function setValidationRules($posted = null) {
-		$this->setValidationRulesForAdmin();
 		$this->form_validation->set_rules('eula', '"Szerződés feltételei"', 'required|xss_clean');
+
 		if (isset($posted['billing'])) {
 			$this->form_validation->set_rules('tax-number', '"Adószám"', 'required|xss_clean|numeric');
 			$this->form_validation->set_rules('bill-fname', '"Számlázási vezetéknév"', 'required|xss_clean');
@@ -101,135 +98,6 @@ class Booking extends CI_Controller {
 			'house' 					=> $posted['house'],
 			'booking_date' 		=> time()
 		);
-	}
-	
-	private function composeBookingAsAdmin($posted) {
-		$booking = $this->composeBooking($posted);
-		$booking['appointment'] = strtotime($posted['appointment']) 
-			+ $posted['appointment-hour'] * Utils::hourInSec;
-		
-		return $booking;
-	}
-	
-	// admin functions ----------------------------------------------------------
-	
-	public function addBookingAsAdmin($timestamp = 0) {
-		if ($this->session->userdata('login-state') != 'logged-in') {
-			$this->session->set_flashdata('msg', 'Be kell jelentkezni!');
-			redirect('/admin/login', 'refresh');
-		} else {
-			$posted = $this->input->post();
-			
-			if ($posted) {
-				$this->setValidationRulesForAdmin();
-				
-				if ($this->form_validation->run() == true) {
-					$this->db->insert('bookings', $this->composeBookingAsAdmin($posted));
-					$this->session->set_flashdata('msg', 
-						'Új foglalás ('.
-						date(
-							'Y-m-d H:i',
-							strtotime($posted['appointment']) + 
-							$posted['appointment-hour'] * Utils::hourInSec
-						).
-						') elmentve!'
-					);
-					redirect('admin/index', 'refresh');
-				}
-			}
-			
-			$this->load->view('booking/admin_add', array(
-				'posted' => $posted, 
-				'timestamp' => $timestamp
-			));
-		}
-	}
-	
-	public function editBooking($id) {
-		if ($this->session->userdata('login-state') != 'logged-in') {
-			$this->session->set_flashdata('msg', 'Be kell jelentkezni!');
-			redirect('/admin/login', 'refresh');
-		} else {
-			$posted = $this->input->post();
-			
-			if ($posted) {
-				$this->setValidationRulesForAdmin();
-				
-				if ($this->form_validation->run() == true) {
-					$case = '';
-					
-					foreach ($posted as $name => $value) {
-						if (preg_match('/save/', $name)) {
-							$case = 'save';
-						} else if (preg_match('/delete/', $name)) {
-							$case = 'delete';
-						}
-					}
-					
-					if ($case === 'save') {
-						$this->db->where('id', $id);
-						$this->db->update('bookings', $this->composeBookingAsAdmin($posted));
-						$this->session->set_flashdata('msg', 
-							'Foglalás ('.
-							date(
-								'Y-m-d H:i', 
-								strtotime($posted['appointment']) + 
-								$posted['appointment-hour'] * Utils::hourInSec
-							).
-							') elmentve!'
-						);
-						redirect('booking/editTable', 'refresh');
-					} else if ($case === 'delete') {
-						$this->db->delete('bookings', array('id' => $id));
-						$this->session->set_flashdata('msg', 
-							'Foglalás ('.
-							date(
-								'Y-m-d H:i', 
-								strtotime($posted['appointment']) + 
-								$posted['appointment-hour'] * Utils::hourInSec
-							).
-							') törölve!'
-						);
-						redirect('booking/editTable', 'refresh');
-					}
-				}
-			}
-			
-			$booking = $this->db->get_where('bookings', array('id' => $id))->result();
-			$this->load->view('booking/admin_edit', array('booking' => $booking[0]));			
-		}
-	}
-	
-	public function editList() {
-		if ($this->session->userdata('login-state') != 'logged-in') {
-			$this->session->set_flashdata('msg', 'Be kell jelentkezni!');
-			redirect('/admin/login', 'refresh');
-		} else {
-			$this->load->view('booking/admin_edit_list', array(
-				'bookings' => $this->booking_model->getAllBookings()
-			));
-		}
-	}
-	
-	public function editTable() {
-		if ($this->session->userdata('login-state') != 'logged-in') {
-			$this->session->set_flashdata('msg', 'Be kell jelentkezni!');
-			redirect('/admin/login', 'refresh');
-		} else {
-			$this->load->view('booking/admin_edit_table', array(
-				'bookings' => $this->booking_model->getAllBookings()
-			));
-		}
-	}
-	
-	public function loadAdminTable() {
-		if ($this->input->is_ajax_request()) {
-			$headTimestamp = $this->input->get('headTimestamp');
-			$this->load->view('booking/admin_table', array(
-				'bookings' => $this->booking_model->getBookingsInRange($headTimestamp), 
-				'headTimestamp' => $headTimestamp
-			));
-		}
 	}
 	
 }

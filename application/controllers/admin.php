@@ -8,7 +8,7 @@ class Admin extends CI_Controller {
 		if ($posted) {
 			$this->form_validation->set_rules('given-password', '"Jelszó"', 'required|xss_clean');
 
-			if ($this->form_validation->run() == TRUE) {
+			if ($this->form_validation->run() == true) {
 				$query = $this->db->query("SELECT value FROM config WHERE option_name = 'admin_password'");
 				$hashedPassword = $query->row()->value;
 				
@@ -53,7 +53,7 @@ class Admin extends CI_Controller {
 				$this->form_validation->set_rules('new_password_1', '"Új jelszó"', 'required|xss_clean|min_length[5]|max_length[20]');
 				$this->form_validation->set_rules('new_password_2', '"Új jelszó újra"', 'required|xss_clean|matches[new_password_1]');
 
-				if ($this->form_validation->run() == TRUE) {
+				if ($this->form_validation->run() == true) {
 					$query = $this->db->query("SELECT value FROM config WHERE option_name = 'admin_password'");
 					$hashedPassword = $query->row()->value;
 					
@@ -83,7 +83,7 @@ class Admin extends CI_Controller {
 			if ($posted) {
 				$this->form_validation->set_rules('limit', '"Foglalási limit"', 'required|xss_clean|numeric|greater_than[0]|less_than[100]');
 				
-				if ($this->form_validation->run() == TRUE) {
+				if ($this->form_validation->run() == true) {
 					$this->db->query("UPDATE config SET value = '".$posted['limit']."' WHERE option_name = 'booking_limit'");
 					$this->session->set_flashdata('msg', 'Új foglalási limit: '.$posted['limit']);
 					redirect('/admin', 'refresh');
@@ -102,35 +102,4 @@ class Admin extends CI_Controller {
 		}
 	}
 	
-	private function generateCode($length = 6) {
-		$string = "";
-		
-		while ($length > 0) {
-				$string .= dechex(mt_rand(0,15));
-				$length -= 1;
-		}
-		
-		return $string;
-	}
-	
-	public function CreateVoucher() {
-		if ($this->session->userdata('login-state') != 'logged-in') {
-			redirect('/admin/login', 'refresh');
-		} else {
-			$data = array(
-				'code' => $this->generateCode(),
-				'status' => 'active',
-				'create_date' => time()
-			);
-			
-			$vouchers = $this->db->get('vouchers');
-			
-			$this->db->insert('vouchers', $data);
-			$this->session->set_flashdata('msg', 'Új voucher létrehozva!');
-			
-			$this->load->view('admin/voucher', array('new_voucher' => $data, 'vouchers' => $vouchers));
-			
-		}
-	
-	}
 }

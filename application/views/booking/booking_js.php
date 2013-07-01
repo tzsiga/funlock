@@ -100,7 +100,7 @@
 		if (typeof headTimestamp === 'undefined') headTimestamp = parseInt($('#head-timestamp').text());
 		
 		$.ajax({
-			url: '<?= base_url() ?>index.php/booking/loadBookingTable?headTimestamp=' + headTimestamp + '&selectedAppointment=' + strtotime($("input[name=appointment]").val()),
+			url: '<?= base_url() ?>index.php/Booking/loadBookingTable?headTimestamp=' + headTimestamp + '&selectedAppointment=' + strtotime($("input[name=appointment]").val()),
 			type: 'POST'
 		}).success(function(result) {
 			$('#table-wrapper').html(result);

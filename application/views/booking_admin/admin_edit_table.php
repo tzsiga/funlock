@@ -10,12 +10,12 @@
 		<div id="admin-menu">
 			<div id="admin-calendar">
 				<span id="prev-month"><?= img(array('src' => base_url().'assets/img/main/arrow_left.png', 'id' => 'arrow-left')) ?></span>
-				<div id="table-wrapper"><?php $this->load->view('booking/admin_table', array('bookings' => $bookings, 'headTimestamp' => time())); ?></div>
+				<div id="table-wrapper"><?php $this->load->view('booking_admin/admin_table', array('bookings' => $bookings, 'headTimestamp' => time())); ?></div>
 				<span id="next-month"><?= img(array('src' => base_url().'assets/img/main/arrow_right.png', 'id' => 'arrow-right')) ?></span>
 			</div>
 			<p>
-				<a href="<?= base_url() ?>index.php/booking/editList">Listanézet</a><br/>
-				<a href="<?= base_url() ?>index.php/admin">Vissza</a>
+				<a href="<?= base_url() ?>index.php/BookingAdmin/editList">Listanézet</a><br/>
+				<a href="<?= base_url() ?>index.php/Admin">Vissza</a>
 			</p>
 		</div>
 	</div>
@@ -69,7 +69,7 @@
 			if (typeof headTimestamp === 'undefined') headTimestamp = parseInt($('#head-timestamp').text());
 		
 			$.ajax({
-				url: '<?= base_url() ?>index.php/booking/loadAdminTable?headTimestamp=' + headTimestamp,
+				url: '<?= base_url() ?>index.php/BookingAdmin/loadAdminTable?headTimestamp=' + headTimestamp,
 				type: 'POST'
 			}).success(function(result) {
 				$('#table-wrapper').html(result);

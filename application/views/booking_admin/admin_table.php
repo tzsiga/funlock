@@ -31,9 +31,9 @@ for ($hourIndex = Utils::hourFrom; $hourIndex <= Utils::hourTo; $hourIndex += Ut
 					echo '<td class="reserved-cell-kp">';
 				}
 			
-				echo '<a href="'.base_url().'index.php/booking/editBooking/'.$bookings[$cellTimestamp]['id'].'"><div style="width: 90px; height: 34px;"></div></a></td>';
+				echo '<a href="'.base_url().'index.php/BookingAdmin/editBooking/'.$bookings[$cellTimestamp]['id'].'"><div style="width: 90px; height: 34px;"></div></a></td>';
 			} else {
-				echo '<td class="timebox"><a href="'.base_url().'index.php/booking/addBookingAsAdmin/'.$cellTimestamp.'"><div style="width: 90px; height: 34px;"></div></a></td>';
+				echo '<td class="timebox"><a href="'.base_url().'index.php/BookingAdmin/addBookingAsAdmin/'.$cellTimestamp.'"><div style="width: 90px; height: 34px;"></div></a></td>';
 			}
 		}
 	}

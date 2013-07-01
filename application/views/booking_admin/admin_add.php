@@ -1,5 +1,5 @@
 <?php $this->load->view('header'); ?>
-<?php $this->load->view('booking/admin_utils'); ?>
+<?php $this->load->view('booking_admin/admin_utils'); ?>
 <body>
 	<div id="wrapper-admin">
 		<h1>
@@ -10,7 +10,7 @@
 			<?= $this->session->flashdata('msg') ?>
 		</h3>
 		<?php
-			echo form_open('booking/addBookingAsAdmin');
+			echo form_open('BookingAdmin/addBookingAsAdmin');
 			echo '<p>';
 			echo form_label('<strong>Foglaló vezetékneve</strong>', 'book-fname');
 			echo form_input(array('name' => 'book-fname', 'id' => 'book-fname', 'value' => isset($posted['book-fname']) ? $posted['book-fname'] : '' ));
@@ -70,7 +70,7 @@
 			echo form_close();
 		?>
 		<p>
-			<a href="<?= base_url() ?>index.php/booking/editTable">Vissza</a>
+			<a href="<?= base_url() ?>index.php/BookingAdmin/editTable">Vissza</a>
 		</p>
 	</div>
 	<script type="text/javascript">

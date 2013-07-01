@@ -2,7 +2,7 @@
 <body id="main-page">
 	<div id="wrapper-content">
 		<div id="navbar">
-			<a href="<?= base_url().'index.php/booking' ?>"><?= img(array('src' => base_url().'assets/img/main/logo_small.png', 'id' => 'logo-small')) ?></a>
+			<a href="<?= base_url().'index.php/Booking' ?>"><?= img(array('src' => base_url().'assets/img/main/logo_small.png', 'id' => 'logo-small')) ?></a>
 			<?php if ($this->agent->browser() == 'Internet Explorer') {?>
 			<div id="subtitle" style="margin-top: -20px;">
 			<?php } else { ?>
