@@ -43,7 +43,6 @@ for ($hourIndex = Utils::hourFrom; $hourIndex <= Utils::hourTo; $hourIndex += Ut
 
 echo '</table>';
 ?>
-
 <script type="text/javascript">
 
 	function getMonday(d) {

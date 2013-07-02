@@ -25,9 +25,13 @@ class Admin extends CI_Controller {
 
 		$this->load->view('admin/login');
 	}
+	
+	private function isLoggedIn() {
+		return $this->session->userdata('login-state') != 'logged-in';
+	}
 
 	public function index() {
-		if ($this->session->userdata('login-state') != 'logged-in') {
+		if ($this->isLoggedIn()) {
 			$this->session->set_flashdata('msg', 'Be kell jelentkezni!');
 			redirect('/admin/login', 'refresh');
 		} else {
@@ -42,7 +46,7 @@ class Admin extends CI_Controller {
 	}
 
 	public function changePassword() {
-		if ($this->session->userdata('login-state') != 'logged-in') {
+		if ($this->isLoggedIn()) {
 			$this->session->set_flashdata('msg', 'Be kell jelentkezni!');
 			redirect('/admin/login', 'refresh');
 		} else {
@@ -73,7 +77,7 @@ class Admin extends CI_Controller {
 	}
 	
 	public function changeLimit() {
-		if ($this->session->userdata('login-state') != 'logged-in') {
+		if ($this->isLoggedIn()) {
 			$this->session->set_flashdata('msg', 'Be kell jelentkezni!');
 			redirect('/admin/login', 'refresh');
 		} else {
@@ -95,7 +99,7 @@ class Admin extends CI_Controller {
 	}
 
 	public function phpinfo() {
-		if ($this->session->userdata('login-state') != 'logged-in') {
+		if ($this->isLoggedIn()) {
 			redirect('/admin/login', 'refresh');
 		} else {
 			phpinfo();

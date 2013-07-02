@@ -28,7 +28,7 @@ class VoucherAdmin extends CI_Controller {
 			$this->db->insert('vouchers', $data);
 			$this->session->set_flashdata('msg', 'Új voucher létrehozva!');
 			
-			$this->load->view('voucher/voucher', array('new_voucher' => $data, 'vouchers' => $vouchers));
+			$this->load->view('voucher_admin/voucher', array('new_voucher' => $data, 'vouchers' => $vouchers));
 		}
 	}
 	
