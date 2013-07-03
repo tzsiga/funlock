@@ -10,15 +10,6 @@
 |
 */
 
-/*
-$hook['pre_controller'] = array(
-	'class'    => 'Admin',
-	'function' => 'redirectGuest',
-	'filename' => 'admin.php',
-	'filepath' => 'controllers'
-//	'params'   => array()
-);
-//*/
 
 /* End of file hooks.php */
 /* Location: ./application/config/hooks.php */
