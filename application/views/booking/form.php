@@ -8,9 +8,9 @@
 	
 	echo '</p><p>';
 	echo form_label('Vezetéknév', 'book-fname');
-	echo form_input(array('name' => 'book-fname', 'id' => 'book-fname', 'value' => isset($posted['book_fname']) ? $posted['book_fname'] : ''));
+	echo form_input(array('name' => 'book-fname', 'id' => 'book-fname', 'value' => isset($posted['book-fname']) ? $posted['book-fname'] : ''));
 	echo form_label('Keresztnév', 'book-sname');
-	echo form_input(array('name' => 'book-sname', 'id' => 'book-sname', 'value' => isset($posted['book_sname']) ? $posted['book_sname'] : ''));
+	echo form_input(array('name' => 'book-sname', 'id' => 'book-sname', 'value' => isset($posted['book-sname']) ? $posted['book-sname'] : ''));
 	echo form_label('Telefon', 'phone');
 	echo form_input(array('name' => 'phone', 'id' => 'phone', 'value' => isset($posted['phone']) ? $posted['phone'] : ''));
 	
@@ -26,11 +26,11 @@
 
 	echo '</p><p>';
 	echo form_label('Vezetéknév', 'bill-fname');
-	echo form_input(array('name' => 'bill-fname', 'id' => 'bill-fname', 'value' => isset($posted['bill_fname']) ? $posted['bill_fname'] : ''));
+	echo form_input(array('name' => 'bill-fname', 'id' => 'bill-fname', 'value' => isset($posted['bill-fname']) ? $posted['bill-fname'] : ''));
 	echo form_label('Keresztnév', 'bill-sname');
-	echo form_input(array('name' => 'bill-sname', 'id' => 'bill-sname', 'value' => isset($posted['bill_sname']) ? $posted['bill_sname'] : ''));
+	echo form_input(array('name' => 'bill-sname', 'id' => 'bill-sname', 'value' => isset($posted['bill-sname']) ? $posted['bill-sname'] : ''));
 	echo form_label('Adószám', 'tax-number');
-	echo form_input(array('name' => 'tax-number', 'id' => 'tax-number', 'value' => isset($posted['tax_number']) ? $posted['tax_number'] : ''));
+	echo form_input(array('name' => 'tax-number', 'id' => 'tax-number', 'value' => isset($posted['tax-number']) ? $posted['tax-number'] : ''));
 
 	echo '</p><p>';
 	echo form_label('Ir.szám', 'zip');

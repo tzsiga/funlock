@@ -2,13 +2,13 @@
 <body id="main-page">
 	<div id="wrapper-content">
 		<div id="navbar">
-			<a href="<?= base_url().'index.php/Booking' ?>"><?= img(array('src' => base_url().'assets/img/main/logo_small.png', 'id' => 'logo-small')) ?></a>
+			<a href="<?= base_url().'index.php/main' ?>"><?= img(array('src' => base_url().'assets/img/main/logo_small.png', 'id' => 'logo-small')) ?></a>
 			<?php if ($this->agent->browser() == 'Internet Explorer') {?>
 			<div id="subtitle" style="margin-top: -20px;">
 			<?php } else { ?>
 			<div id="subtitle">
 			<?php } ?>- A Bejutós Játék -</div>
-			<a href="<?= base_url().'index.php/booking' ?>" id="main-link"></a>
+			<a href="<?= base_url().'index.php/main' ?>" id="main-link"></a>
 			<div id="menu">
 				<ul>
 					<li><p id="link-info">Info</p></li>

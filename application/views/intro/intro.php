@@ -109,7 +109,7 @@
 			generateSliderDivs($letterParts);
 		?>
 		
-		<div id="enter"><a href="<?= base_url().'index.php/booking' ?>">ENTER &bull;</a></div>
+		<div id="enter"><a href="<?= base_url().'index.php/main' ?>">ENTER &bull;</a></div>
 	</div>
 	<?php // text for search engines ?>
 	<div id="t4se">

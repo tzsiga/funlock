@@ -5,13 +5,7 @@ class Admin extends CI_Controller {
 	function __construct() {
 		parent::__construct();
 		$this->load->model('admin_model');
-		
-		if ($this->router->fetch_method() != 'login') {
-			if (!$this->admin_model->isLoggedIn()) {
-				$this->session->set_flashdata('msg', 'Be kell jelentkezni!');
-				redirect('/admin/login', 'refresh');
-			}
-		}
+		$this->redirectGuest('/admin/login');
 	}
 	
 	public function login() {
@@ -31,7 +25,7 @@ class Admin extends CI_Controller {
 				}
 			}
 		}
-
+		
 		$this->load->view('admin/login');
 	}
 	
@@ -43,6 +37,15 @@ class Admin extends CI_Controller {
 	
 	public function index() {
 		$this->load->view('admin/index');
+	}
+	
+	private function redirectGuest($destination) {
+		if ($this->router->fetch_method() != 'login') {
+			if (!$this->admin_model->isLoggedIn()) {
+				$this->session->set_flashdata('msg', 'Be kell jelentkezni!');
+				redirect($destination, 'refresh');
+			}
+		}
 	}
 
 }
