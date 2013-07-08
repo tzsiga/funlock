@@ -2,7 +2,7 @@
 	<?= validation_errors() ?>
 </div>
 <?php
-	echo form_open('Booking/addBooking', array('id' => 'booking-form'));
+	echo form_open('main/addBooking', array('id' => 'booking-form'));
 	echo '<p>';
 	echo form_hidden('appointment', isset($posted['appointment']) ? $posted['appointment'] : '');
 	

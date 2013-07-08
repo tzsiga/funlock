@@ -9,7 +9,7 @@
 		<?= $this->session->flashdata('msg') ?>
 	</h3>
 	<?php
-		echo form_open('BookingAdmin/editBooking/'.$booking->id);
+		echo form_open('admin/booking/edit/'.$booking->id);
 		echo '<p>';
 		echo form_label('Foglaló vezetékneve', 'book-fname');
 		echo form_input(array('name' => 'book-fname', 'id' => 'book-fname', 'value' => $booking->book_fname));
@@ -69,7 +69,7 @@
 		echo form_close();
 	?>
 	<p>
-		<a href="<?= base_url() ?>index.php/BookingAdmin/editTable">Vissza</a>
+		<a href="<?= base_url() ?>index.php/admin/booking/edit">Vissza</a>
 	</p>
 	<script type="text/javascript">
 		$('#appointment').datepicker({ firstDay: 1, dateFormat: 'yy-mm-dd' });

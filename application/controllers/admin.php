@@ -5,7 +5,7 @@ class Admin extends CI_Controller {
 	function __construct() {
 		parent::__construct();
 		$this->load->model('admin_model');
-		$this->redirectGuest('/admin/login');
+		$this->redirectIfGuest('/admin/login');
 	}
 	
 	public function login() {
@@ -39,7 +39,7 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/index');
 	}
 	
-	private function redirectGuest($destination) {
+	private function redirectIfGuest($destination) {
 		if ($this->router->fetch_method() != 'login') {
 			if (!$this->admin_model->isLoggedIn()) {
 				$this->session->set_flashdata('msg', 'Be kell jelentkezni!');

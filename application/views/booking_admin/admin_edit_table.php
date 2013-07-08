@@ -13,8 +13,8 @@
 			<span id="next-month"><?= img(array('src' => base_url().'assets/img/main/arrow_right.png', 'id' => 'arrow-right')) ?></span>
 		</div>
 		<p>
-			<a href="<?= base_url() ?>index.php/BookingAdmin/editList">Listanézet</a><br/>
-			<a href="<?= base_url() ?>index.php/Admin">Vissza</a>
+			<a href="<?= base_url() ?>index.php/admin/booking/list">Listanézet</a><br/>
+			<a href="<?= base_url() ?>index.php/admin">Vissza</a>
 		</p>
 	</div>
 	<script type="text/javascript">
@@ -67,7 +67,7 @@
 			if (typeof headTimestamp === 'undefined') headTimestamp = parseInt($('#head-timestamp').text());
 		
 			$.ajax({
-				url: '<?= base_url() ?>index.php/BookingAdmin/loadAdminTable?headTimestamp=' + headTimestamp,
+				url: '<?= base_url() ?>index.php/admin/booking/loadAdminTable?headTimestamp=' + headTimestamp,
 				type: 'POST'
 			}).success(function(result) {
 				$('#table-wrapper').html(result);

@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class VoucherAdmin extends CI_Controller {
+class Voucher extends CI_Controller {
 
 	private function generateCode($length = 6) {
 		$string = "";

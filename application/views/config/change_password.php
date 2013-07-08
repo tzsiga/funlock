@@ -8,7 +8,7 @@
 		<?= validation_errors() ?>
 	</h3>
 	<?php
-		echo form_open('config/changePassword', array('class' => 'centered'));
+		echo form_open('admin/config/change_password', array('class' => 'centered'));
 		echo '<p>';
 		echo form_label('Régi jelszó', 'current-password');
 		echo form_password('current-password');

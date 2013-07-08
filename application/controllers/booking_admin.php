@@ -2,7 +2,7 @@
 
 include 'admin.php';
 
-class BookingAdmin extends Admin {
+class Booking_Admin extends Admin {
 
 	public function addBookingAsAdmin($timestamp = 0) {
 		$posted = $this->input->post();
@@ -60,7 +60,6 @@ class BookingAdmin extends Admin {
 						).
 						') elmentve!'
 					);
-					redirect('BookingAdmin/editTable', 'refresh');
 				} else if ($case === 'delete') {
 					$this->db->delete('bookings', array('id' => $id));
 					$this->session->set_flashdata('msg', 
@@ -72,8 +71,8 @@ class BookingAdmin extends Admin {
 						).
 						') törölve!'
 					);
-					redirect('BookingAdmin/editTable', 'refresh');
 				}
+				redirect('admin/booking/edit', 'refresh');
 			}
 		}
 		
