@@ -17,8 +17,7 @@ class Booking extends CI_Controller {
 			} else {
 				$posted = $this->input->post();
 				
-				if (!$posted) {
-					// on page load
+				if (!$posted) {			// on page load
 					$this->load->view('booking/form', array('posted' => $posted));
 				} else {
 					$this->setValidationRules($posted);

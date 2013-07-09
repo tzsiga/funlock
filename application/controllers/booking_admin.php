@@ -11,16 +11,7 @@ class Booking_Admin extends Admin {
 			$this->setValidationRulesForAdmin();
 			
 			if ($this->form_validation->run() == true) {
-				$this->db->insert('bookings', $this->composeBookingAsAdmin($posted));
-				$this->session->set_flashdata('msg', 
-					'Új foglalás ('.
-					date(
-						'Y-m-d H:i',
-						strtotime($posted['appointment']) + 
-						$posted['appointment-hour'] * Utils::hourInSec
-					).
-					') elmentve!'
-				);
+				$this->createBooking($posted);
 				redirect('admin/index', 'refresh');
 			}
 		}
@@ -38,46 +29,18 @@ class Booking_Admin extends Admin {
 			$this->setValidationRulesForAdmin();
 			
 			if ($this->form_validation->run() == true) {
-				$case = '';
-				
-				foreach ($posted as $name => $value) {
-					if (preg_match('/save/', $name)) {
-						$case = 'save';
-					} else if (preg_match('/delete/', $name)) {
-						$case = 'delete';
-					}
-				}
-				
-				if ($case === 'save') {
-					$this->db->where('id', $id);
-					$this->db->update('bookings', $this->composeBookingAsAdmin($posted));
-					$this->session->set_flashdata('msg', 
-						'Foglalás ('.
-						date(
-							'Y-m-d H:i', 
-							strtotime($posted['appointment']) + 
-							$posted['appointment-hour'] * Utils::hourInSec
-						).
-						') elmentve!'
-					);
-				} else if ($case === 'delete') {
-					$this->db->delete('bookings', array('id' => $id));
-					$this->session->set_flashdata('msg', 
-						'Foglalás ('.
-						date(
-							'Y-m-d H:i', 
-							strtotime($posted['appointment']) + 
-							$posted['appointment-hour'] * Utils::hourInSec
-						).
-						') törölve!'
-					);
+				if ($this->getCase($posted) === 'save') {
+					$this->saveBooking($id, $posted);
+				} else if ($this->getCase($posted) === 'delete') {
+					$this->deleteBooking($id, $posted);
 				}
 				redirect('admin/booking/edit', 'refresh');
 			}
 		}
 		
-		$booking = $this->db->get_where('bookings', array('id' => $id))->result();
-		$this->load->view('booking_admin/admin_edit', array('booking' => $booking[0]));
+		$this->load->view('booking_admin/admin_edit', array(
+			'booking' => $this->booking_model->getBooking($id)
+		));
 	}
 	
 	public function editList() {
@@ -108,9 +71,50 @@ class Booking_Admin extends Admin {
 		$this->form_validation->set_rules('book-sname', '"Foglaló keresztneve"', 'required|xss_clean');
 	}
 	
+	private function createBooking($posted) {
+		$this->booking_model->insertBooking($this->composeBookingAsAdmin($posted));
+		$this->session->set_flashdata('msg', 
+			'Új foglalás ('.$this->getDateTime($posted).') elmentve!'
+		);
+	}
+	
+	private function saveBooking($id, $posted) {
+		$this->booking_model->updateBooking($id, $this->composeBookingAsAdmin($posted));
+		$this->session->set_flashdata('msg', 
+			'Foglalás ('.$this->getDateTime($posted).') elmentve!'
+		);
+	}
+	
+	private function deleteBooking($id, $posted) {
+		$this->booking_model->deleteBooking($id);
+		$this->session->set_flashdata('msg', 
+			'Foglalás ('.$this->getDateTime($posted).') törölve!'
+		);
+	}
+	
+	private function getCase($posted) {
+		foreach ($posted as $name => $value) {
+			if (preg_match('/save/', $name)) {
+				return 'save';
+			} else if (preg_match('/delete/', $name)) {
+				return 'delete';
+			}
+		}
+		
+		return null;
+	}
+	
+	private function addDateAndTimestamp($posted) {
+		return strtotime($posted['appointment']) + $posted['appointment-hour'] * Utils::hourInSec;
+	}
+	
+	private function getDateTime($posted) {
+		return date('Y-m-d H:i', $this->addDateAndTimestamp($posted));
+	}
+	
 	private function composeBookingAsAdmin($posted) {
 		return array(
-			'appointment' 		=> strtotime($posted['appointment']) + $posted['appointment-hour'] * Utils::hourInSec,
+			'appointment' 		=> $this->addDateAndTimestamp($posted),
 			'book_fname' 			=> $posted['book-fname'],
 			'book_sname' 			=> $posted['book-sname'],
 			'payment_option' 	=> $posted['payment-option'],

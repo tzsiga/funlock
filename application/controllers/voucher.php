@@ -13,7 +13,7 @@ class Voucher extends CI_Controller {
 		return $string;
 	}
 	
-	public function CreateVoucher() {
+	public function createVoucher() {
 		if ($this->session->userdata('login-state') != 'logged-in') {
 			redirect('/admin/login', 'refresh');
 		} else {

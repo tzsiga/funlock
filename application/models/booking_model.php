@@ -24,6 +24,11 @@ class Booking_model extends CI_Model {
 		));
 	}
 	
+	public function getBooking($id) {
+		$booking = $this->db->get_where('bookings', array('id' => $id))->result();
+		return $booking[0];
+	}
+	
 	public function getBookingsInRange($start, $rangeLength = Utils::weekInSec) {
 		return $this->fetchBookingQuery($this->db->query('
 			SELECT * 
@@ -36,6 +41,15 @@ class Booking_model extends CI_Model {
 	
 	public function insertBooking($booking) {
 		$this->db->insert('bookings', $booking);
+	}
+	
+	public function updateBooking($id, $booking) {
+		$this->db->where('id', $id);
+		$this->db->update('bookings', $booking);
+	}
+	
+	public function deleteBooking($id) {
+		$this->db->delete('bookings', array('id' => $id));
 	}
 	
 	public function getBookingLimit() {

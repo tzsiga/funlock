@@ -38,14 +38,14 @@
 |
 */
 
-$route['default_controller']						= "pages";
+$route['default_controller']						= "Pages";
 
-$route['main']													= "booking";
-$route['main/(:any)']										= "booking/$1";
+$route['main']													= "Booking";
+$route['main/(:any)']										= "Booking/$1";
 
-$route['admin/config/change_limit']			= "config/changeLimit";
-$route['admin/config/change_password']	= "config/changePassword";
-$route['admin/config/(:any)']						= "config/$1";
+$route['admin/config/change_limit']			= "Config/changeLimit";
+$route['admin/config/change_password']	= "Config/changePassword";
+$route['admin/config/(:any)']						= "Config/$1";
 
 $route['admin/booking/list']						= "Booking_Admin/editList";
 $route['admin/booking/add/(:any)']			= "Booking_Admin/addBookingAsAdmin/$1";
@@ -53,7 +53,7 @@ $route['admin/booking/edit']						= "Booking_Admin/editTable";
 $route['admin/booking/edit/(:any)']			= "Booking_Admin/editBooking/$1";
 $route['admin/booking/(:any)']					= "Booking_Admin/$1";
 
-$route['admin/voucher/(:any)']					= "voucher/$1";
+$route['admin/voucher/(:any)']					= "Voucher/$1";
 
 $route['404_override']									= "";
 
