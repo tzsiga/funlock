@@ -16,16 +16,24 @@
 	?>
 	]).preload();
 	
+	function setupOffsetX() {
+		marginOffsetX = (($(window).width() - $('#action-zone').width()) / 2) + 120;
+		
+		if ($(window).width() % 2 == 1) {
+			$('#action-zone').css("padding-left", "14px");
+		} else {
+			$('#action-zone').css("padding-left", "15px");
+		}
+	}
+	
 	var panelHeight = 370;
 	var panelWidth = 800;
-	
 	var sliderHeight = 177;
-	
 	var offsetX = 0;
-	var marginOffsetX = (($(window).width() - $('#action-zone').width()) / 2) + 120;
+	setupOffsetX();
 	
 	$(window).resize(function(){
-		marginOffsetX = (($(window).width() - $('#action-zone').width()) / 2) + 120;
+		setupOffsetX();
 	});
 	
 	jQuery(document).ready(function(){
