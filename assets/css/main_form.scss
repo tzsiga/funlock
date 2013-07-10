@@ -1,0 +1,106 @@
+#booking-details {
+	border: 1px solid black;
+	background-color: white;
+	padding: 20px;
+	@include border-radius($rad);
+	width: 700px;
+	margin: 30px auto 50px;
+	@include shadow-custom(#CCCCCC);
+	position: relative;
+	
+	form#booking-form {
+		line-height: 50px;
+		
+		label {
+			display: inline-block;
+			width: 80px;
+			margin-right: 10px;
+			text-align: right;
+		}
+		
+		label[for=billing] {
+			width: auto;
+			margin-left: 10px;
+			text-align: right;
+		}
+		
+		input, textarea {
+			width: 120px;
+			margin-right: 15px;
+			border: 1px solid grey;
+			@include border-radius($rad);
+			font-family: 'Source Sans Pro', arial, verdana;
+			font-size: 0.9em;
+			padding-left: 3px;
+		}
+		
+		input[type=checkbox] {
+			border: 0;
+		}
+		
+		select {
+			width: 124px;
+			margin-right: 15px;
+			font-family: 'Source Sans Pro', arial, verdana;
+		}
+		
+		input[type=submit] {
+			float: right;
+			background-color: #DDDDDD;
+			letter-spacing: 1px;
+			margin-top: 10px;
+		}
+		
+		textarea {
+			height: 20px;
+		}
+		
+		input[type=checkbox] {
+			width: auto;
+		}
+		
+		input#email {
+			width: 250px;
+		}
+		
+		input#zip, input#house {
+			width: 40px;
+		}
+		
+		label[for=eula] {
+			margin-left: 259px;
+		}
+		
+		label[for=billing] {
+			margin-left: 75px;
+		}
+		
+		//input[name=eula] {}
+		//input[name=billing] {}
+		
+		label[for=city] {
+			width: 50px;
+		}
+		
+		label[for=street] {
+			width: 40px;
+		}
+		
+		label[for=eula] {
+			width: auto;
+			margin: 0 10px;
+			text-align: right;
+		}
+	}
+	
+	form#booking-form-success {
+		.tabulated {
+			margin-left: 50px;
+		}
+	}
+	
+	.error-msg {
+		color: #DC0000;
+		font-weight: bold;
+	}
+}

@@ -1,0 +1,224 @@
+body#admin-page {
+	background-color: #fff;
+	margin: 40px;
+	font: 13px/20px normal Helvetica, Arial, sans-serif;
+	color: #4F5155;
+	
+	::selection{ background-color: #E13300; color: white; }
+	::moz-selection{ background-color: #E13300; color: white; }
+	::webkit-selection{ background-color: #E13300; color: white; }
+	
+	a {
+		color: #003399;
+		background-color: transparent;
+		font-weight: normal;
+		text-decoration: none;
+	}
+	
+	a:hover {
+		text-decoration: underline;
+	}
+	
+	h1 {
+		color: #444;
+		background-color: transparent;
+		border-bottom: 1px solid #D0D0D0;
+		font-size: 19px;
+		font-weight: normal;
+		margin: 0 0 14px 0;
+		padding: 14px 15px 10px 15px;
+	}
+	
+	code {
+		font-family: Consolas, Monaco, Courier New, Courier, monospace;
+		font-size: 12px;
+		background-color: #f9f9f9;
+		border: 1px solid #D0D0D0;
+		color: #002166;
+		display: block;
+		margin: 14px 0 14px 0;
+		padding: 12px 10px 12px 10px;
+	}
+	
+	#container {
+		margin: 10px;
+		border: 1px solid #D0D0D0;
+		-webkit-box-shadow: 0 0 8px #D0D0D0;
+	}
+	
+	p {
+		margin: 12px 15px 12px 15px;
+	}
+	
+	label {
+		margin-right: 15px;
+		display: inline-block;
+		width: 150px;
+	}
+	
+	input {
+		margin: 0 auto;
+	}
+	
+	input[type=submit] {
+		display: inline-block;
+	}
+	
+	h3 {
+		margin-top: 15px;
+		margin-bottom: 5px;
+	}
+	
+	h3#flash-msg {
+		margin: 0 14px 20px;
+		color: #DC0000;
+	}
+	
+	li {
+		margin-left: 20px;
+	}
+	
+	#admin-menu {
+		margin-left: 14px;
+		
+		#admin-calendar {
+			display: table;
+			width: 840px;
+			margin: 36px 0 50px;
+			background-image: url('../img/main/loading.gif');
+			background-repeat: no-repeat;
+			background-position: center;
+			
+			#prev-month, #next-month {
+				display: table-cell;
+				vertical-align: middle;
+				height: 110px;
+			}
+			
+			#next-month {
+				position: relative;
+				z-index: 2;
+			}
+			
+			#arrow-left, #arrow-right {
+				height: 59px;
+				width: 56px;
+				background-color: white;
+				@include shadow-custom(#CCCCCC);
+			}
+			
+			#table-wrapper {
+				vertical-align: text-bottom;
+				@include border-radius($rad);
+				display: inline-block;
+			}
+			
+			#arrow-left {
+				border: 1px solid black;
+				border-right: 0;
+				@include border-radius($rad 0 0 $rad);
+			}
+			
+			#arrow-right {
+				border: 1px solid black;
+				border-left: 0;
+				@include border-radius(0 $rad $rad 0);
+			}
+			
+			#head-timestamp {
+				display: none;
+			}
+			
+			table {
+				background-color: white;
+				display: table-cell;
+				vertical-align: bottom;
+				@include border-radius($rad);
+				margin: 0;
+				padding: 0;
+				@include shadow-custom(#CCCCCC);
+			}
+			
+			td, th {
+				height: 36px;
+				width: 92px;
+				text-align: center;
+				border-top: 1px solid black;
+				border-left: 1px solid black;
+				font-weight: normal;
+				font-size: 1.1em;
+				background-color: white;
+			}
+			
+			td.reserved-cell, td.reserved-cell-at, td.reserved-cell-kp {
+				width: 91px;
+				height: 36px;
+				background-size: 91px 36px;
+			}
+
+			td.reserved-cell {
+				background-image: url('../img/main/reserved.png');
+			}
+			
+			td.reserved-cell-at {
+				background-image: url('../img/main/reserved_at.png');
+			}
+			
+			td.reserved-cell-kp {
+				background-image: url('../img/main/reserved_kp.png');
+			}
+			
+			td.timebox {
+				font-size: 0;
+			}
+			
+			td.timebox-passed {
+				background-color: #636363;
+			}
+			
+			th:last-child, td:last-child {
+				border-right: 1px solid black;
+			}
+			
+			tr:last-child td {
+				border-bottom: 1px solid black;
+			}
+			
+			th:first-child, th:first-child * {
+				border-radius: $rad 0 0 0;
+			}
+
+			th:last-child {
+				border-radius: 0 $rad 0 0;
+			}
+
+			tr:last-child td:first-child {
+				border-radius: 0 0 0 $rad;
+			}
+			
+			tr:last-child td:last-child {
+				border-radius: 0 0 $rad 0;
+			}
+			
+			#calendar-label {
+				font-size: 0.8em;
+				z-index: 1;
+				position: relative;
+				top: 10px;
+				height: 0px;
+				margin: -30px 0;
+			}
+			
+			#blank-cell {
+				width: 90%;
+				height: 90%;
+				margin-top: -30px;
+				color: white;
+				opacity: 0;
+				z-index: 2;
+				position: relative;
+				vertical-align: middle;
+			}
+		}
+	}
+}

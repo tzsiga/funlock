@@ -1,0 +1,54 @@
+$slider_height: 177px;
+$slider_width: 5px;
+
+$number_of_sliders: 84;
+$slider_width_and_spacing: 11px;
+
+body#intro-page {
+	overflow: hidden;
+	background-image: url('../img/intro/bg_grid_2.gif');
+	background-position: center center;
+}
+
+#action-zone {
+	position: relative;
+	height: 630px;
+	width: ($number_of_sliders * $slider_width_and_spacing + 3px);
+	margin: 0 auto;
+	padding-left: 15px;
+	
+	.slider {
+		display: inline-block;
+		position: absolute;
+		height: $slider_height;
+		width: $slider_width;
+		margin: 0;
+	}
+
+	#enter {
+		display: inline-block;
+		position: absolute;
+		bottom: 0px;
+		right: 0px;
+		padding: 3px 7px 3px 11px;
+		font-weight: normal;
+		letter-spacing: 2px;
+		color: white;
+		background-color: black;
+		
+		a:link, a:visited {
+			color: white;
+			text-decoration: none;
+		}
+		
+		a:hover {
+			color: crimson;
+			text-decoration: none;
+		}
+	}
+}
+
+// text for search engines
+#t4se {
+	visibility: hidden;
+}

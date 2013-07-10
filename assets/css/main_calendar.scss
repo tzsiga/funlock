@@ -1,0 +1,125 @@
+#calendar {
+	display: table;
+	width: 840px;
+	margin: 36px 0 50px;
+	background-image: url('../img/main/loading.gif');
+	background-repeat: no-repeat;
+	background-position: center;
+	
+	#prev-month, #next-month {
+		display: table-cell;
+		vertical-align: middle;
+		height: 110px;
+	}
+	
+	#next-month {
+		position: relative;
+		z-index: 2;
+	}
+	
+	#arrow-left, #arrow-right {
+		height: 59px;
+		width: 56px;
+		background-color: white;
+		@include shadow-custom(#CCCCCC);
+	}
+	
+	#table-wrapper {
+		vertical-align: text-bottom;
+		display: inline-block;
+		
+		table#calendar-table {
+			background-color: white;
+			vertical-align: bottom;
+			margin: 0;
+			padding: 0;
+			@include shadow-custom(#CCCCCC);
+		}
+		
+		td, th {
+			height: 36px;
+			width: 92px;
+			text-align: center;
+			border-top: 1px solid black;
+			border-left: 1px solid black;
+			font-weight: normal;
+			font-size: 1.1em;
+			background-color: white;
+		}
+		
+		td.reserved-cell {
+			width: 91px;
+			height: 36px;
+			background-image: url('../img/main/reserved.png');
+			background-size: 91px 36px;
+		}
+		
+		td.timebox {
+			font-size: 0;
+		}
+		
+		td.timebox-passed {
+			background-color: #636363;
+		}
+		
+		th:last-child, td:last-child {
+			border-right: 1px solid black;
+		}
+		
+		tr:last-child td {
+			border-bottom: 1px solid black;
+		}
+		
+		th:first-child, th:first-child * {
+			@include border-radius($rad 0 0 0);
+		}
+
+		th:last-child {
+			@include border-radius(0 $rad 0 0);
+		}
+
+		tr:last-child td:first-child {
+			@include border-radius(0 0 0 $rad);
+		}
+		
+		tr:last-child td:last-child {
+			@include border-radius(0 0 $rad 0);
+		}
+		
+		#blank-cell {
+			width: 90%;
+			height: 90%;
+			margin-top: -30px;
+			color: white;
+			opacity: 0;
+			z-index: 2;
+			position: relative;
+			vertical-align: middle;
+		}
+		
+		#head-timestamp {
+			display: none;
+		}
+	}
+	
+	#arrow-left {
+		border: 1px solid black;
+		border-right: 0;
+		@include border-radius($rad 0 0 $rad);
+	}
+	
+	#arrow-right {
+		border: 1px solid black;
+		border-left: 0;
+		@include border-radius(0 $rad $rad 0);
+	}
+	
+	#calendar-label {
+		font-size: 0.8em;
+		z-index: 1;
+		position: relative;
+		top: 10px;
+		height: 0px;
+		margin: -30px 0;
+	}
+}		
