@@ -9,6 +9,7 @@
 	<div id="admin-menu">
 		<h3>Eszközök</h3>
 		<ul>
+			<li><a href="http://funlock.hu/cpanel">cPanel</a></li>
 			<li><a href="<?= base_url() ?>index.php/admin/booking/edit">Foglalások kezelése</a></li>
 			<li><a href="<?= base_url() ?>index.php/admin/voucher/CreateVoucher">Voucherek generálása</a></li>
 		</ul>

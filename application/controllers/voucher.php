@@ -2,15 +2,8 @@
 
 class Voucher extends CI_Controller {
 
-	private function generateCode($length = 6) {
-		$string = "";
-		
-		while ($length > 0) {
-			$string .= dechex(mt_rand(0,15));
-			$length -= 1;
-		}
-		
-		return $string;
+	private function generateCode($timestamp) {
+		return strtoupper(strrev(hash('adler32', hash('crc32b', $timestamp))));
 	}
 	
 	public function createVoucher() {
@@ -18,7 +11,7 @@ class Voucher extends CI_Controller {
 			redirect('/admin/login', 'refresh');
 		} else {
 			$data = array(
-				'code' => $this->generateCode(),
+				'code' => $this->generateCode(time()),
 				'status' => 'active',
 				'create_date' => time()
 			);
