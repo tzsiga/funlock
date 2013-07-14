@@ -25,7 +25,9 @@ for ($hourIndex = Utils::hourFrom; $hourIndex <= Utils::hourTo; $hourIndex += Ut
 		} else {
 			// if in the present week or future
 			if (isset($bookings[$cellTimestamp])) {
-				if ($bookings[$cellTimestamp]['payment-option'] == 'card') {
+				if (empty($bookings[$cellTimestamp]['status'])) {
+					echo '<td class="reserved-cell">';
+				} elseif ($bookings[$cellTimestamp]['payment-option'] == 'card') {
 					echo '<td class="reserved-cell-at">';
 				} elseif ($bookings[$cellTimestamp]['payment-option'] == 'cache') {
 					echo '<td class="reserved-cell-kp">';

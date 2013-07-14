@@ -1,5 +1,15 @@
 <script type="text/javascript">
 
+	$('#link-eula').fancybox({
+		maxWidth	: 700,
+		maxHeight	: 420,
+		fitToView	: false,
+		autoSize	: false,
+		closeClick	: false,
+		openEffect	: 'none',
+		closeEffect	: 'none'
+	});
+
 	if (!$('#billing').is(':checked')) {
 		$('#tax-number').hide();
 		$('#bill-fname').hide();

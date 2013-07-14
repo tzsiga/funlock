@@ -9,7 +9,8 @@ class Booking_model extends CI_Model {
 			$bookings[$row->appointment] = array(
 				'id' => $row->id,
 				'payment-option' => $row->payment_option,
-				'client' => $row->book_fname.' '.$row->book_sname
+				'client' => $row->book_fname.' '.$row->book_sname,
+				'status' => $row->status
 			);
 		}
 		
@@ -29,7 +30,9 @@ class Booking_model extends CI_Model {
 		return $booking[0];
 	}
 	
-	public function getBookingsInRange($start, $rangeLength = Utils::weekInSec) {
+	public function getBookingsInRange($start) {
+		$rangeLength = Utils::weekInSec - (time() - Utils::getLastMonday(time()));
+		
 		return $this->fetchBookingQuery($this->db->query('
 			SELECT * 
 			FROM bookings 

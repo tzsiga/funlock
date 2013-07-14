@@ -11,6 +11,9 @@
 	<?php
 		echo form_open('admin/booking/add');
 		echo '<p>';
+		echo form_label('<strong>Aktív?</strong>', 'status');
+		echo form_checkbox(array('name' => 'status', 'id' => 'status', 'value' => 'active', 'checked' => isset($posted['status']) ? true : false));
+		echo '</p><p>';
 		echo form_label('<strong>Foglaló vezetékneve</strong>', 'book-fname');
 		echo form_input(array('name' => 'book-fname', 'id' => 'book-fname', 'value' => isset($posted['book-fname']) ? $posted['book-fname'] : '' ));
 		echo '</p><p>';

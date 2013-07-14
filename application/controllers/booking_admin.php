@@ -8,11 +8,11 @@ class Booking_Admin extends Admin {
 		$posted = $this->input->post();
 		
 		if ($posted) {
-			$this->setValidationRulesForAdmin();
+			$this->setValidationRulesForAdmin($posted);
 			
 			if ($this->form_validation->run() == true) {
 				$this->createBooking($posted);
-				redirect('admin/index', 'refresh');
+				redirect('admin/booking/edit', 'refresh');
 			}
 		}
 		
@@ -26,7 +26,7 @@ class Booking_Admin extends Admin {
 		$posted = $this->input->post();
 		
 		if ($posted) {
-			$this->setValidationRulesForAdmin();
+			$this->setValidationRulesForAdmin($posted);
 			
 			if ($this->form_validation->run() == true) {
 				if ($this->getCase($posted) === 'save') {
@@ -65,10 +65,13 @@ class Booking_Admin extends Admin {
 		}
 	}
 	
-	private function setValidationRulesForAdmin() {
+	private function setValidationRulesForAdmin($posted = null) {
 		$this->form_validation->set_rules('appointment', '"Foglalt időpont"', 'required|xss_clean');
-		$this->form_validation->set_rules('book-fname', '"Foglaló vezetékneve"', 'required|xss_clean');
-		$this->form_validation->set_rules('book-sname', '"Foglaló keresztneve"', 'required|xss_clean');
+
+		if (isset($posted['status'])) {
+			$this->form_validation->set_rules('book-fname', '"Foglaló vezetékneve"', 'required|xss_clean');
+			$this->form_validation->set_rules('book-sname', '"Foglaló keresztneve"', 'required|xss_clean');
+		}
 	}
 	
 	private function createBooking($posted) {
@@ -114,6 +117,7 @@ class Booking_Admin extends Admin {
 	
 	private function composeBookingAsAdmin($posted) {
 		return array(
+			'status'					=> isset($posted['status']) ? $posted['status'] : '',
 			'appointment' 		=> $this->addDateAndTimestamp($posted),
 			'book_fname' 			=> $posted['book-fname'],
 			'book_sname' 			=> $posted['book-sname'],

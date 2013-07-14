@@ -43,7 +43,7 @@
 	echo form_input(array('name' => 'house', 'id' => 'house', 'value' => isset($posted['house']) ? $posted['house'] : ''));
 
 	echo '</p><p>';
-	echo form_label('Elfogadom a <a href="'.base_url().'index.php/pages/eula" id="link-eula" target="_blank">feltételeket</a>', 'eula');
+	echo form_label('Elfogadom a <a href="'.base_url().'index.php/pages/eula" id="link-eula" data-fancybox-type="iframe">feltételeket</a>', 'eula');
 	echo form_checkbox(array('name' => 'eula', 'id' => 'eula', 'value' => 'accept', 'checked' => isset($posted['eula']) ? true : false));
 	echo form_submit(array('name' => 'book-btn', 'id' => 'book-btn', 'value' => 'Foglalás'));
 

@@ -1,10 +1,11 @@
 body#eula-page {
-	width: 700px;
-	margin: 0 auto;
-	padding: 40px;
+	h2 {
+		padding-top: 10px;
+	}
 
 	ol {
-		margin-top: 20px;
+		width: 700px;
+		margin: 20px 0;
 		text-align: justify;
 		
 		li {
