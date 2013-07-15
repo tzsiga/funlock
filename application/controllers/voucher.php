@@ -12,24 +12,9 @@ class Voucher extends Admin {
   public function index() {
     $this->load->view('voucher_admin/index');
   }
-
-	private function generateCode($timestamp) {
-		return strtoupper(strrev(hash('adler32', hash('crc32b', $timestamp))));
-	}
-	
-  public function composeVoucher($numberOfVouchers = 1) {
-    $voucher = array(
-      'code' => $this->generateCode(time()),
-      'status' => 'active',
-      'create_date' => time()
-    );
-    
-    $this->db->insert('vouchers', $voucher);
-    return $voucher;
-  }
   
 	public function createVoucher() {
-    $voucher = $this->composeVoucher();
+    $voucher = $this->voucher_model->composeVoucher();
     $this->session->set_flashdata('msg', 'Új voucher létrehozva!');
     
     $this->load->view('voucher_admin/create', array('new_voucher' => $voucher));

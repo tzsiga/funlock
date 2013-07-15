@@ -66,6 +66,49 @@ class Booking_model extends CI_Model {
 		return $result[0]->value;
 	}
 	
+	public function composeBooking($posted) {
+		return array(
+			'appointment' 		=> strtotime($posted['appointment']),
+			'book_fname' 			=> $posted['book-fname'],
+			'book_sname' 			=> $posted['book-sname'],
+			'payment_option' 	=> $posted['payment-option'],
+			'email' 					=> $posted['email'],
+			'phone' 					=> $posted['phone'],
+			'tax_number' 			=> $posted['tax-number'],
+			'bill_fname' 			=> $posted['bill-fname'],
+			'bill_sname'	 		=> $posted['bill-sname'],
+			'zip' 						=> $posted['zip'],
+			'city' 						=> $posted['city'],
+			'street'					=> $posted['street'],
+			'house' 					=> $posted['house'],
+			'booking_date' 		=> time()
+		);
+	}
+  
+  public function composeBookingAsAdmin($posted) {
+		return array(
+			'status'					=> isset($posted['status']) ? $posted['status'] : '',
+			'appointment' 		=> $this->addDateAndTimestamp($posted),
+			'book_fname' 			=> $posted['book-fname'],
+			'book_sname' 			=> $posted['book-sname'],
+			'payment_option' 	=> $posted['payment-option'],
+			'email' 					=> $posted['email'],
+			'phone' 					=> $posted['phone'],
+			'tax_number' 			=> $posted['tax-number'],
+			'bill_fname' 			=> $posted['bill-fname'],
+			'bill_sname'	 		=> $posted['bill-sname'],
+			'zip' 						=> $posted['zip'],
+			'city' 						=> $posted['city'],
+			'street'					=> $posted['street'],
+			'house' 					=> $posted['house'],
+			'booking_date' 		=> time()
+		);
+	}
+  
+  public function addDateAndTimestamp($posted) {
+		return strtotime($posted['appointment']) + $posted['appointment-hour'] * Utils::hourInSec;
+	}
+  
 	public function getNumberOfSuccessfulBookings() {
 		if (!$this->session->all_userdata()) {
 			$this->session->set_userdata(array('number-of-bookings' => 0));

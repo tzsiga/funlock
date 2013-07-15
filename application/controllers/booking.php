@@ -25,7 +25,7 @@ class Booking extends CI_Controller {
 					if ($this->form_validation->run() == false) {
 						$this->load->view('booking/form', array('posted' => $posted));
 					} else {
-						$this->booking_model->insertBooking($this->composeBooking($posted));
+						$this->booking_model->insertBooking($this->booking_model->composeBooking($posted));
 						$this->booking_model->incSuccessfulBookings();
 						
 						if ($posted['payment-option'] == 'cache') {
@@ -79,24 +79,6 @@ class Booking extends CI_Controller {
 			$this->form_validation->set_rules('bill-sname', '"Számlázási keresztnév"', 'required|xss_clean');
 		}
 	}
-	
-	private function composeBooking($posted) {
-		return array(
-			'appointment' 		=> strtotime($posted['appointment']),
-			'book_fname' 			=> $posted['book-fname'],
-			'book_sname' 			=> $posted['book-sname'],
-			'payment_option' 	=> $posted['payment-option'],
-			'email' 					=> $posted['email'],
-			'phone' 					=> $posted['phone'],
-			'tax_number' 			=> $posted['tax-number'],
-			'bill_fname' 			=> $posted['bill-fname'],
-			'bill_sname'	 		=> $posted['bill-sname'],
-			'zip' 						=> $posted['zip'],
-			'city' 						=> $posted['city'],
-			'street'					=> $posted['street'],
-			'house' 					=> $posted['house'],
-			'booking_date' 		=> time()
-		);
-	}
+
 	
 }

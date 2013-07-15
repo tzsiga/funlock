@@ -75,14 +75,14 @@ class Booking_Admin extends Admin {
 	}
 	
 	private function createBooking($posted) {
-		$this->booking_model->insertBooking($this->composeBookingAsAdmin($posted));
+		$this->booking_model->insertBooking($this->booking_model->composeBookingAsAdmin($posted));
 		$this->session->set_flashdata('msg', 
 			'Új foglalás ('.$this->getDateTime($posted).') elmentve!'
 		);
 	}
 	
 	private function saveBooking($id, $posted) {
-		$this->booking_model->updateBooking($id, $this->composeBookingAsAdmin($posted));
+		$this->booking_model->updateBooking($id, $this->booking_model->composeBookingAsAdmin($posted));
 		$this->session->set_flashdata('msg', 
 			'Foglalás ('.$this->getDateTime($posted).') elmentve!'
 		);
@@ -107,32 +107,8 @@ class Booking_Admin extends Admin {
 		return null;
 	}
 	
-	private function addDateAndTimestamp($posted) {
-		return strtotime($posted['appointment']) + $posted['appointment-hour'] * Utils::hourInSec;
-	}
-	
 	private function getDateTime($posted) {
-		return date('Y-m-d H:i', $this->addDateAndTimestamp($posted));
-	}
-	
-	private function composeBookingAsAdmin($posted) {
-		return array(
-			'status'					=> isset($posted['status']) ? $posted['status'] : '',
-			'appointment' 		=> $this->addDateAndTimestamp($posted),
-			'book_fname' 			=> $posted['book-fname'],
-			'book_sname' 			=> $posted['book-sname'],
-			'payment_option' 	=> $posted['payment-option'],
-			'email' 					=> $posted['email'],
-			'phone' 					=> $posted['phone'],
-			'tax_number' 			=> $posted['tax-number'],
-			'bill_fname' 			=> $posted['bill-fname'],
-			'bill_sname'	 		=> $posted['bill-sname'],
-			'zip' 						=> $posted['zip'],
-			'city' 						=> $posted['city'],
-			'street'					=> $posted['street'],
-			'house' 					=> $posted['house'],
-			'booking_date' 		=> time()
-		);
+		return date('Y-m-d H:i', $this->booking_model->addDateAndTimestamp($posted));
 	}
 	
 }
