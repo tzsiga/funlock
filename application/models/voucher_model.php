@@ -11,15 +11,18 @@ class Voucher_model extends CI_Model {
 		return strtoupper(strrev(hash('adler32', hash('crc32b', $timestamp))));
 	}
   
-  public function composeVoucher($numberOfVouchers = 1) {
+  public function composeVoucher() {
     $voucher = array(
       'code' => $this->generateCode(time()),
       'status' => 'active',
       'create_date' => time()
     );
     
-    $this->db->insert('vouchers', $voucher);
     return $voucher;
+  }
+  
+  public function insertVoucher($voucher) {
+    $this->db->insert('vouchers', $voucher);
   }
 	
 }

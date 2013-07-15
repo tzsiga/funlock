@@ -7,7 +7,7 @@
 		<?= $this->session->flashdata('msg') ?>
 	</h3>
   <p>
-    <a href="<?= base_url() ?>index.php/admin/voucher/create">Voucherek generálása</a><br/>
+    <a href="<?= base_url() ?>index.php/admin/voucher/add">Voucherek generálása</a><br/>
     <a href="<?= base_url() ?>index.php/admin/voucher/list">Voucherek ellenőrzése</a><br/>
     <a href="<?= base_url() ?>index.php/admin/voucher/delete">Voucher törlése</a><br/><br/>
     <a href="<?= base_url() ?>index.php/admin">Vissza</a>
