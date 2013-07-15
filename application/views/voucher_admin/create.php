@@ -1,19 +1,14 @@
 <?php $this->load->view('header'); ?>
 <body id="admin-page">
 	<h1>
-		Voucher
+		Voucher generálása
 	</h1>
 	<h3 id="flash-msg">
 		<?= $this->session->flashdata('msg') ?>
 	</h3>
 	<?php
 		echo '<p>Új voucher: '.$new_voucher['code'].'</p>';
-		
-		echo '<p>Eddig generáltak:</p><ul>';
-		foreach ($vouchers->result() as $row) {
-			echo '<li>'.$row->code.'</li>';
-		}
-		echo '</ul>';
 	?>
+  <p><a href="<?= base_url() ?>index.php/admin/voucher">Vissza</a></p>
 </body>
 </html>

@@ -45,16 +45,19 @@ $route['main/(:any)']										= "booking/$1";
 
 $route['admin/config/change_limit']			= "config/changelimit";
 $route['admin/config/change_password']	= "config/changepassword";
-$route['admin/config/(:any)']						= "config/$1";
+$route['admin/config/phpinfo']					= "config/phpinfo";
 
 $route['admin/booking/list']						= "booking_admin/editlist";
 $route['admin/booking/add']							= "booking_admin/addbookingasadmin";
 $route['admin/booking/add/(:any)']			= "booking_admin/addbookingasadmin/$1";
 $route['admin/booking/edit']						= "booking_admin/edittable";
 $route['admin/booking/edit/(:any)']			= "booking_admin/editbooking/$1";
-$route['admin/booking/(:any)']					= "booking_admin/$1";
+//$route['admin/booking/(:any)']					= "booking_admin/$1";
 
-$route['admin/voucher/(:any)']					= "voucher/$1";
+$route['admin/voucher']					        = "voucher/index";
+$route['admin/voucher/create']			    = "voucher/createVoucher";
+$route['admin/voucher/list']					  = "voucher/listVouchers";
+$route['admin/voucher/delete']					= "voucher/deleteVouchers";
 
 $route['404_override']									= "";
 

@@ -36,6 +36,7 @@
 		$(this).css('z-index', '3');
 		$(this).css('background-image', "url('<?= base_url() ?>/assets/img/main/selected.png')");
 		
+    $('#booking-details').css('visibility', 'visible');
 		$('#booking-details').visible();
 		
 		if ($('#booking-details > form').attr('id') == 'error-form') {
