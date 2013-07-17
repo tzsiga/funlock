@@ -2,12 +2,12 @@
 
 class Pages extends CI_Controller {
 
-	public function index() {
-		$this->load->view('intro/intro');
-	}
+  public function index() {
+    $this->load->view('intro/intro');
+  }
 
-	public function eula() {
-		$this->load->view('booking/eula');
-	}
-	
+  public function eula() {
+    $this->load->view('booking/eula');
+  }
+
 }
