@@ -45,6 +45,8 @@ class Voucher_model extends CI_Model {
     $query = $this->db->get_where('vouchers', array('code' => $code));
     if ($query->num_rows != 0)
       return $query->row()->value;
+    else
+      return null;
   }
 
   public function changeStatus($code, $newStatus) {

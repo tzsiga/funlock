@@ -9,7 +9,7 @@
 	<div id="admin-menu">
 		<div id="admin-calendar">
 			<span id="prev-month"><?= img(array('src' => base_url().'assets/img/main/arrow_left.png', 'id' => 'arrow-left')) ?></span>
-			<div id="table-wrapper"><?php $this->load->view('booking_admin/admin_table', array('bookings' => $bookings, 'headTimestamp' => time())); ?></div>
+			<div id="table-wrapper"><?php $this->load->view('booking_admin/table', array('bookings' => $bookings, 'headTimestamp' => time())); ?></div>
 			<span id="next-month"><?= img(array('src' => base_url().'assets/img/main/arrow_right.png', 'id' => 'arrow-right')) ?></span>
 		</div>
 		<p>

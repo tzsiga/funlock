@@ -17,6 +17,9 @@
 	echo '</p><p>';
 	echo form_label('Fizetés', 'payment-option');
 	echo form_dropdown('payment-option', array('card' => 'átutalással', 'cache' => 'készpénzzel'), 'card', 'id="payment-option"');
+	echo form_label('Kupon', 'voucher');
+	echo form_checkbox(array('name' => 'voucher', 'id' => 'voucher', 'value' => 'accept', 'checked' => isset($posted['voucher']) ? true : false));
+	echo form_input(array('name' => 'code', 'id' => 'code', 'value' => isset($posted['code']) ? $posted['code'] : ''));
 
 	echo '</p><p>';
 	echo form_label('Email', 'email');

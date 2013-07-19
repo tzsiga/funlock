@@ -16,7 +16,7 @@ class Booking_Admin extends Admin {
       }
     }
 
-    $this->load->view('booking_admin/admin_add', array(
+    $this->load->view('booking_admin/add', array(
       'posted' => $posted,
       'timestamp' => $timestamp
     ));
@@ -38,19 +38,19 @@ class Booking_Admin extends Admin {
       }
     }
 
-    $this->load->view('booking_admin/admin_edit', array(
+    $this->load->view('booking_admin/edit', array(
       'booking' => $this->booking_model->getBooking($id)
     ));
   }
 
   public function editList() {
-    $this->load->view('booking_admin/admin_edit_list', array(
+    $this->load->view('booking_admin/edit_list', array(
       'bookings' => $this->booking_model->getAllBookings()
     ));
   }
 
   public function editTable() {
-    $this->load->view('booking_admin/admin_edit_table', array(
+    $this->load->view('booking_admin/edit_table', array(
       'bookings' => $this->booking_model->getAllBookings()
     ));
   }
@@ -58,7 +58,7 @@ class Booking_Admin extends Admin {
   public function loadAdminTable() {
     if ($this->input->is_ajax_request()) {
       $headTimestamp = $this->input->get('headTimestamp');
-      $this->load->view('booking_admin/admin_table', array(
+      $this->load->view('booking_admin/table', array(
         'bookings' => $this->booking_model->getBookingsInRange($headTimestamp),
         'headTimestamp' => $headTimestamp
       ));

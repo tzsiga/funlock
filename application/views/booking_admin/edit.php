@@ -1,5 +1,5 @@
 <?php $this->load->view('header'); ?>
-<?php $this->load->view('booking_admin/admin_utils'); ?>
+<?php $this->load->view('booking_admin/utils'); ?>
 <body id="admin-page">
 	<h1>
 		Foglalás szerkesztése

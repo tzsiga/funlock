@@ -25,6 +25,13 @@ class Booking extends CI_Controller {
           if ($this->form_validation->run() == false) {
             $this->load->view('booking/form', array('posted' => $posted));
           } else {
+/*
+            $voucher = $this->voucher_model->getVoucherFromCode($posted['code']);
+
+            $this->booking_model->insertBooking($this->booking_model->composeBooking($posted, $voucher));
+            $this->booking_model->incSuccessfulBookings();
+            $this->voucher_model->changeStatus($voucher->code, 'used');
+*/
             $this->booking_model->insertBooking($this->booking_model->composeBooking($posted));
             $this->booking_model->incSuccessfulBookings();
 

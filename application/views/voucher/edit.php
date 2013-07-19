@@ -1,7 +1,7 @@
 <?php $this->load->view('header'); ?>
 <body id="admin-page">
   <h1>
-    Voucherek szerkesztése
+    Kuponok szerkesztése
   </h1>
   <h3 id="flash-msg">
     <?= $this->session->flashdata('msg') ?>
