@@ -41,18 +41,20 @@ class Voucher_model extends CI_Model {
     $this->db->insert('vouchers', $voucher);
   }
 
-  public function getVoucherFromCode($code) {
+  public function getVoucherIdFromCode($code) {
     $query = $this->db->get_where('vouchers', array('code' => $code));
-    if ($query->num_rows != 0)
-      return $query->row()->value;
-    else
+
+    if ($query->num_rows != 0) {
+      $result = $query->result();
+      return $result[0]->id;
+    } else
       return null;
   }
 
   public function changeStatus($code, $newStatus) {
     $this->db->set('status', $newStatus);
     $this->db->where('code', $code);
-    $this->db->insert('voucher');
+    $this->db->update('vouchers');
   }
 
 }

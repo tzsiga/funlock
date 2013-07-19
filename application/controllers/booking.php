@@ -25,26 +25,26 @@ class Booking extends CI_Controller {
           if ($this->form_validation->run() == false) {
             $this->load->view('booking/form', array('posted' => $posted));
           } else {
-/*
-            $voucher = $this->voucher_model->getVoucherFromCode($posted['code']);
-
-            $this->booking_model->insertBooking($this->booking_model->composeBooking($posted, $voucher));
+            // mi van ha már használt a kód?
+            // mi van ha hibás a kód?
+            $voucherId = $this->voucher_model->getVoucherIdFromCode($posted['code']);
+            $this->booking_model->insertBooking($this->booking_model->composeBooking($posted, $voucherId));
+            $this->voucher_model->changeStatus($posted['code'], 'used');
             $this->booking_model->incSuccessfulBookings();
-            $this->voucher_model->changeStatus($voucher->code, 'used');
-*/
-            $this->booking_model->insertBooking($this->booking_model->composeBooking($posted));
-            $this->booking_model->incSuccessfulBookings();
-
-            if ($posted['payment-option'] == 'cache') {
-              $this->load->view('booking/form_success_cache');
-            } else if ($posted['payment-option'] == 'card') {
-              $this->load->view('booking/form_success_card', array(
-                'code' => $this->convertTimeToBookingCode($posted['appointment'])
-              ));
-            }
+            $this->loadFormSuccessResult($posted);
           }
         }
       }
+    }
+  }
+
+  private function loadFormSuccessResult($posted) {
+    if ($posted['payment-option'] == 'cache') {
+      $this->load->view('booking/form_success_cache');
+    } else if ($posted['payment-option'] == 'card') {
+      $this->load->view('booking/form_success_card', array(
+        'code' => $this->convertTimeToBookingCode($posted['appointment'])
+      ));
     }
   }
 
