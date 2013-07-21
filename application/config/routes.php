@@ -52,7 +52,7 @@ $route['admin/booking/add']							= "booking_admin/addbookingasadmin";
 $route['admin/booking/add/(:any)']			= "booking_admin/addbookingasadmin/$1";
 $route['admin/booking/edit']						= "booking_admin/edittable";
 $route['admin/booking/edit/(:any)']			= "booking_admin/editbooking/$1";
-//$route['admin/booking/(:any)']					= "booking_admin/$1";
+$route['admin/booking/(:any)']					= "booking_admin/$1";
 
 $route['admin/voucher']					        = "voucher/index";
 $route['admin/voucher/add']			        = "voucher/addVoucher";

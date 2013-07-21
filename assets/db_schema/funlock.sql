@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 17, 2013 at 12:40 PM
+-- Generation Time: Jul 21, 2013 at 01:31 PM
 -- Server version: 5.5.16
 -- PHP Version: 5.3.8
 
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `bookings` (
   `booking_date` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `appointment` (`appointment`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci AUTO_INCREMENT=28 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci AUTO_INCREMENT=40 ;
 
 --
 -- Dumping data for table `bookings`
@@ -75,7 +75,17 @@ INSERT INTO `bookings` (`id`, `voucher_id`, `status`, `book_fname`, `book_sname`
 (24, NULL, 'active', 'Hanky', 'Papa', 1375043400, 'cache', '', '', '', '', 0, '', '', '', 0, '', '', 1373625262),
 (25, NULL, 'active', '', '', 1373720400, 'cache', '', '', '', '', 0, '', '', '', 0, '', '', 1373637911),
 (26, NULL, 'active', '', '', 1373806800, 'cache', '', '', '', '', 0, '', '', '', 0, '', '', 1373637965),
-(27, NULL, '', '', '', 1373801400, 'cache', '', '', '', '', 0, '', '', '', 0, '', '', 1373793948);
+(27, NULL, '', '', '', 1373801400, 'cache', '', '', '', '', 0, '', '', '', 0, '', '', 1373793948),
+(28, NULL, 'active', 'Hanky', 'Papa', 1374249600, 'card', '', '', 'tzsiga@gmail.com', '578568', 1234, 'sdasd', 'asdasd', '1', 0, '', '', 1374147106),
+(29, 96, 'active', 'Hanky', 'Papa', 1374336000, 'card', '', '', 'tzsiga@gmail.com', '578568', 1234, 'sdasd', 'asdasd', '1', 0, '', '', 1374214959),
+(30, NULL, 'active', 'Hanky', 'Papa', 1374417000, 'card', '', '', 'tzsiga@gmail.com', '578568', 1234, 'sdasd', 'asdasd', '1', 0, '', '', 1374331408),
+(31, 93, 'active', 'Hanky', 'Papa', 1374346800, 'card', '', '', 'tzsiga@gmail.com', '578568', 1234, 'sdasd', 'asdasd', '1', 0, '', '', 1374331503),
+(34, NULL, 'active', 'Hanky', 'Papa', 1374341400, 'card', '', '', 'tzsiga@gmail.com', '578568', 1234, 'sdasd', 'asdasd', '1', 0, '', '', 1374332439),
+(35, NULL, 'active', 'Hanky', 'Papa', 1374427800, 'card', '', '', 'tzsiga@gmail.com', '578568', 1234, 'sdasd', 'asdasd', '1', 0, '', '', 1374332494),
+(36, NULL, 'active', 'Hanky', 'Papa', 1374400800, 'card', '', '', 'tzsiga@gmail.com', '578568', 1234, 'sdasd', 'asdasd', '1', 0, '', '', 1374333338),
+(37, 100, 'active', 'Hanky', 'Papa', 1374406200, 'card', '', '', 'tzsiga@gmail.com', '578568', 1234, 'sdasd', 'asdasd', '1', 0, '', '', 1374333368),
+(38, NULL, 'active', 'Hanky', 'Papa', 1374503400, 'card', '', '', 'tzsiga@gmail.com', '578568', 1234, 'sdasd', 'asdasd', '1', 0, '', '', 1374405427),
+(39, NULL, 'active', 'Hanky', 'Papa', 1374584400, 'card', '', '', 'tzsiga@gmail.com', '578568', 1234, 'sdasd', 'asdasd', '1', 0, '', '', 1374405521);
 
 -- --------------------------------------------------------
 
@@ -96,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `config` (
 
 INSERT INTO `config` (`id`, `option_name`, `value`) VALUES
 (1, 'admin_password', '78f366c6f4aa3686245e4b2729bd0c9ab93d6c2a'),
-(2, 'booking_limit', '6');
+(2, 'booking_limit', '99');
 
 -- --------------------------------------------------------
 
@@ -111,19 +121,22 @@ CREATE TABLE IF NOT EXISTS `vouchers` (
   `status` varchar(10) COLLATE utf8_hungarian_ci NOT NULL DEFAULT 'active',
   `discounted_price` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci AUTO_INCREMENT=80 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci AUTO_INCREMENT=102 ;
 
 --
 -- Dumping data for table `vouchers`
 --
 
 INSERT INTO `vouchers` (`id`, `code`, `create_date`, `status`, `discounted_price`) VALUES
-(74, '01205690', 1374046517, 'active', 8000),
-(75, '13203790', 1374046760, 'active', 8000),
-(76, 'B920EFA0', 1374046761, 'active', 8000),
-(77, '9A109770', 1374046761, 'active', 8000),
-(78, 'EE10E980', 1374046761, 'active', 8000),
-(79, '9320F980', 1374046761, 'active', 8000);
+(93, '3C9E4A8E', 1374127182, 'used', 8000),
+(94, 'B78FB628', 1374127182, 'active', 8000),
+(95, '19677011', 1374127182, 'active', 8000),
+(96, 'A451856F', 1374127182, 'used', 8000),
+(97, '51D75021', 1374127182, 'active', 8000),
+(98, '7C2D4590', 1374127182, 'used', 8000),
+(99, '368501F5', 1374332879, 'active', 6000),
+(100, '1E02B0FB', 1374332879, 'used', 6000),
+(101, '1C24D935', 1374332879, 'active', 6000);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
