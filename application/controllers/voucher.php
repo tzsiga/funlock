@@ -22,7 +22,7 @@ class Voucher extends Admin {
       if ($this->form_validation->run() == true) {
         $vouchers = array();
         for ($i = 0; $i < $posted['number_of_vouchers']; $i++)
-          $vouchers[] = $this->createVoucher();
+          $vouchers[] = $this->createVoucher($posted['discounted_price']);
 
         $this->session->set_flashdata('msg', 'Új voucher(ek) létrehozva!<br/>'.$this->getCodes($vouchers));
         redirect('/admin/voucher/add', 'refresh');
@@ -32,8 +32,8 @@ class Voucher extends Admin {
     $this->load->view('voucher/add');
   }
 
-  private function createVoucher() {
-    $newVoucher = $this->voucher_model->getUniqueVoucher();
+  private function createVoucher($price) {
+    $newVoucher = $this->voucher_model->getNewUniqueVoucher($price);
     $this->voucher_model->insertVoucher($newVoucher);
 
     return $newVoucher;

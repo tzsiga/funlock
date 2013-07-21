@@ -25,25 +25,31 @@ class Booking extends CI_Controller {
           if ($this->form_validation->run() == false) {
             $this->load->view('booking/form', array('posted' => $posted));
           } else {
-            // mi van ha már használt a kód?
-            // mi van ha hibás a kód?
-            $voucherId = $this->voucher_model->getVoucherIdFromCode($posted['code']);
-            $this->booking_model->insertBooking($this->booking_model->composeBooking($posted, $voucherId));
-            $this->voucher_model->changeStatus($posted['code'], 'used');
+            $voucher = $this->voucher_model->getVoucher($posted['code']);
+            
+            if ($this->voucher_model->isActive($voucher)) {
+              $this->voucher_model->changeStatus($posted['code'], 'used');
+              $this->booking_model->insertBooking($this->booking_model->composeBooking($posted, $voucher));
+              $this->loadFormSuccessResult($posted, $voucher);
+            } else {      // if voucher code is wrong or used
+              $this->booking_model->insertBooking($this->booking_model->composeBooking($posted));
+              $this->loadFormSuccessResult($posted);
+            }
+            
             $this->booking_model->incSuccessfulBookings();
-            $this->loadFormSuccessResult($posted);
           }
         }
       }
     }
   }
 
-  private function loadFormSuccessResult($posted) {
+  private function loadFormSuccessResult($posted, $voucher = null) {
     if ($posted['payment-option'] == 'cache') {
-      $this->load->view('booking/form_success_cache');
+      $this->load->view('booking/form_success_cache', array('voucher' => $voucher));
     } else if ($posted['payment-option'] == 'card') {
       $this->load->view('booking/form_success_card', array(
-        'code' => $this->convertTimeToBookingCode($posted['appointment'])
+        'code' => $this->convertTimeToBookingCode($posted['appointment']),
+        'voucher' => $voucher
       ));
     }
   }
@@ -65,11 +71,11 @@ class Booking extends CI_Controller {
   }
 
   private function convertTimeToBookingCode($time) {
-    return strtoupper(strrev(dechex(strtotime($time))));
+    return strtoupper(strrev(dechex($time)));
   }
 
   private function setValidationRules($posted = null) {
-    $this->form_validation->set_rules('appointment', '"Foglalt időpont"', 'required|xss_clean');
+    $this->form_validation->set_rules('appointment', '"Foglalt időpont"', 'required|xss_clean|greater_than['.time().']');
     $this->form_validation->set_rules('book-fname', '"Foglaló vezetékneve"', 'required|xss_clean');
     $this->form_validation->set_rules('book-sname', '"Foglaló keresztneve"', 'required|xss_clean');
     $this->form_validation->set_rules('phone', '"Telefon"', 'required|xss_clean|numeric');

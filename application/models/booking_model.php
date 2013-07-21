@@ -65,10 +65,10 @@ class Booking_model extends CI_Model {
     return $result[0]->value;
   }
 
-  public function composeBooking($posted, $voucherId = null) {
+  public function composeBooking($posted, $voucher = null) {
     return array(
-      'appointment'     => strtotime($posted['appointment']),
-      'voucher_id'      => $voucherId,
+      'appointment'     => $posted['appointment'],
+      'voucher_id'      => isset($voucher) ? $voucher->id : null,
       'book_fname'      => $posted['book-fname'],
       'book_sname'      => $posted['book-sname'],
       'payment_option'  => $posted['payment-option'],

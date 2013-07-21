@@ -13,6 +13,9 @@
     echo form_label('Generálj ennyi Kupont:', 'number_of_vouchers');
     echo form_input(array('name' => 'number_of_vouchers', 'id' => 'number_of_vouchers', 'value' => 1));
     echo '</p><p>';
+    echo form_label('Kedvezményes ár:', 'discounted_price');
+    echo form_input(array('name' => 'discounted_price', 'id' => 'discounted_price', 'value' => 8000));
+    echo '</p><p>';
     echo form_submit('generate', 'Mehet');
     echo '</p>';
     echo form_close();
