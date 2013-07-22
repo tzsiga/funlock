@@ -14,6 +14,9 @@
     echo form_label('Aktív?', 'status');
     echo form_checkbox(array('name' => 'status', 'id' => 'status', 'value' => 'active', 'checked' => ($booking->status == 'active') ? true : false));
     echo '</p><p>';
+    echo form_label('Fizetve?', 'payment_verified');
+    echo form_checkbox(array('name' => 'payment_verified', 'id' => 'payment_verified', 'value' => 'yes', 'checked' => ($booking->payment_verified == 'yes') ? true : false));
+    echo '</p><p>';
     if (isset($voucher)) {
       echo '<label for="">Kupon: </label>';
       echo $voucher->code.' ('.$voucher->discounted_price.' Ft)';
@@ -31,6 +34,9 @@
     echo '</p><p>';
     echo form_label('Fizetés átutalással', 'payment-option');
     echo form_radio(array('name' => 'payment-option', 'id' => 'payment-option-1', 'value' => 'card', 'checked' => ($booking->payment_option == 'card' ? true : false)));
+    if ($booking->payment_option == 'card') {
+        echo ' <strong>Kód: '.$code.'</strong>';
+    }
     echo '</p><p>';
     echo form_label('Fizetés készpénzzel', 'payment-option');
     echo form_radio(array('name' => 'payment-option', 'id' => 'payment-option-2', 'value' => 'cache', 'checked' => ($booking->payment_option == 'cache' ? true : false)));

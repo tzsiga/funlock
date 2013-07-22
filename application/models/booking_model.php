@@ -20,7 +20,7 @@ class Booking_model extends CI_Model {
     return $this->fetchBookingQuery($this->db->query('
       SELECT *
       FROM bookings
-      ORDER BY appointment ASC'
+      ORDER BY appointment DESC'
     ));
   }
 
@@ -87,22 +87,27 @@ class Booking_model extends CI_Model {
 
   public function composeBookingAsAdmin($posted) {
     return array(
-      'status'          => isset($posted['status']) ? $posted['status'] : '',
-      'appointment'     => $this->addDateAndTimestamp($posted),
-      'book_fname'      => $posted['book-fname'],
-      'book_sname'      => $posted['book-sname'],
-      'payment_option'  => $posted['payment-option'],
-      'email'           => $posted['email'],
-      'phone'           => $posted['phone'],
-      'tax_number'      => $posted['tax-number'],
-      'bill_fname'      => $posted['bill-fname'],
-      'bill_sname'      => $posted['bill-sname'],
-      'zip'             => $posted['zip'],
-      'city'            => $posted['city'],
-      'street'          => $posted['street'],
-      'house'           => $posted['house'],
-      'booking_date'    => time()
+      'status'            => isset($posted['status']) ? $posted['status'] : null,
+      'payment_verified'  => isset($posted['payment_verified']) ? $posted['payment_verified'] : null,
+      'appointment'       => $this->addDateAndTimestamp($posted),
+      'book_fname'        => $posted['book-fname'],
+      'book_sname'        => $posted['book-sname'],
+      'payment_option'    => $posted['payment-option'],
+      'email'             => $posted['email'],
+      'phone'             => $posted['phone'],
+      'tax_number'        => $posted['tax-number'],
+      'bill_fname'        => $posted['bill-fname'],
+      'bill_sname'        => $posted['bill-sname'],
+      'zip'               => $posted['zip'],
+      'city'              => $posted['city'],
+      'street'            => $posted['street'],
+      'house'             => $posted['house'],
+      'booking_date'      => time()
     );
+  }
+
+  public function convertTimeToBookingCode($time) {
+    return strtoupper(strrev(dechex($time)));
   }
 
   public function addDateAndTimestamp($posted) {

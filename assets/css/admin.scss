@@ -78,6 +78,19 @@ body#admin-page {
     margin-left: 20px;
   }
   
+  table.admin-list-table {
+    text-align: center;
+
+    th, td {
+      padding: 1px 12px;
+      min-width: 80px;
+    }
+
+    tr:nth-child(2n) {
+      background-color: #E8E8E8;
+    }
+  }
+
   #admin-menu {
     margin-left: 14px;
     

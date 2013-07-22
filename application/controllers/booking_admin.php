@@ -4,7 +4,7 @@ include 'admin.php';
 
 class Booking_Admin extends Admin {
 
-  public function addBookingAsAdmin($timestamp = 0) {
+  public function add($timestamp = 0) {
     $posted = $this->input->post();
 
     if ($posted) {
@@ -22,7 +22,7 @@ class Booking_Admin extends Admin {
     ));
   }
 
-  public function editBooking($id) {
+  public function edit($id) {
     $posted = $this->input->post();
 
     if ($posted) {
@@ -43,7 +43,8 @@ class Booking_Admin extends Admin {
 
     $this->load->view('booking_admin/edit', array(
       'booking' => $booking,
-      'voucher' => $voucher
+      'voucher' => $voucher,
+      'code' => $this->booking_model->convertTimeToBookingCode($booking->appointment)
     ));
   }
 

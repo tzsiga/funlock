@@ -50,7 +50,7 @@ class Booking extends CI_Controller {
       $this->load->view('booking/form_success_cache', array('voucher' => $voucher));
     } else if ($posted['payment-option'] == 'card') {
       $this->load->view('booking/form_success_card', array(
-        'code' => $this->convertTimeToBookingCode($posted['appointment']),
+        'code' => $this->booking_model->convertTimeToBookingCode($posted['appointment']),
         'voucher' => $voucher
       ));
     }
@@ -70,10 +70,6 @@ class Booking extends CI_Controller {
     if ($this->input->is_ajax_request()) {
       $this->load->view('booking/form');
     }
-  }
-
-  private function convertTimeToBookingCode($time) {
-    return strtoupper(strrev(dechex($time)));
   }
 
   private function setValidationRules($posted = null) {

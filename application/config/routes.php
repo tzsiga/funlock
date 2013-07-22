@@ -48,14 +48,14 @@ $route['admin/config/change_password']	= "config/changepassword";
 $route['admin/config/phpinfo']					= "config/phpinfo";
 
 $route['admin/booking/list']						= "booking_admin/editlist";
-$route['admin/booking/add']							= "booking_admin/addbookingasadmin";
-$route['admin/booking/add/(:any)']			= "booking_admin/addbookingasadmin/$1";
+$route['admin/booking/add']							= "booking_admin/add";
+$route['admin/booking/add/(:any)']			= "booking_admin/add/$1";
 $route['admin/booking/edit']						= "booking_admin/edittable";
-$route['admin/booking/edit/(:any)']			= "booking_admin/editbooking/$1";
+$route['admin/booking/edit/(:any)']			= "booking_admin/edit/$1";
 $route['admin/booking/(:any)']					= "booking_admin/$1";
 
 $route['admin/voucher']					        = "voucher/index";
-$route['admin/voucher/add']			        = "voucher/addVoucher";
+$route['admin/voucher/add']			        = "voucher/add";
 $route['admin/voucher/edit']					  = "voucher/editVouchers";
 
 $route['404_override']									= "";

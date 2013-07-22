@@ -13,7 +13,7 @@ class Voucher extends Admin {
     $this->load->view('voucher/index');
   }
 
-  public function addVoucher() {
+  public function add() {
     $posted = $this->input->post();
 
     if ($posted) {
@@ -22,7 +22,7 @@ class Voucher extends Admin {
       if ($this->form_validation->run() == true) {
         $vouchers = array();
         for ($i = 0; $i < $posted['number_of_vouchers']; $i++)
-          $vouchers[] = $this->createVoucher($posted['discounted_price']);
+          $vouchers[] = $this->create($posted['discounted_price']);
 
         $this->session->set_flashdata('msg', 'Új voucher(ek) létrehozva!<br/>'.$this->getCodes($vouchers));
         redirect('/admin/voucher/add', 'refresh');
@@ -32,7 +32,7 @@ class Voucher extends Admin {
     $this->load->view('voucher/add');
   }
 
-  private function createVoucher($price) {
+  private function create($price) {
     $newVoucher = $this->voucher_model->getNewUniqueVoucher($price);
     $this->voucher_model->insertVoucher($newVoucher);
 
@@ -40,9 +40,13 @@ class Voucher extends Admin {
   }
 
   public function editVouchers() {
-    $this->load->view('voucher/edit', array(
+    $this->load->view('voucher/edit_list', array(
       'vouchers' => $this->voucher_model->getVouchers()
     ));
+  }
+
+  public function edit($id) {
+    $this->load->view('voucher/edit');
   }
 
   private function getCodes($vouchers) {
