@@ -1,5 +1,11 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+class VoucherStatuses {
+    const Active = 'active';
+    const AlwaysActive = 'always_active';
+    const Used = 'used';
+}
+
 class Voucher_model extends CI_Model {
 
   public function getVoucher($code) {
@@ -10,6 +16,16 @@ class Voucher_model extends CI_Model {
       return $result[0];
     } else
       return null;
+  }
+
+  public function getVoucherByID($id) {
+    $query = $this->db->get_where('vouchers', array('id' => $id));
+
+    if ($query->num_rows != 0) {
+      $result = $query->result();
+      return $result[0];
+    } else
+      return null;   
   }
 
   public function getVouchers() {
@@ -31,7 +47,11 @@ class Voucher_model extends CI_Model {
     $this->db->insert('vouchers', $voucher);
   }
 
-  public function changeStatus($code, $newStatus) {
+  public function activate($voucher) {
+    $this->changeStatus($voucher->code, VoucherStatuses::Used);
+  }
+
+  private function changeStatus($code, $newStatus) {
     $this->db->set('status', $newStatus);
     $this->db->where('code', $code);
     $this->db->update('vouchers');
@@ -53,8 +73,12 @@ class Voucher_model extends CI_Model {
     return $query->num_rows == 0;
   }
 
+  public function isAvailable($voucher) {
+    return isset($voucher) && ($voucher->status == VoucherStatuses::Active || $voucher->status == VoucherStatuses::AlwaysActive);
+  }
+
   public function isActive($voucher) {
-    return isset($voucher) && $voucher->status == 'active';
+    return isset($voucher) && $voucher->status == VoucherStatuses::Active;
   }
 
   private function generateCode($timestamp) {

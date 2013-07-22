@@ -38,8 +38,12 @@ class Booking_Admin extends Admin {
       }
     }
 
+    $booking = $this->booking_model->getBooking($id);
+    $voucher = $this->voucher_model->getVoucherByID($booking->voucher_id);
+
     $this->load->view('booking_admin/edit', array(
-      'booking' => $this->booking_model->getBooking($id)
+      'booking' => $booking,
+      'voucher' => $voucher
     ));
   }
 

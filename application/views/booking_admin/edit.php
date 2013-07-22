@@ -14,6 +14,11 @@
     echo form_label('Aktív?', 'status');
     echo form_checkbox(array('name' => 'status', 'id' => 'status', 'value' => 'active', 'checked' => ($booking->status == 'active') ? true : false));
     echo '</p><p>';
+    if (isset($voucher)) {
+      echo '<label for="">Kupon: </label>';
+      echo $voucher->code.' ('.$voucher->discounted_price.' Ft)';
+      echo '</p><p>';
+    }
     echo form_label('Foglaló vezetékneve', 'book-fname');
     echo form_input(array('name' => 'book-fname', 'id' => 'book-fname', 'value' => $booking->book_fname));
     echo '</p><p>';

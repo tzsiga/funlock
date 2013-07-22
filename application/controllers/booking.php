@@ -27,8 +27,10 @@ class Booking extends CI_Controller {
           } else {
             $voucher = $this->voucher_model->getVoucher($posted['code']);
             
-            if ($this->voucher_model->isActive($voucher)) {
-              $this->voucher_model->changeStatus($posted['code'], 'used');
+            if ($this->voucher_model->isAvailable($voucher)) {
+              if ($this->voucher_model->isActive($voucher))
+                $this->voucher_model->activate($voucher);
+              
               $this->booking_model->insertBooking($this->booking_model->composeBooking($posted, $voucher));
               $this->loadFormSuccessResult($posted, $voucher);
             } else {      // if voucher code is wrong or used
