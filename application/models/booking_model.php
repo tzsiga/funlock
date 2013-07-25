@@ -6,22 +6,15 @@ class Booking_model extends CI_Model {
     $bookings = array();
 
     foreach ($query->result() as $row)
-      $bookings[$row->appointment] = array(
-        'id' => $row->id,
-        'payment-option' => $row->payment_option,
-        'client' => $row->book_fname.' '.$row->book_sname,
-        'status' => $row->status
-      );
+      $bookings[$row->appointment] = $row;
 
     return $bookings;
   }
 
   public function getAllBookings() {
-    return $this->fetchBookingQuery($this->db->query('
-      SELECT *
-      FROM bookings
-      ORDER BY appointment DESC'
-    ));
+    $this->db->order_by('appointment', 'asc');
+    $query = $this->db->get('bookings');
+    return $this->fetchBookingQuery($query);
   }
 
   public function getBooking($id) {
@@ -31,14 +24,10 @@ class Booking_model extends CI_Model {
 
   public function getBookingsInRange($start) {
     $rangeLength = Utils::weekInSec - (time() - Utils::getLastMonday(time()));
-
-    return $this->fetchBookingQuery($this->db->query('
-      SELECT *
-      FROM bookings
-      WHERE appointment > '.Utils::getLastMonday($start).'
-      AND appointment < '.($start + $rangeLength).'
-      ORDER BY appointment ASC'
-    ));
+    $this->db->where('appointment > '.Utils::getLastMonday($start).' AND appointment < '.($start + $rangeLength));
+    $this->db->order_by('appointment', 'asc');
+    $query = $this->db->get('bookings');
+    return $this->fetchBookingQuery($query);
   }
 
   public function insertBooking($booking) {
@@ -55,14 +44,8 @@ class Booking_model extends CI_Model {
   }
 
   public function getBookingLimit() {
-    $query = $this->db->query("
-      SELECT value
-      FROM config
-      WHERE option_name = 'booking_limit'
-    ");
-    $result = $query->result();
-
-    return $result[0]->value;
+    $booking = $this->db->get_where('config', array('option_name' => 'booking_limit'))->result();
+    return $booking[0]->value;
   }
 
   public function composeBooking($posted, $voucher = null) {

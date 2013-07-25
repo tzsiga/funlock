@@ -1,31 +1,21 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class VoucherStatuses {
-    const Active = 'active';
-    const AlwaysActive = 'always_active';
-    const Used = 'used';
+  const Active = 'active';
+  const AlwaysActive = 'always_active';
+  const Used = 'used';
 }
 
 class Voucher_model extends CI_Model {
 
-  public function getVoucher($code) {
-    $query = $this->db->get_where('vouchers', array('code' => $code));
-
-    if ($query->num_rows != 0) {
-      $result = $query->result();
-      return $result[0];
-    } else
-      return null;
+  public function getVoucherByCode($code) {
+    $voucher = $this->db->get_where('vouchers', array('code' => $code))->result();
+    return isset($voucher[0]) ? $voucher[0] : null;
   }
 
   public function getVoucherByID($id) {
-    $query = $this->db->get_where('vouchers', array('id' => $id));
-
-    if ($query->num_rows != 0) {
-      $result = $query->result();
-      return $result[0];
-    } else
-      return null;   
+    $voucher = $this->db->get_where('vouchers', array('id' => $id))->result();
+    return isset($voucher[0]) ? $voucher[0] : null;
   }
 
   public function getVouchers() {
@@ -52,21 +42,12 @@ class Voucher_model extends CI_Model {
     $this->changeStatus($voucher->code, VoucherStatuses::Used);
   }
 
-  private function changeStatus($code, $newStatus) {
-    $this->db->set('status', $newStatus);
-    $this->db->where('code', $code);
-    $this->db->update('vouchers');
-  }
-
   public function composeVoucher($price) {
-    $voucher = array(
+    return array(
       'code' => $this->generateCode(time()),
-      //'status' => 'active',
       'discounted_price' => $price,
       'create_date' => time()
     );
-
-    return $voucher;
   }
 
   public function isUniqueCode($code) {
@@ -80,6 +61,12 @@ class Voucher_model extends CI_Model {
 
   public function isActive($voucher) {
     return isset($voucher) && $voucher->status == VoucherStatuses::Active;
+  }
+
+  private function changeStatus($code, $newStatus) {
+    $this->db->set('status', $newStatus);
+    $this->db->where('code', $code);
+    $this->db->update('vouchers');
   }
 
   private function generateCode($timestamp) {

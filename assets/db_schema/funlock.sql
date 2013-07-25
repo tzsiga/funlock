@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 21, 2013 at 01:31 PM
+-- Generation Time: Jul 25, 2013 at 09:56 AM
 -- Server version: 5.5.16
 -- PHP Version: 5.3.8
 
@@ -29,7 +29,8 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `bookings` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `voucher_id` int(11) DEFAULT NULL,
-  `status` varchar(10) COLLATE utf8_hungarian_ci NOT NULL DEFAULT 'active',
+  `status` varchar(10) COLLATE utf8_hungarian_ci DEFAULT 'active',
+  `payment_verified` varchar(10) COLLATE utf8_hungarian_ci DEFAULT NULL,
   `book_fname` varchar(35) COLLATE utf8_hungarian_ci NOT NULL,
   `book_sname` varchar(35) COLLATE utf8_hungarian_ci NOT NULL,
   `appointment` int(11) NOT NULL,
@@ -48,44 +49,16 @@ CREATE TABLE IF NOT EXISTS `bookings` (
   `booking_date` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `appointment` (`appointment`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci AUTO_INCREMENT=40 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci AUTO_INCREMENT=44 ;
 
 --
 -- Dumping data for table `bookings`
 --
 
-INSERT INTO `bookings` (`id`, `voucher_id`, `status`, `book_fname`, `book_sname`, `appointment`, `payment_option`, `bill_fname`, `bill_sname`, `email`, `phone`, `zip`, `city`, `street`, `house`, `tax_number`, `comment`, `notes`, `booking_date`) VALUES
-(1, NULL, 'active', 'Funky', 'Bob', 1374066000, 'card', '', '', 'tzsiga@gmail.com', '2571657', 1234, 'Budapest', 'sfd', '33', 0, '', '', 1373353468),
-(2, NULL, 'active', 'Hank', 'Jackson', 1373887800, 'card', '', '', 'admin@admin.com', '2571657', 1234, 'Budapest', 'dsad', '33', 0, '', '', 1373353401),
-(3, NULL, 'active', 'Billy', 'Jackson', 1373742000, 'cache', '', '', 'tzsiga@gmail.com', '2571657', 1234, 'Budapest', 'fsd', '33', 0, '', '', 1373353346),
-(4, NULL, 'active', 'Funky', 'Bob', 1374319800, 'cache', '', '', 'admin@admin.com', '2571657', 2134, 'Budapest', 'sfd', '432', 0, '', '', 1373353517),
-(5, NULL, 'active', 'Hank', 'Bob', 1373828400, 'cache', '', '', 'tzsiga@gmail.com', '2571657', 2332, 'Budapest', 'dsf', '33', 0, '', '', 1373353389),
-(10, NULL, 'active', 'Funky', 'Bob', 1373472000, 'card', '', '', 'tzshl@freemail.hu', '2571657', 1122, 'Budapest', 'asd', '12', 0, '', '', 1373353310),
-(12, NULL, 'active', 'Daniel', 'Moodey', 1374152400, 'card', '', '', 'tzshl@freemail.hu', '2571657', 1234, 'Budapest', 'fds', '556', 0, '', '', 1373353506),
-(13, NULL, 'active', 'Hank', 'Moodey', 1373968800, 'card', '', '', 'tzshl@freemail.hu', '2571657', 2322, 'Budapest', 'dsf', '11', 0, '', '', 1373353412),
-(14, NULL, 'active', 'Hank', 'Moodey', 1373569200, 'card', '', '', 'admin@admin.com', '2571657', 1234, 'Budapest', 'asd', '11', 0, '', '', 1373353491),
-(15, NULL, 'active', 'Hanky', 'Papa', 1373796000, 'cache', '', '', '', '', 0, '', '', '0', 0, '', '', 1373608734),
-(16, NULL, '', 'Hanky', 'Papa', 1373715000, 'card', '', '', '', '', 0, '', '', '0', 0, '', '', 1373609028),
-(18, NULL, '', 'Hanky', 'Papa', 1373817600, 'cache', '', '', '', '', 0, '', '', '', 0, '', '', 1373610180),
-(19, NULL, 'active', 'Hanky', 'Papa', 1373731200, 'cache', '', '', '', '', 0, '', '', '', 0, '', '', 1373610204),
-(20, NULL, 'active', 'Hanky', 'Papa', 1373823000, 'cache', '', '', '', '', 0, '', '', '', 0, '', '', 1373611939),
-(21, NULL, 'active', 'Hanky', 'Papa', 1373736600, 'cache', '', '', '', '', 0, '', '', '', 0, '', '', 1373612225),
-(22, NULL, 'active', 'Hanky', 'Papa', 1374438600, 'cache', '', '', '', '', 0, '', '', '', 0, '', '', 1373624369),
-(23, NULL, '', 'Hanky', 'Papa', 1374487200, 'cache', '', '', '', '', 0, '', '', '', 0, '', '', 1373639228),
-(24, NULL, 'active', 'Hanky', 'Papa', 1375043400, 'cache', '', '', '', '', 0, '', '', '', 0, '', '', 1373625262),
-(25, NULL, 'active', '', '', 1373720400, 'cache', '', '', '', '', 0, '', '', '', 0, '', '', 1373637911),
-(26, NULL, 'active', '', '', 1373806800, 'cache', '', '', '', '', 0, '', '', '', 0, '', '', 1373637965),
-(27, NULL, '', '', '', 1373801400, 'cache', '', '', '', '', 0, '', '', '', 0, '', '', 1373793948),
-(28, NULL, 'active', 'Hanky', 'Papa', 1374249600, 'card', '', '', 'tzsiga@gmail.com', '578568', 1234, 'sdasd', 'asdasd', '1', 0, '', '', 1374147106),
-(29, 96, 'active', 'Hanky', 'Papa', 1374336000, 'card', '', '', 'tzsiga@gmail.com', '578568', 1234, 'sdasd', 'asdasd', '1', 0, '', '', 1374214959),
-(30, NULL, 'active', 'Hanky', 'Papa', 1374417000, 'card', '', '', 'tzsiga@gmail.com', '578568', 1234, 'sdasd', 'asdasd', '1', 0, '', '', 1374331408),
-(31, 93, 'active', 'Hanky', 'Papa', 1374346800, 'card', '', '', 'tzsiga@gmail.com', '578568', 1234, 'sdasd', 'asdasd', '1', 0, '', '', 1374331503),
-(34, NULL, 'active', 'Hanky', 'Papa', 1374341400, 'card', '', '', 'tzsiga@gmail.com', '578568', 1234, 'sdasd', 'asdasd', '1', 0, '', '', 1374332439),
-(35, NULL, 'active', 'Hanky', 'Papa', 1374427800, 'card', '', '', 'tzsiga@gmail.com', '578568', 1234, 'sdasd', 'asdasd', '1', 0, '', '', 1374332494),
-(36, NULL, 'active', 'Hanky', 'Papa', 1374400800, 'card', '', '', 'tzsiga@gmail.com', '578568', 1234, 'sdasd', 'asdasd', '1', 0, '', '', 1374333338),
-(37, 100, 'active', 'Hanky', 'Papa', 1374406200, 'card', '', '', 'tzsiga@gmail.com', '578568', 1234, 'sdasd', 'asdasd', '1', 0, '', '', 1374333368),
-(38, NULL, 'active', 'Hanky', 'Papa', 1374503400, 'card', '', '', 'tzsiga@gmail.com', '578568', 1234, 'sdasd', 'asdasd', '1', 0, '', '', 1374405427),
-(39, NULL, 'active', 'Hanky', 'Papa', 1374584400, 'card', '', '', 'tzsiga@gmail.com', '578568', 1234, 'sdasd', 'asdasd', '1', 0, '', '', 1374405521);
+INSERT INTO `bookings` (`id`, `voucher_id`, `status`, `payment_verified`, `book_fname`, `book_sname`, `appointment`, `payment_option`, `bill_fname`, `bill_sname`, `email`, `phone`, `zip`, `city`, `street`, `house`, `tax_number`, `comment`, `notes`, `booking_date`) VALUES
+(41, NULL, 'active', NULL, 'Hanky', 'Papa', 1374751800, 'cache', '', '', '', '', 0, '', '', '', 0, '', '', 1374735677),
+(42, NULL, NULL, NULL, '', '', 1372251600, 'cache', '', '', '', '', 0, '', '', '', 0, '', '', 1374650424),
+(43, 81, 'active', 'yes', 'Hanky', 'Papa', 1374854400, 'card', '', '', 'tzsiga@gmail.com', '578568', 1234, 'sdasd', 'asdasd', '1', 0, '', '', 1374735648);
 
 -- --------------------------------------------------------
 
@@ -120,23 +93,96 @@ CREATE TABLE IF NOT EXISTS `vouchers` (
   `create_date` int(11) NOT NULL,
   `status` varchar(10) COLLATE utf8_hungarian_ci NOT NULL DEFAULT 'active',
   `discounted_price` int(11) NOT NULL,
+  `label` text COLLATE utf8_hungarian_ci,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci AUTO_INCREMENT=102 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci AUTO_INCREMENT=82 ;
 
 --
 -- Dumping data for table `vouchers`
 --
 
-INSERT INTO `vouchers` (`id`, `code`, `create_date`, `status`, `discounted_price`) VALUES
-(93, '3C9E4A8E', 1374127182, 'used', 8000),
-(94, 'B78FB628', 1374127182, 'active', 8000),
-(95, '19677011', 1374127182, 'active', 8000),
-(96, 'A451856F', 1374127182, 'used', 8000),
-(97, '51D75021', 1374127182, 'active', 8000),
-(98, '7C2D4590', 1374127182, 'used', 8000),
-(99, '368501F5', 1374332879, 'active', 6000),
-(100, '1E02B0FB', 1374332879, 'used', 6000),
-(101, '1C24D935', 1374332879, 'active', 6000);
+INSERT INTO `vouchers` (`id`, `code`, `create_date`, `status`, `discounted_price`, `label`) VALUES
+(1, '00b5ee', 1374127182, 'active', 8000, 'god mode voucher'),
+(2, '00e662', 1374127182, 'active', 8000, NULL),
+(3, '010ec7', 1374127182, 'active', 8000, NULL),
+(4, '01dfcf', 1374127182, 'active', 8000, NULL),
+(5, '02694c', 1374127182, 'active', 8000, NULL),
+(6, '02a7ad', 1374127182, 'active', 8000, NULL),
+(7, '02fce0', 1374127182, 'active', 8000, NULL),
+(8, '046d9a', 1374127182, 'active', 8000, NULL),
+(9, '046fa8', 1374127182, 'active', 8000, NULL),
+(10, '0471a5', 1374127182, 'active', 8000, NULL),
+(11, '04a699', 1374127182, 'active', 8000, NULL),
+(12, '04b4e2', 1374127182, 'active', 8000, NULL),
+(13, '06658f', 1374127182, 'active', 8000, NULL),
+(14, '06c0f2', 1374127182, 'active', 8000, NULL),
+(15, '06c670', 1374127182, 'active', 8000, NULL),
+(16, '06d087', 1374127182, 'active', 8000, NULL),
+(17, '070db1', 1374127182, 'active', 8000, NULL),
+(18, '07788b', 1374127182, 'active', 8000, NULL),
+(19, '07f517', 1374127182, 'active', 8000, NULL),
+(20, '081c92', 1374127182, 'active', 8000, NULL),
+(21, '082dd1', 1374127182, 'active', 8000, NULL),
+(22, '08458e', 1374127182, 'active', 8000, NULL),
+(23, '0864ed', 1374127182, 'active', 8000, NULL),
+(24, '087f3c', 1374127182, 'active', 8000, NULL),
+(25, '088c05', 1374127182, 'active', 8000, NULL),
+(26, '08dfb9', 1374127182, 'active', 8000, NULL),
+(27, '09262b', 1374127182, 'active', 8000, NULL),
+(28, '095c3a', 1374127182, 'active', 8000, NULL),
+(29, '0967fb', 1374127182, 'active', 8000, NULL),
+(30, '09811a', 1374127182, 'active', 8000, NULL),
+(31, '098dde', 1374127182, 'active', 8000, NULL),
+(32, '09e2ee', 1374127182, 'active', 8000, NULL),
+(33, '09f819', 1374127182, 'active', 8000, NULL),
+(34, '0a6486', 1374127182, 'active', 8000, NULL),
+(35, '0ae7c5', 1374127182, 'active', 8000, NULL),
+(36, '0c2472', 1374127182, 'active', 8000, NULL),
+(37, '0c436b', 1374127182, 'active', 8000, NULL),
+(38, '0c45d2', 1374127182, 'active', 8000, NULL),
+(39, '0c544c', 1374127182, 'active', 8000, NULL),
+(40, '0c7d5a', 1374127182, 'active', 8000, NULL),
+(41, '0cca73', 1374127182, 'active', 8000, NULL),
+(42, '0d4fa6', 1374127182, 'active', 8000, NULL),
+(43, '0d995a', 1374127182, 'active', 8000, NULL),
+(44, '0df922', 1374127182, 'active', 8000, NULL),
+(45, '0eb20a', 1374127182, 'active', 8000, NULL),
+(46, '0eebcc', 1374127182, 'active', 8000, NULL),
+(47, '0f6cbd', 1374127182, 'active', 8000, NULL),
+(48, '105d28', 1374127182, 'active', 8000, NULL),
+(49, '10be61', 1374127182, 'active', 8000, NULL),
+(50, '10c48f', 1374127182, 'active', 8000, NULL),
+(51, '111dec', 1374127182, 'active', 8000, NULL),
+(52, '112e9c', 1374127182, 'active', 8000, NULL),
+(53, '11629d', 1374127182, 'active', 8000, NULL),
+(54, '119da0', 1374127182, 'active', 8000, NULL),
+(55, '11c7b1', 1374127182, 'active', 8000, NULL),
+(56, '12044e', 1374127182, 'active', 8000, NULL),
+(57, '127bcb', 1374127182, 'active', 8000, NULL),
+(58, '12ae31', 1374127182, 'active', 8000, NULL),
+(59, '13ddc1', 1374127182, 'active', 8000, NULL),
+(60, '144c94', 1374127182, 'active', 8000, NULL),
+(61, '156e2d', 1374127182, 'active', 8000, NULL),
+(62, '15c717', 1374127182, 'active', 8000, NULL),
+(63, '16bc55', 1374127182, 'active', 8000, NULL),
+(64, '18cf53', 1374127182, 'active', 8000, NULL),
+(65, '18dfbb', 1374127182, 'active', 8000, NULL),
+(66, '18ea9e', 1374127182, 'active', 8000, NULL),
+(67, '1968f6', 1374127182, 'active', 8000, NULL),
+(68, '19a524', 1374127182, 'active', 8000, NULL),
+(69, '19a70c', 1374127182, 'active', 8000, NULL),
+(70, '1bd790', 1374127182, 'active', 8000, NULL),
+(71, '1c1f2e', 1374127182, 'active', 8000, NULL),
+(72, '1c3f56', 1374127182, 'active', 8000, NULL),
+(73, '1c44a9', 1374127182, 'active', 8000, NULL),
+(74, '1cc871', 1374127182, 'active', 8000, NULL),
+(75, '1d2c0b', 1374127182, 'active', 8000, NULL),
+(76, '1d4686', 1374127182, 'active', 8000, NULL),
+(77, '1db2d0', 1374127182, 'active', 8000, NULL),
+(78, '1dc35a', 1374127182, 'active', 8000, NULL),
+(79, '1dd55b', 1374127182, 'active', 8000, NULL),
+(80, '1e0c19', 1374127182, 'active', 8000, NULL),
+(81, 'B2533A69', 1374731451, 'used', 1000, NULL);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

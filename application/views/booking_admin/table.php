@@ -25,15 +25,15 @@ for ($hourIndex = Utils::hourFrom; $hourIndex <= Utils::hourTo; $hourIndex += Ut
     } else {
       // if in the present week or future
       if (isset($bookings[$cellTimestamp])) {
-        if (empty($bookings[$cellTimestamp]['status'])) {
+        if (empty($bookings[$cellTimestamp]->status)) {
           echo '<td class="reserved-cell">';
-        } elseif ($bookings[$cellTimestamp]['payment-option'] == 'card') {
+        } elseif ($bookings[$cellTimestamp]->payment_option == 'card') {
           echo '<td class="reserved-cell-at">';
-        } elseif ($bookings[$cellTimestamp]['payment-option'] == 'cache') {
+        } elseif ($bookings[$cellTimestamp]->payment_option == 'cache') {
           echo '<td class="reserved-cell-kp">';
         }
       
-        echo '<a href="'.base_url().'index.php/admin/booking/edit/'.$bookings[$cellTimestamp]['id'].'"><div style="width: 90px; height: 34px;"></div></a></td>';
+        echo '<a href="'.base_url().'index.php/admin/booking/edit/'.$bookings[$cellTimestamp]->id.'"><div style="width: 90px; height: 34px;"></div></a></td>';
       } else {
         echo '<td class="timebox"><a href="'.base_url().'index.php/admin/booking/add/'.$cellTimestamp.'"><div style="width: 90px; height: 34px;"></div></a></td>';
       }
