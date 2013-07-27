@@ -8,24 +8,31 @@
     <?= $this->session->flashdata('msg') ?>
   </h3>
   <?php
-    echo form_open('admin/voucher/edit', array('class' => 'centered'));
+    echo form_open('admin/voucher/edit/'.$voucher->id, array('class' => 'centered'));
     echo '<p>';
-    echo form_label('Kód: '.$voucher->code, '');
+    echo form_label('Kód:', '');
+    echo form_hidden('code', $voucher->code);
+    echo $voucher->code;
     echo '</p><p>';
-    echo form_label('Állapot: '.$voucher->status, '');
+    echo form_label('Állapot:', '');
+    echo form_hidden('status', $voucher->status);
+    echo $voucher->status;
     echo '</p><p>';
-    echo form_label('Kedvezményes ár:', 'discounted_price');
-    echo form_input(array('name' => 'discounted_price', 'id' => 'discounted_price', 'value' => 8000));
+    echo form_label('Létrehozva:', '');
+    echo date("Y-m-d H:i", $voucher->create_date);
+    echo form_hidden('create_date', $voucher->create_date);
     echo '</p><p>';
-    echo form_label('Címke:', 'label');
-    echo form_input(array('name' => 'label', 'id' => 'labbel', 'value' => $voucher->label));
+    echo form_label('<strong>Kedvezményes ár:</strong>', 'discounted_price');
+    echo form_input(array('name' => 'discounted_price', 'id' => 'discounted_price', 'value' => $voucher->discounted_price));
     echo '</p><p>';
-    echo form_label('Létrehozva: '.$voucher->create_date, '');
+    echo form_label('<strong>Címke:</strong>', 'label');
+    echo form_input(array('name' => 'label', 'id' => 'label', 'value' => $voucher->label));
     echo '</p><p>';
-    echo form_submit('save', 'Mentés');
+    echo '<br/>';
+    echo '<div id="buttons">'.form_submit('save', 'Mentés').form_submit('delete', 'Törlés').'</div>';
     echo '</p>';
     echo form_close();
   ?>
-  <p><a href="<?= base_url() ?>index.php/admin/voucher">Vissza</a></p>
+  <p><a href="<?= base_url() ?>index.php/admin/voucher/edit">Vissza</a></p>
 </body>
 </html>

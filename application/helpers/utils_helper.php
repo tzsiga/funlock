@@ -29,4 +29,16 @@ class Utils {
     return $timestamp - (Utils::getDayNumber($timestamp) - 1) * Utils::dayInSec - $currentTime - Utils::hourInSec;
   }
 
+  public static function getCase($posted) {
+    foreach ($posted as $name => $value) {
+      if (preg_match('/save/', $name)) {
+        return 'save';
+      } else if (preg_match('/delete/', $name)) {
+        return 'delete';
+      }
+    }
+
+    return null;
+  }
+
 }

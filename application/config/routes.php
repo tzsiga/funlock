@@ -9,7 +9,7 @@
 | and its corresponding controller class/method. The segments in a
 | URL normally follow this pattern:
 |
-|	example.com/class/method/id/
+| example.com/class/method/id/
 |
 | In some instances, however, you may want to remap this relationship
 | so that a different class/function is called than the one
@@ -17,7 +17,7 @@
 |
 | Please see the user guide for complete details:
 |
-|	http://codeigniter.com/user_guide/general/routing.html
+| http://codeigniter.com/user_guide/general/routing.html
 |
 | -------------------------------------------------------------------------
 | RESERVED ROUTES
@@ -25,40 +25,41 @@
 |
 | There area two reserved routes:
 |
-|	$route['default_controller'] = 'welcome';
+| $route['default_controller'] = 'welcome';
 |
 | This route indicates which controller class should be loaded if the
 | URI contains no data. In the above example, the "welcome" class
 | would be loaded.
 |
-|	$route['404_override'] = 'errors/page_missing';
+| $route['404_override'] = 'errors/page_missing';
 |
 | This route will tell the Router what URI segments to use if those provided
 | in the URL cannot be matched to a valid route.
 |
 */
 
-$route['default_controller']						= "pages";
+$route['default_controller']            = "pages";
 
-$route['main']													= "booking";
-$route['main/(:any)']										= "booking/$1";
+$route['main']                          = "booking";
+$route['main/(:any)']                   = "booking/$1";
 
-$route['admin/config/change_limit']			= "config/changelimit";
-$route['admin/config/change_password']	= "config/changepassword";
-$route['admin/config/phpinfo']					= "config/phpinfo";
+$route['admin/config/change_limit']     = "config/changelimit";
+$route['admin/config/change_password']  = "config/changepassword";
+$route['admin/config/phpinfo']          = "config/phpinfo";
 
-$route['admin/booking/list']						= "booking_admin/editlist";
-$route['admin/booking/add']							= "booking_admin/add";
-$route['admin/booking/add/(:any)']			= "booking_admin/add/$1";
-$route['admin/booking/edit']						= "booking_admin/edittable";
-$route['admin/booking/edit/(:any)']			= "booking_admin/edit/$1";
-$route['admin/booking/(:any)']					= "booking_admin/$1";
+$route['admin/booking/list']            = "booking_admin/editlist";
+$route['admin/booking/add']             = "booking_admin/add";
+$route['admin/booking/add/(:any)']      = "booking_admin/add/$1";
+$route['admin/booking/edit']            = "booking_admin/edittable";
+$route['admin/booking/edit/(:any)']     = "booking_admin/edit/$1";
+$route['admin/booking/(:any)']          = "booking_admin/$1";
 
-$route['admin/voucher']					        = "voucher/index";
-$route['admin/voucher/add']			        = "voucher/add";
-$route['admin/voucher/edit']					  = "voucher/editVouchers";
+$route['admin/voucher']                 = "voucher/index";
+$route['admin/voucher/add']             = "voucher/add";
+$route['admin/voucher/edit']            = "voucher/editVouchers";
+$route['admin/voucher/edit/(:any)']     = "voucher/edit/$1";
 
-$route['404_override']									= "";
+$route['404_override']                  = "";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

@@ -9,7 +9,9 @@ class VoucherStatuses {
 class Voucher_model extends CI_Model {
 
   public function getVoucherByCode($code) {
-    $voucher = $this->db->get_where('vouchers', array('code' => $code))->result();
+    $voucher = $this->db->get_where('vouchers', array(
+      'LOWER(code)' => strtolower($code)
+    ))->result();
     return isset($voucher[0]) ? $voucher[0] : null;
   }
 
@@ -18,17 +20,17 @@ class Voucher_model extends CI_Model {
     return isset($voucher[0]) ? $voucher[0] : null;
   }
 
-  public function getVouchers() {
+  public function getAll() {
     $this->db->order_by("create_date", "desc");
     $vouchers = $this->db->get('vouchers');
     return $vouchers->result();
   }
 
-  public function getNewUniqueVoucher($price) {
-    $voucher = $this->composeVoucher($price);
+  public function getNewUniqueVoucher($posted) {
+    $voucher = $this->composeVoucher($posted);
 
     while (!$this->isUniqueCode($voucher['code'])) {
-      $voucher = $this->composeVoucher($price);
+      $voucher = $this->composeVoucher($posted);
     }
 
     return $voucher;
@@ -42,11 +44,12 @@ class Voucher_model extends CI_Model {
     $this->changeStatus($voucher->code, VoucherStatuses::Used);
   }
 
-  public function composeVoucher($price) {
+  public function composeVoucher($posted) {
     return array(
-      'code' => $this->generateCode(time()),
-      'discounted_price' => $price,
-      'create_date' => time()
+      'code' => isset($posted['code']) ? $posted['code'] : $this->generateCode(time()),
+      'discounted_price' => $posted['discounted_price'],
+      'create_date' => isset($posted['create_date']) ? $posted['create_date'] : time(),
+      'label' => $posted['label']
     );
   }
 
@@ -61,6 +64,15 @@ class Voucher_model extends CI_Model {
 
   public function isActive($voucher) {
     return isset($voucher) && $voucher->status == VoucherStatuses::Active;
+  }
+
+  public function updateVoucher($id, $voucher) {
+    $this->db->where('id', $id);
+    $this->db->update('vouchers', $voucher);
+  }
+
+  public function deleteVoucher($id) {
+    $this->db->delete('vouchers', array('id' => $id));
   }
 
   private function changeStatus($code, $newStatus) {

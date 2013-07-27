@@ -29,9 +29,9 @@ class Booking_Admin extends Admin {
       $this->setValidationRulesForAdmin($posted);
 
       if ($this->form_validation->run() == true) {
-        if ($this->getCase($posted) === 'save') {
+        if (Utils::getCase($posted) === 'save') {
           $this->saveBooking($id, $posted);
-        } else if ($this->getCase($posted) === 'delete') {
+        } else if (Utils::getCase($posted) === 'delete') {
           $this->deleteBooking($id, $posted);
         }
         redirect('admin/booking/edit', 'refresh');
@@ -100,17 +100,6 @@ class Booking_Admin extends Admin {
     );
   }
 
-  private function getCase($posted) {
-    foreach ($posted as $name => $value) {
-      if (preg_match('/save/', $name)) {
-        return 'save';
-      } else if (preg_match('/delete/', $name)) {
-        return 'delete';
-      }
-    }
-
-    return null;
-  }
 
   private function getDateTime($posted) {
     return date('Y-m-d H:i', $this->booking_model->addDateAndTimestamp($posted));
