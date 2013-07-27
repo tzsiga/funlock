@@ -1,5 +1,4 @@
 <?php $this->load->view('header'); ?>
-<?php $this->load->view('booking_admin/utils'); ?>
 <body id="admin-page">
   <h1>
     Foglalás szerkesztése
@@ -30,7 +29,7 @@
     echo '</p><p>';
     echo form_label('Foglalt időpont', 'appointment');
     echo form_input(array('name' => 'appointment', 'id' => 'appointment', 'value' => date('Y-m-d', $booking->appointment))).' - ';
-    echo form_dropdown('appointment-hour', getPlaytimeRangeDropdownValues(), date('G', $booking->appointment) + (date('i', $booking->appointment) == 30 ? 0.5 : 0));
+    echo form_dropdown('appointment-hour', Utils::getPlaytimeRangeDropdownValues(), date('G', $booking->appointment) + (date('i', $booking->appointment) == 30 ? 0.5 : 0));
     echo '</p><p>';
     echo form_label('Fizetés átutalással', 'payment-option');
     echo form_radio(array('name' => 'payment-option', 'id' => 'payment-option-1', 'value' => 'card', 'checked' => ($booking->payment_option == 'card' ? true : false)));

@@ -2,16 +2,6 @@
 
 class Utils {
 
-  public static function dump($var) {
-    if (is_array($var) || is_object($var)) {
-      echo '<pre>';
-      print_r($var);
-      echo '</pre>';
-    } else {
-      var_dump($var);
-    }
-  }
-
   const hourInSec   = 3600;       // 60 * 60
   const dayInSec    = 86400;      // 60 * 60 * 24
   const weekInSec   = 604800;     // 60 * 60 * 24 * 7
@@ -20,8 +10,16 @@ class Utils {
   const hourTo      = 23;
   const hourStep    = 1.5;
 
-  private static function getDayNumber($timestamp) {
-    return (date('w', $timestamp) == 0) ? 7 : date('w', $timestamp);
+  public static $voucherStatuses = array('infinite' => 'végtelenített', 'active' => 'aktív', 'used' => 'felhasznált');
+
+  public static function dump($var) {
+    if (is_array($var) || is_object($var)) {
+      echo '<pre>';
+      print_r($var);
+      echo '</pre>';
+    } else {
+      var_dump($var);
+    }
   }
 
   public static function getLastMonday($timestamp) {
@@ -41,4 +39,25 @@ class Utils {
     return null;
   }
 
+  public static function getPlaytimeRangeDropdownValues() {
+    $values = range(Utils::hourFrom, Utils::hourTo, Utils::hourStep);
+    $labels = array();
+    
+    foreach ($values as $val) {
+      $labels[] = (int)$val == $val ? $val.':00' : ((int)$val).':30';
+    }
+    
+    $hours = array_combine($values, $labels);
+    
+    if (Utils::hourTo == 24) {
+      array_pop($hours);
+      return $hours + array(0 => '0:00');
+    }
+    
+    return $hours;
+  }
+
+  private static function getDayNumber($timestamp) {
+    return (date('w', $timestamp) == 0) ? 7 : date('w', $timestamp);
+  }
 }

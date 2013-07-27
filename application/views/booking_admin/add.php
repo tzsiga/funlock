@@ -1,5 +1,4 @@
 <?php $this->load->view('header'); ?>
-<?php $this->load->view('booking_admin/utils'); ?>
 <body id="admin-page">
   <h1>
     Új foglalás
@@ -22,7 +21,7 @@
     echo '</p><p>';
     echo form_label('Foglalt időpont', 'appointment');
     echo form_input(array('name' => 'appointment', 'id' => 'appointment', 'value' => isset($posted['appointment']) ? $posted['appointment'] : date('Y-m-d', $timestamp))).' - ';
-    echo form_dropdown('appointment-hour', getPlaytimeRangeDropdownValues(), isset($posted['appointment-hour']) ? $posted['appointment-hour'] : date('G', $timestamp) + (date('i', $timestamp) == 30 ? 0.5 : 0));
+    echo form_dropdown('appointment-hour', Utils::getPlaytimeRangeDropdownValues(), isset($posted['appointment-hour']) ? $posted['appointment-hour'] : date('G', $timestamp) + (date('i', $timestamp) == 30 ? 0.5 : 0));
     echo '</p><p>';
     echo form_label('<strong>Fizetés átutalással</strong>', 'payment-option');
     echo form_radio(array('name' => 'payment-option', 'id' => 'payment-option-1', 'value' => 'card'));

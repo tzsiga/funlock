@@ -39,7 +39,7 @@ class Booking extends CI_Controller {
   private function onSuccessfulBooking($posted) {
     $voucher = $this->voucher_model->getVoucherByCode($posted['code']);
     
-    if ($this->voucher_model->isAvailable($voucher)) {
+    if (isset($voucher) && $this->voucher_model->isAvailable($voucher)) {
       if ($this->voucher_model->isActive($voucher))
         $this->voucher_model->activate($voucher);
       

@@ -19,7 +19,7 @@
       foreach ($vouchers as $voucher) {
         echo '<tr>';
         echo '<td><a href="'.base_url().'index.php/admin/voucher/edit/'.$voucher->id.'">'.$voucher->code.'</td>';
-        echo '<td>'.$voucher->status.'</td>';
+        echo '<td>'.Utils::$voucherStatuses[$voucher->status].'</td>';
         echo '<td>'.$voucher->discounted_price.'</td>';
         echo '<td>'.date("Y-m-d H:i",$voucher->create_date).'</td>';
         echo '<td>'.$voucher->label.'</td>';

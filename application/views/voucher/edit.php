@@ -14,9 +14,8 @@
     echo form_hidden('code', $voucher->code);
     echo $voucher->code;
     echo '</p><p>';
-    echo form_label('Állapot:', '');
-    echo form_hidden('status', $voucher->status);
-    echo $voucher->status;
+    echo form_label('Állapot:', 'status');
+    echo form_dropdown('status', Utils::$voucherStatuses, $voucher->status);
     echo '</p><p>';
     echo form_label('Létrehozva:', '');
     echo date("Y-m-d H:i", $voucher->create_date);

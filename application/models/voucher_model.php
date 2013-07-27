@@ -1,8 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class VoucherStatuses {
+  const Infinite = 'infinite';
   const Active = 'active';
-  const AlwaysActive = 'always_active';
   const Used = 'used';
 }
 
@@ -47,8 +47,9 @@ class Voucher_model extends CI_Model {
   public function composeVoucher($posted) {
     return array(
       'code' => isset($posted['code']) ? $posted['code'] : $this->generateCode(time()),
-      'discounted_price' => $posted['discounted_price'],
       'create_date' => isset($posted['create_date']) ? $posted['create_date'] : time(),
+      'status' => isset($posted['status']) ? $posted['status'] : VoucherStatuses::Active,
+      'discounted_price' => $posted['discounted_price'],
       'label' => $posted['label']
     );
   }
@@ -59,11 +60,11 @@ class Voucher_model extends CI_Model {
   }
 
   public function isAvailable($voucher) {
-    return isset($voucher) && ($voucher->status == VoucherStatuses::Active || $voucher->status == VoucherStatuses::AlwaysActive);
+    return $voucher->status == VoucherStatuses::Active || $voucher->status == VoucherStatuses::Infinite;
   }
 
   public function isActive($voucher) {
-    return isset($voucher) && $voucher->status == VoucherStatuses::Active;
+    return $voucher->status == VoucherStatuses::Active;
   }
 
   public function updateVoucher($id, $voucher) {
