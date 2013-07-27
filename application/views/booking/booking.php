@@ -12,6 +12,7 @@
       <div id="menu">
         <ul>
           <li><p id="link-info">Info</p></li>
+          <li><p id="link-story">Történet</p></li>
           <li><p id="link-contact">Elérhetőség</p></li>
           <li><p id="link-gallery"><a href="https://www.facebook.com/pages/Funlock/334668339974241?id=334668339974241&amp;sk=photos_stream" target="_blank">Galéria</a></p></li>
         </ul>
