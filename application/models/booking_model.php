@@ -11,15 +11,15 @@ class Booking_model extends CI_Model {
     return $bookings;
   }
 
+  public function getBooking($id) {
+    $booking = $this->db->get_where('bookings', array('id' => $id))->result();
+    return $booking[0];
+  }
+
   public function getAllBookings() {
     $this->db->order_by('appointment', 'asc');
     $query = $this->db->get('bookings');
     return $this->fetchBookingQuery($query);
-  }
-
-  public function getBooking($id) {
-    $booking = $this->db->get_where('bookings', array('id' => $id))->result();
-    return $booking[0];
   }
 
   public function getBookingsInRange($start) {

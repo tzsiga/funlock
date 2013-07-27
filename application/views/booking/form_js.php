@@ -19,6 +19,7 @@
       $('#code').fadeIn();
     } else {
       $('#code').fadeOut();
+      $('#code').val('');
     }
   });
 
