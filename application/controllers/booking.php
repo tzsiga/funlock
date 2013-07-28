@@ -50,21 +50,35 @@ class Booking extends CI_Controller {
       $this->loadFormSuccessResult($posted);
     }
 
-    //$this->sendConfirmationEmail($posted, $voucher);
+    $this->sendConfirmationEmail($posted, $voucher);
     $this->booking_model->incSuccessfulBookings();
   }
 
   private function sendConfirmationEmail($posted, $voucher = null) {
-    $this->load->library('email');
+    $this->setEmailDefaultOptions();
+    $this->email->to($posted['email']);
 
-    $this->email->from('your@example.com', 'Your Name');
-    $this->email->to('tzsiga@gmail.com');
-    //$this->email->bcc('them@their-example.com'); 
-
-    $this->email->subject('Email Test');
-    $this->email->message('Testing the email class.');
+    $msg = $this->load->view('email/confirm', array(
+      'posted' => $posted,
+      'voucher' => $voucher
+    ), true);
+    $this->email->message($msg);
 
     $this->email->send();
+  }
+
+  private function setEmailDefaultOptions() {
+    $admins = array(
+      'tzsiga@funlock.hu',
+      'andras.csernak@funlock.hu',
+      'gabor.veress@funlock.hu'
+    );
+
+    $this->load->library('email');
+    $this->email->set_mailtype("html");
+    $this->email->from('info@funlock.hu', 'Funlock');
+    $this->email->bcc($admins);
+    $this->email->subject('Visszaigazolás a foglalásról');
   }
 
   private function loadFormSuccessResult($posted, $voucher = null) {

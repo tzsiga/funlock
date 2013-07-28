@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.5
+-- version 4.0.4
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Jul 25, 2013 at 09:56 AM
--- Server version: 5.5.16
--- PHP Version: 5.3.8
+-- Host: 127.0.0.1
+-- Generation Time: Jul 28, 2013 at 12:03 PM
+-- Server version: 5.5.32
+-- PHP Version: 5.4.16
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `funlock`
 --
+CREATE DATABASE IF NOT EXISTS `flow_funlock` DEFAULT CHARACTER SET utf8 COLLATE utf8_hungarian_ci;
+USE `flow_funlock`;
 
 -- --------------------------------------------------------
 
@@ -49,16 +51,7 @@ CREATE TABLE IF NOT EXISTS `bookings` (
   `booking_date` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `appointment` (`appointment`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci AUTO_INCREMENT=44 ;
-
---
--- Dumping data for table `bookings`
---
-
-INSERT INTO `bookings` (`id`, `voucher_id`, `status`, `payment_verified`, `book_fname`, `book_sname`, `appointment`, `payment_option`, `bill_fname`, `bill_sname`, `email`, `phone`, `zip`, `city`, `street`, `house`, `tax_number`, `comment`, `notes`, `booking_date`) VALUES
-(41, NULL, 'active', NULL, 'Hanky', 'Papa', 1374751800, 'cache', '', '', '', '', 0, '', '', '', 0, '', '', 1374735677),
-(42, NULL, NULL, NULL, '', '', 1372251600, 'cache', '', '', '', '', 0, '', '', '', 0, '', '', 1374650424),
-(43, 81, 'active', 'yes', 'Hanky', 'Papa', 1374854400, 'card', '', '', 'tzsiga@gmail.com', '578568', 1234, 'sdasd', 'asdasd', '1', 0, '', '', 1374735648);
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci AUTO_INCREMENT=50 ;
 
 -- --------------------------------------------------------
 
@@ -95,14 +88,13 @@ CREATE TABLE IF NOT EXISTS `vouchers` (
   `discounted_price` int(11) NOT NULL,
   `label` text COLLATE utf8_hungarian_ci,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci AUTO_INCREMENT=82 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci AUTO_INCREMENT=92 ;
 
 --
 -- Dumping data for table `vouchers`
 --
 
 INSERT INTO `vouchers` (`id`, `code`, `create_date`, `status`, `discounted_price`, `label`) VALUES
-(1, '00b5ee', 1374127182, 'active', 8000, 'god mode voucher'),
 (2, '00e662', 1374127182, 'active', 8000, NULL),
 (3, '010ec7', 1374127182, 'active', 8000, NULL),
 (4, '01dfcf', 1374127182, 'active', 8000, NULL),
@@ -182,7 +174,7 @@ INSERT INTO `vouchers` (`id`, `code`, `create_date`, `status`, `discounted_price
 (78, '1dc35a', 1374127182, 'active', 8000, NULL),
 (79, '1dd55b', 1374127182, 'active', 8000, NULL),
 (80, '1e0c19', 1374127182, 'active', 8000, NULL),
-(81, 'B2533A69', 1374731451, 'used', 1000, NULL);
+(90, '3F9E0266', 1374959716, 'infinite', 0, 'god mode');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -17,6 +17,7 @@
   <h3 id="flash-msg">
     <?= $this->session->flashdata('msg') ?>
   </h3>
+  <p><a href="<?= base_url() ?>index.php/admin/booking/edit">Vissza</a></p>
   <h3>Új játékok:</h3>
   <table class="admin-list-table">
     <tr>
@@ -44,8 +45,6 @@
       }
     ?>
   </table>
-  <p>
-    <a href="<?= base_url() ?>index.php/admin/booking/edit">Vissza</a>
-  </p>
+  <p><a href="<?= base_url() ?>index.php/admin/booking/edit">Vissza</a></p>
 </body>
 </html>
