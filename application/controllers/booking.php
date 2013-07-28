@@ -57,25 +57,23 @@ class Booking extends CI_Controller {
   private function sendConfirmationEmail($posted, $voucher = null) {
     $this->setEmailDefaultOptions();
     $this->email->to($posted['email']);
-
     $msg = $this->load->view('email/confirm', array(
       'posted' => $posted,
       'voucher' => $voucher
     ), true);
     $this->email->message($msg);
-
     $this->email->send();
   }
 
   private function setEmailDefaultOptions() {
     $admins = array(
-      'tzsiga@funlock.hu',
       'andras.csernak@funlock.hu',
-      'gabor.veress@funlock.hu'
+      'gabor.veress@funlock.hu',
+      'tzsiga@funlock.hu'
     );
 
     $this->load->library('email');
-    $this->email->set_mailtype("html");
+    $this->email->set_mailtype('html');
     $this->email->from('info@funlock.hu', 'Funlock');
     $this->email->bcc($admins);
     $this->email->subject('Visszaigazolás a foglalásról');
@@ -126,6 +124,5 @@ class Booking extends CI_Controller {
       $this->form_validation->set_rules('bill-sname', '"Számlázási keresztnév"', 'required|xss_clean');
     }
   }
-
 
 }
