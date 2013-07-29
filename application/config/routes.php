@@ -48,6 +48,7 @@ $route['admin/config/change_password']  = "config/changepassword";
 $route['admin/config/phpinfo']          = "config/phpinfo";
 
 $route['admin/booking/list']            = "booking_admin/editlist";
+$route['admin/booking/list/(:any)']     = "booking_admin/editlist/$1";
 $route['admin/booking/add']             = "booking_admin/add";
 $route['admin/booking/add/(:any)']      = "booking_admin/add/$1";
 $route['admin/booking/edit']            = "booking_admin/edittable";

@@ -89,6 +89,11 @@ body#admin-page {
     tr:nth-child(2n) {
       background-color: #E8E8E8;
     }
+
+    td.passed-appointment {
+      text-decoration: line-through;
+      font-style: italic;
+    }
   }
 
   #admin-menu {

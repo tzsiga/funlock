@@ -21,7 +21,7 @@ class Voucher_model extends CI_Model {
   }
 
   public function getAll() {
-    $this->db->order_by("create_date", "desc");
+    $this->db->order_by('create_date', 'desc');
     $vouchers = $this->db->get('vouchers');
     return $vouchers->result();
   }

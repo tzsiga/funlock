@@ -16,9 +16,19 @@ class Booking_model extends CI_Model {
     return $booking[0];
   }
 
-  public function getAllBookings() {
+  public function getAll() {
     $this->db->order_by('appointment', 'asc');
     $query = $this->db->get('bookings');
+    return $this->fetchBookingQuery($query);
+  }
+
+  public function countAll() {
+    return $this->db->count_all('bookings');
+  }
+
+  public function getSegment($limit, $offset) {
+    $this->db->order_by('appointment', 'asc');
+    $query = $this->db->get('bookings', $limit, $offset);
     return $this->fetchBookingQuery($query);
   }
 

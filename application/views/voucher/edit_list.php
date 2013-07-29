@@ -6,7 +6,7 @@
   <h3 id="flash-msg">
     <?= $this->session->flashdata('msg') ?>
   </h3>
-  <p><?= $this->pagination->create_links() ?><a href="<?= base_url() ?>index.php/admin/voucher"> | Vissza</a></p>
+  <p><?= $this->pagination->create_links() ?> | <a href="<?= base_url() ?>index.php/admin/voucher">Vissza</a></p>
   <table class="admin-list-table">
     <tr>
       <th>kód</th>
@@ -27,6 +27,6 @@
       }
     ?>
   </table>
-  <p><a href="<?= base_url() ?>index.php/admin/voucher">Vissza</a></p>
+  <p><?= $this->pagination->create_links() ?> | <a href="<?= base_url() ?>index.php/admin/voucher">Vissza</a></p>
 </body>
 </html>

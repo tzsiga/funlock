@@ -1,11 +1,18 @@
 <?php $this->load->view('header'); ?>
 <?php
-  function printTableRow($date, $booking) {
+  function printTableRow($date, $booking, $passed = false) {
     echo '<tr>';
-    echo '<td>'.date('Y-m-d H:i', $date).'</td>';
-    echo '<td>'.(isset($booking->status) ? $booking->status : 'inactive').'</td>';
-    echo '<td>'.$booking->payment_verified.'</td>';
-    echo '<td>'.$booking->book_fname.' '.$booking->book_sname.'</td>';
+    if ($passed) {
+      echo '<td class="passed-appointment">'.date('Y-m-d H:i', $date).'</td>';
+      echo '<td class="passed-appointment">'.(isset($booking->status) ? 'aktív' : 'inaktív').'</td>';
+      echo '<td class="passed-appointment">'.(isset($booking->payment_verified) ? 'igen' : 'nem').'</td>';
+      echo '<td class="passed-appointment">'.$booking->book_fname.' '.$booking->book_sname.'</td>';
+    } else {
+      echo '<td>'.date('Y-m-d H:i', $date).'</td>';
+      echo '<td>'.(isset($booking->status) ? 'aktív' : 'inaktív').'</td>';
+      echo '<td>'.(isset($booking->payment_verified) ? 'igen' : 'nem').'</td>';
+      echo '<td>'.$booking->book_fname.' '.$booking->book_sname.'</td>';
+    }
     echo '<td>'.'<a href="'.base_url().'index.php/admin/booking/edit/'.$booking->id.'">szerkesztés</a>'.'</td>';
     echo '</tr>';    
   }
@@ -17,8 +24,7 @@
   <h3 id="flash-msg">
     <?= $this->session->flashdata('msg') ?>
   </h3>
-  <p><a href="<?= base_url() ?>index.php/admin/booking/edit">Vissza</a></p>
-  <h3>Új játékok:</h3>
+  <p><?= $this->pagination->create_links() ?> | <a href="<?= base_url() ?>index.php/admin/booking/edit">Vissza</a></p>
   <table class="admin-list-table">
     <tr>
       <th>dátum</th>
@@ -31,20 +37,12 @@
       foreach ($bookings as $date => $booking) {
         if ($date > time()) {
           printTableRow($date, $booking);
+        } else {
+          printTableRow($date, $booking, true);
         }
       }
     ?>
   </table>
-  <h3>Lejátszott játékok:</h3>
-  <table class="admin-list-table">
-    <?php
-      foreach ($bookings as $date => $booking) {
-        if ($date <= time()) {
-          printTableRow($date, $booking);
-        }
-      }
-    ?>
-  </table>
-  <p><a href="<?= base_url() ?>index.php/admin/booking/edit">Vissza</a></p>
+  <p><?= $this->pagination->create_links() ?> | <a href="<?= base_url() ?>index.php/admin/booking/edit">Vissza</a></p>
 </body>
 </html>

@@ -48,15 +48,28 @@ class Booking_Admin extends Admin {
     ));
   }
 
-  public function editList() {
+  public function editList($offset = 0) {
+    $pageLimit = 30;
+    $this->setupPagination($this->voucher_model->countAll(), $pageLimit);
     $this->load->view('booking_admin/edit_list', array(
-      'bookings' => $this->booking_model->getAllBookings()
+      'bookings' => $this->booking_model->getSegment($pageLimit, $offset)
     ));
+  }
+
+  private function setupPagination($total, $page) {
+    $this->load->library('pagination');
+    $config['base_url'] = base_url().'index.php/admin/booking/list';
+    $config['uri_segment'] = 4;
+    $config['total_rows'] = $total;
+    $config['per_page'] = $page; 
+    $config['first_link'] = 'Első';
+    $config['last_link'] = 'Utolsó';
+    $this->pagination->initialize($config); 
   }
 
   public function editTable() {
     $this->load->view('booking_admin/edit_table', array(
-      'bookings' => $this->booking_model->getAllBookings()
+      'bookings' => $this->booking_model->getAll()
     ));
   }
 
