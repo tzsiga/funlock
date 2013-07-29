@@ -78,6 +78,18 @@ body#admin-page {
     margin-left: 20px;
   }
   
+  form#booking-edit-form {
+    width: 700px;
+
+    p.row {
+      display: block;
+    }
+
+    p {
+      display: inline-block;
+    }
+  }
+
   table.admin-list-table {
     text-align: center;
 
