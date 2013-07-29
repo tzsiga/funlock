@@ -56,7 +56,8 @@ $route['admin/booking/(:any)']          = "booking_admin/$1";
 
 $route['admin/voucher']                 = "voucher/index";
 $route['admin/voucher/add']             = "voucher/add";
-$route['admin/voucher/edit']            = "voucher/editVouchers";
+$route['admin/voucher/list']            = "voucher/listAll";
+$route['admin/voucher/list/(:any)']     = "voucher/listAll/$1";
 $route['admin/voucher/edit/(:any)']     = "voucher/edit/$1";
 
 $route['404_override']                  = "";

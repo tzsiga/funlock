@@ -31,10 +31,23 @@ class Voucher extends Admin {
     $this->load->view('voucher/add');
   }
 
-  public function editVouchers() {
+  public function listAll($offset = 0) {
+    $pageLimit = 30;
+    $this->setupPagination($this->voucher_model->countAll(), $pageLimit);
     $this->load->view('voucher/edit_list', array(
-      'vouchers' => $this->voucher_model->getAll()
+      'vouchers' => $this->voucher_model->getSegment($pageLimit, $offset)
     ));
+  }
+
+  private function setupPagination($total, $page) {
+    $this->load->library('pagination');
+    $config['base_url'] = base_url().'index.php/admin/voucher/list';
+    $config['uri_segment'] = 4;
+    $config['total_rows'] = $total;
+    $config['per_page'] = $page; 
+    $config['first_link'] = 'Első';
+    $config['last_link'] = 'Utolsó';
+    $this->pagination->initialize($config); 
   }
 
   public function edit($id) {

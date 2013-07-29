@@ -8,7 +8,7 @@
   </h3>
   <p>
     <a href="<?= base_url() ?>index.php/admin/voucher/add">Kuponok generálása</a><br/>
-    <a href="<?= base_url() ?>index.php/admin/voucher/edit">Kuponok szerkesztése</a><br/><br/>
+    <a href="<?= base_url() ?>index.php/admin/voucher/list">Kuponok szerkesztése</a><br/><br/>
     <a href="<?= base_url() ?>index.php/admin">Vissza</a>
   </p>
 </body>

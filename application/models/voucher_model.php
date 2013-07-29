@@ -26,6 +26,16 @@ class Voucher_model extends CI_Model {
     return $vouchers->result();
   }
 
+  public function countAll() {
+    return $this->db->count_all('vouchers');
+  }
+
+  public function getSegment($limit, $offset) {
+    $this->db->order_by("create_date", "desc");
+    $vouchers = $this->db->get('vouchers', $limit, $offset);
+    return $vouchers->result();
+  }
+
   public function getNewUniqueVoucher($posted) {
     $voucher = $this->composeVoucher($posted);
 
