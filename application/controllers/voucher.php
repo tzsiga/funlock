@@ -35,8 +35,22 @@ class Voucher extends Admin {
     $pageLimit = 30;
     $this->setupPagination($this->voucher_model->countAll(), $pageLimit);
     $this->load->view('voucher/edit_list', array(
-      'vouchers' => $this->voucher_model->getSegment($pageLimit, $offset)
+      'vouchers' => $this->voucher_model->getSegment($pageLimit, $offset),
+      'allVouchers' => $this->voucher_model->getAll()
     ));
+  }
+
+  public function search() {
+    $posted = $this->input->post();
+
+    if ($posted) {
+      $voucher = $this->voucher_model->getVoucherByCode($posted['voucher-search']);
+      if (isset($voucher)) {
+        redirect('admin/voucher/edit/'.$voucher->id, 'refresh');
+      }
+    }
+
+    redirect('admin/voucher/list', 'refresh');
   }
 
   private function setupPagination($total, $page) {

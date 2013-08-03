@@ -50,7 +50,7 @@ class Booking_Admin extends Admin {
 
   public function editList($offset = 0) {
     $pageLimit = 30;
-    $this->setupPagination($this->voucher_model->countAll(), $pageLimit);
+    $this->setupPagination($this->booking_model->countAll(), $pageLimit);
     $this->load->view('booking_admin/edit_list', array(
       'bookings' => $this->booking_model->getSegment($pageLimit, $offset)
     ));

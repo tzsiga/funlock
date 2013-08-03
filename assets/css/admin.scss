@@ -4,9 +4,9 @@ body#admin-page {
   font: 13px/20px normal Helvetica, Arial, sans-serif;
   color: #4F5155;
   
-  ::selection{ background-color: #E13300; color: white; }
-  ::moz-selection{ background-color: #E13300; color: white; }
-  ::webkit-selection{ background-color: #E13300; color: white; }
+  //::selection{ background-color: #E13300; color: white; }
+  //::moz-selection{ background-color: #E13300; color: white; }
+  //::webkit-selection{ background-color: #E13300; color: white; }
   
   a {
     color: #003399;
@@ -106,6 +106,10 @@ body#admin-page {
       text-decoration: line-through;
       font-style: italic;
     }
+  }
+
+  form#voucher-search {
+    display: inline;
   }
 
   #admin-menu {
@@ -250,5 +254,28 @@ body#admin-page {
         vertical-align: middle;
       }
     }
+  }
+
+
+  .ui-corner-all, .ui-state-focus:hover {
+    //background-color: white !important;
+    background-color: #DC0000 !important;
+  }
+
+  li.ui-menu-item {
+    a {
+      width: 100%;
+      margin-left: -20px;
+      color: white !important;
+      border: 0 !important;
+      //background-color: white !important;
+      background-color: #DC0000 !important;
+    }
+  }
+
+  .ui-state-hover, .ui-state-hover:hover, .ui-state-focus, .ui-state-focus:hover {
+    width: 100%;
+    margin-left: -20px;
+    //background-color: green !important;
   }
 }

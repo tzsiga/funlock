@@ -32,6 +32,6 @@
     echo '</p>';
     echo form_close();
   ?>
-  <p><a href="<?= base_url() ?>index.php/admin/voucher/edit">Vissza</a></p>
+  <p><a href="<?= base_url() ?>index.php/admin/voucher/list">Vissza</a></p>
 </body>
 </html>

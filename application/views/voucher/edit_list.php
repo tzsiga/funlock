@@ -7,6 +7,14 @@
     <?= $this->session->flashdata('msg') ?>
   </h3>
   <p><?= $this->pagination->create_links() ?> | <a href="<?= base_url() ?>index.php/admin/voucher">Vissza</a></p>
+  <p>
+    <?php
+      echo form_open('admin/voucher/edit/search/');
+      echo form_input(array('name' => 'voucher-search', 'id' => 'voucher-search', 'value' => '')).' ';
+      echo form_submit('search', 'Keresés');
+      echo form_close();
+    ?>
+  </p>
   <table class="admin-list-table">
     <tr>
       <th>kód</th>
@@ -28,5 +36,29 @@
     ?>
   </table>
   <p><?= $this->pagination->create_links() ?> | <a href="<?= base_url() ?>index.php/admin/voucher">Vissza</a></p>
+  <script type="text/javascript">
+  $(function() {
+    var availableTags = [
+      <?php
+        foreach ($allVouchers as $voucherFromList) {
+          echo '"'.$voucherFromList->code.'",';
+        }
+      ?>
+    ];
+
+    $("#voucher-search").autocomplete({
+      source: availableTags,
+/*
+      appendTo: '.live_search_result_list',
+      focus: function(event, ui) {
+        $(".live_search_result_list li.result").removeClass("selected");
+        $("#ui-active-menuitem")
+          .closest("li")
+          .addClass("selected2");
+      }
+*/
+    });
+  });
+  </script>
 </body>
 </html>

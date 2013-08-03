@@ -60,6 +60,7 @@ $route['admin/voucher/add']             = "voucher/add";
 $route['admin/voucher/list']            = "voucher/listAll";
 $route['admin/voucher/list/(:any)']     = "voucher/listAll/$1";
 $route['admin/voucher/edit/(:any)']     = "voucher/edit/$1";
+$route['admin/voucher/edit/search']     = "voucher/search";
 
 $route['404_override']                  = "";
 

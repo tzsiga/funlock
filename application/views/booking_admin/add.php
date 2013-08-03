@@ -71,7 +71,7 @@
     echo form_close();
   ?>
   <p>
-    <a href="<?= base_url() ?>index.php/admin/booking/edit">Vissza</a>
+    <a href="<?= base_url() ?>index.php/admin/booking/list">Vissza</a>
   </p>
   <script type="text/javascript">
     $('#appointment').datepicker({ firstDay: 1, dateFormat: 'yy-mm-dd' });
