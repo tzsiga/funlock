@@ -1,9 +1,18 @@
 <?php
 echo '<span id="head-timestamp">' .$headTimestamp. '</span>';
 echo '<table id="calendar-table">';
-echo '<tr><th><span id="calendar-label">keresés</span>'.form_input(array('id' => 'blank-cell')).'</th>';
+echo '<tr><th><span id="calendar-label">'.lang("search").'</span>'.form_input(array('id' => 'blank-cell')).'</th>';
 
-$dayNames = array('- H -', '- K -', '- SZ -', '- CS -', '- P -', '- SZ -', '- V -');
+$dayNames = array(
+  lang("monday"),
+  lang("tuesday"),
+  lang("wednesday"),
+  lang("thursday"),
+  lang("friday"),
+  lang("saturday"),
+  lang("sunday")
+);
+
 $i = 0;
 foreach ($dayNames as $dayName) {
   echo "<th>$dayName<br/><small>".date('Y-m-d', Utils::getLastMonday($headTimestamp) + $i++ * Utils::dayInSec).'</small></th>';

@@ -26,6 +26,22 @@ class Booking extends CI_Controller {
     }
   }
 
+  public function loadBookingTable() {
+    if ($this->input->is_ajax_request()) {
+      $this->load->view('booking/table', array(
+        'bookings' => $this->booking_model->getBookingsInRange($this->input->get('headTimestamp')),
+        'headTimestamp' => $this->input->get('headTimestamp'),
+        'selectedAppointment' => $this->input->get('selectedAppointment')
+      ));
+    }
+  }
+
+  public function loadBookingForm() {
+    if ($this->input->is_ajax_request()) {
+      $this->load->view('booking/form');
+    }
+  }
+
   private function processPosted($posted) {
     $this->setValidationRules($posted);
 
@@ -69,6 +85,8 @@ class Booking extends CI_Controller {
     $admins = array(
       'andras.csernak@funlock.hu',
       'gabor.veress@funlock.hu',
+      'kacsoh.gabor@gmail.com',
+      'info@funlock.hu',
       'tzsiga@funlock.hu'
     );
 
@@ -90,38 +108,22 @@ class Booking extends CI_Controller {
     }
   }
 
-  public function loadBookingTable() {
-    if ($this->input->is_ajax_request()) {
-      $this->load->view('booking/table', array(
-        'bookings' => $this->booking_model->getBookingsInRange($this->input->get('headTimestamp')),
-        'headTimestamp' => $this->input->get('headTimestamp'),
-        'selectedAppointment' => $this->input->get('selectedAppointment')
-      ));
-    }
-  }
-
-  public function loadBookingForm() {
-    if ($this->input->is_ajax_request()) {
-      $this->load->view('booking/form');
-    }
-  }
-
   private function setValidationRules($posted = null) {
-    $this->form_validation->set_rules('appointment', '"Foglalt időpont"', 'required|xss_clean|greater_than['.time().']');
-    $this->form_validation->set_rules('book-fname', '"Vezetéknév"', 'required|xss_clean');
-    $this->form_validation->set_rules('book-sname', '"Keresztnév"', 'required|xss_clean');
-    $this->form_validation->set_rules('phone', '"Telefon"', 'required|xss_clean|numeric');
-    $this->form_validation->set_rules('email', '"Email"', 'required|xss_clean|valid_email');
-    $this->form_validation->set_rules('zip', '"Irányítószám"', 'required|xss_clean|numeric|exact_length[4]');
-    $this->form_validation->set_rules('city', '"Város"', 'required|xss_clean');
-    $this->form_validation->set_rules('street', '"Utca"', 'required|xss_clean');
-    $this->form_validation->set_rules('house', '"Házszám"', 'required|xss_clean');
-    $this->form_validation->set_rules('eula', '"Elfogadom a feltételeket"', 'required|xss_clean');
+    $this->form_validation->set_rules('appointment', '"appointment"', 'required|xss_clean|greater_than['.time().']');
+    $this->form_validation->set_rules('book-fname', lang('book-fname'), 'required|xss_clean');
+    $this->form_validation->set_rules('book-sname', lang('book-sname'), 'required|xss_clean');
+    $this->form_validation->set_rules('phone', lang('phone'), 'required|xss_clean|numeric');
+    $this->form_validation->set_rules('email', lang('email'), 'required|xss_clean|valid_email');
+    $this->form_validation->set_rules('zip', lang('zip'), 'required|xss_clean|numeric|exact_length[4]');
+    $this->form_validation->set_rules('city', lang('city'), 'required|xss_clean');
+    $this->form_validation->set_rules('street', lang('street'), 'required|xss_clean');
+    $this->form_validation->set_rules('house', lang('house'), 'required|xss_clean');
+    $this->form_validation->set_rules('eula', lang('eula'), 'required|xss_clean');
 
     if (isset($posted['billing'])) {
-      $this->form_validation->set_rules('tax-number', '"Adószám"', 'required|xss_clean|numeric');
-      $this->form_validation->set_rules('bill-fname', '"Számlázási vezetéknév"', 'required|xss_clean');
-      $this->form_validation->set_rules('bill-sname', '"Számlázási keresztnév"', 'required|xss_clean');
+      $this->form_validation->set_rules('tax-number', lang('tax-number'), 'required|xss_clean|numeric');
+      $this->form_validation->set_rules('bill-fname', lang('bill-fname'), 'required|xss_clean');
+      $this->form_validation->set_rules('bill-sname', lang('bill-sname'), 'required|xss_clean');
     }
   }
 

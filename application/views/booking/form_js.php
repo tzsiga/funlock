@@ -53,7 +53,7 @@
   $('#booking-form').submit(function(event) {
     event.preventDefault();
     $.ajax({
-      url: '<?= base_url() ?>index.php/booking/addBooking',
+      url: '<?= site_url("main") ?>/addBooking',
       type: 'POST',
       data: $('#booking-form').serialize(),
       success: function(result){
@@ -62,13 +62,11 @@
       },
     statusCode: {
       404: function() {
-        $('#booking-details').html('<form id="error-form"><h3>Kapcsolódási hiba!</h3></form>');
+        $('#booking-details').html('<?= lang("booking_404") ?>');
       },
       500: function() {
         refreshTable(parseInt($('#head-timestamp').text()));
-        $('#booking-details').html(
-          '<form id="error-form"><h3>Lekésted!</h3><br/><p>Mialatt nézelődtél befoglalták az általad kiválasztott időpontot! Válassz egy újat.</p></form>'
-        );
+        $('#booking-details').html('<?= lang("booking_500") ?>');
       }
     }
     });

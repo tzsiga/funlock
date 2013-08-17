@@ -7,14 +7,16 @@
       <div id="subtitle" style="margin-top: -20px;">
       <?php } else { ?>
       <div id="subtitle">
-      <?php } ?>- A Bejutós Játék -</div>
+      <?php } 
+        echo lang('subtitle');
+      ?></div>
       <a href="<?= base_url().'index.php/main' ?>" id="main-link"></a>
       <div id="menu">
         <ul>
-          <li><p id="link-info">Info</p></li>
-          <li><p id="link-story">Történet</p></li>
-          <li><p id="link-contact">Elérhetőség</p></li>
-          <li><p id="link-gallery"><a href="https://www.facebook.com/pages/Funlock/334668339974241?id=334668339974241&amp;sk=photos_stream" target="_blank">Galéria</a></p></li>
+          <li><p id="link-info"><?= lang('menuitem_1') ?></p></li>
+          <li><p id="link-story"><?= lang('menuitem_2') ?></p></li>
+          <li><p id="link-contact"><?= lang('menuitem_3') ?></p></li>
+          <li><p id="link-gallery"><a href="https://www.facebook.com/pages/Funlock/334668339974241?id=334668339974241&amp;sk=photos_stream" target="_blank"><?= lang('menuitem_4') ?></a></p></li>
         </ul>
       </div>
       <div id="item-display-area"></div>
@@ -27,11 +29,11 @@
       </div>
       <div id="legend">
         <div id="icon-unavailable"></div>
-        <div>Nem elérhető</div>
+        <div><?= lang('legend_1') ?></div>
         <div id="icon-available"></div>
-        <div>Szabad</div>
+        <div><?= lang('legend_2') ?></div>
         <div id="icon-reserved"></div>
-        <div>Foglalt</div>
+        <div><?= lang('legend_3') ?></div>
       </div>
       <div id="booking-details">
         <?php $numberOfSuccessfulBookings < $bookingLimit ? $this->load->view('booking/form') : $this->load->view('booking/form_fail_limit'); ?>

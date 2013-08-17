@@ -69,7 +69,15 @@ $config['url_suffix'] = '';
 | than english.
 |
 */
-$config['language']	= 'english';
+$config['language']	= "hungarian";
+$config['language_abbr'] = "hu";
+//$config['language'] = "english";
+//$config['language_abbr'] = "en";
+
+$config['lang_uri_abbr'] = array("en" => "english", "hu" => "hungarian");
+
+/* hide the language segment (use cookie) */
+//$config['lang_ignore'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------
