@@ -37,6 +37,11 @@
   });
   
   jQuery(document).ready(function(){
+    <?php // check browser width, redirect if too small ?>
+    if ($(window).width() < 1280) {
+      window.location.replace("<?= site_url('main') ?>");
+    }
+
     $(document).mousemove(function(e){
       <?php generateSliderCallbacks($letterParts); ?>
     });
