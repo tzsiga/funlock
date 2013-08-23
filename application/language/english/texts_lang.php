@@ -13,6 +13,8 @@ $lang['menuitem_3_text']      = '1068 Budapest<br/>Király street 54.<br/>(entra
 
 $lang['menuitem_4']           = "Gallery";
 
+$lang['change_locale']        = '<a href="http://funlock.hu/index.php/main" target="_top">[hun]</a>';
+
 $lang['search']               = "search";
 
 $lang['monday']               = "- M -";
@@ -24,7 +26,7 @@ $lang['saturday']             = "- S -";
 $lang['sunday']               = "- S -";
 
 $lang['legend_1']             = "Unavailable";
-$lang['legend_2']             = "Free";
+$lang['legend_2']             = "Available";
 $lang['legend_3']             = "Taken";
 
 $lang['book-fname']           = "Last name";
@@ -38,7 +40,7 @@ $lang['email']                = "Email";
 $lang['billing']              = "Different billing address";
 $lang['bill-fname']           = "Last name";
 $lang['bill-sname']           = "First name";
-$lang['tax-number']           = "Tax number";
+$lang['tax-number']           = "Tax num.";
 $lang['zip']                  = "Zip";
 $lang['city']                 = "City";
 $lang['street']               = "Street";

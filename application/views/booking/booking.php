@@ -22,6 +22,7 @@
       <div id="item-display-area"></div>
     </div>
     <div id="content">
+      <span id="change-locale"><?= lang('change_locale') ?></span>
       <div id="calendar">
         <span id="prev-month"><?= img(array('src' => base_url().'assets/img/main/arrow_left.png', 'id' => 'arrow-left')) ?></span>
         <div id="table-wrapper"><?php $this->load->view('booking/table', array('bookings' => $bookings, 'headTimestamp' => time(), 'selectedAppointment' => 0)); ?></div>

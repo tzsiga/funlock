@@ -13,6 +13,8 @@ $lang['menuitem_3_text']      = '1068 Budapest<br/>Király utca 54.<br/>(bejára
 
 $lang['menuitem_4']           = "Galéria";
 
+$lang['change_locale']        = '<a href="http://funlock.eu/index.php/main" target="_top">[eng]</a>';
+
 $lang['search']               = "keresés";
 
 $lang['monday']               = "- H -";
