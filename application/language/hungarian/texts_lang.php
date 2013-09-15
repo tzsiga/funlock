@@ -64,8 +64,8 @@ $lang['eula_text']            = "
 $lang['booking_404']          = '<form id="error-form"><h3>Kapcsolódási hiba!</h3></form>';
 $lang['booking_500']          = '<form id="error-form"><h3>Lekésted!</h3><br/><p>Mialatt nézelődtél befoglalták az általad kiválasztott időpontot! Válassz egy újat.</p></form>';
 
-$lang['form_success_cache_1'] = '<p>A foglalásotok sikeres volt! Emailt küldtünk a további teendőkről.</p><br/><p>Kérünk Titeket, hogy a foglalt időpont előtt legkésőbb <strong>két nappal</strong> hozzátok be hozzánk a <strong>';
-$lang['form_success_cache_2'] = ' Ft foglalási összeget</strong>, különben a foglalásotok törlésre kerül! Köszönjük!</p><br/><p>Címünk: 1068 Budapest, Király utca 54.</p>';
+$lang['form_success_cache_1'] = '<p>A foglalásotok sikeres volt! Emailt küldtünk a további teendőkről.</p><br/><p>Kérünk Titeket, hogy a foglalt időpontra hozzátok be hozzánk a <strong>';
+$lang['form_success_cache_2'] = ' Ft foglalási összeget!</strong> Köszönjük!</p><br/><p>Címünk: 1068 Budapest, Király utca 54.</p>';
 
 $lang['form_success_card_1']  = '<p>A foglalásotok sikeres volt! Emailt küldtünk a további teendőkről.</p><br/><p>Kérünk Titeket, hogy a foglalt időpont előtt legkésőbb <strong>két nappal</strong> utaljátok el a <strong>';
 $lang['form_success_card_2']  = ' Ft foglalási összeget</strong> számlaszámunkra, különben foglalásotok törlésre kerül! Köszönjük!</p><br/><p>A „közlemény” rovatban  tűntessétek fel a következőt: <strong>';

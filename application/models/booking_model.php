@@ -95,6 +95,8 @@ class Booking_model extends CI_Model {
       'city'              => $posted['city'],
       'street'            => $posted['street'],
       'house'             => $posted['house'],
+      'comment'           => $posted['comment'],
+      'notes'             => $posted['notes'],
       'booking_date'      => time()
     );
   }

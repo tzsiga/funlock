@@ -93,7 +93,7 @@ class Voucher extends Admin {
   }
 
   private function setEditValidationRules() {
-    $this->form_validation->set_rules('discounted_price', '"Kedvezményes ár"', 'required|xss_clean|numeric|greater_than[-1]|less_than[12000]');
+    $this->form_validation->set_rules('discounted_price', '"Kedvezményes ár"', 'required|xss_clean|numeric|greater_than[-1]|less_than[15001]');
     $this->form_validation->set_rules('label', '"Címke"', 'xss_clean');
   }
 

@@ -65,7 +65,7 @@ $lang['booking_404']          = '<form id="error-form"><h3>Connection error!</h3
 $lang['booking_500']          = '<form id="error-form"><h3>Too late!</h3><br/><p>While you were browsing, someone else took the selected appointment! Choose another!</p></form>';
 
 $lang['form_success_cache_1'] = '<p>Your booking is almost complete! We sent you an email with further instructions.</p><br/><p>Please do not forget to pay the ';
-$lang['form_success_cache_2'] = ' HuF at 1068 Budapest, Király street 54. at least <strong>two days before</strong> your booked date, otherwise your booking will be cancelled. Thank you!</p>';
+$lang['form_success_cache_2'] = ' HuF at 1068 Budapest, Király street 54. Thank you!</p>';
 
 $lang['form_success_card_1']  = '<p>Your booking is almost complete! We sent you an email with further instructions.</p><br/><p>Please do not forget to trasfer the ';
 $lang['form_success_card_2']  = ' HuF to our bank account at least <strong>two days before</strong> your booked date, otherwise your booking will be cancelled. Thank You!</p><br/><p>In the „notice” field please write the following: <strong>';
