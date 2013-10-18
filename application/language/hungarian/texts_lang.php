@@ -1,9 +1,11 @@
 <?php
 
+$lang['base_price']           = "10.000";
+
 $lang['subtitle']             = "- A Bejutós Játék -";
 
 $lang['menuitem_1']           = "Info";
-$lang['menuitem_1_text']      = "A Funlock egy látványos meglepetésekkel és váratlan fordulatokkal teli csapatjáték, ahol semmi sem az, aminek elsőre látszik. A játék Téged és Barátaidat egy órára „rabul” ejt és csak közös csapatmunkával, közös gondolko-dással tudjátok megfejteni a kiszabadulás kulcsát jelentő rejtvényeket és felfedni a szoba titkát.<br/><br/>A játék <strong>2-5 fős csapatokban</strong> játszható. Céges csapatépítő (csoportdinamikai) programnak is ajánljuk.<br/><br/>A játék ára <strong>12.000 Ft csapatonként</strong>, a csapat létszámától függetlenül.<br/><br/>Amennyiben nagyobb létszámú társasággal jönnétek, egyedi foglalási megoldásokért keressetek minket elérhetőségeinken.<br/><br/>Szeretettel várunk Titeket:<br/><em>A Funlock csapata</em>";
+$lang['menuitem_1_text']      = "A Funlock egy látványos meglepetésekkel és váratlan fordulatokkal teli csapatjáték, ahol semmi sem az, aminek elsőre látszik. A játék Téged és Barátaidat egy órára „rabul” ejt és csak közös csapatmunkával, közös gondolko-dással tudjátok megfejteni a kiszabadulás kulcsát jelentő rejtvényeket és felfedni a szoba titkát.<br/><br/>A játék <strong>2-5 fős csapatokban</strong> játszható. Céges csapatépítő (csoportdinamikai) programnak is ajánljuk.<br/><br/>A játék ára <strong>".$lang['base_price']." Ft csapatonként</strong>, a csapat létszámától függetlenül.<br/><br/>Amennyiben nagyobb létszámú társasággal jönnétek, egyedi foglalási megoldásokért keressetek minket elérhetőségeinken.<br/><br/>Szeretettel várunk Titeket:<br/><em>A Funlock csapata</em>";
 
 $lang['menuitem_2']           = "Történet";
 $lang['menuitem_2_text']      = "<p>Megalkottuk a legmodernebb biztonsági rendszert, melyet egy mesterséges intelligenciával rendelkező szuperszámítógép irányít. Azért hoztuk létre ezt a rendszert, hogy elrejtsünk valamit, ami nem kerülhet rossz kezekbe. Azonban valami elromlott... a számítógép átvette az irányítást és kizárt minket a szobából! Mivel a szoba egy zárt rendszer, így csak belülről indítható újra, ehhez azonban le kell győzni az ellenetek dolgozó számítógépet. Nem lesz könnyű dolgotok, mert minden lépéseteket előre tudja és újabb és újabb akadályt gördít majd elétek, hogy megakadályozzon Titeket a kiszabadulásban.</p>";

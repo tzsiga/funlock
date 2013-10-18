@@ -6,14 +6,14 @@
       <?php
         if ($posted['payment-option'] == 'card') {
       ?>
-      <li>Utaljátok el a foglalási összeget (<?= isset($voucher) ? $voucher->discounted_price : '12000' ?> Ft) a játék megkezdése előtt minimum <strong>két nappal</strong>, hogy foglalásotokat érvényesítsétek.
+      <li>Utaljátok el a foglalási összeget (<?= isset($voucher) ? $voucher->discounted_price : lang('base_price') ?> Ft) a játék megkezdése előtt minimum <strong>két nappal</strong>, hogy foglalásotokat érvényesítsétek.
         <br/>Név: Flow4Freedom Kft.
         <br/>Számlaszámrara: 10918001-00000026-88000000
         <br/>Közlemény: <strong><?= $this->booking_model->convertTimeToBookingCode($posted['appointment']) ?></strong></li>
       <?php
         } else {
       ?>
-      <li>Hozzátok be a foglalási összeget (<?= isset($voucher) ? $voucher->discounted_price : '12000' ?> Ft) a játék időpontjára!
+      <li>Hozzátok be a foglalási összeget (<?= isset($voucher) ? $voucher->discounted_price : lang('base_price') ?> Ft) a játék időpontjára!
         <br/>Cím: 1068 Budapest, Király utca. 54. (bejárat a Hegedű utca felől)
         <br/>Foglalási azonosító: “<?= $this->booking_model->convertTimeToBookingCode($posted['appointment']) ?>”</li>
       <?php
@@ -32,14 +32,14 @@
       <?php
         if ($posted['payment-option'] == 'card') {
       ?>
-      <li>Please trasfer the (<?= isset($voucher) ? $voucher->discounted_price : '12000' ?> HuF) to our bank account at least <strong>two days</strong> before your booked date.
+      <li>Please trasfer the (<?= isset($voucher) ? $voucher->discounted_price : lang('base_price') ?> HuF) to our bank account at least <strong>two days</strong> before your booked date.
         <br/>Name: Flow4Freedom Kft.
         <br/>Account number: 10918001-00000026-88000000
         <br/>Notice: <strong><?= $this->booking_model->convertTimeToBookingCode($posted['appointment']) ?></strong></li>
       <?php
         } else {
       ?>
-      <li>Please bring the price (<?= isset($voucher) ? $voucher->discounted_price : '12000' ?> HuF) to our place at the booked appointment!
+      <li>Please bring the price (<?= isset($voucher) ? $voucher->discounted_price : lang('base_price') ?> HuF) to our place at the booked appointment!
         <br/>Address: 1068 Budapest, Király street 54.
         <br/>Reservation number: “<?= $this->booking_model->convertTimeToBookingCode($posted['appointment']) ?>”</li>
       <?php

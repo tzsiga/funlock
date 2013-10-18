@@ -76,7 +76,7 @@ class Voucher extends Admin {
         } else if (Utils::getCase($posted) === 'delete') {
           $this->deleteVoucher($id);
         }
-        redirect('admin/voucher/edit', 'refresh');
+        redirect('admin/voucher/list', 'refresh');
       }
     }
 

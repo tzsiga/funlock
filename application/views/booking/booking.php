@@ -16,7 +16,7 @@
           <li><p id="link-info"><?= lang('menuitem_1') ?></p></li>
           <li><p id="link-story"><?= lang('menuitem_2') ?></p></li>
           <li><p id="link-contact"><?= lang('menuitem_3') ?></p></li>
-          <li><p id="link-gallery"><a href="https://www.facebook.com/pages/Funlock/334668339974241?id=334668339974241&amp;sk=photos_stream" target="_blank"><?= lang('menuitem_4') ?></a></p></li>
+          <li><p id="link-gallery"><a href="https://www.facebook.com/FunlockBudapest/photos_albums" target="_blank"><?= lang('menuitem_4') ?></a></p></li>
         </ul>
       </div>
       <div id="item-display-area"></div>

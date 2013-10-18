@@ -1,9 +1,11 @@
 <?php
 
+$lang['base_price']           = "10.000";
+
 $lang['subtitle']             = "- Break In Game -";
 
 $lang['menuitem_1']           = "Info";
-$lang['menuitem_1_text']      = "Funlock is a teamgame full of spectacular surprises and unexcpected twists where nothing is what it seems. The game will hold you and your friends captive for an hour, and the only way out is to solve the puzzles and mysteries together using your mind and creativity.<br/><br/>You will have 60 minutes to get in and then get out in a <strong>team of 2-5 person</strong>.<br/><br/>Price: <strong>12.000 HuF/team</strong><br/><br/>Have a good time with us:<br/><em>The Funlock team</em>";
+$lang['menuitem_1_text']      = "Funlock is a teamgame full of spectacular surprises and unexcpected twists where nothing is what it seems. The game will hold you and your friends captive for an hour, and the only way out is to solve the puzzles and mysteries together using your mind and creativity.<br/><br/>You will have 60 minutes to get in and then get out in a <strong>team of 2-5 person</strong>.<br/><br/>Price: <strong>".$lang['base_price']." HuF/team</strong><br/><br/>Have a good time with us:<br/><em>The Funlock team</em>";
 
 $lang['menuitem_2']           = "Story";
 $lang['menuitem_2_text']      = "We created a high-end security system controlled by an artificial intelligence computer. We wanted to hide something very important, something which can not fall into the wrong hands. But something happened... the computer took over and locked us out. The system works as a closed circuit, therefore it can only be restarted from inside by defeating it. It will not be easy, because it knows every step you take and will try to stop you as far as it can from getting out.";
