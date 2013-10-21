@@ -1,6 +1,6 @@
 <?php $this->load->view('header'); ?>
   <body id="confirm-email">
-    <h2>Keves Csapat!</h2>
+    <h2>Kedves Csapat!</h2>
     <p>Örülünk, hogy elvállaltátok a küldetést! Mielőtt a helyszínre érkeznétek (időpontotok:  <?= date("Y-m-d H:i", $posted['appointment']) ?>), három kisebb feladatot kell elvégeznetek:</p>
     <ol>
       <?php

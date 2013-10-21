@@ -33,7 +33,9 @@ class Booking_model extends CI_Model {
   }
 
   public function getBookingsInRange($start) {
-    $rangeLength = Utils::weekInSec - (time() - Utils::getLastMonday(time()));
+    //$rangeLength = Utils::weekInSec - (time() - Utils::getLastMonday(time()));
+    $rangeLength = Utils::weekInSec;
+
     $this->db->where('appointment > '.Utils::getLastMonday($start).' AND appointment < '.($start + $rangeLength));
     $this->db->order_by('appointment', 'asc');
     $query = $this->db->get('bookings');
