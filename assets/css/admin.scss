@@ -256,29 +256,8 @@ body#admin-page {
     }
   }
 
-/*
-  .ui-corner-all, .ui-state-focus:hover {
-    //background-color: white !important;
-    background-color: #DC0000 !important;
+  .ui-menu-item *, .ui-menu-item *:hover, .ui-state-focus:hover {
+    border: none;
+    background: none !important;
   }
-
-  li.ui-menu-item {
-    a {
-      width: 100%;
-      margin-left: -20px;
-      color: white !important;
-      border: 0 !important;
-      //background-color: white !important;
-      background-color: #DC0000 !important;
-    }
-  }
-
-  .ui-state-hover, .ui-state-hover:hover, .ui-state-focus, .ui-state-focus:hover {
-    width: 100%;
-    margin-left: -20px;
-    //background-color: green !important;
-  }
-
-//*/
-
 }

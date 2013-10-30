@@ -130,6 +130,7 @@
     }).success(function(result) {
       $('#table-wrapper').html(result);
       $('td.timebox').css('cursor', 'pointer');
+      $('#table-wrapper').visible();
     });
   }
   
@@ -137,7 +138,6 @@
     if ($('#head-timestamp').text() > <?= time() ?>) {
       $('#table-wrapper').invisible().promise().done(function(){
         refreshTable(parseInt($('#head-timestamp').text()) - parseInt(<?= Utils::weekInSec ?>));
-        $(this).delay(450).visible();
       });
     }
   });
@@ -145,7 +145,6 @@
   $('#arrow-right').click(function(){
     $('#table-wrapper').invisible().promise().done(function(){
       refreshTable(parseInt($('#head-timestamp').text()) + parseInt(<?= Utils::weekInSec ?>));
-      $(this).delay(450).visible();
     });
   });
 
