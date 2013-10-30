@@ -26,7 +26,7 @@ body#main-page {
       
       #menu {
         padding-top: 112px;
-        margin: 0 0 50px;
+        margin: 0 0 30px;
 
         ul {
           list-style: none;
@@ -47,6 +47,23 @@ body#main-page {
           margin-left: -15px;
           border: 1px solid grey;
           @include shadow-custom(#CCCCCC);
+        }
+
+        a {
+          color: black;
+          text-decoration: none;
+        }
+
+        a:hover {
+          text-decoration: underline;
+        }
+
+        ul {
+          list-style: none;
+
+          li {
+            margin-bottom: 5px;
+          }
         }
       }
     }

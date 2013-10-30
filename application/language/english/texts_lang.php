@@ -15,6 +15,9 @@ $lang['menuitem_3_text']      = '1068 Budapest<br/>Király street 54.<br/>(entra
 
 $lang['menuitem_4']           = "Gallery";
 
+$lang['menuitem_5']           = "Articles";
+$lang['menuitem_5_text']      = '<ul><li><a href="http://welovebudapest.com/hu/nevezetessegek-turak/cikkek/2013/09/03/high-tech-szabadulos-jatek-a-kiraly-utcaban-funlock">we love budapest 1</a></li><li><a href="http://welovebudapest.com/hu/nevezetessegek-turak/cikkek/2013/10/01/a-legjobb-szabadulos-jatekok">we love budapest 2</a></li><li><a href="http://player.hu/kult/funlock-kiraly-utca-teszt">player.hu</a></li><li><a href="http://www.faninfo.hu/szabadido/adatlap/funlock-szabadulo-szoba-budapest">faninfo</a></li></ul>';
+
 $lang['change_locale']        = '<a href="http://funlock.hu/index.php/main" target="_top">[hun]</a>';
 
 $lang['search']               = "search";

@@ -57,6 +57,7 @@
     $('#link-info').css('cursor', 'pointer');
     $('#link-story').css('cursor', 'pointer');
     $('#link-contact').css('cursor', 'pointer');
+    $('#link-about').css('cursor', 'pointer');
     $('td.timebox').css('cursor', 'pointer');
     $('#arrow-left').css('cursor', 'pointer');
     $('#arrow-right').css('cursor', 'pointer');
@@ -66,6 +67,7 @@
   var menuItemInfo = '<?= lang("menuitem_1_text") ?>';
   var menuItemStory = '<?= lang("menuitem_2_text") ?>';
   var menuItemContact = '<?= lang("menuitem_3_text") ?>';
+  var menuItemAbout = '<?= lang("menuitem_5_text") ?>';
   
   function replaceAll(txt, replace, withThis) {
     return txt.replace(new RegExp(replace, 'g'), withThis);
@@ -100,7 +102,17 @@
       }
     });
   });
-    
+
+  $('#link-about').click(function(){
+    $('#item-display-area').fadeOut(function(){
+      if ($(this).html() == replaceAll(menuItemAbout, '/>','>')){
+        $(this).html('');
+      } else {
+        $(this).html(menuItemAbout).fadeIn();
+      }
+    });
+  });
+  
   <?php // booking table wrapper ?>
   var timer = $.timer(function() {
     refreshTable();
