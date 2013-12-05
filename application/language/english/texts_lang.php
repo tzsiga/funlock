@@ -1,6 +1,6 @@
 <?php
 
-$lang['base_price']           = "10.000";
+$lang['base_price']           = "12.000";
 
 $lang['subtitle']             = "- Break In Game -";
 
@@ -11,12 +11,12 @@ $lang['menuitem_2']           = "Story";
 $lang['menuitem_2_text']      = "We created a high-end security system controlled by an artificial intelligence computer. We wanted to hide something very important, something which can not fall into the wrong hands. But something happened... the computer took over and locked us out. The system works as a closed circuit, therefore it can only be restarted from inside by defeating it. It will not be easy, because it knows every step you take and will try to stop you as far as it can from getting out.";
 
 $lang['menuitem_3']           = "Contact";
-$lang['menuitem_3_text']      = '1068 Budapest<br/>Király street 54.<br/>(entrance form Hegedű street)<br/><br/>+3670 382 1388<br/><p id="info">&nbsp;</p><br/><a href="http://goo.gl/maps/AriVW" target="_blank"><img id="map" src="'.base_url().'assets/img/main/map.png" alt="" title=""/></a>';
+$lang['menuitem_3_text']      = '1068 Budapest<br/>Hegedű street 1.<br/><br/>+3670 382 1388<br/><p id="info">&nbsp;</p><br/><a href="http://goo.gl/maps/AriVW" target="_blank"><img id="map" src="'.base_url().'assets/img/main/map.png" alt="" title=""/></a>';
 
 $lang['menuitem_4']           = "Gallery";
 
 $lang['menuitem_5']           = "Articles";
-$lang['menuitem_5_text']      = '<ul><li><a href="http://welovebudapest.com/hu/nevezetessegek-turak/cikkek/2013/09/03/high-tech-szabadulos-jatek-a-kiraly-utcaban-funlock">we love budapest 1</a></li><li><a href="http://welovebudapest.com/hu/nevezetessegek-turak/cikkek/2013/10/01/a-legjobb-szabadulos-jatekok">we love budapest 2</a></li><li><a href="http://player.hu/kult/funlock-kiraly-utca-teszt">player.hu</a></li><li><a href="http://www.faninfo.hu/szabadido/adatlap/funlock-szabadulo-szoba-budapest">faninfo</a></li></ul>';
+$lang['menuitem_5_text']      = '<ul><li>We Love Budapest <a href="http://welovebudapest.com/hu/nevezetessegek-turak/cikkek/2013/09/03/high-tech-szabadulos-jatek-a-kiraly-utcaban-funlock">1</a> <a href="http://welovebudapest.com/hu/nevezetessegek-turak/cikkek/2013/10/01/a-legjobb-szabadulos-jatekok">2</a></li><li><a href="http://player.hu/kult/funlock-kiraly-utca-teszt">player.hu</a></li><li><a href="http://www.faninfo.hu/szabadido/adatlap/funlock-szabadulo-szoba-budapest">Faninfo</a></li><li><a href="http://www.kijutos-jatekok.hu/kijutos-jatekok/2013/11/elo-kijutos-funlock/">Kijutós Játékok.hu</a></li></ul>';
 
 $lang['change_locale']        = '<a href="http://funlock.hu/index.php/main" target="_top">[hun]</a>';
 
@@ -39,8 +39,8 @@ $lang['book-sname']           = "First name";
 $lang['phone']                = "Phone";
 $lang['payment-option']       = "Payment";
 $lang['payment-option-1']     = "transfer";
-$lang['payment-option-2']     = "cache";
-$lang['voucher']              = "Voucher";
+$lang['payment-option-2']     = "cash";
+$lang['voucher']              = "Booking nr.";
 $lang['email']                = "Email";
 $lang['billing']              = "Different billing address";
 $lang['bill-fname']           = "Last name";

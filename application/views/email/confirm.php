@@ -8,13 +8,14 @@
       ?>
       <li>Utaljátok el a foglalási összeget (<?= isset($voucher) ? $voucher->discounted_price : lang('base_price') ?> Ft) a játék megkezdése előtt minimum <strong>két nappal</strong>, hogy foglalásotokat érvényesítsétek.
         <br/>Név: Flow4Freedom Kft.
-        <br/>Számlaszámrara: 10918001-00000026-88000000
+        <br/>Számlaszám: 10918001-00000026-88000000
         <br/>Közlemény: <strong><?= $this->booking_model->convertTimeToBookingCode($posted['appointment']) ?></strong></li>
+      <li><strong>Figyelem! Átutalásos fizetés esetén a számla az utaló személy nevére lesz kiállítva! Ha az utaló személye eltér a foglaló személyétől, akkor kérünk titeket, hogy az utalás közlemény rovatában tüntessétek fel a lakcímét a foglalási azonosító mellett! Amennyiben más névre és címre kéritek a számlát, ezt is a közlemény rovatba bevitt adatok megadásával tehetitek meg.</strong></li>
       <?php
         } else {
       ?>
       <li>Hozzátok be a foglalási összeget (<?= isset($voucher) ? $voucher->discounted_price : lang('base_price') ?> Ft) a játék időpontjára!
-        <br/>Cím: 1068 Budapest, Király utca. 54. (bejárat a Hegedű utca felől)
+        <br/>Cím: 1068 Budapest, Hegedű utca 1.
         <br/>Foglalási azonosító: “<?= $this->booking_model->convertTimeToBookingCode($posted['appointment']) ?>”</li>
       <?php
         }
@@ -40,7 +41,7 @@
         } else {
       ?>
       <li>Please bring the price (<?= isset($voucher) ? $voucher->discounted_price : lang('base_price') ?> HuF) to our place at the booked appointment!
-        <br/>Address: 1068 Budapest, Király street 54.
+        <br/>Address: 1068 Budapest, Hegedű street 1.
         <br/>Reservation number: “<?= $this->booking_model->convertTimeToBookingCode($posted['appointment']) ?>”</li>
       <?php
         }

@@ -1,22 +1,22 @@
 <?php
 
-$lang['base_price']           = "10.000";
+$lang['base_price']           = "12.000";
 
 $lang['subtitle']             = "- A Bejutós Játék -";
 
 $lang['menuitem_1']           = "Info";
-$lang['menuitem_1_text']      = "A Funlock egy látványos meglepetésekkel és váratlan fordulatokkal teli csapatjáték, ahol semmi sem az, aminek elsőre látszik. A játék Téged és Barátaidat egy órára „rabul” ejt és csak közös csapatmunkával, közös gondolko-dással tudjátok megfejteni a kiszabadulás kulcsát jelentő rejtvényeket és felfedni a szoba titkát.<br/><br/>A játék <strong>2-5 fős csapatokban</strong> játszható. Céges csapatépítő (csoportdinamikai) programnak is ajánljuk.<br/><br/>A játék ára <strong>most akciósan ".$lang['base_price']." Ft csapatonként</strong>, a csapat létszámától függetlenül.<br/><br/>Amennyiben nagyobb létszámú társasággal jönnétek, egyedi foglalási megoldásokért keressetek minket elérhetőségeinken.<br/><br/>Szeretettel várunk Titeket:<br/><em>A Funlock csapata</em>";
+$lang['menuitem_1_text']      = "A Funlock egy látványos meglepetésekkel és váratlan fordulatokkal teli csapatjáték, ahol semmi sem az, aminek elsőre látszik. A játék Téged és Barátaidat egy órára „rabul” ejt és csak közös csapatmunkával, közös gondolko-dással tudjátok megfejteni a kiszabadulás kulcsát jelentő rejtvényeket és felfedni a szoba titkát.<br/><br/>A játék <strong>2-5 fős csapatokban</strong> játszható. Céges csapatépítő (csoportdinamikai) programnak is ajánljuk.<br/><br/>A játék ára <strong>".$lang['base_price']." Ft csapatonként</strong>, a csapat létszámától függetlenül. Ha még diákok vagytok, úgy 10.000 Ft-ért játszhattok nálunk, ha pedig valamelyikőtöknek aznap van a születésnapja, akkor 8000 Ft-ért! A szobában minden csapat számára elrejtettünk egy ajándékot, megtaláljátok?<br/><br/>Amennyiben nagyobb létszámú társasággal jönnétek, egyedi foglalási megoldásokért keressetek minket elérhetőségeinken.<br/><br/>Szeretettel várunk Titeket:<br/><em>A Funlock csapata</em>";
 
 $lang['menuitem_2']           = "Történet";
 $lang['menuitem_2_text']      = "<p>Megalkottuk a legmodernebb biztonsági rendszert, melyet egy mesterséges intelligenciával rendelkező szuperszámítógép irányít. Azért hoztuk létre ezt a rendszert, hogy elrejtsünk valamit, ami nem kerülhet rossz kezekbe. Azonban valami elromlott... a számítógép átvette az irányítást és kizárt minket a szobából! Mivel a szoba egy zárt rendszer, így csak belülről indítható újra, ehhez azonban le kell győzni az ellenetek dolgozó számítógépet. Nem lesz könnyű dolgotok, mert minden lépéseteket előre tudja és újabb és újabb akadályt gördít majd elétek, hogy megakadályozzon Titeket a kiszabadulásban.</p>";
 
 $lang['menuitem_3']           = "Elérhetőség";
-$lang['menuitem_3_text']      = '1068 Budapest<br/>Király utca 54.<br/>(bejárat a Hegedű utcából)<br/><br/>+3670 382 1388<br/><p id="info">&nbsp;</p><br/><a href="http://goo.gl/maps/AriVW" target="_blank"><img id="map" src="'.base_url().'assets/img/main/map.png" alt="" title=""/></a>';
+$lang['menuitem_3_text']      = '1068 Budapest<br/>Hegedű utca 1.<br/><br/>+3670 382 1388<br/><p id="info">&nbsp;</p><br/><a href="http://goo.gl/maps/AriVW" target="_blank"><img id="map" src="'.base_url().'assets/img/main/map.png" alt="" title=""/></a>';
 
 $lang['menuitem_4']           = "Galéria";
 
 $lang['menuitem_5']           = "Rólunk írták";
-$lang['menuitem_5_text']      = '<ul><li><a href="http://welovebudapest.com/hu/nevezetessegek-turak/cikkek/2013/09/03/high-tech-szabadulos-jatek-a-kiraly-utcaban-funlock">we love budapest 1</a></li><li><a href="http://welovebudapest.com/hu/nevezetessegek-turak/cikkek/2013/10/01/a-legjobb-szabadulos-jatekok">we love budapest 2</a></li><li><a href="http://player.hu/kult/funlock-kiraly-utca-teszt">player.hu</a></li><li><a href="http://www.faninfo.hu/szabadido/adatlap/funlock-szabadulo-szoba-budapest">faninfo</a></li></ul>';
+$lang['menuitem_5_text']      = '<ul><li>We Love Budapest <a href="http://welovebudapest.com/hu/nevezetessegek-turak/cikkek/2013/09/03/high-tech-szabadulos-jatek-a-kiraly-utcaban-funlock">1</a> <a href="http://welovebudapest.com/hu/nevezetessegek-turak/cikkek/2013/10/01/a-legjobb-szabadulos-jatekok">2</a></li><li><a href="http://player.hu/kult/funlock-kiraly-utca-teszt">player.hu</a></li><li><a href="http://www.faninfo.hu/szabadido/adatlap/funlock-szabadulo-szoba-budapest">Faninfo</a></li><li><a href="http://www.kijutos-jatekok.hu/kijutos-jatekok/2013/11/elo-kijutos-funlock/">Kijutós Játékok.hu</a></li></ul>';
 
 $lang['change_locale']        = '<a href="http://funlock.eu/index.php/main" target="_top">[eng]</a>';
 
@@ -58,6 +58,7 @@ $lang['eula_text']            = "
     <ol>
       <li>A játékban mindenki csak a saját felelősségére vehet részt</li>
       <li>A csapat érvényes időponttal rendelkezik és a fizetési módnak megfelelően, határidőre kifizette a részvételi díjat</li>
+      <li><strong>Figyelem! Átutalásos fizetés esetén a számla az utaló személy nevére lesz kiállítva! Az utalás megjegyzés rovatában minden esetben tüntesse fel a lakcímét a foglalási azonosító mellett!</strong> Amennyiben más névre és címre kéri a számlát, ezt is a megjegyzés rovatba bevitt adatokkal teheti meg!</li>
       <li>A csapat egyik tagja sincsen alkohol, vagy más tudatmódosító szer aktív befolyása alatt</li>
       <li>A csapat az üzemeltető által a játék előtt közölt instrukciókat és játékszabályokat betartja (ellenkező esetben az üzemeltető fenntartja a jogot a játékból való azonnali kizárásra)</li>
       <li>Mivel a játék sikeres teljesítéséhez nincs szükség fiziai erőre, a játék során okozott rongálás kártérítési eljárást von maga után</li>

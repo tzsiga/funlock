@@ -54,11 +54,11 @@ class Booking extends CI_Controller {
 
   private function onSuccessfulBooking($posted) {
     $voucher = $this->voucher_model->getVoucherByCode($posted['code']);
-    
+
     if (isset($voucher) && $this->voucher_model->isAvailable($voucher)) {
       if ($this->voucher_model->isActive($voucher))
         $this->voucher_model->activate($voucher);
-      
+
       $this->booking_model->insertBooking($this->booking_model->composeBooking($posted, $voucher));
       $this->loadFormSuccessResult($posted, $voucher);
     } else {      // if voucher code is wrong or used
@@ -112,9 +112,10 @@ class Booking extends CI_Controller {
     $this->form_validation->set_rules('appointment', '"appointment"', 'required|xss_clean|greater_than['.time().']');
     $this->form_validation->set_rules('book-fname', lang('book-fname'), 'required|xss_clean');
     $this->form_validation->set_rules('book-sname', lang('book-sname'), 'required|xss_clean');
+    $this->form_validation->set_rules('payment-option', lang('payment-option'), 'required|xss_clean');
     $this->form_validation->set_rules('phone', lang('phone'), 'required|xss_clean|numeric');
     $this->form_validation->set_rules('email', lang('email'), 'required|xss_clean|valid_email');
-    $this->form_validation->set_rules('zip', lang('zip'), 'required|xss_clean|numeric|exact_length[4]');
+    $this->form_validation->set_rules('zip', lang('zip'), 'required|xss_clean|numeric');
     $this->form_validation->set_rules('city', lang('city'), 'required|xss_clean');
     $this->form_validation->set_rules('street', lang('street'), 'required|xss_clean');
     $this->form_validation->set_rules('house', lang('house'), 'required|xss_clean');

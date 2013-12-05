@@ -5,7 +5,7 @@
   echo form_open('main/addBooking', array('id' => 'booking-form'));
   echo '<p>';
   echo form_hidden('appointment', isset($posted['appointment']) ? $posted['appointment'] : '');
-  
+
   echo '</p><p>';
   echo form_label(lang('book-fname'), 'book-fname');
   echo form_input(array('name' => 'book-fname', 'id' => 'book-fname', 'value' => isset($posted['book-fname']) ? $posted['book-fname'] : ''));
@@ -13,10 +13,10 @@
   echo form_input(array('name' => 'book-sname', 'id' => 'book-sname', 'value' => isset($posted['book-sname']) ? $posted['book-sname'] : ''));
   echo form_label(lang('phone'), 'phone');
   echo form_input(array('name' => 'phone', 'id' => 'phone', 'value' => isset($posted['phone']) ? $posted['phone'] : ''));
-  
+
   echo '</p><p>';
   echo form_label(lang('payment-option'), 'payment-option');
-  echo form_dropdown('payment-option', array('card' => lang('payment-option-1'), 'cache' => lang('payment-option-2')), 'card', 'id="payment-option"');
+  echo form_dropdown('payment-option', array('' => '', 'card' => lang('payment-option-1'), 'cache' => lang('payment-option-2')), isset($posted['payment-option']) ? $posted['payment-option'] : '', 'id="payment-option"');
   echo form_label(lang('voucher'), 'voucher');
   echo form_checkbox(array('name' => 'voucher', 'id' => 'voucher', 'value' => 'accept', 'checked' => isset($posted['voucher']) ? true : false));
   echo form_input(array('name' => 'code', 'id' => 'code', 'value' => isset($posted['code']) ? $posted['code'] : ''));
@@ -52,6 +52,6 @@
 
   echo '</p>';
   echo form_close();
-  
+
   $this->load->view('booking/form_js');
 ?>

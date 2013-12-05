@@ -2,13 +2,15 @@
 
   $('#link-eula').fancybox({
     maxWidth  : 700,
-    maxHeight : 420,
+    maxHeight : 470,
     fitToView : false,
     autoSize  : false,
     closeClick  : false,
     openEffect  : 'none',
     closeEffect : 'none'
   });
+
+  $('#voucher').prop('checked', true);
 
   if (!$('#voucher').is(':checked')) {
     $('#code').hide();
