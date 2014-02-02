@@ -11,7 +11,7 @@ $lang['menuitem_2']           = "Történet";
 $lang['menuitem_2_text']      = "<p>Megalkottuk a legmodernebb biztonsági rendszert, melyet egy mesterséges intelligenciával rendelkező szuperszámítógép irányít. Azért hoztuk létre ezt a rendszert, hogy elrejtsünk valamit, ami nem kerülhet rossz kezekbe. Azonban valami elromlott... a számítógép átvette az irányítást és kizárt minket a szobából! Mivel a szoba egy zárt rendszer, így csak belülről indítható újra, ehhez azonban le kell győzni az ellenetek dolgozó számítógépet. Nem lesz könnyű dolgotok, mert minden lépéseteket előre tudja és újabb és újabb akadályt gördít majd elétek, hogy megakadályozzon Titeket a kiszabadulásban.</p>";
 
 $lang['menuitem_3']           = "Elérhetőség";
-$lang['menuitem_3_text']      = '1068 Budapest<br/>Hegedű utca 1.<br/><br/>+3670 382 1388<br/><p id="info">&nbsp;</p><br/><a href="http://goo.gl/maps/AriVW" target="_blank"><img id="map" src="'.base_url().'assets/img/main/map.png" alt="" title=""/></a>';
+$lang['menuitem_3_text']      = '1068 Budapest<br/>Hegedű utca 1.<br/><br/>+3630 620 8940<br/><p id="info">&nbsp;</p><br/><a href="http://goo.gl/maps/AriVW" target="_blank"><img id="map" src="'.base_url().'assets/img/main/map.png" alt="" title=""/></a>';
 
 $lang['menuitem_4']           = "Galéria";
 
@@ -71,7 +71,7 @@ $lang['booking_404']          = '<form id="error-form"><h3>Kapcsolódási hiba!<
 $lang['booking_500']          = '<form id="error-form"><h3>Lekésted!</h3><br/><p>Mialatt nézelődtél befoglalták az általad kiválasztott időpontot! Válassz egy újat.</p></form>';
 
 $lang['form_success_cache_1'] = '<p>A foglalásotok sikeres volt! Emailt küldtünk a további teendőkről.</p><br/><p>Kérünk Titeket, hogy a foglalt időpontra hozzátok be hozzánk a <strong>';
-$lang['form_success_cache_2'] = ' Ft foglalási összeget!</strong> Köszönjük!</p><br/><p>Címünk: 1068 Budapest, Király utca 54.</p>';
+$lang['form_success_cache_2'] = ' Ft foglalási összeget!</strong> Köszönjük!</p><br/><p>Címünk: 1068 Budapest, Hegedű utca 1.</p>';
 
 $lang['form_success_card_1']  = '<p>A foglalásotok sikeres volt! Emailt küldtünk a további teendőkről.</p><br/><p>Kérünk Titeket, hogy a foglalt időpont előtt legkésőbb <strong>két nappal</strong> utaljátok el a <strong>';
 $lang['form_success_card_2']  = ' Ft foglalási összeget</strong> számlaszámunkra, különben foglalásotok törlésre kerül! Köszönjük!</p><br/><p>A „közlemény” rovatban  tűntessétek fel a következőt: <strong>';

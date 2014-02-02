@@ -11,7 +11,7 @@ $lang['menuitem_2']           = "Story";
 $lang['menuitem_2_text']      = "We created a high-end security system controlled by an artificial intelligence computer. We wanted to hide something very important, something which can not fall into the wrong hands. But something happened... the computer took over and locked us out. The system works as a closed circuit, therefore it can only be restarted from inside by defeating it. It will not be easy, because it knows every step you take and will try to stop you as far as it can from getting out.";
 
 $lang['menuitem_3']           = "Contact";
-$lang['menuitem_3_text']      = '1068 Budapest<br/>Hegedű street 1.<br/><br/>+3670 382 1388<br/><p id="info">&nbsp;</p><br/><a href="http://goo.gl/maps/AriVW" target="_blank"><img id="map" src="'.base_url().'assets/img/main/map.png" alt="" title=""/></a>';
+$lang['menuitem_3_text']      = '1068 Budapest<br/>Hegedű street 1.<br/><br/>+3630 620 8940<br/><p id="info">&nbsp;</p><br/><a href="http://goo.gl/maps/AriVW" target="_blank"><img id="map" src="'.base_url().'assets/img/main/map.png" alt="" title=""/></a>';
 
 $lang['menuitem_4']           = "Gallery";
 
@@ -70,7 +70,7 @@ $lang['booking_404']          = '<form id="error-form"><h3>Connection error!</h3
 $lang['booking_500']          = '<form id="error-form"><h3>Too late!</h3><br/><p>While you were browsing, someone else took the selected appointment! Choose another!</p></form>';
 
 $lang['form_success_cache_1'] = '<p>Your booking is almost complete! We sent you an email with further instructions.</p><br/><p>Please do not forget to pay the ';
-$lang['form_success_cache_2'] = ' HuF at 1068 Budapest, Király street 54. Thank you!</p>';
+$lang['form_success_cache_2'] = ' HuF at 1068 Budapest, Hegedű street 1. Thank you!</p>';
 
 $lang['form_success_card_1']  = '<p>Your booking is almost complete! We sent you an email with further instructions.</p><br/><p>Please do not forget to trasfer the ';
 $lang['form_success_card_2']  = ' HuF to our bank account at least <strong>two days before</strong> your booked date, otherwise your booking will be cancelled. Thank You!</p><br/><p>In the „notice” field please write the following: <strong>';
