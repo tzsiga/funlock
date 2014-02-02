@@ -10,8 +10,6 @@
     closeEffect : 'none'
   });
 
-  $('#voucher').prop('checked', true);
-
   if (!$('#voucher').is(':checked')) {
     $('#code').hide();
   }

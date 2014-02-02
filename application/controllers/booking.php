@@ -2,6 +2,8 @@
 
 class Booking extends CI_Controller {
 
+  const SPECIAL_VOUCHER = 'HOVAMENJEK';
+
   public function index() {
     $this->load->view('booking/booking', array(
       'bookings' => $this->booking_model->getBookingsInRange(time()),
@@ -52,62 +54,6 @@ class Booking extends CI_Controller {
     }
   }
 
-  private function onSuccessfulBooking($posted) {
-    $voucher = $this->voucher_model->getVoucherByCode($posted['code']);
-
-    if (isset($voucher) && $this->voucher_model->isAvailable($voucher)) {
-      if ($this->voucher_model->isActive($voucher))
-        $this->voucher_model->activate($voucher);
-
-      $this->booking_model->insertBooking($this->booking_model->composeBooking($posted, $voucher));
-      $this->loadFormSuccessResult($posted, $voucher);
-    } else {      // if voucher code is wrong or used
-      $this->booking_model->insertBooking($this->booking_model->composeBooking($posted));
-      $this->loadFormSuccessResult($posted);
-    }
-
-    $this->sendConfirmationEmail($posted, $voucher);
-    $this->booking_model->incSuccessfulBookings();
-  }
-
-  private function sendConfirmationEmail($posted, $voucher = null) {
-    $this->setEmailDefaultOptions();
-    $this->email->to($posted['email']);
-    $msg = $this->load->view('email/confirm', array(
-      'posted' => $posted,
-      'voucher' => $voucher
-    ), true);
-    $this->email->message($msg);
-    $this->email->send();
-  }
-
-  private function setEmailDefaultOptions() {
-    $admins = array(
-      'andras.csernak@funlock.hu',
-      'gabor.veress@funlock.hu',
-      'kacsoh.gabor@gmail.com',
-      'info@funlock.hu',
-      'tzsiga@funlock.hu'
-    );
-
-    $this->load->library('email');
-    $this->email->set_mailtype('html');
-    $this->email->from('info@funlock.hu', 'Funlock');
-    $this->email->bcc($admins);
-    $this->email->subject('Visszaigazolás a foglalásról');
-  }
-
-  private function loadFormSuccessResult($posted, $voucher = null) {
-    if ($posted['payment-option'] == 'cache') {
-      $this->load->view('booking/form_success_cache', array('voucher' => $voucher));
-    } else if ($posted['payment-option'] == 'card') {
-      $this->load->view('booking/form_success_card', array(
-        'code' => $this->booking_model->convertTimeToBookingCode($posted['appointment']),
-        'voucher' => $voucher
-      ));
-    }
-  }
-
   private function setValidationRules($posted = null) {
     $this->form_validation->set_rules('appointment', '"appointment"', 'required|xss_clean|greater_than['.time().']');
     $this->form_validation->set_rules('book-fname', lang('book-fname'), 'required|xss_clean');
@@ -126,6 +72,72 @@ class Booking extends CI_Controller {
       $this->form_validation->set_rules('bill-fname', lang('bill-fname'), 'required|xss_clean');
       $this->form_validation->set_rules('bill-sname', lang('bill-sname'), 'required|xss_clean');
     }
+  }
+
+  private function onSuccessfulBooking($posted) {
+    $voucher = $this->voucher_model->getVoucherByCode($posted['code']);
+
+    if (isset($voucher) && $this->voucher_model->isAvailable($voucher)) {
+      if ($this->voucher_model->isActive($voucher))
+        $this->voucher_model->activate($voucher);
+    }
+
+    $this->booking_model->insertBooking($this->booking_model->composeBooking($posted, $voucher));
+    $this->loadFormSuccessResult($posted, $voucher);
+    $this->sendConfirmationEmail($posted, $voucher);
+    $this->booking_model->incSuccessfulBookings();
+  }
+
+  private function loadFormSuccessResult($posted, $voucher = null) {
+    if (isset($voucher) && $voucher->code == Booking::SPECIAL_VOUCHER) {
+      $this->load->view('booking/form_success_special');
+    } else {
+      if ($posted['payment-option'] == 'cache') {
+        $this->load->view('booking/form_success_cache', array('voucher' => $voucher));
+      } else if ($posted['payment-option'] == 'card') {
+        $this->load->view('booking/form_success_card', array(
+          'code' => $this->booking_model->convertTimeToBookingCode($posted['appointment']),
+          'voucher' => $voucher
+        ));
+      }
+    }
+  }
+
+  private function sendConfirmationEmail($posted, $voucher = null) {
+    $this->setEmailDefaultOptions();
+    $this->email->to($posted['email']);
+    $msg = '';
+
+    if (isset($voucher) && $voucher->code == Booking::SPECIAL_VOUCHER) {
+      $msg = $this->load->view('email/special', array(
+        'posted' => $posted,
+        'voucher' => $voucher
+      ), true);
+    } else {
+      $msg = $this->load->view('email/confirm', array(
+        'posted' => $posted,
+        'voucher' => $voucher
+      ), true);
+    }
+    
+    $this->email->message($msg);
+    $this->email->send();
+  }
+
+  private function setEmailDefaultOptions() {
+    $admins = array(
+      'andras.csernak@funlock.hu',
+      'gabor.veress@funlock.hu',
+      'kacsoh.gabor@gmail.com',
+      'info@funlock.hu',
+      'tzsiga@funlock.hu'
+    );
+
+    $this->load->library('email');
+    $this->email->set_mailtype('html');
+    $this->email->from('info@funlock.hu', 'Funlock');
+    $this->email->bcc($admins);
+    $this->email->subject('Visszaigazolás a foglalásról');
   }
 
 }

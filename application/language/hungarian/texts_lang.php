@@ -76,3 +76,5 @@ $lang['form_success_cache_2'] = ' Ft foglalási összeget!</strong> Köszönjük
 $lang['form_success_card_1']  = '<p>A foglalásotok sikeres volt! Emailt küldtünk a további teendőkről.</p><br/><p>Kérünk Titeket, hogy a foglalt időpont előtt legkésőbb <strong>két nappal</strong> utaljátok el a <strong>';
 $lang['form_success_card_2']  = ' Ft foglalási összeget</strong> számlaszámunkra, különben foglalásotok törlésre kerül! Köszönjük!</p><br/><p>A „közlemény” rovatban  tűntessétek fel a következőt: <strong>';
 $lang['form_success_card_3']  = '</strong></p><br/><p>Név: Flow4Freedom Kft. <span class="tabulated">Számlaszám: 10918001-00000026-88000000</span></p>';
+
+$lang['form_success_special'] = 'Gyertek el a Hegedű utca 1-be és kezdődjön a verseny az idővel! <br/>Emailt küldtünk a további információkról.';

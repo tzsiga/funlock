@@ -1,5 +1,6 @@
 <?php $this->load->view('header'); ?>
   <body id="confirm-email">
+
     <h2>Kedves Csapat!</h2>
     <p>Örülünk, hogy elvállaltátok a küldetést! Mielőtt a helyszínre érkeznétek (időpontotok:  <?= date("Y-m-d H:i", $posted['appointment']) ?>), három kisebb feladatot kell elvégeznetek:</p>
     <ol>
@@ -24,9 +25,13 @@
       <li>Érkezzetek időben és érezzétek jól magatokat!</li>
     </ol>
     <p>Várunk Titeket szeretettel:<br/><em>A Funlock csapata</em></p>
+
+    
     <br/><br/>
     <hr/>
     <br/><br/>
+    
+
     <h2>Dear Team!</h2>
     <p>We are glad that you take part in this adventurous journey! Before you arrive (your date:  <?= date("Y-m-d H:i", $posted['appointment']) ?>), you have three more tasks left:</p>
     <ol>
@@ -50,5 +55,7 @@
       <li>Please arrive on time and have a good time!</li>
     </ol>
     <p>We are looking forward meeting you:<br/><em>Funlock-Team</em></p>
+
+
   </body>
 </html>

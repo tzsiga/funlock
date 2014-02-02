@@ -75,3 +75,5 @@ $lang['form_success_cache_2'] = ' HuF at 1068 Budapest, Hegedű street 1. Thank 
 $lang['form_success_card_1']  = '<p>Your booking is almost complete! We sent you an email with further instructions.</p><br/><p>Please do not forget to trasfer the ';
 $lang['form_success_card_2']  = ' HuF to our bank account at least <strong>two days before</strong> your booked date, otherwise your booking will be cancelled. Thank You!</p><br/><p>In the „notice” field please write the following: <strong>';
 $lang['form_success_card_3']  = '</strong></p><br/><p>Name: Flow4Freedom Kft. <span class="tabulated">Account No.: 10918001-00000026-88000000</span></p>';
+
+$lang['form_success_special'] = 'This featured event is available in the hungarian version.';
