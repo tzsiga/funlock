@@ -1,6 +1,6 @@
 <?php $this->load->view('header'); ?>
   <body id="confirm-email">
-    <h2>Kedves Csapat!</h2>
+    <h2>Kedves <?= $posted['book-sname'] ?>!</h2>
     <p>Örülünk, hogy elvállaltátok a küldetést! Mielőtt a helyszínre érkeznétek (időpontotok:  <?= date("Y-m-d H:i", $posted['appointment']) ?>), egy kisebb feladatot kell elvégeznetek:</p>
     <ol>
       <li>Itt <a href="<?= base_url().'assets/email/funlock_prof_ossz.pdf' ?>" target="_blank">megtaláljátok</a> a professzorról tudomásunkra jutott információkat. Tanulmányozzátok át, hogy rájöjjetek a bejutáshoz szükséges kombinációra!</li>

@@ -2,6 +2,7 @@
 
 class Booking extends CI_Controller {
 
+  // configbol kene szedni!
   const SPECIAL_VOUCHER = 'HOVAMENJEK';
 
   public function index() {

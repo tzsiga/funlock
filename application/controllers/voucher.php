@@ -23,12 +23,32 @@ class Voucher extends Admin {
         for ($i = 0; $i < $posted['number_of_vouchers']; $i++)
           $vouchers[] = $this->create($posted);
 
-        $this->session->set_flashdata('msg', 'Új voucher(ek) létrehozva!<br/>'.$this->getCodes($vouchers));
+        $this->session->set_flashdata('msg', 'Új kupon(ok) létrehozva!<br/>'.$this->getCodes($vouchers));
         redirect('/admin/voucher/add', 'refresh');
       }
     }
 
     $this->load->view('voucher/add');
+  }
+
+  public function addUnique() {
+    $posted = $this->input->post();
+
+    if ($posted) {
+      $this->setAddUniqueValidationRules();
+
+      if ($this->form_validation->run() == true) {
+        if (!$this->voucher_model->isUniqueCode($posted['code'])) {
+          $this->session->set_flashdata('msg', 'Ilyen kupon már létezik!<br/>'.$posted['code']);
+        } else {
+          $voucher = $this->create($posted);
+          $this->session->set_flashdata('msg', 'Új kupon létrehozva!<br/>'.$voucher['code']);
+        }
+        redirect('/admin/voucher/unique', 'refresh');
+      }
+    }
+
+    $this->load->view('voucher/unique');
   }
 
   public function listAll($offset = 0) {
@@ -53,17 +73,6 @@ class Voucher extends Admin {
     redirect('admin/voucher/list', 'refresh');
   }
 
-  private function setupPagination($total, $page) {
-    $this->load->library('pagination');
-    $config['base_url'] = base_url().'index.php/admin/voucher/list';
-    $config['uri_segment'] = 4;
-    $config['total_rows'] = $total;
-    $config['per_page'] = $page; 
-    $config['first_link'] = 'Első';
-    $config['last_link'] = 'Utolsó';
-    $this->pagination->initialize($config); 
-  }
-
   public function edit($id) {
     $posted = $this->input->post();
 
@@ -85,6 +94,17 @@ class Voucher extends Admin {
     ));
   }
 
+  private function setupPagination($total, $page) {
+    $this->load->library('pagination');
+    $config['base_url'] = base_url().'index.php/admin/voucher/list';
+    $config['uri_segment'] = 4;
+    $config['total_rows'] = $total;
+    $config['per_page'] = $page;
+    $config['first_link'] = 'Első';
+    $config['last_link'] = 'Utolsó';
+    $this->pagination->initialize($config);
+  }
+
   private function create($posted) {
     $newVoucher = $this->voucher_model->getNewUniqueVoucher($posted);
     $this->voucher_model->insertVoucher($newVoucher);
@@ -98,7 +118,12 @@ class Voucher extends Admin {
   }
 
   private function setAddValidationRules() {
-    $this->form_validation->set_rules('number_of_vouchers', '"Voucherek száma"', 'required|xss_clean|numeric|greater_than[0]|less_than[1000]');
+    $this->form_validation->set_rules('number_of_vouchers', '"Kuponok száma"', 'required|xss_clean|numeric|greater_than[0]|less_than[1000]');
+    $this->setEditValidationRules();
+  }
+
+  private function setAddUniqueValidationRules() {
+    $this->form_validation->set_rules('code', '"Kód"', 'required|xss_clean|min_length[4]|max_length[20]');
     $this->setEditValidationRules();
   }
 

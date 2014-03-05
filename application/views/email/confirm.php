@@ -1,7 +1,7 @@
 <?php $this->load->view('header'); ?>
   <body id="confirm-email">
 
-    <h2>Kedves Csapat!</h2>
+    <h2>Kedves <?= $posted['book-sname'] ?>!</h2>
     <p>Örülünk, hogy elvállaltátok a küldetést! Mielőtt a helyszínre érkeznétek (időpontotok:  <?= date("Y-m-d H:i", $posted['appointment']) ?>), három kisebb feladatot kell elvégeznetek:</p>
     <ol>
       <?php
@@ -32,7 +32,7 @@
     <br/><br/>
     
 
-    <h2>Dear Team!</h2>
+    <h2>Dear <?= $posted['book-sname'] ?>!</h2>
     <p>We are glad that you take part in this adventurous journey! Before you arrive (your date:  <?= date("Y-m-d H:i", $posted['appointment']) ?>), you have three more tasks left:</p>
     <ol>
       <?php
