@@ -2,20 +2,17 @@
 
 class Booking extends CI_Controller {
 
-  // configbol kene szedni!
-  const SPECIAL_VOUCHER = 'HOVAMENJEK';
-
   public function index() {
     $this->load->view('booking/booking', array(
       'bookings' => $this->booking_model->getBookingsInRange(time()),
       'numberOfSuccessfulBookings' => $this->booking_model->getNumberOfSuccessfulBookings(),
-      'bookingLimit' => $this->booking_model->getBookingLimit()
+      'bookingLimit' => $this->config_model->bookingLimit()
     ));
   }
 
   public function addBooking() {
     if ($this->input->is_ajax_request()) {
-      if ($this->booking_model->getNumberOfSuccessfulBookings() >= $this->booking_model->getBookingLimit()) {
+      if ($this->booking_model->getNumberOfSuccessfulBookings() >= $this->config_model->bookingLimit()) {
         $this->load->view('booking/form_fail_limit');
       } else {
         $posted = $this->input->post();
@@ -90,7 +87,7 @@ class Booking extends CI_Controller {
   }
 
   private function loadFormSuccessResult($posted, $voucher = null) {
-    if (isset($voucher) && $voucher->code == Booking::SPECIAL_VOUCHER) {
+    if (isset($voucher) && $voucher->code == $this->config_model->specialVoucher()) {
       $this->load->view('booking/form_success_special');
     } else {
       if ($posted['payment-option'] == 'cache') {
@@ -109,7 +106,7 @@ class Booking extends CI_Controller {
     $this->email->to($posted['email']);
     $msg = '';
 
-    if (isset($voucher) && $voucher->code == Booking::SPECIAL_VOUCHER) {
+    if (isset($voucher) && $voucher->code == $this->config_model->specialVoucher()) {
       $msg = $this->load->view('email/special', array(
         'posted' => $posted,
         'voucher' => $voucher
@@ -126,13 +123,8 @@ class Booking extends CI_Controller {
   }
 
   private function setEmailDefaultOptions() {
-    $admins = array(
-      'andras.csernak@funlock.hu',
-      'gabor.veress@funlock.hu',
-      'kacsoh.gabor@gmail.com',
-      'info@funlock.hu',
-      'tzsiga@funlock.hu'
-    );
+    $emails = $this->config_model->adminEmails();
+    $admins = explode(',', $emails);
 
     $this->load->library('email');
     $this->email->set_mailtype('html');

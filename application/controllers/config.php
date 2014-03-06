@@ -28,7 +28,7 @@ class Config extends Admin {
   }
 
   public function changeLimit() {
-    $currentLimit = $this->booking_model->getBookingLimit();
+    $currentLimit = $this->config_model->bookingLimit();
     $posted = $this->input->post();
 
     if ($posted) {

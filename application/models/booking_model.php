@@ -55,11 +55,6 @@ class Booking_model extends CI_Model {
     $this->db->delete('bookings', array('id' => $id));
   }
 
-  public function getBookingLimit() {
-    $booking = $this->db->get_where('config', array('option_name' => 'booking_limit'))->result();
-    return $booking[0]->value;
-  }
-
   public function composeBooking($posted, $voucher = null) {
     return array(
       'appointment'     => $posted['appointment'],
