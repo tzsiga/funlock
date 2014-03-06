@@ -5,7 +5,7 @@ $lang['base_price']           = "12.000";
 $lang['subtitle']             = "- Break In Game -";
 
 $lang['menuitem_1']           = "Info";
-$lang['menuitem_1_text']      = "Funlock is a teamgame full of spectacular surprises and unexcpected twists where nothing is what it seems. The game will hold you and your friends captive for an hour, and the only way out is to solve the puzzles and mysteries together using your mind and creativity.<br/><br/>You will have 60 minutes to get in and then get out in a <strong>team of 2-5 person</strong>.<br/><br/>Price: <strong>".$lang['base_price']." HuF/team</strong><br/><br/>Have a good time with us:<br/><em>The Funlock team</em>";
+$lang['menuitem_1_text']      = "Funlock is a teamgame full of spectacular surprises and unexpected twists where nothing is what it seems. The game will hold you and your friends captive for an hour, and the only way out is to solve the puzzles and mysteries together using your mind and creativity.<br/><br/>You will have 60 minutes to get in and then get out in a <strong>team of 2-5 person</strong>.<br/><br/>Price: <strong>".$lang['base_price']." HuF/team</strong><br/><br/>Have a good time with us:<br/><em>The Funlock team</em>";
 
 $lang['menuitem_2']           = "Story";
 $lang['menuitem_2_text']      = "We created a high-end security system controlled by an artificial intelligence computer. We wanted to hide something very important, something which can not fall into the wrong hands. But something happened... the computer took over and locked us out. The system works as a closed circuit, therefore it can only be restarted from inside by defeating it. It will not be easy, because it knows every step you take and will try to stop you as far as it can from getting out.";
@@ -57,7 +57,7 @@ $lang['eula_text']            = "
     <h2>Terms of participation</h2>
     <ol>
       <li>Everyone takes part in the game on his own responsibility</li>
-      <li>The team has booked a valid date, and payed the fee on time accordingly to the choosed payment method</li>
+      <li>The team has booked a valid date, and payed the fee on time accordingly to the chosen payment method</li>
       <li>No one from the team is under the influence of alcohol or drugs of any kind</li>
       <li>The team follows every instruction of the game master (otherwise the game master has the right to suspend the game immediately)</li>
       <li>Because there is no need to use any force to complete the game, any kind of damage results in an action for damages</li>
@@ -72,7 +72,7 @@ $lang['booking_500']          = '<form id="error-form"><h3>Too late!</h3><br/><p
 $lang['form_success_cache_1'] = '<p>Your booking is almost complete! We sent you an email with further instructions.</p><br/><p>Please do not forget to pay the ';
 $lang['form_success_cache_2'] = ' HuF at 1068 Budapest, Hegedű street 1. Thank you!</p>';
 
-$lang['form_success_card_1']  = '<p>Your booking is almost complete! We sent you an email with further instructions.</p><br/><p>Please do not forget to trasfer the ';
+$lang['form_success_card_1']  = '<p>Your booking is almost complete! We sent you an email with further instructions.</p><br/><p>Please do not forget to transfer the ';
 $lang['form_success_card_2']  = ' HuF to our bank account at least <strong>two days before</strong> your booked date, otherwise your booking will be cancelled. Thank You!</p><br/><p>In the „notice” field please write the following: <strong>';
 $lang['form_success_card_3']  = '</strong></p><br/><p>Name: Flow4Freedom Kft. <span class="tabulated">Account No.: 10918001-00000026-88000000</span></p>';
 
