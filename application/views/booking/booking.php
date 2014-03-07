@@ -21,6 +21,17 @@
         </ul>
       </div>
       <div id="item-display-area"></div>
+      <span id="tripadvisor">
+        <br/>
+        <div id="TA_linkingWidgetWAR498" class="TA_linkingWidgetWAR">
+          <ul id="C4HVPnyPQ0NL" class="TA_links E3mvASbc0f8e">
+            <li id="gerY5vGD" class="IBBAWzVU">
+              <a target="_blank" href="http://www.tripadvisor.com/"><img src="http://www.tripadvisor.com/img/cdsi/partner/tripadvisor_logo_115x18-15078-2.gif" alt="TripAdvisor"/></a>
+            </li>
+          </ul>
+        </div>
+        <script src="http://www.jscache.com/wejs?wtype=linkingWidgetWAR&amp;uniq=498&amp;locationId=4795570&amp;lang=en_US&amp;border=false"></script>
+      </span>
     </div>
     <div id="content">
       <span id="change-locale"><?= lang('change_locale') ?></span>
