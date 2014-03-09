@@ -16,7 +16,7 @@ $lang['menuitem_3_text']      = '1068 Budapest<br/>Hegedű street 1.<br/><br/>+3
 $lang['menuitem_4']           = "Gallery";
 
 $lang['menuitem_5']           = "Articles";
-$lang['menuitem_5_text']      = '<ul><li>We Love Budapest <a href="http://welovebudapest.com/hu/nevezetessegek-turak/cikkek/2013/09/03/high-tech-szabadulos-jatek-a-kiraly-utcaban-funlock">1</a> <a href="http://welovebudapest.com/hu/nevezetessegek-turak/cikkek/2013/10/01/a-legjobb-szabadulos-jatekok">2</a></li><li><a href="http://player.hu/kult/funlock-kiraly-utca-teszt">player.hu</a></li><li><a href="http://www.faninfo.hu/szabadido/adatlap/funlock-szabadulo-szoba-budapest">Faninfo</a></li><li><a href="http://www.kijutos-jatekok.hu/kijutos-jatekok/2013/11/elo-kijutos-funlock/">Kijutós Játékok.hu</a></li></ul>';
+$lang['menuitem_5_text']      = '<ul><li><a href="http://welovebudapest.com/hu/nevezetessegek-turak/cikkek/2013/09/03/high-tech-szabadulos-jatek-a-kiraly-utcaban-funlock"><img src="'.base_url().'assets/img/logo/logo_welovebp.png" alt="" title=""/></a><a href="http://player.hu/kult/funlock-kiraly-utca-teszt"><img src="'.base_url().'assets/img/logo/logo_player.png" alt="" title=""/></a></li><li><a href="http://www.faninfo.hu/szabadido/adatlap/funlock-szabadulo-szoba-budapest"><img src="'.base_url().'assets/img/logo/logo_faninfo.png" alt="" title=""/></a><a href="http://www.kijutos-jatekok.hu/kijutos-jatekok/2013/11/elo-kijutos-funlock/"><img src="'.base_url().'assets/img/logo/logo_kijutos.png" alt="" title=""/></a></li></ul>';
 
 $lang['change_locale']        = '<a href="http://funlock.hu/index.php/main" target="_top">[hun]</a>';
 

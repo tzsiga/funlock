@@ -8,7 +8,7 @@
     
     <link rel="icon" type="image/png" href="<?= base_url() ?>assets/img/favicon.png" />
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
-    
+
     <link rel="stylesheet" type="text/css" media="screen" href="<?= base_url() ?>assets/plugin/jquery-ui-1.10.2/css/funlock-theme/jquery-ui-1.10.2.custom.min.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="<?= base_url() ?>assets/plugin/fancybox-2/jquery.fancybox.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="<?= base_url() ?>assets/css/style.css" />

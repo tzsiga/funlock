@@ -1,13 +1,28 @@
-body {
-  font-family: 'Source Sans Pro', arial, verdana;
-}
-
 $rad: 4px;
 
 @mixin shadow-custom($color) {
-     -moz-box-shadow: 8px 8px 15px $color;
+  -moz-box-shadow: 8px 8px 15px $color;
   -webkit-box-shadow: 8px 8px 15px $color;
-          box-shadow: 8px 8px 15px $color;
+  box-shadow: 8px 8px 15px $color;
+}
+
+@mixin font-setup() {
+  font-family: "Segoe UI", "Source Sans Pro", Calibri, arial, verdana;
+}
+
+@font-face {
+  font-family: "xSource Sans Pro";
+  src:
+    url('../font/SourceSansPro-Light.ttf') format('truetype'),
+    url('../font/SourceSansPro-Light.otf') format('otf'),
+    url('../font/SourceSansPro-Light.svg') format('svg'),
+    url('../font/SourceSansPro-Light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  @include font-setup;
 }
 
 #ui-datepicker-div {

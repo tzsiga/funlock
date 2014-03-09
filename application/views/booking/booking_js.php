@@ -50,8 +50,7 @@
     });
     
     <?php // hidden elements by default ?>
-    $('#booking-details').css('visibility', 'hidden');
-    $('#booking-details').css('opacity', '0');
+    $('#booking-details').css('visibility', 'hidden').css('opacity', '0');
     
     <?php // fake links ?>
     $('#link-info').css('cursor', 'pointer');
