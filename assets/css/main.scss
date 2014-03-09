@@ -70,6 +70,16 @@ body#main-page {
           }
         }
       }
+
+      #tripadvisor {
+        a {
+          text-decoration: none;
+
+          img {
+            margin-right: 10px;
+          }
+        }
+      }
     }
     
     #logo-small {
