@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6336424e-dfb5-4272-8950-bd70169cb66f" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\apps\xampp\htdocs\workspace\funlock\assets\img\logo\logo_f.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/booking/booking_js.php" afterPath="$PROJECT_DIR$/application/views/booking/booking_js.php" />
     </list>
     <ignored path="funlock.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,19 +25,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="booking.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="booking.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/booking/booking.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="10" selection-start="1558" selection-end="1558" vertical-scroll-proportion="0.5796253" vertical-offset="0" max-vertical-offset="930">
+            <state line="23" column="29" selection-start="1123" selection-end="1123" vertical-scroll-proportion="-14.25" vertical-offset="3" max-vertical-offset="930">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="booking_js.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="booking_js.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/booking/booking_js.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="46" selection-start="928" selection-end="928" vertical-scroll-proportion="-16.25" vertical-offset="0" max-vertical-offset="2325">
+            <state line="72" column="81" selection-start="2560" selection-end="2560" vertical-scroll-proportion="0.50980395" vertical-offset="638" max-vertical-offset="2550">
               <folding />
             </state>
           </provider>
@@ -65,9 +65,6 @@
         <option value="$PROJECT_DIR$/application/controllers/booking.php" />
         <option value="$PROJECT_DIR$/application/views/email/confirm.php" />
         <option value="$PROJECT_DIR$/application/config/autoload.php" />
-        <option value="$PROJECT_DIR$/application/views/booking/booking_js.php" />
-        <option value="$PROJECT_DIR$/application/language/hungarian/texts_lang.php" />
-        <option value="$PROJECT_DIR$/application/language/english/texts_lang.php" />
         <option value="$PROJECT_DIR$/assets/css/defaults.scss" />
         <option value="$PROJECT_DIR$/application/views/booking/form_js.php" />
         <option value="$PROJECT_DIR$/application/config/config.php" />
@@ -75,6 +72,9 @@
         <option value="$PROJECT_DIR$/assets/css/main_form.scss" />
         <option value="$PROJECT_DIR$/application/views/booking/booking.php" />
         <option value="$PROJECT_DIR$/assets/css/main.scss" />
+        <option value="$PROJECT_DIR$/application/language/english/texts_lang.php" />
+        <option value="$PROJECT_DIR$/application/language/hungarian/texts_lang.php" />
+        <option value="$PROJECT_DIR$/application/views/booking/booking_js.php" />
       </list>
     </option>
   </component>
@@ -343,7 +343,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
-    <property name="SearchEverywhereHistory" value="wrap" />
+    <property name="SearchEverywhereHistory" value="wrap&#10;wra" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -376,7 +376,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="32" width="1696" height="1026" extended-state="7" />
+    <frame x="-8" y="32" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -384,7 +384,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24940476" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -418,6 +418,20 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/application/views/booking/booking.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="10" selection-start="1558" selection-end="1558" vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="930">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/booking/booking_js.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="46" selection-start="928" selection-end="928" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2325">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/booking/booking.php">
+      <provider selected="true" editor-type-id="text-editor">
         <state line="38" column="25" selection-start="1856" selection-end="1856" vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="960">
           <folding />
         </state>
@@ -425,9 +439,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/main.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="0" selection-start="1733" selection-end="1733" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="2730">
-          <folding />
-        </state>
+        <state line="62" column="0" selection-start="1733" selection-end="1733" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="2730" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/booking/booking_js.php">
@@ -451,9 +463,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/email/confirm.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="7" selection-start="1549" selection-end="1549" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
-          <folding />
-        </state>
+        <state line="28" column="7" selection-start="1549" selection-end="1549" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/booking.php">
@@ -463,15 +473,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/email/confirm.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="199" selection-start="1376" selection-end="1376" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="510">
-          <folding />
-        </state>
+        <state line="22" column="199" selection-start="1376" selection-end="1376" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="510" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/language/english/texts_lang.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="57" column="0" selection-start="3773" selection-end="3773" vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="1275">
-          <folding />
+          <folding>
+            <marker date="1394706551378" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -607,93 +617,77 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/config/database.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.2802768" vertical-offset="243" max-vertical-offset="1110">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.2802768" vertical-offset="243" max-vertical-offset="1110" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/style.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="165" selection-end="165" vertical-scroll-proportion="0.17814727" vertical-offset="0" max-vertical-offset="842">
-          <folding />
-        </state>
+        <state line="10" column="0" selection-start="165" selection-end="165" vertical-scroll-proportion="0.17814727" vertical-offset="0" max-vertical-offset="842" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/config/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="2" selection-start="2255" selection-end="2255" vertical-scroll-proportion="0.10380623" vertical-offset="990" max-vertical-offset="5730">
-          <folding />
+        <state line="72" column="2" selection-start="2255" selection-end="2255" vertical-scroll-proportion="0.10380623" vertical-offset="990" max-vertical-offset="5730" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/booking/form_js.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="309" selection-end="309" vertical-scroll-proportion="0.25951558" vertical-offset="0" max-vertical-offset="1200" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/main_form.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="21" selection-start="1287" selection-end="1287" vertical-scroll-proportion="0.5166271" vertical-offset="660" max-vertical-offset="1620" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/defaults.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="1" selection-start="770" selection-end="770" vertical-scroll-proportion="0.60570073" vertical-offset="0" max-vertical-offset="842" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="9" selection-start="1666" selection-end="1666" vertical-scroll-proportion="0.48442906" vertical-offset="0" max-vertical-offset="867" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/email/confirm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="199" selection-start="3345" selection-end="3345" vertical-scroll-proportion="0.9309133" vertical-offset="0" max-vertical-offset="990" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/main.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="30" selection-start="1994" selection-end="1994" vertical-scroll-proportion="0.96437055" vertical-offset="358" max-vertical-offset="2880" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/language/hungarian/texts_lang.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="2227" selection-end="2227" vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="1275">
+          <folding>
+            <marker date="1394706556810" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/language/english/texts_lang.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="734" selection-start="2353" selection-end="2353" vertical-scroll-proportion="0.51903117" vertical-offset="0" max-vertical-offset="1500">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/booking/form_js.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="309" selection-end="309" vertical-scroll-proportion="0.25951558" vertical-offset="0" max-vertical-offset="1200">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/main_form.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="21" selection-start="1287" selection-end="1287" vertical-scroll-proportion="0.5166271" vertical-offset="660" max-vertical-offset="1620">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/defaults.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="1" selection-start="770" selection-end="770" vertical-scroll-proportion="0.60570073" vertical-offset="0" max-vertical-offset="842">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="9" selection-start="1666" selection-end="1666" vertical-scroll-proportion="0.48442906" vertical-offset="0" max-vertical-offset="867">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/email/confirm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="199" selection-start="3345" selection-end="3345" vertical-scroll-proportion="0.9309133" vertical-offset="0" max-vertical-offset="990">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/booking/booking_js.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="46" selection-start="928" selection-end="928" vertical-scroll-proportion="-16.25" vertical-offset="0" max-vertical-offset="2325">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/main.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="30" selection-start="1994" selection-end="1994" vertical-scroll-proportion="0.96437055" vertical-offset="358" max-vertical-offset="2880">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/language/hungarian/texts_lang.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="2227" selection-end="2227" vertical-scroll-proportion="0.31615925" vertical-offset="0" max-vertical-offset="1290">
+        <state line="18" column="0" selection-start="1619" selection-end="1619" vertical-scroll-proportion="0.43252596" vertical-offset="0" max-vertical-offset="1410">
           <folding>
-            <marker date="1394365741197" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1394706551378" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/booking/booking.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="10" selection-start="1558" selection-end="1558" vertical-scroll-proportion="0.5796253" vertical-offset="0" max-vertical-offset="930">
+        <state line="23" column="29" selection-start="1123" selection-end="1123" vertical-scroll-proportion="-14.25" vertical-offset="3" max-vertical-offset="930">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/booking/booking_js.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="81" selection-start="2560" selection-end="2560" vertical-scroll-proportion="0.50980395" vertical-offset="638" max-vertical-offset="2550">
           <folding />
         </state>
       </provider>

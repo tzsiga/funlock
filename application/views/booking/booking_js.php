@@ -66,7 +66,22 @@
   var menuItemInfo = '<?= lang("menuitem_1_text") ?>';
   var menuItemStory = '<?= lang("menuitem_2_text") ?>';
   var menuItemContact = '<?= lang("menuitem_3_text") ?>';
-  var menuItemAbout = '<?= lang("menuitem_5_text") ?>';
+  var menuItemAbout =
+    '<ul>' +
+      '<li>' +
+        '<a href="http://welovebudapest.com/hu/nevezetessegek-turak/cikkek/2013/09/03/high-tech-szabadulos-jatek-a-kiraly-utcaban-funlock">' +
+          '<img src="<?= base_url() ?>assets/img/logo/logo_welovebp_gs.png" alt="" title=""/>' +
+        '</a><a href="http://player.hu/kult/funlock-kiraly-utca-teszt">' +
+          '<img src="<?= base_url() ?>assets/img/logo/logo_player_gs.png" alt="" title=""/>' +
+        '</a>' +
+      '</li><li>' +
+        '<a href="http://www.faninfo.hu/szabadido/adatlap/funlock-szabadulo-szoba-budapest">' +
+          '<img src="<?= base_url() ?>assets/img/logo/logo_faninfo_gs.png" alt="" title=""/>' +
+        '</a><a href="http://www.kijutos-jatekok.hu/kijutos-jatekok/2013/11/elo-kijutos-funlock/">' +
+          '<img src="<?= base_url() ?>assets/img/logo/logo_kijutos_gs.png" alt="" title=""/>' +
+        '</a>' +
+      '</li>' +
+    '</ul>';
   
   function replaceAll(txt, replace, withThis) {
     return txt.replace(new RegExp(replace, 'g'), withThis);
@@ -111,7 +126,7 @@
       }
     });
   });
-  
+
   <?php // booking table wrapper ?>
   var timer = $.timer(function() {
     refreshTable();
