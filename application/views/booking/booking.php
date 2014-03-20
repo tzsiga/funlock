@@ -23,11 +23,11 @@
       <div id="item-display-area"></div>
       <span id="tripadvisor">
         <br/>
-        <a href="https://hu-hu.facebook.com/FunlockBudapest">
-          <?= img(array('src' => base_url().'assets/img/logo/logo_f.png')) ?>
+        <a href="https://hu-hu.facebook.com/FunlockBudapest" target="_blank">
+          <?= img(array('src' => base_url().'assets/img/logo/logo_f_gs.png', 'class' => 'rollover')) ?>
         </a>
-        <a href="https://www.tripadvisor.com/UserReviewEdit-g274887-d4795570-a_placetype.10021-Funlock-Budapest_Central_Hungary.html">
-          <?= img(array('src' => base_url().'assets/img/logo/logo_trip.png')) ?>
+        <a href="https://www.tripadvisor.com/UserReviewEdit-g274887-d4795570-a_placetype.10021-Funlock-Budapest_Central_Hungary.html" target="_blank">
+          <?= img(array('src' => base_url().'assets/img/logo/logo_trip_gs.png', 'class' => 'rollover')) ?>
         </a>
         <br/>
       </span>

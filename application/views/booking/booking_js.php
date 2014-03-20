@@ -41,7 +41,7 @@
   jQuery.fn.visibilityToggle = function() {
     return (this.css('opacity') == 0) ? this.animate({opacity: 1}, 400) : this.animate({opacity: 0}, 400);
   }
-  
+
   <?php // default setup ?>
   $(document).ready(function(){
     <?php // disable right click ?>
@@ -63,34 +63,30 @@
   });
   
   <?php // left menu items ?>
-  var menuItemInfo = '<?= lang("menuitem_1_text") ?>';
-  var menuItemStory = '<?= lang("menuitem_2_text") ?>';
-  var menuItemContact = '<?= lang("menuitem_3_text") ?>';
+  var menuItemInfo = '<span id="menuItemInfo">' + '<?= lang("menuitem_1_text") ?>' + '</span>';
+  var menuItemStory = '<span id="menuItemStory">' + '<?= lang("menuitem_2_text") ?>' + '</span>';
+  var menuItemContact = '<span id="menuItemContact">' + '<?= lang("menuitem_3_text") ?>' + '</span>';
   var menuItemAbout =
-    '<ul>' +
+    '<ul id="menuItemAbout">' +
       '<li>' +
         '<a href="http://welovebudapest.com/hu/nevezetessegek-turak/cikkek/2013/09/03/high-tech-szabadulos-jatek-a-kiraly-utcaban-funlock">' +
-          '<img src="<?= base_url() ?>assets/img/logo/logo_welovebp_gs.png" alt="" title=""/>' +
+          '<img class="rolloverAbout" src="<?= base_url() ?>assets/img/logo/logo_welovebp_gs.png" alt="" title=""/>' +
         '</a><a href="http://player.hu/kult/funlock-kiraly-utca-teszt">' +
-          '<img src="<?= base_url() ?>assets/img/logo/logo_player_gs.png" alt="" title=""/>' +
+          '<img class="rolloverAbout" src="<?= base_url() ?>assets/img/logo/logo_player_gs.png" alt="" title=""/>' +
         '</a>' +
       '</li><li>' +
         '<a href="http://www.faninfo.hu/szabadido/adatlap/funlock-szabadulo-szoba-budapest">' +
-          '<img src="<?= base_url() ?>assets/img/logo/logo_faninfo_gs.png" alt="" title=""/>' +
+          '<img class="rolloverAbout" src="<?= base_url() ?>assets/img/logo/logo_faninfo_gs.png" alt="" title=""/>' +
         '</a><a href="http://www.kijutos-jatekok.hu/kijutos-jatekok/2013/11/elo-kijutos-funlock/">' +
-          '<img src="<?= base_url() ?>assets/img/logo/logo_kijutos_gs.png" alt="" title=""/>' +
+          '<img class="rolloverAbout" src="<?= base_url() ?>assets/img/logo/logo_kijutos_gs.png" alt="" title=""/>' +
         '</a>' +
       '</li>' +
     '</ul>';
-  
-  function replaceAll(txt, replace, withThis) {
-    return txt.replace(new RegExp(replace, 'g'), withThis);
-  }
-  
+
   $('#link-info').click(function(){
     $('#item-display-area').fadeOut(function(){
-      if ($(this).html() == replaceAll(menuItemInfo, '/>','>')){
-        $(this).html('');
+      if ($('#menuItemInfo').length > 0){
+        $('#item-display-area').html('');
       } else {
         $(this).html(menuItemInfo).fadeIn();
       }
@@ -99,8 +95,8 @@
 
   $('#link-story').click(function(){
     $('#item-display-area').fadeOut(function(){
-      if ($(this).html() == replaceAll(menuItemStory, '/>','>')){
-        $(this).html('');
+      if ($('#menuItemStory').length > 0){
+        $('#item-display-area').html('');
       } else {
         $(this).html(menuItemStory).fadeIn();
       }
@@ -109,8 +105,8 @@
   
   $('#link-contact').click(function(){
     $('#item-display-area').fadeOut(function(){
-      if ($(this).html() == replaceAll(menuItemContact, '/>','>')){
-        $(this).html('');
+      if ($('#menuItemContact').length > 0){
+        $('#item-display-area').html('');
       } else {
         $(this).html(menuItemContact).fadeIn();
       }
@@ -119,13 +115,38 @@
 
   $('#link-about').click(function(){
     $('#item-display-area').fadeOut(function(){
-      if ($(this).html() == replaceAll(menuItemAbout, '/>','>')){
-        $(this).html('');
+      if ($('#menuItemAbout').length > 0){
+        $('#item-display-area').html('');
       } else {
         $(this).html(menuItemAbout).fadeIn();
+        setRollovers('.rolloverAbout');
       }
     });
   });
+
+  <?php // rollover fade ?>
+  function setRollovers(cls) {
+    $(cls).each(function () {
+      generateRolloverImg($(this));
+
+      $(this).mouseenter(function () {
+        $(this).stop().fadeTo(600, 0);
+      }).mouseleave(function () {
+        $(this).stop().fadeTo(600, 1);
+      });
+    });
+  }
+
+  function generateRolloverImg(originalImg) {
+    var std = $(originalImg).attr("src");
+    var hover = std.replace("_gs.png", ".png");
+
+    $(originalImg).clone().insertAfter(originalImg).attr('src', hover).removeClass('rollover').siblings().css({
+      position: 'absolute'
+    });
+  }
+
+  setRollovers('.rollover');
 
   <?php // booking table wrapper ?>
   var timer = $.timer(function() {
