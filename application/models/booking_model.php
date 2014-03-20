@@ -16,6 +16,13 @@ class Booking_model extends CI_Model {
     return $booking[0];
   }
 
+  public function getBookingByVoucher($id) {
+    $booking = $this->db->get_where('bookings', array('voucher_id' => $id))->result();
+    if (isset($booking[0]))
+      return $booking[0];
+    return null;
+  }
+
   public function getAll() {
     $this->db->order_by('appointment', 'asc');
     $query = $this->db->get('bookings');

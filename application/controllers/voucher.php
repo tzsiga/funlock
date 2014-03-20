@@ -90,7 +90,8 @@ class Voucher extends Admin {
     }
 
     $this->load->view('voucher/edit', array(
-      'voucher' => $this->voucher_model->getVoucherByID($id)
+      'voucher' => $this->voucher_model->getVoucherByID($id),
+      'booking' => $this->booking_model->getBookingByVoucher($id)
     ));
   }
 

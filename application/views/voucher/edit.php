@@ -16,6 +16,13 @@
     echo '</p><p>';
     echo form_label('Állapot:', 'status');
     echo form_dropdown('status', Utils::$voucherStatuses, $voucher->status);
+
+    if (!empty($booking)) {
+      echo '</p><p>';
+      echo '<label for="">Foglalás: </label>';
+      echo '<a href="'.base_url().'index.php/admin/booking/edit/'.$booking->id.'">'.date('Y-m-d H:i', $booking->appointment).'</a>';
+    }
+
     echo '</p><p>';
     echo form_label('Létrehozva:', '');
     echo date("Y-m-d H:i", $voucher->create_date);
