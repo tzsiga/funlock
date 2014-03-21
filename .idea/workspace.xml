@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6336424e-dfb5-4272-8950-bd70169cb66f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/voucher/edit.php" afterPath="$PROJECT_DIR$/application/views/voucher/edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="funlock.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,25 +26,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="voucher.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="voucher.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/voucher.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="93" column="65" selection-start="2692" selection-end="2692" vertical-scroll-proportion="-22.5" vertical-offset="855" max-vertical-offset="2310">
+            <state line="17" column="18" selection-start="342" selection-end="342" vertical-scroll-proportion="0.2937788" vertical-offset="0" max-vertical-offset="2310">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="edit.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/voucher/edit.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="5" selection-start="794" selection-end="794" vertical-scroll-proportion="0.39746544" vertical-offset="0" max-vertical-offset="868">
-              <folding>
-                <marker date="1395319901197" expanded="true" signature="812:869" placeholder="..." />
-                <marker date="1395319901197" expanded="true" signature="983:1203" placeholder="..." />
-                <marker date="1395319901197" expanded="true" signature="1206:1372" placeholder="..." />
-                <marker date="1395319901197" expanded="true" signature="1375:1406" placeholder="..." />
-              </folding>
+            <state line="21" column="46" selection-start="655" selection-end="655" vertical-scroll-proportion="-13.125" vertical-offset="0" max-vertical-offset="735">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="voucher_model.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/voucher_model.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="39" selection-start="478" selection-end="478" vertical-scroll-proportion="-10.625" vertical-offset="0" max-vertical-offset="1545">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -51,7 +56,7 @@
       <file leaf-file-name="booking_model.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/booking_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="0" selection-start="650" selection-end="650" vertical-scroll-proportion="-15.0" vertical-offset="0" max-vertical-offset="2025">
+            <state line="24" column="0" selection-start="650" selection-end="650" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="2025">
               <folding />
             </state>
           </provider>
@@ -88,9 +93,10 @@
         <option value="$PROJECT_DIR$/application/views/header.php" />
         <option value="$PROJECT_DIR$/application/views/booking/booking_js.php" />
         <option value="$PROJECT_DIR$/application/views/booking/booking.php" />
-        <option value="$PROJECT_DIR$/application/controllers/voucher.php" />
         <option value="$PROJECT_DIR$/application/models/booking_model.php" />
         <option value="$PROJECT_DIR$/application/views/voucher/edit.php" />
+        <option value="$PROJECT_DIR$/application/controllers/voucher.php" />
+        <option value="$PROJECT_DIR$/my_models.php" />
       </list>
     </option>
   </component>
@@ -127,6 +133,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -142,6 +149,56 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="funlock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="funlock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="funlock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="funlock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="funlock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="funlock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="funlock" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -303,14 +360,17 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
-    <property name="SearchEverywhereHistory" value="format&#10;wrap&#10;wra" />
+    <property name="SearchEverywhereHistory" value="reload&#10;format&#10;wrap&#10;wra" />
     <property name="LayoutCode.rearrangeEntriesPHP" value="false" />
+    <property name="options.lastSelected" value="web-ide.project.structure" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -344,12 +404,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32897604" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24940476" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -361,6 +420,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32897604" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -383,32 +443,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/booking/booking.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="25" selection-start="1856" selection-end="1856" vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="960">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/main.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="0" selection-start="1733" selection-end="1733" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="2730" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/booking/booking_js.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="46" selection-start="928" selection-end="928" vertical-scroll-proportion="0.0" vertical-offset="1458" max-vertical-offset="2325">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/booking/booking.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="55" selection-start="788" selection-end="788" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="945">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/config_model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="1" selection-start="544" selection-end="544" vertical-scroll-proportion="0.0" vertical-offset="315" max-vertical-offset="405" />
@@ -431,11 +465,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/language/english/texts_lang.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="0" selection-start="3773" selection-end="3773" vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="1275">
-          <folding>
-            <marker date="1395220321715" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
+        <state line="57" column="0" selection-start="3773" selection-end="3773" vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="1275" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/config_model.php">
@@ -548,11 +578,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="742" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/voucher_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="32" selection-start="2348" selection-end="2348" vertical-scroll-proportion="1.6504178" vertical-offset="0" max-vertical-offset="1545" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/config_model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="1" selection-start="544" selection-end="544" vertical-scroll-proportion="0.43871868" vertical-offset="0" max-vertical-offset="718" />
@@ -600,80 +625,90 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/header.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="9" selection-start="1666" selection-end="1666" vertical-scroll-proportion="0.48387095" vertical-offset="0" max-vertical-offset="868">
-          <folding />
-        </state>
+        <state line="28" column="9" selection-start="1666" selection-end="1666" vertical-scroll-proportion="0.48387095" vertical-offset="0" max-vertical-offset="868" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/language/hungarian/texts_lang.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="39" selection-start="145" selection-end="145" vertical-scroll-proportion="0.10526316" vertical-offset="0" max-vertical-offset="1275">
-          <folding>
-            <marker date="1395220321721" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
+        <state line="6" column="39" selection-start="145" selection-end="145" vertical-scroll-proportion="0.10526316" vertical-offset="0" max-vertical-offset="1275" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/language/english/texts_lang.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="1619" selection-end="1619" vertical-scroll-proportion="0.31578946" vertical-offset="0" max-vertical-offset="1260">
-          <folding>
-            <marker date="1395220321715" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
+        <state line="18" column="0" selection-start="1619" selection-end="1619" vertical-scroll-proportion="0.31578946" vertical-offset="0" max-vertical-offset="1260" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/booking/booking_js.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="38" selection-start="3997" selection-end="3997" vertical-scroll-proportion="1.8145162" vertical-offset="0" max-vertical-offset="2865">
-          <folding />
-        </state>
+        <state line="105" column="38" selection-start="3997" selection-end="3997" vertical-scroll-proportion="1.8145162" vertical-offset="0" max-vertical-offset="2865" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/booking/booking.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="46" selection-start="538" selection-end="538" vertical-scroll-proportion="0.1508772" vertical-offset="51" max-vertical-offset="930">
-          <folding />
-        </state>
+        <state line="12" column="46" selection-start="538" selection-end="538" vertical-scroll-proportion="0.1508772" vertical-offset="51" max-vertical-offset="930" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/booking_admin/edit_list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="69" selection-start="186" selection-end="210" vertical-scroll-proportion="0.08640553" vertical-offset="0" max-vertical-offset="868">
-          <folding />
-        </state>
+        <state line="5" column="69" selection-start="186" selection-end="210" vertical-scroll-proportion="0.08640553" vertical-offset="0" max-vertical-offset="868" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/booking_admin/edit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="122" selection-start="1581" selection-end="1618" vertical-scroll-proportion="0.5263158" vertical-offset="0" max-vertical-offset="1455">
-          <folding />
-        </state>
+        <state line="30" column="122" selection-start="1581" selection-end="1618" vertical-scroll-proportion="0.5263158" vertical-offset="0" max-vertical-offset="1455" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/core/Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1035" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/booking_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="650" selection-end="650" vertical-scroll-proportion="-15.0" vertical-offset="0" max-vertical-offset="2025">
+        <state line="24" column="0" selection-start="650" selection-end="650" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="2025">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/voucher.php">
+    <entry file="file://$PROJECT_DIR$/CI_phpStorm.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="65" selection-start="2692" selection-end="2692" vertical-scroll-proportion="-22.5" vertical-offset="855" max-vertical-offset="2310">
+        <state line="125" column="14" selection-start="8988" selection-end="8996" vertical-scroll-proportion="0.0" vertical-offset="1875" max-vertical-offset="1965">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/core/Loader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="314" column="5" selection-start="6611" selection-end="6611" vertical-scroll-proportion="-0.044930875" vertical-offset="4749" max-vertical-offset="18795">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/database/DB.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.51843315" vertical-offset="450" max-vertical-offset="2505">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/voucher_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="39" selection-start="478" selection-end="478" vertical-scroll-proportion="-10.625" vertical-offset="0" max-vertical-offset="1545">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/voucher/edit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="5" selection-start="794" selection-end="794" vertical-scroll-proportion="0.39746544" vertical-offset="0" max-vertical-offset="868">
-          <folding>
-            <marker date="1395319901197" expanded="true" signature="812:869" placeholder="..." />
-            <marker date="1395319901197" expanded="true" signature="983:1203" placeholder="..." />
-            <marker date="1395319901197" expanded="true" signature="1206:1372" placeholder="..." />
-            <marker date="1395319901197" expanded="true" signature="1375:1406" placeholder="..." />
-          </folding>
+        <state line="21" column="46" selection-start="655" selection-end="655" vertical-scroll-proportion="-13.125" vertical-offset="0" max-vertical-offset="735">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/voucher.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="18" selection-start="342" selection-end="342" vertical-scroll-proportion="0.2937788" vertical-offset="0" max-vertical-offset="2310">
+          <folding />
         </state>
       </provider>
     </entry>
