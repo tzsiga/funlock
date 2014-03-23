@@ -23,7 +23,12 @@ class Utils {
   }
 
   public static function getLastMonday($timestamp) {
-    return $timestamp - (Utils::getDayNumber($timestamp) - 1) * Utils::dayInSec - Utils::getTimeInSec($timestamp) - Utils::hourInSec;
+    $last = $timestamp - (Utils::getDayNumber($timestamp) - 1) * Utils::dayInSec - Utils::getTimeInSec($timestamp);
+
+    if (date('H', $last) == 1)
+      $last -= Utils::hourInSec;
+
+    return $last;
   }
 
   public static function getCase($posted) {
