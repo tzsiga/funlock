@@ -1,4 +1,22 @@
 <script type="text/javascript">
+  <?php // default setup ?>
+  <?php // hidden elements by default ?>
+  $('#booking-details').css('visibility', 'hidden').css('opacity', '0');
+
+  <?php // disable right click ?>
+  $(document).bind("contextmenu", function(e){
+    return false;
+  });
+
+  <?php // fake links ?>
+  $('#link-info').css('cursor', 'pointer');
+  $('#link-story').css('cursor', 'pointer');
+  $('#link-contact').css('cursor', 'pointer');
+  $('#link-about').css('cursor', 'pointer');
+  $('td.timebox').css('cursor', 'pointer');
+  $('#arrow-left').css('cursor', 'pointer');
+  $('#arrow-right').css('cursor', 'pointer');
+
 
   <?php // big brother ?>
   var _gaq = _gaq || [];
@@ -12,56 +30,20 @@
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
-  
-  <?php // preload images ?>
-  $.fn.preload = function() {
-    this.each(function(){
-      $('<img/>')[0].src = this;
-    });
-  }
-  
-  $([
-    '<?= base_url() ?>assets/img/main/logo_small.png',
-    '<?= base_url() ?>assets/img/main/reserved.png',
-    '<?= base_url() ?>assets/img/main/selected.png',
-    '<?= base_url() ?>assets/img/main/arrow_left.png',
-    '<?= base_url() ?>assets/img/main/arrow_right.png',
-    '<?= base_url() ?>assets/img/main/map.png'
-  ]).preload();
-  
+
   <?php // opacity toggle ?>
-  jQuery.fn.visible = function() {
-    return this.animate({opacity: 1}, 400);
+  jQuery.fn.visible = function(done) {
+    return this.animate({opacity: 1}, 200, done);
   }
   
-  jQuery.fn.invisible = function() {
-    return this.animate({opacity: 0}, 400);
+  jQuery.fn.invisible = function(done) {
+    return this.animate({opacity: 0}, 200, done);
   }
   
   jQuery.fn.visibilityToggle = function() {
     return (this.css('opacity') == 0) ? this.animate({opacity: 1}, 400) : this.animate({opacity: 0}, 400);
   }
 
-  <?php // default setup ?>
-  $(document).ready(function(){
-    <?php // disable right click ?>
-    $(document).bind("contextmenu", function(e){
-      return false;
-    });
-    
-    <?php // hidden elements by default ?>
-    $('#booking-details').css('visibility', 'hidden').css('opacity', '0');
-    
-    <?php // fake links ?>
-    $('#link-info').css('cursor', 'pointer');
-    $('#link-story').css('cursor', 'pointer');
-    $('#link-contact').css('cursor', 'pointer');
-    $('#link-about').css('cursor', 'pointer');
-    $('td.timebox').css('cursor', 'pointer');
-    $('#arrow-left').css('cursor', 'pointer');
-    $('#arrow-right').css('cursor', 'pointer');
-  });
-  
   <?php // left menu items ?>
   var menuItemInfo = '<span id="menuItemInfo">' + '<?= lang("menuitem_1_text") ?>' + '</span>';
   var menuItemStory = '<span id="menuItemStory">' + '<?= lang("menuitem_2_text") ?>' + '</span>';
@@ -83,55 +65,39 @@
       '</li>' +
     '</ul>';
 
-  $('#link-info').click(function(){
-    $('#item-display-area').fadeOut(function(){
-      if ($('#menuItemInfo').length > 0){
-        $('#item-display-area').html('');
-      } else {
-        $(this).html(menuItemInfo).fadeIn();
-      }
-    });
-  });
+  setMenuCallback('#link-info', '#menuItemInfo', menuItemInfo);
+  setMenuCallback('#link-story', '#menuItemStory', menuItemStory);
+  setMenuCallback('#link-contact', '#menuItemContact', menuItemContact);
+  setMenuCallback('#link-about', '#menuItemAbout', menuItemAbout);
 
-  $('#link-story').click(function(){
-    $('#item-display-area').fadeOut(function(){
-      if ($('#menuItemStory').length > 0){
-        $('#item-display-area').html('');
-      } else {
-        $(this).html(menuItemStory).fadeIn();
-      }
+  <?php // menu item faders ?>
+  function setMenuCallback(link, holder, content) {
+    $(link).click(function(){
+      $('#sidebar-logo').invisible(
+        function(){
+          $('#item-display-area').fadeOut(function(){
+            if ($(holder).length > 0){
+              $('#item-display-area').html('');
+              $('#sidebar-logo').visible();
+            } else {
+              $(this).html(content).fadeIn();
+              setRollovers('.rolloverAbout');
+              $('#sidebar-logo').visible();
+            }
+          });
+        }
+      );
     });
-  });
-  
-  $('#link-contact').click(function(){
-    $('#item-display-area').fadeOut(function(){
-      if ($('#menuItemContact').length > 0){
-        $('#item-display-area').html('');
-      } else {
-        $(this).html(menuItemContact).fadeIn();
-      }
-    });
-  });
-
-  $('#link-about').click(function(){
-    $('#item-display-area').fadeOut(function(){
-      if ($('#menuItemAbout').length > 0){
-        $('#item-display-area').html('');
-      } else {
-        $(this).html(menuItemAbout).fadeIn();
-        setRollovers('.rolloverAbout');
-      }
-    });
-  });
+  }
 
   <?php // rollover fade ?>
   function setRollovers(cls) {
-    $(cls).each(function () {
+    $(cls).each(function(){
       generateRolloverImg($(this));
 
-      $(this).mouseenter(function () {
+      $(this).mouseenter(function(){
         $(this).stop().fadeTo(600, 0);
-      }).mouseleave(function () {
+      }).mouseleave(function(){
         $(this).stop().fadeTo(600, 1);
       });
     });
@@ -166,11 +132,15 @@
       $('#table-wrapper').html(result);
       $('td.timebox').css('cursor', 'pointer');
       $('#table-wrapper').visible();
+      $('#prev-month').visible();
+      $('#next-month').visible();
     });
   }
   
   $('#arrow-left').click(function(){
     if ($('#head-timestamp').text() > <?= time() ?>) {
+      $('#prev-month').invisible();
+      $('#next-month').invisible();
       $('#table-wrapper').invisible().promise().done(function(){
         refreshTable(parseInt($('#head-timestamp').text()) - parseInt(<?= Utils::weekInSec ?>));
       });
@@ -178,6 +148,8 @@
   });
   
   $('#arrow-right').click(function(){
+    $('#prev-month').invisible();
+    $('#next-month').invisible();
     $('#table-wrapper').invisible().promise().done(function(){
       refreshTable(parseInt($('#head-timestamp').text()) + parseInt(<?= Utils::weekInSec ?>));
     });

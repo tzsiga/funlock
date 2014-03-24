@@ -21,7 +21,7 @@
         </ul>
       </div>
       <div id="item-display-area"></div>
-      <span id="tripadvisor">
+      <span id="sidebar-logo">
         <br/>
         <a href="https://hu-hu.facebook.com/FunlockBudapest" target="_blank">
           <?= img(array('src' => base_url().'assets/img/logo/logo_f_gs.png', 'class' => 'rollover')) ?>

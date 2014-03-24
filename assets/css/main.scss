@@ -6,7 +6,7 @@ body#main-page {
   background-image: url('../img/main/logo_vertical_left.png'), -webkit-linear-gradient(top, #FFFFFF 0%, #E8E9EA 100%);
   background-image: url('../img/main/logo_vertical_left.png'), linear-gradient(to bottom, #FFFFFF 0%, #E8E9EA 100%);
   
-  background-repeat: no-repeat;
+  background-repeat: no-repeat, repeat-x;
   background-size: auto, auto;
   //background-size: 185px 938px, auto;
 
@@ -71,7 +71,7 @@ body#main-page {
         }
       }
 
-      #tripadvisor {
+      #sidebar-logo {
         a {
           text-decoration: none;
 
