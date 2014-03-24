@@ -104,21 +104,18 @@ class Booking extends CI_Controller {
   private function sendConfirmationEmail($posted, $voucher = null) {
     $this->setEmailDefaultOptions();
     $this->email->to($posted['email']);
-    $msg = '';
+    $lang = $this->config->config['language_abbr'];
 
     if (isset($voucher) && $voucher->code == $this->config_model->specialVoucher()) {
-      $msg = $this->load->view('email/special', array(
-        'posted' => $posted,
-        'voucher' => $voucher
-      ), true);
+      $this->email->message(
+        $this->load->view('email/special', array('posted' => $posted, 'voucher' => $voucher), true)
+      );
     } else {
-      $msg = $this->load->view('email/confirm', array(
-        'posted' => $posted,
-        'voucher' => $voucher
-      ), true);
+      $this->email->message(
+        $this->load->view('email/'.$lang.'/confirm', array('posted' => $posted, 'voucher' => $voucher), true)
+      );
     }
     
-    $this->email->message($msg);
     $this->email->send();
   }
 

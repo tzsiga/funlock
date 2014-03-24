@@ -58,11 +58,22 @@
     td.timebox {
       font-size: 0;
     }
-    
+
+    td#timebox-selected {
+      background-image: url('../img/main/selected.png');
+      @include shadow-custom(#888888);
+      position: relative;
+      z-index: 3;
+    }
+
     td.timebox-passed {
       background-color: #636363;
     }
     
+    td.last-minute {
+      background-color: #CCCCCC;
+    }
+
     th:last-child, td:last-child {
       border-right: 1px solid black;
     }

@@ -29,22 +29,18 @@ for ($hourIndex = Utils::hourFrom; $hourIndex <= Utils::hourTo; $hourIndex += Ut
     if ($cellTimestamp < time()) {
       // if we are in the past
       echo '<td class="timebox-passed"></td>';
+    } else if($cellTimestamp < (time() + 3 * Utils::hourInSec)) {
+      // last minute deny
+      echo '<td class="last-minute"></td>';
     } else {
       // if in the present week or future
       if (isset($bookings[$cellTimestamp])) {
         echo '<td class="reserved-cell"></td>';
       } else {
         if ($cellTimestamp == $selectedAppointment) {
-          echo '<td class="timebox" 
-                    style="-moz-box-shadow: 8px 8px 15px #888888; 
-                           -webkit-box-shadow: 8px 8px 15px #888888; 
-                            box-shadow: 8px 8px 15px #888888; 
-                            position: relative; 
-                            z-index: 3; 
-                            background-image: url(\''.base_url().'/assets/img/main/selected.png\')">'. 
-                $cellTimestamp .'</td>';
+          echo '<td class="timebox" id="timebox-selected">'.$cellTimestamp.'</td>';
         } else {
-          echo '<td class="timebox">'. $cellTimestamp .'</td>';
+          echo '<td class="timebox">'.$cellTimestamp.'</td>';
         }
       }
     }

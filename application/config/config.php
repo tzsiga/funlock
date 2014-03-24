@@ -72,7 +72,7 @@ $config['url_suffix'] = '';
 
 ///*
 $config['language']	= "hungarian";
-$config['language_abbr'] = "hu";
+$config['language_abbr'] = "hun";
 //*/
 
 /*
@@ -80,7 +80,7 @@ $config['language'] = "english";
 $config['language_abbr'] = "en";
 //*/
 
-$config['lang_uri_abbr'] = array("en" => "english", "hu" => "hungarian");
+$config['lang_uri_abbr'] = array("eng" => "english", "hun" => "hungarian");
 
 /* hide the language segment (use cookie) */
 //$config['lang_ignore'] = TRUE;

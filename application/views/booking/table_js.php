@@ -22,25 +22,16 @@
     });
   });
 
-  function clearAllCellsStyles(){
-    $('td.timebox').css('-moz-box-shadow', 'none');
-    $('td.timebox').css('-webkit-box-shadow', 'none');
-    $('td.timebox').css('box-shadow', 'none');
-    $('td.timebox').css('z-index', '0');
-    $('td.timebox').css('background-image', 'none');
+  function clearAllCellsStyles(cell){
+    $(cell).removeAttr('id');
   }
 
   function setCellStyleSelected(cell){
-    $(cell).css('-moz-box-shadow', '8px 8px 15px #888888');
-    $(cell).css('-webkit-box-shadow', '8px 8px 15px #888888');
-    $(cell).css('box-shadow', '8px 8px 15px #888888');
-    $(cell).css('position', 'relative');
-    $(cell).css('z-index', '3');
-    $(cell).css('background-image', "url('<?= base_url() ?>/assets/img/main/selected.png')");
+    $(cell).attr('id', 'timebox-selected');
   }
 
   $('td.timebox').click(function(){
-    clearAllCellsStyles();
+    clearAllCellsStyles('td.timebox');
     setCellStyleSelected(this);
     
     $('#booking-details').css('visibility', 'visible');
