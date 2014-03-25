@@ -1,5 +1,6 @@
 <?php $this->load->view('header'); ?>
 <body id="main-page">
+  <div id="loading"></div>
   <div id="wrapper-content">
     <div id="navbar">
       <a href="<?= base_url().'index.php/main' ?>"><?= img(array('src' => base_url().'assets/img/main/logo_small.png', 'id' => 'logo-small')) ?></a>

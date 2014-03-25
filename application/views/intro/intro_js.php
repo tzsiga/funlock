@@ -1,4 +1,9 @@
 <script type="text/javascript">
+  <?php // default setup ?>
+  $(document).ready(function(){
+    $('#loading').fadeOut();
+  });
+
   <?php // preload images ?>
   $.fn.preload = function() {
     this.each(function(){

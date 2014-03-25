@@ -7,6 +7,10 @@
   margin: 30px auto 50px;
   @include shadow-custom(#CCCCCC);
   position: relative;
+
+  // hidden by default
+  visibility: hidden;
+  opacity: 0;
   
   form#booking-form {
     line-height: 50px;

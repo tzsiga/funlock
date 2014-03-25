@@ -1,7 +1,24 @@
 <script type="text/javascript">
   <?php // default setup ?>
-  <?php // hidden elements by default ?>
-  $('#booking-details').css('visibility', 'hidden').css('opacity', '0');
+  $(document).ready(function(){
+    $('#loading').fadeOut();
+  });
+
+  <?php // preload images ?>
+  $.fn.preload = function() {
+    this.each(function(){
+      $('<img/>')[0].src = this;
+    });
+  }
+
+  $([
+    '<?= base_url() ?>assets/img/main/logo_small.png',
+    '<?= base_url() ?>assets/img/main/reserved.png',
+    '<?= base_url() ?>assets/img/main/selected.png',
+    '<?= base_url() ?>assets/img/main/arrow_left.png',
+    '<?= base_url() ?>assets/img/main/arrow_right.png',
+    '<?= base_url() ?>assets/img/main/map.png'
+  ]).preload();
 
   <?php // disable right click ?>
   $(document).bind("contextmenu", function(e){

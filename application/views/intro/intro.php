@@ -1,5 +1,6 @@
 <?php $this->load->view('header'); ?>
 <body id="intro-page">
+  <div id="loading"></div>
   <div id="action-zone">
     <?php
       function generateSliderDivs($letterParts) {

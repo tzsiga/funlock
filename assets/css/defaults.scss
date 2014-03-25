@@ -23,6 +23,19 @@ $rad: 4px;
 
 body {
   @include font-setup;
+
+  #loading {
+    height: 100%;
+    width: 100%;
+    z-index: 3;
+    position: absolute;
+    background-color: #FFFFFF;
+    text-align: center;
+    vertical-align: middle;
+    background-image: url('../img/main/loading.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 }
 
 #ui-datepicker-div {

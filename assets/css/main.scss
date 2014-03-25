@@ -10,11 +10,10 @@ body#main-page {
   background-size: auto, auto;
   //background-size: 185px 938px, auto;
 
-  padding-left: 100px;
-  
   #wrapper-content {
     width: $cols18;
     margin: 0;
+    padding-left: 100px;
     //overflow: auto;
     
     #navbar {
