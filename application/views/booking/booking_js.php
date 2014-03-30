@@ -11,15 +11,6 @@
     });
   }
 
-  $([
-    '<?= base_url() ?>assets/img/main/logo_small.png',
-    '<?= base_url() ?>assets/img/main/reserved.png',
-    '<?= base_url() ?>assets/img/main/selected.png',
-    '<?= base_url() ?>assets/img/main/arrow_left.png',
-    '<?= base_url() ?>assets/img/main/arrow_right.png',
-    '<?= base_url() ?>assets/img/main/map.png'
-  ]).preload();
-
   <?php // disable right click ?>
   $(document).bind("contextmenu", function(e){
     return false;

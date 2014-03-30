@@ -11,7 +11,7 @@ $lang['menuitem_2']           = "Story";
 $lang['menuitem_2_text']      = "We created a high-end security system controlled by an artificial intelligence computer. We wanted to hide something very important, something which can not fall into the wrong hands. But something happened... the computer took over and locked us out. The system works as a closed circuit, therefore it can only be restarted from inside by defeating it. It will not be easy, because it knows every step you take and will try to stop you as far as it can from getting out.";
 
 $lang['menuitem_3']           = "Contact";
-$lang['menuitem_3_text']      = '1068 Budapest<br/>Hegedű street 1.<br/><br/>+3630 620 8940<br/><p id="info">&nbsp;</p><br/><a href="http://goo.gl/maps/AriVW" target="_blank"><img id="map" src="'.base_url().'assets/img/main/map.png" alt="" title=""/></a>';
+$lang['menuitem_3_text']      = '1068 Budapest<br/>Hegedű street 1.<br/><br/>+3630 899 9965<br/><p id="info">&nbsp;</p><br/><a href="http://goo.gl/maps/AriVW" target="_blank"><img id="map" src="'.base_url().'assets/img/main/map.png" alt="" title=""/></a>';
 
 $lang['menuitem_4']           = "Gallery";
 

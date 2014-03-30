@@ -11,7 +11,7 @@ $lang['menuitem_2']           = "Történet";
 $lang['menuitem_2_text']      = "<p>Megalkottuk a legmodernebb biztonsági rendszert, melyet egy mesterséges intelligenciával rendelkező szuperszámítógép irányít. Azért hoztuk létre ezt a rendszert, hogy elrejtsünk valamit, ami nem kerülhet rossz kezekbe. Azonban valami elromlott... a számítógép átvette az irányítást és kizárt minket a szobából! Mivel a szoba egy zárt rendszer, így csak belülről indítható újra, ehhez azonban le kell győzni az ellenetek dolgozó számítógépet. Nem lesz könnyű dolgotok, mert minden lépéseteket előre tudja és újabb és újabb akadályt gördít majd elétek, hogy megakadályozzon Titeket a kiszabadulásban.</p>";
 
 $lang['menuitem_3']           = "Elérhetőség";
-$lang['menuitem_3_text']      = '1068 Budapest<br/>Hegedű utca 1.<br/><br/>+3630 620 8940<br/><p id="info">&nbsp;</p><br/><a href="http://goo.gl/maps/AriVW" target="_blank"><img id="map" src="'.base_url().'assets/img/main/map.png" alt="" title=""/></a>';
+$lang['menuitem_3_text']      = '1068 Budapest<br/>Hegedű utca 1.<br/><br/>+3630 899 9965<br/><p id="info">&nbsp;</p><br/><a href="http://goo.gl/maps/AriVW" target="_blank"><img id="map" src="'.base_url().'assets/img/main/map.png" alt="" title=""/></a>';
 
 $lang['menuitem_4']           = "Galéria";
 

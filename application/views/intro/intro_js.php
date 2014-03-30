@@ -19,6 +19,26 @@
       echo "'".base_url()."assets/img/intro/".$img."',";
     }
   ?>
+    '<?= base_url() ?>assets/img/main/logo_small.png',
+    '<?= base_url() ?>assets/img/main/reserved.png',
+    '<?= base_url() ?>assets/img/main/selected.png',
+    '<?= base_url() ?>assets/img/main/arrow_left.png',
+    '<?= base_url() ?>assets/img/main/arrow_right.png',
+    '<?= base_url() ?>assets/img/main/map.png',
+
+    '<?= base_url() ?>assets/img/logo/logo_f.png',
+    '<?= base_url() ?>assets/img/logo/logo_f_gs.png',
+    '<?= base_url() ?>assets/img/logo/logo_trip.png',
+    '<?= base_url() ?>assets/img/logo/logo_trip_gs.png',
+    '<?= base_url() ?>assets/img/logo/logo_welovebp.png',
+    '<?= base_url() ?>assets/img/logo/logo_welovebp_gs.png',
+    '<?= base_url() ?>assets/img/logo/logo_kijutos.png',
+    '<?= base_url() ?>assets/img/logo/logo_kijutos_gs.png',
+    '<?= base_url() ?>assets/img/logo/logo_player.png',
+    '<?= base_url() ?>assets/img/logo/logo_player_gs.png',
+    '<?= base_url() ?>assets/img/logo/logo_faninfo.png',
+    '<?= base_url() ?>assets/img/logo/logo_faninfo_gs.png'
+
   ]).preload();
   
   function setupOffsetX() {
