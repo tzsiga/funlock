@@ -82,7 +82,11 @@ class Booking extends CI_Controller {
 
     $this->booking_model->insertBooking($this->booking_model->composeBooking($posted, $voucher));
     $this->loadFormSuccessResult($posted, $voucher);
+
+    $this->load->library('email');
     $this->sendConfirmationEmail($posted, $voucher);
+    $this->sendReportingEmail($posted, $voucher);
+
     $this->booking_model->incSuccessfulBookings();
   }
 
@@ -102,13 +106,12 @@ class Booking extends CI_Controller {
   }
 
   private function sendConfirmationEmail($posted, $voucher = null) {
-    $this->setEmailDefaultOptions();
-    $this->email->to($posted['email']);
+    $this->setEmailDefaultOptions($posted);
     $lang = $this->config->config['language_abbr'];
 
     if (isset($voucher) && $voucher->code == $this->config_model->specialVoucher()) {
       $this->email->message(
-        $this->load->view('email/special', array('posted' => $posted, 'voucher' => $voucher), true)
+        $this->load->view('email/'.'hun'.'/special', array('posted' => $posted, 'voucher' => $voucher), true)
       );
     } else {
       $this->email->message(
@@ -119,15 +122,32 @@ class Booking extends CI_Controller {
     $this->email->send();
   }
 
-  private function setEmailDefaultOptions() {
-    $emails = $this->config_model->adminEmails();
-    $admins = explode(',', $emails);
-
-    $this->load->library('email');
+  private function setEmailDefaultOptions($posted) {
     $this->email->set_mailtype('html');
+    $this->email->to($posted['email']);
     $this->email->from('info@funlock.hu', 'Funlock');
+    $this->email->subject('Funlock: Visszaigazolás a foglalásról');
+  }
+
+  private function sendReportingEmail($posted, $voucher) {
+    $this->setEmailReportingOptions();
+
+    $this->email->message(
+      $this->load->view('email/'.'hun'.'/report', array('posted' => $posted, 'voucher' => $voucher), true)
+    );
+
+    $this->email->send();
+  }
+
+  private function setEmailReportingOptions() {
+    $emails = $this->config_model->adminEmails();
+    //$admins = explode(',', $emails);
+    $admins = 'tzsiga@funlock.hu';
+
+    $this->email->set_mailtype('html');
     $this->email->bcc($admins);
-    $this->email->subject('Visszaigazolás a foglalásról');
+    $this->email->from('info@funlock.hu', 'Funlock');
+    $this->email->subject('Foglalási értesítő');
   }
 
 }
