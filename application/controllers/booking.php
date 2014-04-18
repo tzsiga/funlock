@@ -80,12 +80,12 @@ class Booking extends CI_Controller {
         $this->voucher_model->activate($voucher);
     }
 
-    $this->booking_model->insertBooking($this->booking_model->composeBooking($posted, $voucher));
+    $newBookingId = $this->booking_model->insertBooking($this->booking_model->composeBooking($posted, $voucher));
     $this->loadFormSuccessResult($posted, $voucher);
 
     $this->load->library('email');
     $this->sendConfirmationEmail($posted, $voucher);
-    $this->sendReportingEmail($posted, $voucher);
+    $this->sendReportingEmail($posted, $voucher, $newBookingId);
 
     $this->booking_model->incSuccessfulBookings();
   }
@@ -111,11 +111,21 @@ class Booking extends CI_Controller {
 
     if (isset($voucher) && $voucher->code == $this->config_model->specialVoucher()) {
       $this->email->message(
-        $this->load->view('email/'.'hun'.'/special', array('posted' => $posted, 'voucher' => $voucher), true)
+        $this->load->view(
+          'email/'.'hun'.'/special',
+          array(
+            'posted' => $posted,
+            'voucher' => $voucher),
+          true)
       );
     } else {
       $this->email->message(
-        $this->load->view('email/'.$lang.'/confirm', array('posted' => $posted, 'voucher' => $voucher), true)
+        $this->load->view(
+          'email/'.$lang.'/confirm',
+          array(
+            'posted' => $posted,
+            'voucher' => $voucher),
+          true)
       );
     }
     
@@ -129,11 +139,17 @@ class Booking extends CI_Controller {
     $this->email->subject('Funlock: Visszaigazolás a foglalásról');
   }
 
-  private function sendReportingEmail($posted, $voucher) {
+  private function sendReportingEmail($posted, $voucher, $newBookingId) {
     $this->setEmailReportingOptions();
 
     $this->email->message(
-      $this->load->view('email/'.'hun'.'/report', array('posted' => $posted, 'voucher' => $voucher), true)
+      $this->load->view(
+        'email/'.'hun'.'/report',
+        array(
+          'posted' => $posted,
+          'voucher' => $voucher,
+          'newBookingId' => $newBookingId),
+        true)
     );
 
     $this->email->send();

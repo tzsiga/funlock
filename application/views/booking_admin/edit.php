@@ -1,92 +1,294 @@
-<?php $this->load->view('header'); ?>
+<?php $this->load->view('admin/header'); ?>
 <body id="admin-page">
+<?php $this->load->view('admin/navbar'); ?>
+<div class="container">
   <h1>
     Foglalás szerkesztése
   </h1>
-  <h3 id="flash-msg">
-    <?= validation_errors() ?>
-    <?= $this->session->flashdata('msg') ?>
-  </h3>
-  <?php
-    echo form_open('admin/booking/edit/'.$booking->id, array('id' => 'booking-edit-form'));
-    echo '<p class="row">';
-    echo form_label('Aktív?', 'status');
-    echo form_checkbox(array('name' => 'status', 'id' => 'status', 'value' => 'active', 'checked' => ($booking->status == 'active') ? true : false));
-    echo '</p><p class="row">';
-    echo form_label('Fizetve?', 'payment_verified');
-    echo form_checkbox(array('name' => 'payment_verified', 'id' => 'payment_verified', 'value' => 'yes', 'checked' => ($booking->payment_verified == 'yes') ? true : false));
-    if (isset($voucher)) {
-      echo '</p><p class="row">';
-      echo '<label for="">Kupon: </label>';
-      echo '<a href="'.base_url().'index.php/admin/voucher/edit/'.$voucher->id.'">'.$voucher->code.'</a> ('.$voucher->discounted_price.' Ft)';
-    }
-    echo '</p><p>';
-    echo form_label('Foglaló vezetékneve', 'book-fname');
-    echo form_input(array('name' => 'book-fname', 'id' => 'book-fname', 'value' => $booking->book_fname));
-    echo '</p><p>';
-    echo form_label('Foglaló keresztneve', 'book-sname');
-    echo form_input(array('name' => 'book-sname', 'id' => 'book-sname', 'value' => $booking->book_sname));
-    echo '</p><p class="row">';
-    echo form_label('Foglalt időpont', 'appointment');
-    echo form_input(array('name' => 'appointment', 'id' => 'appointment', 'value' => date('Y-m-d', $booking->appointment))).' - ';
-    echo form_dropdown('appointment-hour', Utils::getPlaytimeRangeDropdownValues(), date('G', $booking->appointment) + (date('i', $booking->appointment) == 30 ? 0.5 : 0));
-    echo '</p><p class="row">';
-    echo form_label('Fizetés átutalással', 'payment-option');
-    echo form_radio(array('name' => 'payment-option', 'id' => 'payment-option-1', 'value' => 'card', 'checked' => ($booking->payment_option == 'card' ? true : false)));
-    if ($booking->payment_option == 'card') {
-        echo ' <strong>Kód: '.$code.'</strong>';
-    }
-    echo '</p><p class="row">';
-    echo form_label('Fizetés készpénzzel', 'payment-option');
-    echo form_radio(array('name' => 'payment-option', 'id' => 'payment-option-2', 'value' => 'cache', 'checked' => ($booking->payment_option == 'cache' ? true : false)));
-    echo '</p><p>';
-    echo form_label('Telefon', 'phone');
-    echo form_input(array('name' => 'phone', 'id' => 'phone', 'value' => $booking->phone));
-    echo '</p><p>';
-    echo form_label('Email cím', 'email');
-    echo form_input(array('name' => 'email', 'id' => 'email', 'value' => $booking->email));
-    echo '</p><p>';
-    echo form_label('Irányítószám', 'zip');
-    echo form_input(array('name' => 'zip', 'id' => 'zip', 'value' => ($booking->zip == 0 ? '' : $booking->zip)));
-    echo '</p><p>';
-    echo form_label('Város', 'city');
-    echo form_input(array('name' => 'city', 'id' => 'city', 'value' => $booking->city));
-    echo '</p><p>';
-    echo form_label('Utca', 'street');
-    echo form_input(array('name' => 'street', 'id' => 'street', 'value' => $booking->street));
-    echo '</p><p>';
-    echo form_label('Házszám', 'house');
-    echo form_input(array('name' => 'house', 'id' => 'house', 'value' => ($booking->house == 0 ? '' : $booking->house)));
-    echo '</p><p>';
-    echo form_label('Számla: vezetéknév', 'bill-fname');
-    echo form_input(array('name' => 'bill-fname', 'id' => 'bill-fname', 'value' => $booking->bill_fname));
-    echo '</p><p>';
-    echo form_label('Számla: keresztnév', 'bill-sname');
-    echo form_input(array('name' => 'bill-sname', 'id' => 'bill-sname', 'value' => $booking->bill_sname));
-    echo '</p><p>';
-    echo form_label('Adószám', 'tax-number');
-    echo form_input(array('name' => 'tax-number', 'id' => 'tax-number', 'value' => ($booking->tax_number == 0 ? '' : $booking->tax_number)));
-    echo '</p><p class="row">';
-    echo form_label('Megjegyzések', 'comment');
-    echo form_textarea(array('name' => 'comment', 'id' => 'comment', 'value' => $booking->comment, 'rows' => 6, 'cols' => 54));
-    echo '</p><p class="row">';
-    echo form_label('Jegyzetek', 'notes');
-    echo form_textarea(array('name' => 'notes', 'id' => 'notes', 'value' => $booking->notes, 'rows' => 6, 'cols' => 54));
-    echo '</p><p class="row">';
-    echo form_label('Foglalás időpontja', 'booking-date');
-    echo form_input(array('name' => 'booking-date', 'id' => 'booking-date', 'value' => date("Y-m-d H:i", $booking->booking_date)));
-    echo '</p><p>';
-    echo '<br/>';
-    echo '<div id="buttons">'.form_submit('save', 'Mentés').form_submit('delete', 'Törlés').'</div>';
-    echo '</p>';
-    echo form_close();
-  ?>
-  <p>
-    <a href="<?= base_url() ?>index.php/admin/booking/list">Vissza</a>
-  </p>
-  <script type="text/javascript">
-    $('#appointment').datepicker({ firstDay: 1, dateFormat: 'yy-mm-dd' });
-    $('#booking-date').datepicker({ firstDay: 1, dateFormat: 'yy-mm-dd <?= date('H:i') ?>' });
-  </script>
+  <br/>
+
+  <?= form_open('admin/booking/edit/'.$booking->id, array('class' => 'form-horizontal', 'role' => 'form')) ?>
+    <?php if (!empty($this->session->flashdata('msg')) || validation_errors() != null) { ?>
+      <div id="flash-msg" class="alert alert-danger">
+        <?= $this->session->flashdata('msg') ?>
+        <?= validation_errors() ?>
+      </div>
+    <?php } ?>
+
+    <div class="form-group">
+      <label for="status" class="col-sm-3 control-label">Aktív?</label>
+      <div class="col-sm-3">
+        <p class="form-control-static">
+          <?= form_checkbox(array(
+            'name' => 'status',
+            'id' => 'status',
+            'value' => 'active',
+            'checked' => $booking->status == 'active' ? true : false)) ?>
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="payment_verified" class="col-sm-3 control-label">Fizetve?</label>
+      <div class="col-sm-3">
+        <p class="form-control-static">
+          <?= form_checkbox(array(
+            'name' => 'payment_verified',
+            'id' => 'payment_verified',
+            'value' => 'yes',
+            'checked' => $booking->payment_verified == 'yes' ? true : false)); ?>
+        </p>
+      </div>
+    </div>
+
+    <?php if (isset($voucher)) { ?>
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Kupon</label>
+        <div class="col-sm-3">
+          <p class="form-control-static">
+            <?= '<a href="'.base_url().'index.php/admin/voucher/edit/'.$voucher->id.'">'.$voucher->code.'</a> ('.$voucher->discounted_price.' Ft)' ?>
+          </p>
+        </div>
+      </div>
+    <?php } ?>
+
+    <div class="form-group">
+      <label for="book-fname" class="col-sm-3 control-label">Foglaló vezeték/keresztneve</label>
+      <div class="col-sm-6">
+        <span class="col-sm-6 input-no-padding">
+          <?= form_input(array(
+            'class' => 'form-control',
+            'name' => 'book-fname',
+            'id' => 'book-fname',
+            'type' => 'text',
+            'value' => $booking->book_fname)) ?>
+        </span>
+        <span class="col-sm-6">
+          <?= form_input(array(
+            'class' => 'form-control',
+            'name' => 'book-sname',
+            'id' => 'book-sname',
+            'type' => 'text',
+            'value' => $booking->book_sname)) ?>
+        </span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="appointment" class="col-sm-3 control-label">Foglalt időpont</label>
+      <div class="col-sm-4">
+        <span class="col-sm-6 input-no-padding">
+          <?= form_input(array(
+            'class' => 'form-control',
+            'name' => 'appointment',
+            'id' => 'appointment',
+            'type' => 'text',
+            'value' => date('Y-m-d', $booking->appointment))) ?>
+        </span>
+        <span class="col-sm-6">
+          <?= form_dropdown(
+            'appointment-hour',
+            Utils::getPlaytimeRangeDropdownValues(),
+            date('G', $booking->appointment) + (date('i', $booking->appointment) == 30 ? 0.5 : 0),
+            'class="form-control"') ?>
+        </span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="payment-option" class="col-sm-3 control-label">Fizetés módja</label>
+      <div class="col-sm-6">
+        <div class="radio">
+          <label>
+            <?= form_radio(array(
+              'name' => 'payment-option',
+              'id' => 'payment-option-1',
+              'value' => 'card',
+              'checked' => $booking->payment_option == 'card' ? true : false)) ?>
+            átutalással
+          </label>
+          <?php
+            if ($booking->payment_option == 'card') {
+              echo '- <strong>Kód: '.$code.'</strong>';
+            }
+          ?>
+        </div>
+        <div class="radio">
+          <label>
+            <?= form_radio(array(
+              'name' => 'payment-option',
+              'id' => 'payment-option-2',
+              'value' => 'cache',
+              'checked' => $booking->payment_option == 'cache' ? true : false)) ?>
+            készpénzzel
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="phone" class="col-sm-3 control-label">Telefonszám</label>
+      <div class="col-sm-3">
+        <?= form_input(array(
+          'class' => 'form-control',
+          'name' => 'phone',
+          'id' => 'phone',
+          'type' => 'text',
+          'value' => $booking->phone)) ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email" class="col-sm-3 control-label">Email cím</label>
+      <div class="col-sm-3">
+        <?= form_input(array(
+          'class' => 'form-control',
+          'name' => 'email',
+          'id' => 'email',
+          'type' => 'text',
+          'value' => $booking->email)) ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="zip" class="col-sm-3 control-label">Irányítószám</label>
+      <div class="col-sm-3">
+        <?= form_input(array(
+          'class' => 'form-control',
+          'name' => 'zip',
+          'id' => 'zip',
+          'type' => 'text',
+          'value' => $booking->zip == 0 ? '' : $booking->zip)) ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="city" class="col-sm-3 control-label">Város</label>
+      <div class="col-sm-3">
+        <?= form_input(array(
+          'class' => 'form-control',
+          'name' => 'city',
+          'id' => 'city',
+          'type' => 'text',
+          'value' => $booking->city)) ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="street" class="col-sm-3 control-label">Utca</label>
+      <div class="col-sm-3">
+        <?= form_input(array(
+          'class' => 'form-control',
+          'name' => 'street',
+          'id' => 'street',
+          'type' => 'text',
+          'value' => $booking->street)) ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="house" class="col-sm-3 control-label">Házszám</label>
+      <div class="col-sm-3">
+        <?= form_input(array(
+          'class' => 'form-control',
+          'name' => 'house',
+          'id' => 'house',
+          'type' => 'text',
+          'value' => $booking->house == 0 ? '' : $booking->house)) ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="bill-fname" class="col-sm-3 control-label">Számla: vezeték/keresztnév</label>
+      <div class="col-sm-6">
+          <span class="col-sm-6 input-no-padding">
+            <?= form_input(array(
+              'class' => 'form-control',
+              'name' => 'bill-fname',
+              'id' => 'bill-fname',
+              'type' => 'text',
+              'value' => $booking->bill_fname)) ?>
+          </span>
+          <span class="col-sm-6">
+            <?= form_input(array(
+              'class' => 'form-control',
+              'name' => 'bill-sname',
+              'id' => 'bill-sname',
+              'type' => 'text',
+              'value' => $booking->bill_sname)) ?>
+          </span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="tax-number" class="col-sm-3 control-label">Adószám</label>
+      <div class="col-sm-3">
+        <?= form_input(array(
+          'class' => 'form-control',
+          'name' => 'tax-number',
+          'id' => 'tax-number',
+          'type' => 'text',
+          'value' => $booking->tax_number == 0 ? '' : $booking->tax_number)) ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="comment" class="col-sm-3 control-label">Megjegyzések</label>
+      <div class="col-sm-6">
+        <?= form_textarea(array(
+          'class' => 'form-control',
+          'name' => 'comment',
+          'id' => 'comment',
+          'rows' => 4,
+          'value' => $booking->comment)) ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="notes" class="col-sm-3 control-label">Jegyzetek</label>
+      <div class="col-sm-6">
+        <?= form_textarea(array(
+          'class' => 'form-control',
+          'name' => 'notes',
+          'id' => 'notes',
+          'rows' => 4,
+          'value' => $booking->notes)) ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="booking-date" class="col-sm-3 control-label">Foglalás időpontja</label>
+      <div class="col-sm-3">
+        <?= form_input(array(
+          'class' => 'form-control',
+          'name' => 'booking-date',
+          'id' => 'booking-date',
+          'type' => 'text',
+          'value' => date("Y-m-d H:i", $booking->booking_date))) ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-3">
+        <?= form_button(array(
+          'class' => 'btn btn-success',
+          'name' => 'save',
+          'value' => 'Mentés',
+          'content' => 'Mentés',
+          'type' => 'submit')) ?>
+        <?= form_button(array(
+          'class' => 'btn btn-danger',
+          'name' => 'delete',
+          'value' => 'Törlés',
+          'content' => 'Törlés',
+          'type' => 'submit')) ?>
+      </div>
+    </div>
+  <?= form_close() ?>
+</div>
+<script type="text/javascript">
+  $('#appointment').datepicker({ firstDay: 1, dateFormat: 'yy-mm-dd' });
+  $('#booking-date').datepicker({ firstDay: 1, dateFormat: 'yy-mm-dd <?= date('H:i') ?>' });
+</script>
 </body>
 </html>

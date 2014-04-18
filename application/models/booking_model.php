@@ -34,7 +34,7 @@ class Booking_model extends CI_Model {
   }
 
   public function getSegment($limit, $offset) {
-    $this->db->order_by('appointment', 'asc');
+    $this->db->order_by('appointment', 'desc');
     $query = $this->db->get('bookings', $limit, $offset);
     return $this->fetchBookingQuery($query);
   }
@@ -51,6 +51,7 @@ class Booking_model extends CI_Model {
 
   public function insertBooking($booking) {
     $this->db->insert('bookings', $booking);
+    return $this->db->insert_id();
   }
 
   public function updateBooking($id, $booking) {

@@ -8,7 +8,7 @@ class Config extends Admin {
     $posted = $this->input->post();
 
     if ($posted) {
-      $this->form_validation->set_rules('current_password', '"Régi jelszó"', 'required|xss_clean');
+      $this->form_validation->set_rules('current_password', '"Jelenlegi jelszó"', 'required|xss_clean');
       $this->form_validation->set_rules('new_password_1', '"Új jelszó"', 'required|xss_clean|min_length[5]|max_length[20]');
       $this->form_validation->set_rules('new_password_2', '"Új jelszó újra"', 'required|xss_clean|matches[new_password_1]');
 

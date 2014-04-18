@@ -1,22 +1,30 @@
-<?php $this->load->view('header'); ?>
-<body id="admin-page">
-	<h1>
-		Adminisztrációs felület
-	</h1>
-	<h3 id="flash-msg">
-		<?= $this->session->flashdata('msg') ?>
-		<?= validation_errors() ?>
-	</h3>
-	<?php
-		echo form_open('admin/login', array('class' => 'centered'));
-		echo '<p>';
-		echo form_label('Jelszó', 'given-password');
-		echo form_password('given-password');
-		echo '</p><p>';
-		echo '<br/>';
-		echo form_submit('login', 'Bejelentkezés');
-		echo '</p>';
-		echo form_close();		
-	?>
+<?php $this->load->view('admin/header'); ?>
+<body id="admin-login">
+  <div class="container">
+    <?= form_open('admin/login', array('class' => 'form-signin', 'role' => 'form')) ?>
+      <h1>
+        Admin felület
+      </h1>
+      <br/>
+
+      <?php if (!empty($this->session->flashdata('msg')) || validation_errors() != null) { ?>
+      <div id="flash-msg" class="alert alert-danger">
+        <?= $this->session->flashdata('msg') ?>
+        <?= validation_errors() ?>
+      </div>
+      <?php } ?>
+
+      <?= form_password(array(
+        'class' => 'form-control',
+        'name' => 'given-password',
+        'placeholder' => 'Jelszó')) ?>
+      <?= form_button(array(
+        'class' => 'btn btn-lg btn-primary btn-block',
+        'name' => 'login',
+        'value' => 'Bejelentkezés',
+        'content' => 'Bejelentkezés',
+        'type' => 'submit')) ?>
+    <?= form_close() ?>
+  </div>
 </body>
 </html>

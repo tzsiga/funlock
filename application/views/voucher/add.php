@@ -1,28 +1,67 @@
-<?php $this->load->view('header'); ?>
+<?php $this->load->view('admin/header'); ?>
 <body id="admin-page">
+<?php $this->load->view('admin/navbar'); ?>
+<div class="container">
   <h1>
-    Kuponok generálása
+    Kuponok létrehozása
   </h1>
-  <h3 id="flash-msg">
-    <?= validation_errors() ?>
-    <?= $this->session->flashdata('msg') ?>
-  </h3>
-  <?php
-    echo form_open('admin/voucher/add', array('class' => 'centered'));
-    echo '<p>';
-    echo form_label('Generálj ennyi kupont:', 'number_of_vouchers');
-    echo form_input(array('name' => 'number_of_vouchers', 'id' => 'number_of_vouchers', 'value' => 1));
-    echo '</p><p>';
-    echo form_label('Kedvezményes ár:', 'discounted_price');
-    echo form_input(array('name' => 'discounted_price', 'id' => 'discounted_price', 'value' => 8000));
-    echo '</p><p>';
-    echo form_label('Címke:', 'label');
-    echo form_input(array('name' => 'label', 'id' => 'label'));
-    echo '</p><p>';
-    echo form_submit('generate', 'Mehet');
-    echo '</p>';
-    echo form_close();
-  ?>
-  <p><a href="<?= base_url() ?>index.php/admin/voucher">Vissza</a></p>
+  <br/>
+
+  <?= form_open('admin/voucher/add', array('class' => 'form-horizontal', 'role' => 'form')) ?>
+  <?php if (!empty($this->session->flashdata('msg')) || validation_errors() != null) { ?>
+    <div id="flash-msg" class="alert alert-danger">
+      <?= $this->session->flashdata('msg') ?>
+      <?= validation_errors() ?>
+    </div>
+  <?php } ?>
+
+  <div class="form-group">
+    <label for="number_of_vouchers" class="col-sm-3 control-label">Generálj ennyi kupont</label>
+    <div class="col-sm-3">
+      <?= form_input(array(
+        'class' => 'form-control',
+        'name' => 'number_of_vouchers',
+        'id' => 'number_of_vouchers',
+        'type' => 'text',
+        'value' => '1')) ?>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="discounted_price" class="col-sm-3 control-label">Kedvezményes ár</label>
+    <div class="col-sm-3">
+      <?= form_input(array(
+        'class' => 'form-control',
+        'name' => 'discounted_price',
+        'id' => 'discounted_price',
+        'type' => 'text',
+        'value' => '8000')) ?>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="label" class="col-sm-3 control-label">Címke</label>
+    <div class="col-sm-3">
+      <?= form_input(array(
+        'class' => 'form-control',
+        'name' => 'label',
+        'id' => 'label',
+        'type' => 'text',
+        'placeholder' => 'X Y részre')) ?>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-3">
+      <?= form_button(array(
+        'class' => 'btn btn-primary',
+        'name' => 'generate',
+        'value' => 'Mehet',
+        'content' => 'Mehet',
+        'type' => 'submit')) ?>
+    </div>
+  </div>
+  <?= form_close() ?>
+</div>
 </body>
 </html>

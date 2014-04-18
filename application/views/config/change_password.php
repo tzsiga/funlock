@@ -1,31 +1,65 @@
-<?php $this->load->view('header'); ?>
+<?php $this->load->view('admin/header'); ?>
 <body id="admin-page">
+<?php $this->load->view('admin/navbar'); ?>
+<div class="container">
   <h1>
     Jelszó változtatás
   </h1>
-  <h3 id="flash-msg">
-    <?= $this->session->flashdata('msg') ?>
-    <?= validation_errors() ?>
-  </h3>
-  <?php
-    echo form_open('admin/config/change_password', array('class' => 'centered'));
-    echo '<p>';
-    echo form_label('Régi jelszó', 'current-password');
-    echo form_password('current-password');
-    echo '</p><p>';
-    echo form_label('Új jelszó', 'new-password-1');
-    echo form_password('new-password-1');
-    echo '</p><p>';
-    echo form_label('Új jelszó újra', 'new-password-2');
-    echo form_password('new-password-2');
-    echo '</p><p>';
-    echo '<br/>';
-    echo form_submit('change', 'Mehet');
-    echo '</p>';
-    echo form_close();
-  ?>
-  <p>
-    <a href="<?= base_url() ?>index.php/admin">Vissza</a>
-  </p>
+  <br/>
+
+  <?= form_open('admin/config/change_password', array('class' => 'form-horizontal', 'role' => 'form')) ?>
+  <?php if (!empty($this->session->flashdata('msg')) || validation_errors() != null) { ?>
+    <div id="flash-msg" class="alert alert-danger">
+      <?= $this->session->flashdata('msg') ?>
+      <?= validation_errors() ?>
+    </div>
+  <?php } ?>
+
+    <div class="form-group">
+      <label for="current-password" class="col-sm-3 control-label">Jelenlegi jelszó</label>
+      <div class="col-sm-3">
+        <?= form_input(array(
+          'class' => 'form-control',
+          'name' => 'current-password',
+          'type' => 'password',
+          'placeholder' => '')) ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="new-password-1" class="col-sm-3 control-label">Új jelszó</label>
+      <div class="col-sm-3">
+        <?= form_input(array(
+          'class' => 'form-control',
+          'name' => 'new-password-1',
+          'type' => 'password',
+          'placeholder' => '')) ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="new-password-2" class="col-sm-3 control-label">Új jelszó újra</label>
+      <div class="col-sm-3">
+        <?= form_input(array(
+          'class' => 'form-control',
+          'name' => 'new-password-2',
+          'type' => 'password',
+          'placeholder' => '')) ?>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-3">
+        <?= form_button(array(
+          'class' => 'btn btn-primary',
+          'name' => 'change',
+          'value' => 'Mehet',
+          'content' => 'Mehet',
+          'type' => 'submit')) ?>
+      </div>
+    </div>
+  <?= form_close() ?>
+</div>
+
 </body>
 </html>
