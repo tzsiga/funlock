@@ -157,8 +157,8 @@ class Booking extends CI_Controller {
 
   private function setEmailReportingOptions() {
     $emails = $this->config_model->adminEmails();
-    //$admins = explode(',', $emails);
-    $admins = 'tzsiga@funlock.hu';
+    $admins = explode(',', $emails);
+    //$admins = 'tzsiga@funlock.hu';
 
     $this->email->set_mailtype('html');
     $this->email->bcc($admins);

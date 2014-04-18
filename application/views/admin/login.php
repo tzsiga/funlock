@@ -6,14 +6,7 @@
         Admin felület
       </h1>
       <br/>
-
-      <?php if (!empty($this->session->flashdata('msg')) || validation_errors() != null) { ?>
-      <div id="flash-msg" class="alert alert-danger">
-        <?= $this->session->flashdata('msg') ?>
-        <?= validation_errors() ?>
-      </div>
-      <?php } ?>
-
+      <?php $this->load->view('admin/alert'); ?>
       <?= form_password(array(
         'class' => 'form-control',
         'name' => 'given-password',

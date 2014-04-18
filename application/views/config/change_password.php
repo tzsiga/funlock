@@ -8,12 +8,7 @@
   <br/>
 
   <?= form_open('admin/config/change_password', array('class' => 'form-horizontal', 'role' => 'form')) ?>
-  <?php if (!empty($this->session->flashdata('msg')) || validation_errors() != null) { ?>
-    <div id="flash-msg" class="alert alert-danger">
-      <?= $this->session->flashdata('msg') ?>
-      <?= validation_errors() ?>
-    </div>
-  <?php } ?>
+    <?php $this->load->view('admin/alert'); ?>
 
     <div class="form-group">
       <label for="current-password" class="col-sm-3 control-label">Jelenlegi jelszó</label>

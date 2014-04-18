@@ -7,14 +7,10 @@
   </h1>
   <br/>
 
-  <?php if (!empty($this->session->flashdata('msg'))) { ?>
-    <div id="flash-msg" class="alert alert-danger">
-      <?= $this->session->flashdata('msg') ?>
-    </div>
-  <?php } ?>
+  <?php $this->load->view('admin/alert'); ?>
 
   <div class="container col-sm-8">
-  <?= $this->pagination->create_links() ?>
+    <?= $this->pagination->create_links() ?>
   </div>
 
   <div class="container col-sm-4">

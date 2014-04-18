@@ -7,13 +7,7 @@
       Adminisztrációs felület
     </h1>
     <br/>
-
-    <?php if (!empty($this->session->flashdata('msg'))) { ?>
-    <div id="flash-msg" class="alert alert-danger">
-      <?= $this->session->flashdata('msg') ?>
-    </div>
-    <?php } ?>
-
+    <?php $this->load->view('admin/alert'); ?>
     <div class="container col-sm-4">
       <div class="panel panel-default">
         <div class="panel-heading">
