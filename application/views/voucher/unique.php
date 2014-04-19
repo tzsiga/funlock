@@ -42,7 +42,7 @@
           'name' => 'label',
           'id' => 'label',
           'type' => 'text',
-          'placeholder' => 'X Y részre')) ?>
+          'placeholder' => 'X Y részére')) ?>
       </div>
     </div>
 

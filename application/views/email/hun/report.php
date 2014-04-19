@@ -5,7 +5,7 @@
 <table>
   <tr>
     <td><strong>Foglaló neve:</strong></td>
-    <td><?= $posted['book-sname'] ?></td>
+    <td><?= $posted['book-fname'].' '.$posted['book-sname'] ?></td>
   </tr>
   <tr>
     <td><strong>Foglalt időpont:</strong></td>
@@ -28,12 +28,12 @@
     </td>
   </tr>
   <tr>
-    <td></td>
-    <td><?= '<a href="'.base_url().'index.php/admin/booking/edit/'.$newBookingId.'">' ?>link</a></td>
-  </tr>
-  <tr>
     <td><strong>Foglalási azonosító:</strong></td>
-    <td><?= $this->booking_model->convertTimeToBookingCode($posted['appointment']) ?></td>
+    <td>
+      <a href="<?= base_url().'index.php/admin/booking/edit/'.$newBookingId ?>">
+        <?= $this->booking_model->convertTimeToBookingCode($posted['appointment']) ?>
+      </a>
+    </td>
   </tr>
 </table>
 </body>

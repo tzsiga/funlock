@@ -192,4 +192,8 @@ body#admin-page {
     border: none;
     background: none !important;
   }
+
+  .ui-menu-item *:hover, .ui-state-focus:hover {
+    color: #428bca;
+  }
 }
