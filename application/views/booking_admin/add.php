@@ -83,7 +83,8 @@
             <?= form_radio(array(
               'name' => 'payment-option',
               'id' => 'payment-option-2',
-              'value' => 'cache')) ?>
+              'value' => 'cache',
+              'checked' => true)) ?>
             készpénzzel
           </label>
         </div>

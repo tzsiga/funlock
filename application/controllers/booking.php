@@ -161,6 +161,7 @@ class Booking extends CI_Controller {
     //$admins = 'tzsiga@funlock.hu';
 
     $this->email->set_mailtype('html');
+    $this->email->to('');
     $this->email->bcc($admins);
     $this->email->from('info@funlock.hu', 'Funlock');
     $this->email->subject('Foglalási értesítő');
