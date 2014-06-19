@@ -77,7 +77,7 @@ $config['language_abbr'] = "hun";
 
 /*
 $config['language'] = "english";
-$config['language_abbr'] = "en";
+$config['language_abbr'] = "eng";
 //*/
 
 $config['lang_uri_abbr'] = array("eng" => "english", "hun" => "hungarian");
