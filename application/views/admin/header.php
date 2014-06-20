@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" type="text/css" media="screen" href="<?= base_url() ?>assets/plugin/jquery-ui-1.10.2/css/funlock-theme/jquery-ui-1.10.2.custom.min.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="<?= base_url() ?>assets/plugin/fancybox-2/jquery.fancybox.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="<?= base_url() ?>assets/css/admin.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="<?= base_url() ?>assets/css/admin.css<?= Utils::preventCaching() ?>" />
     <link rel="stylesheet" type="text/css" media="screen" href="<?= base_url() ?>assets/plugin/bootstrap-3.1.1-dist/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="<?= base_url() ?>assets/plugin/bootstrap-3.1.1-dist/css/bootstrap-theme.css" />
 

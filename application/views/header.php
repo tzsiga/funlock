@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" type="text/css" media="screen" href="<?= base_url() ?>assets/plugin/jquery-ui-1.10.2/css/funlock-theme/jquery-ui-1.10.2.custom.min.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="<?= base_url() ?>assets/plugin/fancybox-2/jquery.fancybox.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="<?= base_url() ?>assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="<?= base_url() ?>assets/css/style.css<?= Utils::preventCaching() ?>" />
     
     <script type="text/javascript" src="<?= base_url() ?>assets/js/jquery-2.1.0.min.js"></script>
     

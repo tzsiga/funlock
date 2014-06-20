@@ -22,6 +22,10 @@ class Utils {
     }
   }
 
+  public static function preventCaching() {
+    return "?v".time();
+  }
+
   public static function getLastMonday($timestamp) {
     $last = $timestamp - (Utils::getDayNumber($timestamp) - 1) * Utils::dayInSec - Utils::getTimeInSec($timestamp);
 
