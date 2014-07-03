@@ -1,5 +1,7 @@
 <?php
 
+// usage: php create_phar.php hu
+
 $filename = "funlock";
 
 if (count($argv) == 2) {
