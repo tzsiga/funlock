@@ -156,11 +156,15 @@
   });
   
   $('#arrow-right').click(function(){
-    $('#prev-month').invisible();
-    $('#next-month').invisible();
-    $('#table-wrapper').invisible().promise().done(function(){
-      refreshTable(parseInt($('#head-timestamp').text()) + parseInt(<?= Utils::weekInSec ?>));
-    });
+    $theEnd = 1411948800 - <?= Utils::weekInSec ?>;
+
+    if ($('#head-timestamp').text() < $theEnd) {
+      $('#prev-month').invisible();
+      $('#next-month').invisible();
+      $('#table-wrapper').invisible().promise().done(function(){
+        refreshTable(parseInt($('#head-timestamp').text()) + parseInt(<?= Utils::weekInSec ?>));
+      });
+    }
   });
 
 </script>

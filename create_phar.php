@@ -1,5 +1,6 @@
 <?php
 
+// php.ini: phar.readonly = Off
 // usage: php create_phar.php hu
 
 $filename = "funlock";

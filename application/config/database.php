@@ -45,7 +45,9 @@
 | the active record class
 */
 
-$active_group = 'default';
+//$active_group = 'default';
+$active_group = 'production';
+
 $active_record = TRUE;
 
 $db['default'] = array(
